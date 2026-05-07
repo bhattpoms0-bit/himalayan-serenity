@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
@@ -6,82 +7,102 @@ import { blogPosts } from '../data/blogPosts'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
-function parseContent(raw) {
-  const lines = raw.trim().split('\n')
-  const elements = []
-  let key = 0
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim()
-    if (!line) continue
-
+const renderContent = (content) => {
+  return content.split('\n').map((line, i) => {
     if (line.startsWith('## ')) {
-      elements.push(
-        <h2
-          key={key++}
-          style={{
-            fontFamily: '"Playfair Display", Georgia, serif',
-            fontSize: 28,
-            color: '#F0E8D8',
-            fontWeight: 400,
-            marginTop: '2.5rem',
-            marginBottom: '1rem',
-            lineHeight: 1.25,
-          }}
-        >
+      return (
+        <h2 key={i} className="font-serif text-3xl text-brand-cream mt-12 mb-5">
           {line.replace('## ', '')}
         </h2>
       )
-    } else if (line.startsWith('**') && line.endsWith('**')) {
-      elements.push(
-        <p
-          key={key++}
-          className="font-sans"
-          style={{ fontSize: 16, color: '#F0E8D8', fontWeight: 600, marginBottom: '0.5rem' }}
-        >
+    }
+    if (line.startsWith('**') && line.endsWith('**')) {
+      return (
+        <p key={i} className="font-sans font-semibold text-brand-cream text-base mb-2">
           {line.replace(/\*\*/g, '')}
         </p>
       )
-    } else if (line.startsWith('- ')) {
-      elements.push(
-        <li
-          key={key++}
-          className="font-sans"
-          style={{
-            fontSize: 16,
-            color: '#999999',
-            lineHeight: 2,
-            marginLeft: '1.25rem',
-            listStyleType: 'disc',
-          }}
-        >
-          {line.replace('- ', '')}
-        </li>
-      )
-    } else {
-      const parts = line.split(/(\*\*[^*]+\*\*)/g)
-      elements.push(
-        <p
-          key={key++}
-          className="font-sans"
-          style={{ fontSize: 16, color: '#999999', lineHeight: 2, marginBottom: '1.5rem' }}
-        >
-          {parts.map((part, j) =>
-            part.startsWith('**') && part.endsWith('**')
-              ? <strong key={j} style={{ color: '#F0E8D8' }}>{part.replace(/\*\*/g, '')}</strong>
-              : part
-          )}
-        </p>
-      )
     }
-  }
-
-  return elements
+    if (line.trim() === '') return <br key={i} />
+    return (
+      <p key={i} className="font-sans text-[#999] text-base leading-8 mb-4">
+        {line}
+      </p>
+    )
+  })
 }
 
 export default function BlogPost() {
   const { slug } = useParams()
   const post = blogPosts.find(p => p.slug === slug)
+
+  useEffect(() => {
+    if (post) {
+      document.title = post.metaTitle || post.title
+
+      let metaDesc = document.querySelector('meta[name="description"]')
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta')
+        metaDesc.name = 'description'
+        document.head.appendChild(metaDesc)
+      }
+      metaDesc.content = post.metaDescription || post.excerpt
+
+      const setOG = (property, content) => {
+        let el = document.querySelector(`meta[property="${property}"]`)
+        if (!el) {
+          el = document.createElement('meta')
+          el.setAttribute('property', property)
+          document.head.appendChild(el)
+        }
+        el.content = content
+      }
+
+      setOG('og:title', post.metaTitle || post.title)
+      setOG('og:description', post.metaDescription || post.excerpt)
+      setOG('og:image', post.image)
+      setOG('og:type', 'article')
+
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.excerpt,
+        "image": post.image,
+        "author": {
+          "@type": "Organization",
+          "name": post.author
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Himalayan Serenity",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://himalayan-serenity.vercel.app/favicon.svg"
+          }
+        },
+        "datePublished": post.date,
+        "keywords": post.keywords?.join(', '),
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://himalayan-serenity.vercel.app/blog/${post.slug}`
+        }
+      }
+
+      let schemaScript = document.getElementById('blog-schema')
+      if (!schemaScript) {
+        schemaScript = document.createElement('script')
+        schemaScript.id = 'blog-schema'
+        schemaScript.type = 'application/ld+json'
+        document.head.appendChild(schemaScript)
+      }
+      schemaScript.textContent = JSON.stringify(schema)
+    }
+
+    return () => {
+      document.title = 'Himalayan Serenity | Sacred Mountain Journeys'
+    }
+  }, [post])
 
   if (!post) {
     return (
@@ -108,9 +129,10 @@ export default function BlogPost() {
           alt={post.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0" style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%)'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%)' }}
+        />
 
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 px-4 text-center">
           <motion.div
@@ -171,7 +193,10 @@ export default function BlogPost() {
         {/* Author bar */}
         <div
           className="flex items-center gap-4 py-5 my-2 mb-10"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+            borderBottom: '1px solid rgba(255,255,255,0.08)',
+          }}
         >
           <div
             className="flex-shrink-0 flex items-center justify-center rounded-full font-sans font-semibold text-sm"
@@ -205,12 +230,43 @@ export default function BlogPost() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
         >
-          {parseContent(post.content)}
+          <div className="prose-content">
+            {renderContent(post.content)}
+          </div>
         </motion.article>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/8">
+          <span className="font-sans text-xs text-brand-text-muted">Tags:</span>
+          {post.keywords?.map(tag => (
+            <span
+              key={tag}
+              className="text-xs font-sans border border-white/10 rounded-full px-3 py-1 text-brand-text-muted hover:border-brand-orange/30 hover:text-brand-orange transition-colors cursor-pointer"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* CTA Box */}
+        <div className="mt-12 p-8 bg-brand-dark-card border border-brand-dark-border rounded-2xl text-center">
+          <p className="section-tag mb-3">Ready to Experience It?</p>
+          <h3 className="font-serif text-2xl text-brand-cream mb-4">
+            Begin Your Sacred Journey
+          </h3>
+          <p className="font-sans text-brand-text-muted text-sm mb-6">
+            Join thousands of spiritual seekers who have transformed their lives
+            through our Himalayan expeditions.
+          </p>
+          <div className="flex gap-3 justify-center flex-wrap">
+            <a href="/packages" className="btn-primary text-sm">View Packages</a>
+            <a href="/contact" className="btn-secondary text-sm">Book Consultation</a>
+          </div>
+        </div>
 
         {/* ── Related Posts ─────────────────────────────────────── */}
         <div className="mt-20">
-          <div className="mb-8" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <p
               className="mt-8 mb-6 uppercase"
               style={{ fontFamily: '"Cinzel", serif', fontSize: 10, letterSpacing: '0.2em', color: '#e07b2a' }}

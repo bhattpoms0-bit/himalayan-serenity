@@ -8,7 +8,11 @@ export const blogPosts = [
     date: "April 15, 2025",
     readTime: "8 min read",
     author: "Himalayan Serenity Team",
-    image: "/images/blog1.jpg",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
+    metaTitle: "Adi Kailash Yatra Complete Guide 2025 | Himalayan Serenity",
+    metaDescription: "Complete guide to Adi Kailash Yatra 2025. Learn about permits, best time to visit, route, cost and spiritual significance of Chhota Kailash in Pithoragarh, Uttarakhand.",
+    keywords: ["Adi Kailash", "Chhota Kailash", "Adi Kailash Yatra", "Pithoragarh trek", "Uttarakhand pilgrimage", "Lord Shiva abode"],
+    schema: "TravelGuide",
     excerpt: "Adi Kailash, known as Chhota Kailash, stands at 6,191 meters in the Pithoragarh district of Uttarakhand. This sacred peak is believed to be the earthly abode of Lord Shiva and draws thousands of pilgrims each year seeking spiritual transformation.",
     content: `
 Adi Kailash, also known as Chhota Kailash or Little Kailash, is one of the most sacred pilgrimage destinations in the Indian Himalayas. Standing at an elevation of 6,191 meters in the Pithoragarh district of Uttarakhand, this magnificent peak is considered the earthly abode of Lord Shiva.
@@ -47,7 +51,11 @@ While the journey is not a technical trek, basic physical fitness is essential. 
     date: "March 28, 2025",
     readTime: "6 min read",
     author: "Himalayan Serenity Team",
-    image: "/images/blog2.jpg",
+    image: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&q=80",
+    metaTitle: "Om Parvat Trek Guide 2025 | Natural Om Symbol Mountain",
+    metaDescription: "Discover Om Parvat where snow naturally forms the sacred Om symbol. Complete guide to visiting this mystical Himalayan peak from Pithoragarh, Uttarakhand.",
+    keywords: ["Om Parvat", "Om symbol mountain", "Nabidhang viewpoint", "Pithoragarh", "sacred Himalayan peaks", "spiritual trek India"],
+    schema: "TravelGuide",
     excerpt: "Om Parvat is one of the most mystical mountains in the Himalayas, where the eternal snow naturally forms the sacred Om symbol on its face — a divine signature that draws pilgrims from across the world.",
     content: `
 Om Parvat stands at 6,191 meters in the remote Pithoragarh district of Uttarakhand, near the India-Nepal border. What makes this mountain truly extraordinary is the natural formation of snow on its face that unmistakably resembles the sacred Om (ॐ) symbol.
@@ -85,7 +93,11 @@ Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expediti
     date: "March 10, 2025",
     readTime: "5 min read",
     author: "Dr. Rajesh Kumar, Medical Advisor",
-    image: "/images/blog3.jpg",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+    metaTitle: "How to Prevent Altitude Sickness on Himalayan Trek | Safety Guide",
+    metaDescription: "Expert guide to preventing altitude sickness on Adi Kailash and Om Parvat trek. Tips from our medical team on acclimatization, medication and safety measures.",
+    keywords: ["altitude sickness prevention", "AMS Himalayan trek", "high altitude safety", "Himalayan trekking health", "acclimatization tips"],
+    schema: "MedicalWebPage",
     excerpt: "Altitude sickness is the biggest challenge for Himalayan pilgrims. Our medical team shares proven strategies to acclimatize safely and enjoy your spiritual journey without health complications.",
     content: `
 Altitude sickness, or Acute Mountain Sickness (AMS), affects many travelers venturing above 3,000 meters. On the Adi Kailash and Om Parvat routes, you will reach elevations between 4,000 and 5,000 meters.
@@ -131,7 +143,11 @@ Every Himalayan Serenity expedition carries:
     date: "February 20, 2025",
     readTime: "7 min read",
     author: "Himalayan Serenity Team",
-    image: "/images/blog4.jpg",
+    image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=80",
+    metaTitle: "What to Pack for Himalayan Expedition 2025 | Complete Packing List",
+    metaDescription: "Ultimate packing guide for Adi Kailash and Om Parvat Yatra. Complete checklist of clothing, gear, documents and spiritual items for your Himalayan pilgrimage.",
+    keywords: ["Himalayan trek packing list", "what to pack Adi Kailash", "trekking gear India", "pilgrimage packing guide", "Uttarakhand trek essentials"],
+    schema: "HowTo",
     excerpt: "Packing correctly can make the difference between a comfortable spiritual journey and a miserable trek. Our experienced guides share exactly what to bring — and what to leave at home.",
     content: `
 Packing for a high-altitude Himalayan expedition requires careful planning. You need to balance warmth, functionality, and keeping your pack light enough to carry comfortably.
@@ -184,7 +200,11 @@ Waterproof trekking boots broken in before the journey are essential. Never wear
     date: "January 15, 2025",
     readTime: "6 min read",
     author: "Himalayan Serenity Team",
-    image: "/images/blog5.jpg",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200&q=80",
+    metaTitle: "Best Time to Visit Adi Kailash 2025 | Season Guide",
+    metaDescription: "Month-by-month guide to the best time to visit Adi Kailash and Om Parvat. Learn about weather, crowds and optimal conditions for your spiritual Himalayan journey.",
+    keywords: ["best time Adi Kailash", "Adi Kailash season", "when to visit Om Parvat", "Himalayan yatra timing", "Uttarakhand pilgrimage season"],
+    schema: "FAQPage",
     excerpt: "Timing your Adi Kailash Yatra correctly is crucial for safety and the best spiritual experience. This comprehensive guide breaks down what to expect in each season.",
     content: `
 The Adi Kailash Yatra season runs from May to October, but each month offers a distinctly different experience. Choosing the right time depends on your priorities — clear mountain views, fewer crowds, or budget considerations.
