@@ -118,7 +118,7 @@ export default function ContactPage() {
                   {[
                     { icon: Mail, label: 'Email', value: 'serenity@himalayas.exp' },
                     { icon: Phone, label: 'Phone / WhatsApp', value: '+977-1-444-0000' },
-                    { icon: MapPin, label: 'Address', value: 'Thamel, Kathmandu, Nepal 44600' },
+                    { icon: MapPin, label: 'Address', value: 'Pithoragarh, Uttarakhand 262529' },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-lg bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">

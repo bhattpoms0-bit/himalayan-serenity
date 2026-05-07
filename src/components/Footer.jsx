@@ -167,7 +167,7 @@ export default function Footer() {
             <div className="space-y-1.5 mb-6 font-sans" style={{ fontSize: 12, color: '#555555' }}>
               <p>serenity@himalayas.exp</p>
               <p>+977-1-444-0000</p>
-              <p>Kathmandu, Nepal</p>
+              <p>Pithoragarh, Uttarakhand 262529</p>
             </div>
 
             {/* Social icons */}
