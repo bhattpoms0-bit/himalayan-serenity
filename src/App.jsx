@@ -7,6 +7,8 @@ import Expeditions from './pages/Expeditions'
 import Packages from './pages/Packages'
 import FAQ from './pages/FAQ'
 import Contact from './pages/Contact'
+import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import WhatsAppButton from './components/WhatsAppButton'
 
 function PageTransition({ children }) {
@@ -33,7 +35,8 @@ function AnimatedRoutes() {
         <Route path="/packages"   element={<PageTransition><Packages /></PageTransition>} />
         <Route path="/faq"        element={<PageTransition><FAQ /></PageTransition>} />
         <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/blog"       element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/blog"          element={<PageTransition><Blog /></PageTransition>} />
+        <Route path="/blog/:slug"    element={<PageTransition><BlogPost /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )
