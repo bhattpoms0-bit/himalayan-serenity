@@ -5,6 +5,7 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import Testimonials from '../components/Testimonials'
 import Packages from '../components/Packages'
 import SpiritualSection from '../components/SpiritualSection'
+import RouteMap from '../components/RouteMap'
 import Transformation from '../components/Transformation'
 import CTASection from '../components/CTASection'
 import Footer from '../components/Footer'
@@ -20,6 +21,7 @@ export default function Home() {
         <section aria-label="Testimonials"><Testimonials /></section>
         <section aria-label="Packages"><Packages /></section>
         <SpiritualSection />
+        <RouteMap />
         <Transformation />
         <section aria-label="Call to Action"><CTASection /></section>
       </main>
