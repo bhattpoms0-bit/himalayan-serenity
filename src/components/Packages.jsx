@@ -39,7 +39,7 @@ const MORE = [
     days:   12,
     people: 6,
     price:  '$4,500',
-    image:  'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700&q=80',
+    image:  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
   },
   {
     tag:    'Comfort Plus',
