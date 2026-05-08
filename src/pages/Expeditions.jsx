@@ -38,7 +38,7 @@ const expeditions = [
     subtitle: '12 Days • Moderate • 6 People',
     price: '$4,500',
     desc: 'Capture the Himalayas through the lens of a professional photographer guide.',
-    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?w=800&q=80',
   },
   {
     tag: 'Comfort Plus',
@@ -56,7 +56,7 @@ const expeditions = [
     subtitle: '10 Days • Moderate • 12 People',
     price: '$2,800',
     desc: 'A safe, empowering journey led by female mountain experts for women seeking transformation.',
-    image: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80',
   },
 ]
 
