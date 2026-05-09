@@ -18,23 +18,38 @@ export default function ContactPage() {
     setStatus('loading')
 
     try {
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: `New Expedition Inquiry — ${form.expedition || 'General'}`,
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        expedition: form.expedition,
+        pilgrims: form.pilgrims,
+        message: form.message,
+        replyto: form.email,
+      }
+
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Expedition Inquiry — ${form.expedition || 'General'}`,
-          from_name: form.name,
-          ...form,
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload),
       })
+
       const data = await res.json()
-      if (data.success) {
+      console.log('Web3Forms response:', res.status, data)
+
+      if (res.ok && data.success) {
         setStatus('success')
       } else {
+        console.error('Web3Forms error:', data)
         setStatus('error')
       }
-    } catch {
+    } catch (err) {
+      console.error('Web3Forms fetch failed:', err)
       setStatus('error')
     }
   }
