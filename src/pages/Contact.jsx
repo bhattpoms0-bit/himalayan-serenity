@@ -3,14 +3,40 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
 
+const WEB3FORMS_ACCESS_KEY = "ee2ae34b-ea45-4772-9a80-da76ec54ca10"
+
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', expedition: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
+  const [form, setForm] = useState({
+    name: '', email: '', phone: '', expedition: '', pilgrims: '', message: ''
+  })
+  const [status, setStatus] = useState('idle') // idle | loading | success | error
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
-  const handleSubmit = e => {
+
+  const handleSubmit = async e => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('loading')
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Expedition Inquiry — ${form.expedition || 'General'}`,
+          from_name: form.name,
+          ...form,
+        }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -40,35 +66,43 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Form */}
             <div className="card-dark">
-              {submitted ? (
+              {status === 'success' ? (
                 <div className="text-center py-12">
                   <div className="text-4xl mb-4">🙏</div>
                   <h3 className="font-serif text-2xl text-brand-cream mb-3">Namaste!</h3>
-                  <p className="font-sans text-brand-text-muted">Your inquiry has been received. Our concierge team will contact you within 24 hours.</p>
+                  <p className="font-sans text-brand-text-muted">
+                    Your inquiry has been received. Our concierge team will contact you within 24 hours.
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <h3 className="font-serif text-xl text-brand-cream mb-6">Book a Consultation</h3>
+
                   {[
-                    { name: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
-                    { name: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com' },
-                    { name: 'phone', label: 'Phone / WhatsApp', type: 'tel', placeholder: '+91 or +977...' },
+                    { name: 'name',  label: 'Full Name',        type: 'text',  placeholder: 'Your name',       required: true  },
+                    { name: 'email', label: 'Email Address',     type: 'email', placeholder: 'your@email.com',  required: true  },
+                    { name: 'phone', label: 'Phone / WhatsApp',  type: 'tel',   placeholder: '+91 or +977...',  required: false },
                   ].map(field => (
                     <div key={field.name}>
-                      <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">{field.label}</label>
+                      <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                        {field.label}
+                      </label>
                       <input
                         type={field.type}
                         name={field.name}
                         value={form[field.name]}
                         onChange={handleChange}
                         placeholder={field.placeholder}
+                        required={field.required}
                         className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
-                        required
                       />
                     </div>
                   ))}
+
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">Interested Expedition</label>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Interested Expedition
+                    </label>
                     <select
                       name="expedition"
                       value={form.expedition}
@@ -84,8 +118,26 @@ export default function ContactPage() {
                       <option>Women-Only Expedition</option>
                     </select>
                   </div>
+
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">Message</label>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Number of Pilgrims
+                    </label>
+                    <input
+                      type="number"
+                      name="pilgrims"
+                      value={form.pilgrims}
+                      onChange={handleChange}
+                      placeholder="e.g. 2"
+                      min="1"
+                      className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Message
+                    </label>
                     <textarea
                       name="message"
                       value={form.message}
@@ -95,8 +147,21 @@ export default function ContactPage() {
                       className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors resize-none"
                     />
                   </div>
+
+                  {status === 'error' && (
+                    <p className="font-sans text-sm text-red-400">
+                      Something went wrong. Please try again or contact us via WhatsApp.
+                    </p>
+                  )}
+
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                    <button type="submit" className="btn-primary flex-1">Book Consultation</button>
+                    <button
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="btn-primary flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {status === 'loading' ? 'Sending...' : 'Book Consultation'}
+                    </button>
                     <a
                       href="https://wa.me/9771444000"
                       target="_blank"
@@ -116,9 +181,9 @@ export default function ContactPage() {
                 <h3 className="font-serif text-2xl text-brand-cream mb-6">Connect With Us</h3>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail, label: 'Email', value: 'serenity@himalayas.exp' },
-                    { icon: Phone, label: 'Phone / WhatsApp', value: '+977-1-444-0000' },
-                    { icon: MapPin, label: 'Address', value: 'Pithoragarh, Uttarakhand 262529' },
+                    { icon: Mail,    label: 'Email',            value: 'serenity@himalayas.exp'      },
+                    { icon: Phone,   label: 'Phone / WhatsApp', value: '+977-1-444-0000'              },
+                    { icon: MapPin,  label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529' },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-lg bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
