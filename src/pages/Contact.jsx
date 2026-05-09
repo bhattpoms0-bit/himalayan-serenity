@@ -21,13 +21,14 @@ export default function ContactPage() {
       const payload = {
         access_key: WEB3FORMS_ACCESS_KEY,
         subject: `New Expedition Inquiry — ${form.expedition || 'General'}`,
+        from_name: form.name,
         name: form.name,
         email: form.email,
         phone: form.phone,
         expedition: form.expedition,
         pilgrims: form.pilgrims,
         message: form.message,
-        replyto: form.email,
+        botcheck: '',
       }
 
       const res = await fetch('https://api.web3forms.com/submit', {
