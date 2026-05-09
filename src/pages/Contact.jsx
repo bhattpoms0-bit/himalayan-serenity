@@ -197,7 +197,7 @@ export default function ContactPage() {
                 <h3 className="font-serif text-2xl text-brand-cream mb-6">Connect With Us</h3>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail,    label: 'Email',            value: 'serenity@himalayas.exp'      },
+                    { icon: Mail,    label: 'Email',            value: 'info@himalayanserenitytravel.com' },
                     { icon: Phone,   label: 'Phone / WhatsApp', value: '+977-1-444-0000'              },
                     { icon: MapPin,  label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529' },
                   ].map(item => (
