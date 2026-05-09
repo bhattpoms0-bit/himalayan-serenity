@@ -237,8 +237,7 @@ export default function Packages() {
           </p>
 
           <h2
-            className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em]"
-            className="text-3xl sm:text-4xl lg:text-5xl"
+            className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em] text-3xl sm:text-4xl lg:text-5xl"
           >
             Sacred Peaks &amp; Spiritual Trails
           </h2>
