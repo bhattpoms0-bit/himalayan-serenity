@@ -12,7 +12,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:     12,
     price:      'On Request',
-    image:      '/images/packages/adi-kailash/adi-kailash-nandi.jpg',
+    image:      '/images/packages/adi-kailash-nandi.jpg',
     link:       '/packages/adi-kailash-expedition',
   },
   {
