@@ -170,7 +170,7 @@ export default function AdiKailashExpedition() {
       {/* HERO */}
       <div style={{
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: "linear-gradient(to bottom, rgba(7,9,11,0.2) 0%, rgba(7,9,11,0.5) 55%, rgba(7,9,11,0.97) 100%), url('/images/packages/panchachuli-sunrise.jpg') center/cover no-repeat",
+        background: "linear-gradient(to bottom, rgba(7,9,11,0.2) 0%, rgba(7,9,11,0.5) 55%, rgba(7,9,11,0.97) 100%), url('/images/packages/adi-kailash/adi-kailash-nandi.jpg') center/cover no-repeat",
       }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 32px", width: "100%" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
@@ -249,6 +249,64 @@ export default function AdiKailashExpedition() {
                 <div style={{ fontSize: 28, marginBottom: 12 }}>{h.icon}</div>
                 <div style={{ fontSize: "1.1rem", color: text, marginBottom: 8 }}>{h.title}</div>
                 <div style={{ fontSize: 13, color: muted, lineHeight: 1.6 }}>{h.desc}</div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* GALLERY */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Journey Highlights</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+            {[
+              { src: "/images/packages/adi-kailash/adi-kailash-nandi.jpg",    caption: "Nandi at the Foot of Adi Kailash",    span: "2" },
+              { src: "/images/packages/adi-kailash/adi-kailash-peak.jpg",     caption: "Adi Kailash — Chhota Kailash",        span: false },
+              { src: "/images/packages/adi-kailash/adi-kailash-approach.jpg", caption: "Base of Adi Kailash",                 span: false },
+              { src: "/images/packages/adi-kailash/parvati-sarovar.jpg",      caption: "Parvati Sarovar — Sacred Lake",       span: false },
+              { src: "/images/packages/adi-kailash/om-parvat-1.jpg",          caption: "Om Parvat — The Sacred Om in Snow",   span: "2" },
+              { src: "/images/packages/adi-kailash/om-parvat-2.jpg",          caption: "Om Parvat Close View",               span: false },
+              { src: "/images/packages/adi-kailash/jageshwar-temple.jpg",     caption: "Jageshwar Temple Complex",            span: false },
+              { src: "/images/packages/adi-kailash/jageshwar-temple-2.jpg",   caption: "Ancient Jageshwar Shiva Shrine",      span: false },
+              { src: "/images/packages/adi-kailash/kainchi-dham.jpg",         caption: "Kainchi Dham",                       span: false },
+              { src: "/images/packages/adi-kailash/dawn-himalaya.jpg",        caption: "Himalayan Dawn",                     span: "2" },
+            ].map((photo) => (
+              <div
+                key={photo.src}
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  height: 240,
+                  gridColumn: photo.span ? `span ${photo.span}` : undefined,
+                  cursor: "pointer",
+                }}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.6s ease",
+                    display: "block",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.07)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: "linear-gradient(to top, rgba(7,9,11,0.92) 0%, rgba(7,9,11,0.3) 60%, transparent 100%)",
+                    padding: "28px 16px 14px",
+                  }}
+                >
+                  <span style={{ fontSize: 12, color: "#e8e0d4", letterSpacing: "0.08em", fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                    {photo.caption}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
