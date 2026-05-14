@@ -20,7 +20,7 @@ const FEATURED = [
     days:       10,
     difficulty: 'Challenging',
     people:     8,
-    price:      '$3,200',
+    price:      'On Request',
     image:      'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=900&q=85',
   },
   {
@@ -53,7 +53,7 @@ const MORE = [
     title:  'Luxury Spiritual Retreat',
     days:   7,
     people: 15,
-    price:  '$1,800',
+    price:  'On Request',
     image:  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
   },
   {
@@ -61,7 +61,7 @@ const MORE = [
     title:  'Photography Expedition',
     days:   12,
     people: 6,
-    price:  '$4,500',
+    price:  'On Request',
     image:  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
   },
   {
@@ -69,7 +69,7 @@ const MORE = [
     title:  'Senior-Friendly Journey',
     days:   8,
     people: 10,
-    price:  '$2,100',
+    price:  'On Request',
     image:  'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80',
   },
 ]
@@ -204,11 +204,11 @@ function PackageCard({ pkg, large = false, index = 0 }) {
                 color:         '#555555',
               }}
             >
-              {pkg.link ? 'Pricing' : 'Starting at'}
+              Pricing
             </p>
             <p
               className="font-serif leading-none"
-              style={{ fontSize: pkg.link ? 18 : 26, color: '#e07b2a' }}
+              style={{ fontSize: pkg.price === 'On Request' ? 18 : 26, color: '#e07b2a' }}
             >
               {pkg.price}
             </p>
