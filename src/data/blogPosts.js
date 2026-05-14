@@ -51,7 +51,7 @@ While the journey is not a technical trek, basic physical fitness is essential. 
     date: "March 28, 2025",
     readTime: "6 min read",
     author: "Himalayan Serenity Team",
-    image: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=1200&q=80",
+    image: "/images/om-parvat-blog-hero.jpg",
     metaTitle: "Om Parvat Trek Guide 2025 | Natural Om Symbol Mountain",
     metaDescription: "Discover Om Parvat where snow naturally forms the sacred Om symbol. Complete guide to visiting this mystical Himalayan peak from Pithoragarh, Uttarakhand.",
     keywords: ["Om Parvat", "Om symbol mountain", "Nabidhang viewpoint", "Pithoragarh", "sacred Himalayan peaks", "spiritual trek India"],
