@@ -11,7 +11,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:     12,
     price:      'On Request',
-    image:      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85',
+    image:      '/images/packages/adi-kailash/adi-kailash-nandi.jpg',
     link:       '/packages/adi-kailash-expedition',
   },
   {
