@@ -8,7 +8,7 @@ export const blogPosts = [
     date: "April 15, 2025",
     readTime: "8 min read",
     author: "Himalayan Serenity Team",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80",
+    image: "/images/adi-kailash-blog-hero.jpg",
     metaTitle: "Adi Kailash Yatra Complete Guide 2025 | Himalayan Serenity",
     metaDescription: "Complete guide to Adi Kailash Yatra 2025. Learn about permits, best time to visit, route, cost and spiritual significance of Chhota Kailash in Pithoragarh, Uttarakhand.",
     keywords: ["Adi Kailash", "Chhota Kailash", "Adi Kailash Yatra", "Pithoragarh trek", "Uttarakhand pilgrimage", "Lord Shiva abode"],
