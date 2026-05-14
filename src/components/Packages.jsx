@@ -22,6 +22,28 @@ const FEATURED = [
     price:      '$3,200',
     image:      'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=900&q=85',
   },
+  {
+    tag:      'Couples & Photographers',
+    title:    'Eastern Kumaon Cinematic Expedition',
+    subtitle: 'Lohaghat · Pithoragarh · Dharchula · Didihat',
+    days:     8,
+    difficulty: 'Moderate',
+    people:   10,
+    price:    'On Request',
+    image:    'https://images.unsplash.com/photo-1626015365107-cd667d64f3cd?w=900&q=85',
+    link:     '/packages/cinematic-expedition',
+  },
+  {
+    tag:      'Trekkers & Birdwatchers',
+    title:    'Eastern Kumaon Wilderness Expedition',
+    subtitle: 'Munsiyari · Khaliya Top · Milam Trail · Askot',
+    days:     9,
+    difficulty: 'Moderate',
+    people:   10,
+    price:    'On Request',
+    image:    'https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=900&q=85',
+    link:     '/packages/wilderness-expedition',
+  },
 ]
 
 const MORE = [
@@ -53,11 +75,13 @@ const MORE = [
 
 // Tag colour map — Cinzel, 10px, tracking-[0.15em], uppercase, rounded-full
 const TAG_BG = {
-  'Most Popular':    '#e07b2a',
-  'Spiritual Peak':  'rgba(99,102,241,0.85)',
-  'All-Inclusive':   'rgba(16,185,129,0.85)',
-  'Limited Edition': 'rgba(139,92,246,0.85)',
-  'Comfort Plus':    'rgba(245,158,11,0.85)',
+  'Most Popular':           '#e07b2a',
+  'Spiritual Peak':         'rgba(99,102,241,0.85)',
+  'All-Inclusive':          'rgba(16,185,129,0.85)',
+  'Limited Edition':        'rgba(139,92,246,0.85)',
+  'Comfort Plus':           'rgba(245,158,11,0.85)',
+  'Couples & Photographers':'rgba(201,169,110,0.85)',
+  'Trekkers & Birdwatchers':'rgba(125,191,142,0.85)',
 }
 
 // Scroll-reveal easing
@@ -78,119 +102,126 @@ function PackageCard({ pkg, large = false, index = 0 }) {
     pkg.people     && { Icon: Users,      label: `${pkg.people} pax`  },
   ].filter(Boolean)
 
-  return (
-    // ── Outer div: scroll-reveal animation ──────────────────────────────────
+  const cardInner = (
     <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
+      whileHover={{
+        y: -10,
+        scale: 1.012,
+        boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(224,123,42,0.25)',
+      }}
+      transition={{ duration: 0.45, ease: HOVER_EASE }}
+      className="group cursor-pointer rounded-2xl overflow-hidden"
+      style={{
+        backgroundColor: '#1a1a1a',
+        border:          '1px solid rgba(255,255,255,0.08)',
+        boxShadow:       '0 0px 0px rgba(0,0,0,0), 0 0 0 0px rgba(224,123,42,0)',
+      }}
     >
-      {/* ── Inner div: hover-lift animation — also the visual card ────────── */}
-      <motion.div
-        whileHover={{
-          y: -10,
-          scale: 1.012,
-          boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(224,123,42,0.25)',
-        }}
-        transition={{ duration: 0.45, ease: HOVER_EASE }}
-        className="group cursor-pointer rounded-2xl overflow-hidden"
-        style={{
-          backgroundColor: '#1a1a1a',
-          border:          '1px solid rgba(255,255,255,0.08)',
-          boxShadow:       '0 0px 0px rgba(0,0,0,0), 0 0 0 0px rgba(224,123,42,0)',
-        }}
-      >
+      {/* ── Image ──────────────────────────────────────────────────────── */}
+      <div className={`relative overflow-hidden ${large ? 'h-[280px]' : 'h-[224px]'}`}>
+        <img
+          src={pkg.image}
+          alt={pkg.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          decoding="async"
+        />
 
-        {/* ── Image ──────────────────────────────────────────────────────── */}
-        {/* FIX 2: small card was 190px — too squat for landscape photography */}
-        <div className={`relative overflow-hidden ${large ? 'h-[280px]' : 'h-[224px]'}`}>
-          <img
-            src={pkg.image}
-            alt={pkg.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
+        {/* Subtle bottom gradient so card-body transition looks clean */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.45) 100%)' }}
+        />
 
-          {/* Subtle bottom gradient so card-body transition looks clean */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.45) 100%)' }}
-          />
+        {/* Tag badge */}
+        {pkg.tag && (
+          <span
+            className="absolute top-4 left-4 text-white"
+            style={{
+              fontFamily:      '"Cinzel", serif',
+              fontSize:        10,
+              letterSpacing:   '0.15em',
+              textTransform:   'uppercase',
+              backgroundColor: TAG_BG[pkg.tag] ?? '#e07b2a',
+              borderRadius:    9999,
+              padding:         '4px 12px',
+            }}
+          >
+            {pkg.tag}
+          </span>
+        )}
+      </div>
 
-          {/* Tag badge */}
-          {pkg.tag && (
-            <span
-              className="absolute top-4 left-4 text-white"
-              style={{
-                fontFamily:      '"Cinzel", serif',
-                fontSize:        10,
-                letterSpacing:   '0.15em',
-                textTransform:   'uppercase',
-                backgroundColor: TAG_BG[pkg.tag] ?? '#e07b2a',
-                borderRadius:    9999,
-                padding:         '4px 12px',
-              }}
-            >
-              {pkg.tag}
+      {/* ── Card body ──────────────────────────────────────────────────── */}
+      <div className="p-7">
+
+        {/* Title */}
+        <h3
+          className={`font-serif text-white leading-snug tracking-[-0.01em] ${pkg.subtitle ? 'mb-2' : 'mb-5'}`}
+          style={{ fontSize: large ? '1.25rem' : '1.05rem' }}
+        >
+          {pkg.title}
+        </h3>
+
+        {/* Optional subtitle */}
+        {pkg.subtitle && (
+          <p
+            className="font-sans mb-5"
+            style={{ fontSize: 12, color: '#666666', letterSpacing: '0.03em' }}
+          >
+            {pkg.subtitle}
+          </p>
+        )}
+
+        {/* Meta row */}
+        <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-6">
+          {meta.map(({ Icon, label }, i) => (
+            <span key={label} className="flex items-center gap-1.5">
+              {i > 0 && (
+                <span style={{ color: '#e07b2a', fontSize: 8, lineHeight: 1 }}>•</span>
+              )}
+              <span
+                className="flex items-center gap-1 font-sans uppercase tracking-wide"
+                style={{ color: '#666666', fontSize: 11 }}
+              >
+                <Icon size={10} strokeWidth={1.5} />
+                {label}
+              </span>
             </span>
-          )}
+          ))}
         </div>
 
-        {/* ── Card body ──────────────────────────────────────────────────── */}
-        {/* Spacing +20%: p-6 → p-7 */}
-        <div className="p-7">
-
-          {/* Title — mb-4 → mb-5 */}
-          <h3
-            className="font-serif text-white leading-snug tracking-[-0.01em] mb-5"
-            style={{ fontSize: large ? '1.25rem' : '1.05rem' }}
-          >
-            {pkg.title}
-          </h3>
-
-          {/* Meta row — mb-5 → mb-6 */}
-          <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-6">
-            {meta.map(({ Icon, label }, i) => (
-              <span key={label} className="flex items-center gap-1.5">
-                {i > 0 && (
-                  <span style={{ color: '#e07b2a', fontSize: 8, lineHeight: 1 }}>•</span>
-                )}
-                <span
-                  className="flex items-center gap-1 font-sans uppercase tracking-wide"
-                  style={{ color: '#666666', fontSize: 11 }}
-                >
-                  <Icon size={10} strokeWidth={1.5} />
-                  {label}
-                </span>
-              </span>
-            ))}
+        {/* Price + CTA row */}
+        <div className="flex items-center justify-between">
+          <div>
+            <p
+              className="uppercase mb-1"
+              style={{
+                fontFamily:    '"Cinzel", serif',
+                fontSize:      9,
+                letterSpacing: '0.15em',
+                color:         '#555555',
+              }}
+            >
+              {pkg.link ? 'Pricing' : 'Starting at'}
+            </p>
+            <p
+              className="font-serif leading-none"
+              style={{ fontSize: pkg.link ? 18 : 26, color: '#e07b2a' }}
+            >
+              {pkg.price}
+            </p>
           </div>
 
-          {/* FIX 1: items-end → items-center; arrow responds to card group-hover */}
-          <div className="flex items-center justify-between">
-            <div>
-              <p
-                className="uppercase mb-1"
-                style={{
-                  fontFamily:    '"Cinzel", serif',
-                  fontSize:      9,
-                  letterSpacing: '0.15em',
-                  color:         '#555555',
-                }}
+          <div className="flex items-center gap-3">
+            {pkg.link && (
+              <span
+                className="font-sans uppercase"
+                style={{ fontSize: 11, color: '#888888', letterSpacing: '0.08em' }}
               >
-                Starting at
-              </p>
-              <p
-                className="font-serif leading-none"
-                style={{ fontSize: 26, color: '#e07b2a' }}
-              >
-                {pkg.price}
-              </p>
-            </div>
-
-            {/* FIX 3: arrow responds to CARD hover via group-hover, not its own whileHover */}
+                View Package
+              </span>
+            )}
             <div
               className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0
                          transition-all duration-300 ease-out
@@ -200,9 +231,26 @@ function PackageCard({ pkg, large = false, index = 0 }) {
               <ArrowRight size={16} strokeWidth={2} className="text-white" />
             </div>
           </div>
-
         </div>
-      </motion.div>
+
+      </div>
+    </motion.div>
+  )
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
+    >
+      {pkg.link ? (
+        <a href={pkg.link} style={{ textDecoration: 'none', display: 'block' }}>
+          {cardInner}
+        </a>
+      ) : (
+        cardInner
+      )}
     </motion.div>
   )
 }
