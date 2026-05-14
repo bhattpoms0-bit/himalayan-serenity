@@ -12,6 +12,7 @@ import BlogPost from './pages/BlogPost'
 import WhatsAppButton from './components/WhatsAppButton'
 import CinematicExpedition from './pages/CinematicExpedition'
 import WildernessExpedition from './pages/WildernessExpedition'
+import AdiKailashExpedition from './pages/AdiKailashExpedition'
 
 function PageTransition({ children }) {
   return (
@@ -39,8 +40,9 @@ function AnimatedRoutes() {
         <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/blog"          element={<PageTransition><Blog /></PageTransition>} />
         <Route path="/blog/:slug"    element={<PageTransition><BlogPost /></PageTransition>} />
-        <Route path="/packages/cinematic-expedition"  element={<PageTransition><CinematicExpedition /></PageTransition>} />
-        <Route path="/packages/wilderness-expedition" element={<PageTransition><WildernessExpedition /></PageTransition>} />
+        <Route path="/packages/cinematic-expedition"   element={<PageTransition><CinematicExpedition /></PageTransition>} />
+        <Route path="/packages/wilderness-expedition"  element={<PageTransition><WildernessExpedition /></PageTransition>} />
+        <Route path="/packages/adi-kailash-expedition" element={<PageTransition><AdiKailashExpedition /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )

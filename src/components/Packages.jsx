@@ -12,6 +12,7 @@ const FEATURED = [
     people:     12,
     price:      '$2,500',
     image:      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=85',
+    link:       '/packages/adi-kailash-expedition',
   },
   {
     tag:        'Spiritual Peak',
