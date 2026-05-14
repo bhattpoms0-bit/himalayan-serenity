@@ -176,8 +176,8 @@ export default function SpiritualSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
           >
             <img
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=80"
-              alt="Adi Kailash"
+              src="/images/packages/adi-kailash/adi-kailash-road.jpg"
+              alt="Adi Kailash Road"
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               loading="lazy"
               decoding="async"
