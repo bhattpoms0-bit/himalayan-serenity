@@ -185,7 +185,7 @@ export default function WildernessExpedition() {
           justifyContent: "flex-end",
           padding: "0 0 80px 0",
           background:
-            "linear-gradient(to bottom, rgba(7,10,8,0.25) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=1600') center/cover no-repeat",
+            "linear-gradient(to bottom, rgba(7,10,8,0.25) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/packages/panchachuli-sunrise.jpg') center/cover no-repeat",
         }}
       >
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", width: "100%" }}>
@@ -311,6 +311,82 @@ export default function WildernessExpedition() {
             low-density tourism routes, and immersive village experiences over commercial sightseeing. Every day is
             built around what nature offers – not what the calendar demands.
           </p>
+        </motion.section>
+
+        {/* GALLERY */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          style={{ marginBottom: 80 }}
+        >
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "#7dbf8e", marginBottom: 32 }}>
+            Journey Highlights
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 8,
+            }}
+          >
+            {[
+              { src: "/images/packages/abbott-mount.jpg",   caption: "Abbott Mount, Lohaghat",         span: "2" },
+              { src: "/images/packages/banasur-fort.jpg",   caption: "Banasur Fort Ruins",             span: false },
+              { src: "/images/packages/birthi-falls.jpg",   caption: "Birthi Falls, Munsiyari Road",   span: false },
+              { src: "/images/packages/khaliya-meadow.jpg", caption: "Khaliya Top Alpine Meadow",      span: false },
+              { src: "/images/packages/pink-valley.jpg",    caption: "Himalayan Wildflower Valley",    span: false },
+              { src: "/images/packages/askot-deer.jpg",     caption: "Askot Wildlife Sanctuary",       span: false },
+              { src: "/images/packages/milam-glacier.jpg",  caption: "Milam Glacier Trail",            span: "2" },
+            ].map((photo) => (
+              <div
+                key={photo.src}
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  height: 240,
+                  gridColumn: photo.span ? `span ${photo.span}` : undefined,
+                  cursor: "pointer",
+                }}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.6s ease",
+                    display: "block",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.07)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: "linear-gradient(to top, rgba(7,10,8,0.9) 0%, rgba(7,10,8,0.3) 60%, transparent 100%)",
+                    padding: "28px 16px 14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: "#e0e8e2",
+                      letterSpacing: "0.08em",
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    {photo.caption}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.section>
 
         {/* ITINERARY */}

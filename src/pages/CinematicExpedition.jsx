@@ -156,7 +156,7 @@ export default function CinematicExpedition() {
           justifyContent: "flex-end",
           padding: "0 0 80px 0",
           background:
-            "linear-gradient(to bottom, rgba(8,12,16,0.3) 0%, rgba(8,12,16,0.6) 60%, rgba(8,12,16,0.97) 100%), url('https://images.unsplash.com/photo-1626015365107-cd667d64f3cd?w=1600') center/cover no-repeat",
+            "linear-gradient(to bottom, rgba(8,12,16,0.3) 0%, rgba(8,12,16,0.6) 60%, rgba(8,12,16,0.97) 100%), url('/images/packages/village-road.jpg') center/cover no-repeat",
         }}
       >
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", width: "100%" }}>
@@ -288,6 +288,82 @@ export default function CinematicExpedition() {
             wants to feel a place, not just photograph it. Every stop has been chosen for its atmosphere, its story,
             and its quiet distance from the crowd.
           </p>
+        </motion.section>
+
+        {/* GALLERY */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          style={{ marginBottom: 80 }}
+        >
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 32 }}>
+            Journey Highlights
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gridTemplateRows: "auto auto",
+              gap: 8,
+            }}
+          >
+            {[
+              { src: "/images/packages/pine-temple.jpg",    caption: "Lohaghat Forest Trails",         span: false },
+              { src: "/images/packages/kumaon-village.jpg", caption: "Kumaoni Village Life",            span: false },
+              { src: "/images/packages/river-rafting.jpg",  caption: "Kali River Adventure",           span: false },
+              { src: "/images/packages/dharchula-town.jpg", caption: "Dharchula — Gateway to Tibet",   span: false },
+              { src: "/images/packages/johar-valley.jpg",   caption: "Johar Valley Corridor",          span: "2" },
+            ].map((photo) => (
+              <div
+                key={photo.src}
+                style={{
+                  position: "relative",
+                  overflow: "hidden",
+                  height: 240,
+                  gridColumn: photo.span ? `span ${photo.span}` : undefined,
+                  cursor: "pointer",
+                }}
+                className="gallery-item"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.6s ease",
+                    display: "block",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.07)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    background: "linear-gradient(to top, rgba(8,12,16,0.88) 0%, rgba(8,12,16,0.3) 60%, transparent 100%)",
+                    padding: "28px 16px 14px",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: 12,
+                      color: "#e8e0d4",
+                      letterSpacing: "0.08em",
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    }}
+                  >
+                    {photo.caption}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </motion.section>
 
         {/* ITINERARY */}
