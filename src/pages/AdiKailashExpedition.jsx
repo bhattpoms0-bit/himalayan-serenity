@@ -197,7 +197,7 @@ export default function AdiKailashExpedition() {
               ))}
             </div>
             <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
-              <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>Premium Expedition · Starting ₹89,999 per person</span>
+              <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>Premium Expedition · Pricing On Request</span>
             </div>
           </motion.div>
         </div>
@@ -212,7 +212,7 @@ export default function AdiKailashExpedition() {
             { label: "Group Size", value: "Max 8–10 travelers" },
             { label: "Fitness Level", value: "Moderate" },
             { label: "Permit Required", value: "Inner Line Permit" },
-            { label: "Pricing", value: "From ₹89,999/person" },
+            { label: "Pricing", value: "On Request" },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 6 }}>{item.label}</div>
@@ -403,7 +403,7 @@ export default function AdiKailashExpedition() {
             One of India's most exclusive Himalayan expeditions.
           </p>
           <div style={{ fontSize: "1.4rem", color: gold, margin: "0 auto 36px", letterSpacing: "0.05em" }}>
-            Starting ₹89,999 <span style={{ fontSize: "0.8rem", color: muted }}>per person</span>
+            Pricing On Request
           </div>
           <a href="#contact" style={{
             display: "inline-block", padding: "16px 52px", background: gold, color: bg,
