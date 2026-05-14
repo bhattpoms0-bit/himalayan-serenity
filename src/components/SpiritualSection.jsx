@@ -24,8 +24,8 @@ export default function SpiritualSection() {
               transition={{ duration: 1.2, ease: EASE }}
             >
               <img
-                src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80"
-                alt="Himalayan Monastery"
+                src="/images/packages/adi-kailash/adi-kailash-trishul.jpg"
+                alt="Trishul at Adi Kailash"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 decoding="async"
