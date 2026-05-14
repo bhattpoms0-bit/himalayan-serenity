@@ -84,12 +84,12 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { src: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80', label: 'The Wisdom of Elders', sub: 'Stories etched in time and tradition.' },
-              { src: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80', label: 'Eternal Flames', sub: 'A light that never fades in the cold.' },
-              { src: 'https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?w=600&q=80', label: 'Rhythm of Faith', sub: 'Cycles of devotion in every turn.' },
+              { src: '/images/culture/wisdom-of-elders.jpg', label: 'The Wisdom of Elders', sub: 'Stories etched in time and tradition.' },
+              { src: '/images/culture/eternal-flames.jpg',   label: 'Eternal Flames',        sub: 'A light that never fades in the cold.' },
+              { src: '/images/culture/rhythm-of-faith.jpg',  label: 'Rhythm of Faith',       sub: 'Cycles of devotion in every turn.' },
             ].map((item, i) => (
               <div key={i} className="relative rounded-xl overflow-hidden h-64 group">
-                <img src={item.src} alt={item.label} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img src={item.src} alt={item.label} className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="section-tag mb-1">{item.label}</p>
