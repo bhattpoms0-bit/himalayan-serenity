@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=1600&q=80')` }}
+          style={{ backgroundImage: `url('/images/parvati-sarovar-hero.jpg')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
