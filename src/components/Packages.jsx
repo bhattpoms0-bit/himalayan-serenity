@@ -30,7 +30,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:   10,
     price:    'On Request',
-    image:    '/images/packages/village-road.jpg',
+    image:    '/images/packages/johar-valley.jpg',
     link:     '/packages/cinematic-expedition',
   },
   {
