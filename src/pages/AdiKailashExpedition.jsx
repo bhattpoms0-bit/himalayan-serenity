@@ -268,6 +268,7 @@ export default function AdiKailashExpedition() {
               { src: "/images/packages/adi-kailash/jageshwar-temple.jpg",     caption: "Jageshwar Temple Complex",            span: false },
               { src: "/images/packages/adi-kailash/jageshwar-temple-2.jpg",   caption: "Ancient Jageshwar Shiva Shrine",      span: false },
               { src: "/images/packages/adi-kailash/kainchi-dham.jpg",         caption: "Kainchi Dham",                       span: false },
+              { src: "/images/packages/adi-kailash/adi-kailash-trishul.jpg",   caption: "Trishul at Adi Kailash — Sacred Symbol of Shiva", span: false },
               { src: "/images/packages/adi-kailash/dawn-himalaya.jpg",        caption: "Himalayan Dawn",                     span: "2" },
             ].map((photo) => (
               <div

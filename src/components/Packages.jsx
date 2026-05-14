@@ -57,7 +57,7 @@ const MORE = [
     days:   7,
     people: 15,
     price:  'On Request',
-    image:  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
+    image:  '/images/packages/adi-kailash/adi-kailash-trishul.jpg',
   },
   {
     tag:    'Limited Edition',
