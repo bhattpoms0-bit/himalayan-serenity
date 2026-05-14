@@ -275,7 +275,7 @@ export default function AdiKailashExpedition() {
                 style={{
                   position: "relative",
                   overflow: "hidden",
-                  height: 240,
+                  height: 280,
                   gridColumn: photo.span ? `span ${photo.span}` : undefined,
                   cursor: "pointer",
                 }}
@@ -287,6 +287,7 @@ export default function AdiKailashExpedition() {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
+                    objectPosition: "center",
                     transition: "transform 0.6s ease",
                     display: "block",
                   }}
