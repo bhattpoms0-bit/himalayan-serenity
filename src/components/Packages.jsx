@@ -18,11 +18,13 @@ const FEATURED = [
   {
     tag:        'Trekking Expedition',
     title:      'Panchachuli Trekking Expedition',
+    subtitle:   'Munsiyari · Darkot · Duktu · Panchachuli Glacier Region',
     days:       10,
     difficulty: 'Challenging',
     people:     8,
     price:      'On Request',
     image:      'https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=900&q=85',
+    link:       '/packages/panchachuli-expedition',
   },
   {
     tag:      'Couples & Photographers',
