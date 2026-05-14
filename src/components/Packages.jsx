@@ -16,8 +16,8 @@ const FEATURED = [
     link:       '/packages/adi-kailash-expedition',
   },
   {
-    tag:        'Spiritual Peak',
-    title:      'Om Parvat Journey',
+    tag:        'Trekking Expedition',
+    title:      'Panchachuli Trekking Expedition',
     days:       10,
     difficulty: 'Challenging',
     people:     8,
@@ -78,7 +78,7 @@ const MORE = [
 // Tag colour map — Cinzel, 10px, tracking-[0.15em], uppercase, rounded-full
 const TAG_BG = {
   'Most Popular':           '#e07b2a',
-  'Spiritual Peak':         'rgba(99,102,241,0.85)',
+  'Trekking Expedition':    'rgba(99,102,241,0.85)',
   'All-Inclusive':          'rgba(16,185,129,0.85)',
   'Limited Edition':        'rgba(139,92,246,0.85)',
   'Comfort Plus':           'rgba(245,158,11,0.85)',
