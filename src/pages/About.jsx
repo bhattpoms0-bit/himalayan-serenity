@@ -62,8 +62,8 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-96">
               <img
-                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-                alt="Monastery"
+                src="/images/om-parvat-shrine.jpg"
+                alt="Om Parvat Shrine"
                 className="w-full h-full object-cover"
               />
             </div>
