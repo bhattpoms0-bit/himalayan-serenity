@@ -310,8 +310,8 @@ export default function CinematicExpedition() {
             }}
           >
             {[
-              { src: "/images/packages/pine-temple.jpg",    caption: "Lohaghat Forest Trails",         span: false },
-              { src: "/images/packages/kumaon-village.jpg", caption: "Kumaoni Village Life",            span: false },
+              { src: "/images/packages/abbott-mount.jpg",   caption: "Lohaghat Forest Trails",         span: false },
+              { src: "/images/packages/himalayan-view.jpg", caption: "Kumaoni Village Life",            span: false },
               { src: "/images/packages/river-rafting.jpg",  caption: "Kali River Adventure",           span: false },
               { src: "/images/packages/dharchula-town.jpg", caption: "Dharchula — Gateway to Tibet",   span: false },
               { src: "/images/packages/johar-valley.jpg",   caption: "Johar Valley Corridor",          span: "2" },

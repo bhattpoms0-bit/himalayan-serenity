@@ -30,7 +30,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:   10,
     price:    'On Request',
-    image:    'https://images.unsplash.com/photo-1626015365107-cd667d64f3cd?w=900&q=85',
+    image:    '/images/packages/village-road.jpg',
     link:     '/packages/cinematic-expedition',
   },
   {
@@ -41,7 +41,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:   10,
     price:    'On Request',
-    image:    'https://images.unsplash.com/photo-1586348943529-beaae6c28db9?w=900&q=85',
+    image:    '/images/packages/panchachuli-sunrise.jpg',
     link:     '/packages/wilderness-expedition',
   },
 ]

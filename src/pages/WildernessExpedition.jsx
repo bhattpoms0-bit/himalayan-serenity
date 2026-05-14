@@ -336,9 +336,9 @@ export default function WildernessExpedition() {
               { src: "/images/packages/banasur-fort.jpg",   caption: "Banasur Fort Ruins",             span: false },
               { src: "/images/packages/birthi-falls.jpg",   caption: "Birthi Falls, Munsiyari Road",   span: false },
               { src: "/images/packages/khaliya-meadow.jpg", caption: "Khaliya Top Alpine Meadow",      span: false },
-              { src: "/images/packages/pink-valley.jpg",    caption: "Himalayan Wildflower Valley",    span: false },
+              { src: "/images/packages/askot-wildlife.jpg",  caption: "Himalayan Wildflower Valley",    span: false },
               { src: "/images/packages/askot-deer.jpg",     caption: "Askot Wildlife Sanctuary",       span: false },
-              { src: "/images/packages/milam-glacier.jpg",  caption: "Milam Glacier Trail",            span: "2" },
+              { src: "/images/packages/himalayan-view.jpg", caption: "Milam Glacier Trail",            span: "2" },
             ].map((photo) => (
               <div
                 key={photo.src}
