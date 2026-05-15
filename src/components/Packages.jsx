@@ -88,7 +88,7 @@ const MORE = [
     people:   10,
     price:    'On Request',
     image:    '/images/wellness/above-clouds.jpg',
-    link:     '/packages/winter-wellness-retreat',
+    link:     '/packages/winter-himalayan-wellness-retreat',
   },
 ]
 
