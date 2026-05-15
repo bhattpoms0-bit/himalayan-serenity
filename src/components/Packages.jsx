@@ -80,6 +80,16 @@ const MORE = [
     image:  'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80',
     link:   '/packages/photography-expedition',
   },
+  {
+    tag:      'Winter Special',
+    title:    'Winter Himalayan Wellness Retreat',
+    subtitle: 'Pithoragarh · Munsiyari · Abbott Mount · Jageshwar · Kasar Devi',
+    days:     9,
+    people:   10,
+    price:    'On Request',
+    image:    '/images/wellness/above-clouds.jpg',
+    link:     '/packages/winter-wellness-retreat',
+  },
 ]
 
 // Tag colour map — Cinzel, 10px, tracking-[0.15em], uppercase, rounded-full
@@ -91,6 +101,7 @@ const TAG_BG = {
   'Comfort Plus':           'rgba(245,158,11,0.85)',
   'Couples & Photographers':'rgba(201,169,110,0.85)',
   'Trekkers & Birdwatchers':'rgba(125,191,142,0.85)',
+  'Winter Special':         'rgba(99,155,210,0.85)',
 }
 
 // Scroll-reveal easing
