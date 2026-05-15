@@ -15,6 +15,7 @@ import WildernessExpedition from './pages/WildernessExpedition'
 import AdiKailashExpedition from './pages/AdiKailashExpedition'
 import PanchachuliExpedition from './pages/PanchachuliExpedition'
 import WellnessRetreat from './pages/WellnessRetreat'
+import DarmaValleyWomensRetreat from './pages/DarmaValleyWomensRetreat'
 
 function PageTransition({ children }) {
   return (
@@ -47,6 +48,7 @@ function AnimatedRoutes() {
         <Route path="/packages/adi-kailash-expedition"   element={<PageTransition><AdiKailashExpedition /></PageTransition>} />
         <Route path="/packages/panchachuli-expedition"  element={<PageTransition><PanchachuliExpedition /></PageTransition>} />
         <Route path="/packages/wellness-retreat"        element={<PageTransition><WellnessRetreat /></PageTransition>} />
+        <Route path="/packages/darma-valley-womens-retreat" element={<PageTransition><DarmaValleyWomensRetreat /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )

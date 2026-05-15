@@ -68,6 +68,7 @@ const MORE = [
     people:   6,
     price:    'On Request',
     image:    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
+    link:     '/packages/darma-valley-womens-retreat',
   },
   {
     tag:    'Comfort Plus',
