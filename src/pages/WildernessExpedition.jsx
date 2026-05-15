@@ -668,7 +668,7 @@ export default function WildernessExpedition() {
             Premium and backpacker versions available.
           </p>
           <a
-            href="#contact"
+            href="/contact#consultation"
             style={{
               display: "inline-block",
               padding: "16px 44px",

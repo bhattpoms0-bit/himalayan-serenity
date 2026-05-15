@@ -441,7 +441,7 @@ export default function WellnessRetreat() {
           <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 40px", maxWidth: 500 }}>
             A slow, immersive journey for those who need to stop – and listen. Limited departures, maximum 8–10 travelers.
           </p>
-          <a href="#contact" style={{
+          <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: sage, color: bg,
             textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
             fontFamily: "inherit", marginBottom: 20,

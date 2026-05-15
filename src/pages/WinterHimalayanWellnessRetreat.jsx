@@ -655,7 +655,7 @@ const WinterHimalayanWellnessRetreat = () => {
           </p>
         </div>
         <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap", marginTop: "8px" }}>
-          <a href="/contact" style={{ display: "inline-block", padding: "16px 40px", backgroundColor: "#8ab4d4", color: "#0a0e1a", borderRadius: "100px", textDecoration: "none", fontSize: "0.95rem", fontWeight: "600", letterSpacing: "0.5px", transition: "all 0.3s ease" }}
+          <a href="/contact#consultation" style={{ display: "inline-block", padding: "16px 40px", backgroundColor: "#8ab4d4", color: "#0a0e1a", borderRadius: "100px", textDecoration: "none", fontSize: "0.95rem", fontWeight: "600", letterSpacing: "0.5px", transition: "all 0.3s ease" }}
             onMouseEnter={e => e.currentTarget.style.backgroundColor = "#aac8e4"}
             onMouseLeave={e => e.currentTarget.style.backgroundColor = "#8ab4d4"}
           >

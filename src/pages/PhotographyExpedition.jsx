@@ -575,7 +575,7 @@ export default function PhotographyExpedition() {
           <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 40px", maxWidth: 520 }}>
             Maximum 6 photographers per departure. Cinematic pacing. Creative freedom.
           </p>
-          <a href="#contact" style={{
+          <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: amber, color: bg,
             textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
             fontFamily: "inherit", marginBottom: 20,

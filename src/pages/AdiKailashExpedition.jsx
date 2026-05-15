@@ -465,7 +465,7 @@ export default function AdiKailashExpedition() {
           <div style={{ fontSize: "1.4rem", color: gold, margin: "0 auto 36px", letterSpacing: "0.05em" }}>
             Pricing On Request
           </div>
-          <a href="#contact" style={{
+          <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: gold, color: bg,
             textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
             fontFamily: "inherit", marginBottom: 20,

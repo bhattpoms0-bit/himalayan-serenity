@@ -605,7 +605,7 @@ export default function CinematicExpedition() {
             Dates available on request.
           </p>
           <a
-            href="#contact"
+            href="/contact#consultation"
             style={{
               display: "inline-block",
               padding: "16px 44px",

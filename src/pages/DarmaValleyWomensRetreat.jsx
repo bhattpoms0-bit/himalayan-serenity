@@ -599,7 +599,7 @@ export default function DarmaValleyWomensRetreat() {
           <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 40px", maxWidth: 520 }}>
             A rare women-only Himalayan retreat – safe, slow, and deeply restorative. Limited seasonal departures.
           </p>
-          <a href="#contact" style={{
+          <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: rose, color: bg,
             textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
             fontFamily: "inherit", marginBottom: 20,

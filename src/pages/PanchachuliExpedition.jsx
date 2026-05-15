@@ -382,7 +382,7 @@ export default function PanchachuliExpedition() {
           <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 40px", maxWidth: 480 }}>
             Limited seasonal departures. Maximum 8–10 travelers per group.
           </p>
-          <a href="#contact" style={{
+          <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: gold, color: bg,
             textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
             fontFamily: "inherit", marginBottom: 20,

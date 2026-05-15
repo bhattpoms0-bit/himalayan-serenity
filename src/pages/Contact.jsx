@@ -81,7 +81,7 @@ export default function ContactPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Contact Form */}
-            <div className="card-dark">
+            <div id="consultation" className="card-dark">
               {status === 'success' ? (
                 <div className="text-center py-12">
                   <div className="text-4xl mb-4">🙏</div>
