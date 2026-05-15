@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+const BASE = "/images/darma-valley-womens-retreat/";
+
 const itinerary = [
   {
     day: "Day 1",
@@ -168,6 +170,18 @@ const seasons = [
   { period: "November – March", experience: "Valley roads closed – retreat not available" },
 ];
 
+const galleryImages = [
+  { src: "himalayan-snow-peaks-darma-valley-panorama.jpg", alt: "Himalayan snow peaks panorama over Darma Valley, Uttarakhand", span: 2 },
+  { src: "darma-valley-himalayan-village-sunset-view.jpg", alt: "Darma Valley Himalayan village at sunset, Eastern Kumaon", span: 1 },
+  { src: "woman-trekking-himalaya-darma-valley.jpg", alt: "Woman trekking in Darma Valley, Himalayan women's retreat", span: 1 },
+  { src: "darma-valley-waterfall-mountain-road.jpg", alt: "Waterfall alongside mountain road into Darma Valley", span: 1 },
+  { src: "himalayan-pine-forest-kumaon.jpg", alt: "Pine forest in Kumaon Himalaya, wellness retreat setting", span: 1 },
+  { src: "sunrise-pithoragarh-himalayan-valley-fog.jpg", alt: "Sunrise over Pithoragarh valley with morning fog", span: 2 },
+  { src: "bhimtal-lake-kumaon-uttarakhand.jpg", alt: "Bhimtal lake reflection, Kumaon Uttarakhand", span: 1 },
+  { src: "way-to-darma-valley-waterfall-gorge.jpg", alt: "Scenic gorge and waterfall on the way to Darma Valley", span: 1 },
+  { src: "woman-traveler-himalayan-mountain-sunset.jpg", alt: "Woman traveler at Himalayan mountain sunset, Darma Valley retreat", span: 1 },
+];
+
 export default function DarmaValleyWomensRetreat() {
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");
@@ -185,7 +199,7 @@ export default function DarmaValleyWomensRetreat() {
       {/* HERO */}
       <div style={{
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: "linear-gradient(to bottom, rgba(10,7,8,0.2) 0%, rgba(10,7,8,0.55) 55%, rgba(10,7,8,0.97) 100%), url('/images/packages/darma-valley.jpg') center/cover no-repeat",
+        background: `linear-gradient(to bottom, rgba(10,7,8,0.2) 0%, rgba(10,7,8,0.55) 55%, rgba(10,7,8,0.97) 100%), url('${BASE}woman-traveler-himalayan-mountain-sunset.jpg') center/cover no-repeat`,
       }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 32px", width: "100%" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
@@ -255,6 +269,32 @@ export default function DarmaValleyWomensRetreat() {
           </div>
         </motion.section>
 
+        {/* VALLEY INTRODUCTION — 2-column image pair */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 24 }}>The Valley</div>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 32 }}>
+            Darma Valley is one of Eastern Kumaon's most hidden and untouched Himalayan corridors – a landscape of glacier-fed rivers, ancient villages, and Himalayan silence that few travellers ever experience.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
+            <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}>
+              <img
+                src={`${BASE}darma-valley-dugtu-village-uttarakhand.jpg`}
+                alt="Dugtu village in Darma Valley, Uttarakhand – ancient Himalayan settlement"
+                loading="lazy"
+                style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}
+              />
+            </div>
+            <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}>
+              <img
+                src={`${BASE}darma-valley-village-misty-himalayas.jpg`}
+                alt="Misty Himalayan village in Darma Valley at dawn, Uttarakhand"
+                loading="lazy"
+                style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}
+              />
+            </div>
+          </div>
+        </motion.section>
+
         {/* HIGHLIGHTS */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 36 }}>Signature Experiences</div>
@@ -285,6 +325,33 @@ export default function DarmaValleyWomensRetreat() {
                 <div style={{ fontSize: 12, color: rose, marginBottom: 12, letterSpacing: "0.05em" }}>{a.route}</div>
                 <div style={{ fontSize: 13, color: muted, lineHeight: 1.6, marginBottom: 8 }}>Best for: {a.bestFor}</div>
                 <div style={{ fontSize: 12, color: accent, fontStyle: "italic" }}>{a.benefit}</div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* JOURNEY ROUTE — 3 images in a row */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 24 }}>The Journey</div>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 32 }}>
+            From Naini Saini Airport to the glacial heart of Darma Valley – every stage of the route is part of the experience.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
+            {[
+              { src: "naini-saini-airport-pithoragarh-uttarakhand.jpg", alt: "Naini Saini Airport, Pithoragarh – gateway to Kumaon Himalayas", caption: "Naini Saini Airport, Pithoragarh" },
+              { src: "scenic-mountain-highway-kumaon-river.jpg", alt: "Scenic mountain highway alongside Kali River, Kumaon Uttarakhand", caption: "Kali River Valley Highway" },
+              { src: "road-to-darma-valley-himalayan-gorge.jpg", alt: "Road winding through Himalayan gorge on the way to Darma Valley", caption: "Into the Darma Valley Gorge" },
+            ].map(img => (
+              <div key={img.src}>
+                <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.45)", marginBottom: 12 }}>
+                  <img
+                    src={`${BASE}${img.src}`}
+                    alt={img.alt}
+                    loading="lazy"
+                    style={{ width: "100%", height: 220, objectFit: "cover", objectPosition: "center", display: "block" }}
+                  />
+                </div>
+                <p style={{ fontSize: 12, color: muted, letterSpacing: "0.06em", textAlign: "center", margin: 0 }}>{img.caption}</p>
               </div>
             ))}
           </div>
@@ -333,6 +400,33 @@ export default function DarmaValleyWomensRetreat() {
           </div>
         </motion.section>
 
+        {/* WELLNESS & YOGA — 3 images with captions */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 24 }}>Yoga & Wellness</div>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 32 }}>
+            Every morning begins with sunrise yoga in the open Himalayan landscape – a practice held in places most yoga studios can only dream of.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
+            {[
+              { src: "yoga-pose-himalayan-snow-peaks-retreat.jpg", alt: "Yoga pose with Himalayan snow peaks in background, women's retreat", caption: "Sunrise yoga with snow peaks" },
+              { src: "group-yoga-session-himalayan-meadow.jpg", alt: "Group yoga session in Himalayan meadow, Darma Valley women's retreat", caption: "Group sessions in mountain meadows" },
+              { src: "woman-meditation-himalayan-mountain-view.jpg", alt: "Woman in meditation with Himalayan mountain panorama, wellness retreat", caption: "Meditation & mountain stillness" },
+            ].map(img => (
+              <div key={img.src}>
+                <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.45)", marginBottom: 12 }}>
+                  <img
+                    src={`${BASE}${img.src}`}
+                    alt={img.alt}
+                    loading="lazy"
+                    style={{ width: "100%", height: 260, objectFit: "cover", objectPosition: "center", display: "block" }}
+                  />
+                </div>
+                <p style={{ fontSize: 12, color: muted, letterSpacing: "0.06em", textAlign: "center", margin: 0 }}>{img.caption}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
         {/* SAFETY */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 32 }}>Women's Safety Commitment</div>
@@ -346,51 +440,117 @@ export default function DarmaValleyWomensRetreat() {
           </div>
         </motion.section>
 
-        {/* INCLUSIONS */}
+        {/* COMMUNITY BONFIRE — full-width featured image */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ position: "relative", borderRadius: 4, overflow: "hidden", boxShadow: "0 16px 48px rgba(0,0,0,0.6)" }}>
+            <img
+              src={`${BASE}women-retreat-bonfire-circle-himalaya.jpg`}
+              alt="Women's retreat bonfire circle under the Himalayan night sky, Darma Valley"
+              loading="lazy"
+              style={{ width: "100%", height: 420, objectFit: "cover", objectPosition: "center", display: "block" }}
+            />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,7,8,0.85) 0%, rgba(10,7,8,0.15) 60%)" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "40px 40px" }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 12 }}>Evening Ritual</div>
+              <h3 style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 300, color: text, margin: "0 0 8px" }}>Bonfire Storytelling Circle</h3>
+              <p style={{ fontSize: 14, color: accent, margin: 0, maxWidth: 480, lineHeight: 1.6 }}>
+                Every evening under the Himalayan night sky, a bonfire circle gathers the group for stories, reflections, and the quiet magic of sisterhood.
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* CULTURE SECTION */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ display: "flex", gap: 40, flexWrap: "wrap", alignItems: "center" }}>
+            <div style={{ flex: 1, minWidth: 260 }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 20 }}>Rang Tribal Culture</div>
+              <h3 style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", fontWeight: 300, color: text, margin: "0 0 16px" }}>Living Traditions of Darma Valley</h3>
+              <p style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)", lineHeight: 1.85, color: muted, fontWeight: 300, marginBottom: 20 }}>
+                The Rang people of Darma Valley carry one of the Himalaya's most ancient living cultures – their festivals, textiles, songs, and seasonal rhythms remain largely untouched by the modern world.
+              </p>
+              <p style={{ fontSize: "clamp(0.9rem, 1.6vw, 1rem)", lineHeight: 1.85, color: muted, fontWeight: 300 }}>
+                On Day 6, the retreat opens a window into this world – through traditional cooking, conversation with local women, and an evening of folk songs beside the fire.
+              </p>
+            </div>
+            <div style={{ flexShrink: 0, width: "min(340px, 100%)" }}>
+              <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.55)" }}>
+                <img
+                  src={`${BASE}rang-tribal-festival-darma-valley-culture.jpg`}
+                  alt="Rang tribal festival in Darma Valley – traditional culture of Eastern Kumaon, Uttarakhand"
+                  loading="lazy"
+                  style={{ width: "100%", height: 320, objectFit: "cover", objectPosition: "center", display: "block" }}
+                />
+              </div>
+              <p style={{ fontSize: 11, color: muted, letterSpacing: "0.06em", textAlign: "center", marginTop: 10 }}>
+                Rang tribal festival, Darma Valley
+              </p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* INCLUSIONS — with wellness kit image */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 32 }}>Retreat Details</div>
-          <div style={{ display: "flex", gap: 8, marginBottom: 28 }}>
-            {["inclusions", "exclusions", "packing"].map(t => (
-              <button key={t} onClick={() => setTab(t)} style={{
-                background: tab === t ? rose : "transparent", border: `1px solid ${rose}55`,
-                color: tab === t ? bg : rose, padding: "8px 20px", cursor: "pointer",
-                fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase",
-                fontFamily: "inherit", transition: "all 0.2s", borderRadius: 2,
-              }}>{t}</button>
-            ))}
+          <div style={{ display: "flex", gap: 40, flexWrap: "wrap", alignItems: "flex-start" }}>
+            <div style={{ flex: 1, minWidth: 280 }}>
+              <div style={{ display: "flex", gap: 8, marginBottom: 28 }}>
+                {["inclusions", "exclusions", "packing"].map(t => (
+                  <button key={t} onClick={() => setTab(t)} style={{
+                    background: tab === t ? rose : "transparent", border: `1px solid ${rose}55`,
+                    color: tab === t ? bg : rose, padding: "8px 20px", cursor: "pointer",
+                    fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase",
+                    fontFamily: "inherit", transition: "all 0.2s", borderRadius: 2,
+                  }}>{t}</button>
+                ))}
+              </div>
+              <motion.div key={tab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+                {tab === "inclusions" && (
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
+                    {inclusions.map(item => (
+                      <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
+                        <span style={{ color: rose, marginTop: 2 }}>✓</span>
+                        <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {tab === "exclusions" && (
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
+                    {exclusions.map(item => (
+                      <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
+                        <span style={{ color: muted, marginTop: 2 }}>✗</span>
+                        <span style={{ fontSize: 14, color: muted, lineHeight: 1.5 }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {tab === "packing" && (
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
+                    {packing.map(item => (
+                      <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
+                        <span style={{ color: rose, marginTop: 2 }}>✓</span>
+                        <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            </div>
+            <div style={{ flexShrink: 0, width: "min(260px, 100%)" }}>
+              <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.55)" }}>
+                <img
+                  src={`${BASE}womens-retreat-wellness-kit-himalaya.jpg`}
+                  alt="Women's retreat wellness kit for Himalayan journey – yoga mat, journal, herbal tea"
+                  loading="lazy"
+                  style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}
+                />
+              </div>
+              <p style={{ fontSize: 11, color: muted, letterSpacing: "0.06em", textAlign: "center", marginTop: 10 }}>
+                Your retreat essentials kit
+              </p>
+            </div>
           </div>
-          <motion.div key={tab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-            {tab === "inclusions" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 10 }}>
-                {inclusions.map(item => (
-                  <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
-                    <span style={{ color: rose, marginTop: 2 }}>✓</span>
-                    <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            {tab === "exclusions" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 10 }}>
-                {exclusions.map(item => (
-                  <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
-                    <span style={{ color: muted, marginTop: 2 }}>✗</span>
-                    <span style={{ fontSize: 14, color: muted, lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            {tab === "packing" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
-                {packing.map(item => (
-                  <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: "1px solid #ffffff09" }}>
-                    <span style={{ color: rose, marginTop: 2 }}>✓</span>
-                    <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </motion.div>
         </motion.section>
 
         {/* BEST SEASON */}
@@ -401,6 +561,31 @@ export default function DarmaValleyWomensRetreat() {
               <div key={s.period} style={{ padding: "28px 24px", background: card, border: "1px solid #ffffff0d", borderTop: `2px solid ${rose}` }}>
                 <div style={{ fontSize: "1.1rem", color: text, marginBottom: 10 }}>{s.period}</div>
                 <div style={{ fontSize: 13, color: muted, lineHeight: 1.6 }}>{s.experience}</div>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* PHOTO GALLERY — masonry grid */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 24 }}>Journey Gallery</div>
+          <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 600, marginBottom: 32 }}>
+            Landscapes, villages, and moments from the Darma Valley corridor.
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+            {galleryImages.map(img => (
+              <div
+                key={img.src}
+                style={{ gridColumn: `span ${img.span}`, borderRadius: 4, overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.45)" }}
+              >
+                <img
+                  src={`${BASE}${img.src}`}
+                  alt={img.alt}
+                  loading="lazy"
+                  style={{ width: "100%", height: 280, objectFit: "cover", objectPosition: "center", display: "block", transition: "transform 0.6s ease" }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.04)" }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)" }}
+                />
               </div>
             ))}
           </div>
