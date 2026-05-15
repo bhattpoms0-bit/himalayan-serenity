@@ -140,10 +140,10 @@ const inclusions = [
   "Cultural immersion experiences",
   "Wellness activities & reflection sessions",
   "Bonfire evenings (weather permitting)",
+  "Flight / train tickets (as per selected arrival option)",
 ];
 
 const exclusions = [
-  "Flight / train tickets to Pithoragarh",
   "Lunches & beverages",
   "Personal expenses",
   "Camera / drone permits",
