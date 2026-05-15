@@ -623,7 +623,7 @@ const WinterHimalayanWellnessRetreat = () => {
           <h2 style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)", fontWeight: "400", marginBottom: "32px", color: "#f0ece4" }}>
             The <span style={{ color: "#8ab4d4", fontStyle: "italic" }}>Winter Himalaya</span> in Frames
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
+          <div className="resp-grid-3" style={{ gap: "10px" }}>
             {galleryImages.map(img => (
               <div key={img.src} style={{ gridColumn: `span ${img.span}`, borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>
                 <img

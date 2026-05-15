@@ -160,7 +160,7 @@ export default function WellnessRetreat() {
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
         background: "linear-gradient(to bottom, rgba(7,10,8,0.2) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/wellness/forest-meditation.jpg') center/cover no-repeat",
       }}>
-        <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 32px", width: "100%" }}>
+        <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: sage }} />
@@ -207,7 +207,7 @@ export default function WellnessRetreat() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: "0 auto", padding: "72px 32px" }}>
+      <div className="page-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
 
         {/* OVERVIEW */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
@@ -242,7 +242,7 @@ export default function WellnessRetreat() {
         {/* GALLERY */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: sage, marginBottom: 32 }}>Journey Highlights</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+          <div className="resp-grid-3" style={{ gap: 8 }}>
             {[
               { src: "/images/wellness/forest-meditation.jpg",  caption: "Forest Meditation",              span: "2" },
               { src: "/images/wellness/jageshwar-temple.jpg",   caption: "Jageshwar Temple Complex",       span: false },
@@ -319,8 +319,8 @@ export default function WellnessRetreat() {
         {/* ITINERARY */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: sage, marginBottom: 40 }}>Day by Day Journey</div>
-          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 110 }}>
+          <div className="resp-itinerary" style={{ gap: 32 }}>
+            <div className="resp-itinerary-nav" style={{ gap: 4 }}>
               {itinerary.map((item, i) => (
                 <button key={i} onClick={() => setActiveDay(i)} style={{
                   background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "10px 16px",
@@ -364,7 +364,7 @@ export default function WellnessRetreat() {
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: sage, marginBottom: 32 }}>Retreat Destinations</div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {destinations.map((d, i) => (
-              <div key={d.place} style={{ display: "grid", gridTemplateColumns: "160px 1fr 80px", alignItems: "center", padding: "16px 20px", background: i % 2 === 0 ? card : "transparent", borderBottom: "1px solid #ffffff08", gap: 16 }}>
+              <div key={d.place} style={{ display: "flex", flexWrap: "wrap", alignItems: "center", padding: "16px 20px", background: i % 2 === 0 ? card : "transparent", borderBottom: "1px solid #ffffff08", gap: 12 }}>
                 <span style={{ fontSize: 15, color: text }}>{d.place}</span>
                 <span style={{ fontSize: 13, color: muted, fontStyle: "italic" }}>{d.vibe}</span>
                 <span style={{ fontSize: 12, color: sage, letterSpacing: "0.06em", textAlign: "right" }}>{d.alt}</span>

@@ -162,6 +162,60 @@
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
 
+  /* ─── Responsive layout helpers for inline-style pages ──── */
+
+  /* Content wrapper: 72px/32px desktop → 40px/20px mobile   */
+  .page-inner {
+    padding: 72px 32px;
+  }
+  /* Hero content horizontal padding                          */
+  .hero-inner {
+    padding: 0 32px;
+    width: 100%;
+  }
+  /* 3-column grid → 1-col mobile, 2-col tablet, 3-col desktop */
+  .resp-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  /* 2-column grid → 1-col mobile, 2-col tablet+             */
+  .resp-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  /* Itinerary: sidebar + panel → stacked on mobile          */
+  .resp-itinerary {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .resp-itinerary-nav {
+    display: flex;
+    flex-direction: column;
+    min-width: 110px;
+  }
+  /* Stats bar: wraps gracefully                              */
+  .resp-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 480px) {
+    .resp-grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .resp-stats  { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 769px) {
+    .page-inner  { padding: 72px 32px; }
+    .resp-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .resp-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .resp-stats  { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .page-inner        { padding: 40px 20px; }
+    .hero-inner        { padding: 0 20px; }
+    .resp-itinerary    { flex-direction: column; gap: 0 !important; }
+    .resp-itinerary-nav { flex-direction: row; flex-wrap: wrap; min-width: unset; width: 100%; gap: 4px; }
+  }
+
   /* ─── Animation Delays ────────────────────────────────────── */
   .animate-delay-75  { animation-delay: 75ms; }
   .animate-delay-100 { animation-delay: 100ms; }

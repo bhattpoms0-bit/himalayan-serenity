@@ -201,7 +201,7 @@ export default function DarmaValleyWomensRetreat() {
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
         background: `linear-gradient(to bottom, rgba(10,7,8,0.2) 0%, rgba(10,7,8,0.55) 55%, rgba(10,7,8,0.97) 100%), url('${BASE}woman-traveler-himalayan-mountain-sunset.jpg') center/cover no-repeat`,
       }}>
-        <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 32px", width: "100%" }}>
+        <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: rose }} />
@@ -251,7 +251,7 @@ export default function DarmaValleyWomensRetreat() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: "0 auto", padding: "72px 32px" }}>
+      <div className="page-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
 
         {/* OVERVIEW */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
@@ -360,8 +360,8 @@ export default function DarmaValleyWomensRetreat() {
         {/* ITINERARY */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: rose, marginBottom: 40 }}>Day by Day Journey</div>
-          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 110 }}>
+          <div className="resp-itinerary" style={{ gap: 32 }}>
+            <div className="resp-itinerary-nav" style={{ gap: 4 }}>
               {itinerary.map((item, i) => (
                 <button key={i} onClick={() => setActiveDay(i)} style={{
                   background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "10px 16px",
@@ -572,7 +572,7 @@ export default function DarmaValleyWomensRetreat() {
           <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 600, marginBottom: 32 }}>
             Landscapes, villages, and moments from the Darma Valley corridor.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+          <div className="resp-grid-3" style={{ gap: 8 }}>
             {galleryImages.map(img => (
               <div
                 key={img.src}

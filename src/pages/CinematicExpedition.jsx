@@ -159,7 +159,7 @@ export default function CinematicExpedition() {
             "linear-gradient(to bottom, rgba(8,12,16,0.3) 0%, rgba(8,12,16,0.6) 60%, rgba(8,12,16,0.97) 100%), url('/images/packages/village-road.jpg') center/cover no-repeat",
         }}
       >
-        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px", width: "100%" }}>
+        <div className="hero-inner" style={{ maxWidth: 900, margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -264,7 +264,7 @@ export default function CinematicExpedition() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "72px 32px" }}>
+      <div className="page-inner" style={{ maxWidth: 900, margin: "0 auto" }}>
 
         {/* OVERVIEW */}
         <motion.section
@@ -301,14 +301,7 @@ export default function CinematicExpedition() {
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 32 }}>
             Journey Highlights
           </div>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gridTemplateRows: "auto auto",
-              gap: 8,
-            }}
-          >
+          <div className="resp-grid-3" style={{ gap: 8 }}>
             {[
               { src: "/images/packages/abbott-mount.jpg",   caption: "Lohaghat Forest Trails",         span: false },
               { src: "/images/packages/himalayan-view.jpg", caption: "Kumaoni Village Life",            span: false },
@@ -379,9 +372,9 @@ export default function CinematicExpedition() {
             Day by Day Itinerary
           </div>
 
-          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
+          <div className="resp-itinerary" style={{ gap: 32 }}>
             {/* Day selector */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 6, minWidth: 120 }}>
+            <div className="resp-itinerary-nav" style={{ gap: 6 }}>
               {itinerary.map((item, i) => (
                 <button
                   key={i}

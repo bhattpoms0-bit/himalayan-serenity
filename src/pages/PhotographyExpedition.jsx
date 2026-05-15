@@ -229,12 +229,12 @@ const galleryImages = [
 function DayImages({ day }) {
   if (!day.dayImages || day.dayImages.length === 0) return null;
 
-  const cols = day.imageLayout === "three" ? "repeat(3, 1fr)"
-             : day.imageLayout === "two"   ? "repeat(2, 1fr)"
-             : "1fr";
+  const gridClass = day.imageLayout === "three" ? "resp-grid-3"
+                  : day.imageLayout === "two"   ? "resp-grid-2"
+                  : "";
 
   return (
-    <div style={{ marginTop: 24, display: "grid", gridTemplateColumns: cols, gap: 12 }}>
+    <div className={gridClass} style={{ marginTop: 24, gap: 12 }}>
       {day.dayImages.map((img, i) => (
         <div key={i} style={{ overflow: "hidden", borderRadius: 12 }}>
           <img
@@ -277,7 +277,7 @@ export default function PhotographyExpedition() {
         {/* Dark gradient overlay */}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(9,8,10,0.2) 0%, rgba(9,8,10,0.55) 55%, rgba(9,8,10,0.97) 100%)", zIndex: 1 }} />
         {/* Content */}
-        <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 32px", width: "100%", position: "relative", zIndex: 2 }}>
+        <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto", position: "relative", zIndex: 2 }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: amber }} />
@@ -327,7 +327,7 @@ export default function PhotographyExpedition() {
         </div>
       </div>
 
-      <div style={{ maxWidth: 960, margin: "0 auto", padding: "72px 32px" }}>
+      <div className="page-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
 
         {/* OVERVIEW */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
@@ -345,7 +345,7 @@ export default function PhotographyExpedition() {
           </div>
 
           {/* Overview 2-image pair */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+          <div className="resp-grid-2" style={{ gap: 16 }}>
             {[
               { src: BASE + "darma-valley-landscape-eastern-kumaon.jpg", alt: "Darma Valley sweeping landscape Eastern Kumaon Himalayas" },
               { src: BASE + "kumaon-hills-terraced-fields-aerial-view.jpg", alt: "Kumaon hills terraced fields aerial view Uttarakhand" },
@@ -370,7 +370,7 @@ export default function PhotographyExpedition() {
 
           {/* Photography in Action images */}
           <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 12 }}>Photography in Action</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 36 }}>
+          <div className="resp-grid-3" style={{ gap: 12, marginBottom: 36 }}>
             {[
               { src: BASE + "camera-tripod-golden-hour-himalayan-mountains.jpg", alt: "Camera on tripod golden hour Himalayan mountains" },
               { src: BASE + "photographer-camera-himalayan-valley-kumaon.jpg", alt: "Photographer with camera in Himalayan valley Kumaon" },
@@ -424,8 +424,8 @@ export default function PhotographyExpedition() {
         {/* ITINERARY */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: amber, marginBottom: 40 }}>Day by Day Expedition</div>
-          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 4, minWidth: 110 }}>
+          <div className="resp-itinerary" style={{ gap: 32 }}>
+            <div className="resp-itinerary-nav" style={{ gap: 4 }}>
               {itinerary.map((item, i) => (
                 <button key={i} onClick={() => setActiveDay(i)} style={{
                   background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "10px 16px",
@@ -503,7 +503,7 @@ export default function PhotographyExpedition() {
             {tab === "gear" && (
               <>
                 {/* Gear photographer images */}
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12, marginBottom: 24 }}>
+                <div className="resp-grid-3" style={{ gap: 12, marginBottom: 24 }}>
                   {[
                     { src: BASE + "photographer-snow-landscape-himalayan-expedition.jpg", alt: "Photographer in snow landscape Himalayan expedition" },
                     { src: BASE + "photographer-capturing-himalayan-landscape-snow.jpg", alt: "Photographer capturing Himalayan landscape in snow" },
@@ -551,7 +551,7 @@ export default function PhotographyExpedition() {
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: amber, marginBottom: 12 }}>Expedition Gallery</div>
           <h3 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: 300, color: text, margin: "0 0 32px" }}>Frames from the Field</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
+          <div className="resp-grid-3" style={{ gap: 12 }}>
             {galleryImages.map((img, i) => (
               <div key={i} style={{ gridColumn: `span ${img.span}`, overflow: "hidden", borderRadius: 14 }}>
                 <img
