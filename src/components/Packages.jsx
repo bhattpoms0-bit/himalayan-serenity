@@ -58,6 +58,7 @@ const MORE = [
     people: 15,
     price:  'On Request',
     image:  '/images/packages/adi-kailash/adi-kailash-trishul.jpg',
+    link:   '/packages/wellness-retreat',
   },
   {
     tag:    'Limited Edition',
