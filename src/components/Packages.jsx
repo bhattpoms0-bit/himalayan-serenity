@@ -77,7 +77,8 @@ const MORE = [
     days:   8,
     people: 10,
     price:  'On Request',
-    image:  'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80',
+    image:  '/images/himalayan-photography-expedition/camera-tripod-golden-hour-himalayan-mountains.jpg',
+    alt:    'Himalayan Photography Expedition camera tripod golden hour',
     link:   '/packages/photography-expedition',
   },
   {
