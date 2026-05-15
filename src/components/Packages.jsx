@@ -67,7 +67,8 @@ const MORE = [
     days:     12,
     people:   6,
     price:    'On Request',
-    image:    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80',
+    image:    '/images/darma-valley-womens-retreat/woman-traveler-himalayan-mountain-sunset.jpg',
+    alt:      'Women-Only Expedition Darma Valley Himalaya',
     link:     '/packages/darma-valley-womens-retreat',
   },
   {
@@ -128,7 +129,7 @@ function PackageCard({ pkg, large = false, index = 0 }) {
       <div className={`relative overflow-hidden ${large ? 'h-[280px]' : 'h-[224px]'}`}>
         <img
           src={pkg.image}
-          alt={pkg.title}
+          alt={pkg.alt ?? pkg.title}
           className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
           decoding="async"
