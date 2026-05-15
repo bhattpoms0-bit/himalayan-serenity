@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Globe, Mail, Share2, ArrowRight } from 'lucide-react'
 
@@ -39,8 +40,8 @@ function FooterLink({ href, children }) {
   const [hovered, setHovered] = useState(false)
   return (
     <li>
-      <a
-        href={href}
+      <Link
+        to={href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="flex items-center gap-1.5 font-sans text-[13px] transition-all duration-200"
@@ -48,6 +49,7 @@ function FooterLink({ href, children }) {
           color:     hovered ? '#cccccc' : '#666666',
           transform: hovered ? 'translateX(4px)' : 'translateX(0)',
           display:   'inline-flex',
+          textDecoration: 'none',
         }}
       >
         <span
@@ -57,7 +59,7 @@ function FooterLink({ href, children }) {
           →
         </span>
         {children}
-      </a>
+      </Link>
     </li>
   )
 }

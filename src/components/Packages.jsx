@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, MessageCircle, Clock, TrendingUp, Users } from 'lucide-react'
 
@@ -266,9 +267,9 @@ function PackageCard({ pkg, large = false, index = 0 }) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
     >
       {pkg.link ? (
-        <a href={pkg.link} style={{ textDecoration: 'none', display: 'block' }}>
+        <Link to={pkg.link} style={{ textDecoration: 'none', display: 'block' }}>
           {cardInner}
-        </a>
+        </Link>
       ) : (
         cardInner
       )}
