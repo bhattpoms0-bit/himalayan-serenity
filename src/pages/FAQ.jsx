@@ -62,8 +62,15 @@ export default function FAQPage() {
 
         <div
           className="absolute inset-0 bg-cover bg-center scale-[1.05]"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80')` }}
-        />
+          style={{ backgroundImage: `url('/images/om-parvat-view-himalayan-horses-pithoragarh.jpg')` }}
+        >
+          <img
+            src="/images/om-parvat-view-himalayan-horses-pithoragarh.jpg"
+            alt="Om Parvat View Himalayan Horses Pithoragarh"
+            className="sr-only"
+            aria-hidden="true"
+          />
+        </div>
 
         <div
           aria-hidden="true"
