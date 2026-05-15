@@ -78,6 +78,7 @@ const MORE = [
     people: 10,
     price:  'On Request',
     image:  'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80',
+    link:   '/packages/photography-expedition',
   },
 ]
 
