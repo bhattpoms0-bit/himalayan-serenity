@@ -127,7 +127,7 @@ const WinterHimalayanWellnessRetreat = () => {
       location: "Delhi",
       theme: null,
       experiences: [
-        "Kathgodam → Delhi train (Vande Bharat / Shatabdi)",
+        "Kathgodam → Delhi train (Shatabdi)",
         "OR private SUV transfer to Delhi",
       ],
       evening: "Retreat concludes with arrival in Delhi, carrying the stillness of the Himalaya.",
@@ -392,7 +392,7 @@ const WinterHimalayanWellnessRetreat = () => {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
           <div style={{ padding: "24px 32px", backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px" }}>
             <p style={{ fontSize: "11px", color: "#6a8aaa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" }}>Departure Option 1 – Recommended</p>
-            <p style={{ color: "#c8d8e8", fontSize: "0.95rem" }}>🚂 Kathgodam → Delhi via Vande Bharat Express or Shatabdi Express</p>
+            <p style={{ color: "#c8d8e8", fontSize: "0.95rem" }}>🚂 Kathgodam → Delhi via Shatabdi Express</p>
           </div>
           <div style={{ padding: "24px 32px", backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "12px" }}>
             <p style={{ fontSize: "11px", color: "#6a8aaa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" }}>Departure Option 2</p>
