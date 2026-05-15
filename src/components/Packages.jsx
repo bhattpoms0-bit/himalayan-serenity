@@ -73,7 +73,7 @@ const MORE = [
   },
   {
     tag:    'Comfort Plus',
-    title:  'Senior-Friendly Journey',
+    title:  'Himalayan Photography Expedition',
     days:   8,
     people: 10,
     price:  'On Request',

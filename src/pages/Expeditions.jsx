@@ -43,7 +43,7 @@ const expeditions = [
   {
     tag: 'Comfort Plus',
     tagColor: 'bg-amber-900/80',
-    title: 'Senior-Friendly Journey',
+    title: 'Himalayan Photography Expedition',
     subtitle: '8 Days • Easy • 10 People',
     price: '$2,100',
     desc: 'Thoughtfully designed for senior travelers seeking spiritual enrichment without strenuous trekking.',

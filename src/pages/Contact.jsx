@@ -130,7 +130,7 @@ export default function ContactPage() {
                       <option>Om Parvat Journey</option>
                       <option>Luxury Spiritual Retreat</option>
                       <option>Photography Expedition</option>
-                      <option>Senior-Friendly Journey</option>
+                      <option>Himalayan Photography Expedition</option>
                       <option>Women-Only Expedition</option>
                     </select>
                   </div>

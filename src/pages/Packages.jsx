@@ -10,7 +10,7 @@ const packages = [
   { title: 'Inner Kora', days: 6, difficulty: 'Easy', people: 16, price: '$1,200', image: 'https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800&q=80', tag: 'Sacred Route', tagColor: 'bg-amber-900/80' },
   { title: 'Luxury Camping', days: 5, difficulty: 'Easy', people: 10, price: '$2,800', image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80', tag: 'All-Inclusive', tagColor: 'bg-emerald-900/80' },
   { title: 'Photography Expedition', days: 12, difficulty: 'Moderate', people: 6, price: '$4,500', image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&q=80', tag: 'Limited Edition', tagColor: 'bg-purple-900/80' },
-  { title: 'Senior-Friendly Journey', days: 8, difficulty: 'Easy', people: 10, price: '$2,100', image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80', tag: 'Comfort Plus', tagColor: 'bg-amber-900/80' },
+  { title: 'Himalayan Photography Expedition', days: 8, difficulty: 'Easy', people: 10, price: '$2,100', image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&q=80', tag: 'Comfort Plus', tagColor: 'bg-amber-900/80' },
 ]
 
 export default function PackagesPage() {
