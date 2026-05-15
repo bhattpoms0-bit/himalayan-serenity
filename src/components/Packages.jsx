@@ -57,7 +57,7 @@ const MORE = [
     days:   7,
     people: 15,
     price:  'On Request',
-    image:  '/images/packages/adi-kailash/adi-kailash-trishul.jpg',
+    image:  '/images/wellness/forest-meditation.jpg',
     link:   '/packages/wellness-retreat',
   },
   {
