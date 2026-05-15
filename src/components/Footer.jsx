@@ -5,11 +5,11 @@ import { Globe, Mail, Share2, ArrowRight } from 'lucide-react'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const EXPLORATIONS = [
   { label: 'Adi Kailash Expedition',                href: '/packages/adi-kailash-expedition' },
-  { label: 'Panchachuli Trekking Expedition',       href: '/packages/panchachuli-base-camp-trek' },
-  { label: 'Eastern Kumaon Cinematic Expedition',   href: '/packages/eastern-kumaon-cinematic-expedition' },
-  { label: 'Eastern Kumaon Wilderness Expedition',  href: '/packages/eastern-kumaon-wilderness-expedition' },
-  { label: 'Himalayan Wellness & Meditation Retreat', href: '/packages/himalayan-wellness-meditation-retreat' },
-  { label: 'Himalayan Photography Expedition',      href: '/packages/himalayan-photography-expedition' },
+  { label: 'Panchachuli Trekking Expedition',       href: '/packages/panchachuli-expedition' },
+  { label: 'Eastern Kumaon Cinematic Expedition',   href: '/packages/cinematic-expedition' },
+  { label: 'Eastern Kumaon Wilderness Expedition',  href: '/packages/wilderness-expedition' },
+  { label: 'Himalayan Wellness & Meditation Retreat', href: '/packages/wellness-retreat' },
+  { label: 'Himalayan Photography Expedition',      href: '/packages/photography-expedition' },
   { label: 'Winter Himalayan Wellness Retreat',     href: '/packages/winter-himalayan-wellness-retreat' },
   { label: 'Women-Only Expedition (Darma Valley)',  href: '/packages/darma-valley-womens-retreat' },
 ]
