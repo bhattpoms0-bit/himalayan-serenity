@@ -53,7 +53,7 @@ const FEATURED = [
 const MORE = [
   {
     tag:    'All-Inclusive',
-    title:  'Luxury Spiritual Retreat',
+    title:  'Himalayan Wellness & Meditation Retreat',
     days:   7,
     people: 15,
     price:  'On Request',
