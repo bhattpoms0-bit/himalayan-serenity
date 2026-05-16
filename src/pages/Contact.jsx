@@ -181,7 +181,7 @@ export default function ContactPage() {
                       {status === 'loading' ? 'Sending...' : 'Book Consultation'}
                     </button>
                     <a
-                      href="https://wa.me/9771444000"
+                      href="https://wa.me/919997845351"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 border border-green-700/40 text-green-400 text-sm font-sans px-5 py-3 rounded-full hover:bg-green-900/20 transition-all"
@@ -200,7 +200,7 @@ export default function ContactPage() {
                 <div className="space-y-5">
                   {[
                     { icon: Mail,    label: 'Email',            value: 'info@himalayanserenitytravel.com' },
-                    { icon: Phone,   label: 'Phone / WhatsApp', value: '+977-1-444-0000'              },
+                    { icon: Phone,   label: 'Phone / WhatsApp', value: '+91 99978 45351'              },
                     { icon: MapPin,  label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529' },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">

@@ -40,7 +40,7 @@ export default function CTASection() {
             Explore Packages
           </a>
           <a
-            href="https://wa.me/9771444000"
+            href="https://wa.me/919997845351"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"

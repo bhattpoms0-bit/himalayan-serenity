@@ -339,7 +339,7 @@ export default function Packages() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="/contact#consultation" className="btn-primary">View All Packages</a>
           <a
-            href="https://wa.me/9771444000"
+            href="https://wa.me/919997845351"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 border border-emerald-800/50 text-emerald-500/80 text-[12.5px] font-sans font-semibold tracking-luxury uppercase px-6 py-3.5 rounded-full hover:border-emerald-700/70 hover:text-emerald-400 transition-all duration-300"
