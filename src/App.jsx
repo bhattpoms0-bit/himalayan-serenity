@@ -18,6 +18,7 @@ const WellnessRetreat                = lazy(() => import('./pages/WellnessRetrea
 const DarmaValleyWomensRetreat       = lazy(() => import('./pages/DarmaValleyWomensRetreat'))
 const PhotographyExpedition          = lazy(() => import('./pages/PhotographyExpedition'))
 const WinterHimalayanWellnessRetreat = lazy(() => import('./pages/WinterHimalayanWellnessRetreat'))
+const Sustainability                 = lazy(() => import('./pages/Sustainability'))
 
 function PageTransition({ children }) {
   return (
@@ -79,6 +80,7 @@ function AnimatedRoutes() {
           <Route path="/packages/darma-valley-womens-retreat"      element={<PageTransition><DarmaValleyWomensRetreat /></PageTransition>} />
           <Route path="/packages/photography-expedition"           element={<PageTransition><PhotographyExpedition /></PageTransition>} />
           <Route path="/packages/winter-himalayan-wellness-retreat" element={<PageTransition><WinterHimalayanWellnessRetreat /></PageTransition>} />
+          <Route path="/sustainability" element={<PageTransition><Sustainability /></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Suspense>
