@@ -77,7 +77,7 @@ export default function Blog() {
               <div className="lg:w-[60%] h-64 lg:h-96 overflow-hidden flex-shrink-0">
                 <img
                   src={featured.image}
-                  alt={featured.title}
+                  alt={featured.imageAlt || featured.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                   decoding="async"
@@ -159,7 +159,7 @@ export default function Blog() {
                   <div className="h-48 overflow-hidden flex-shrink-0">
                     <img
                       src={post.image}
-                      alt={post.title}
+                      alt={post.imageAlt || post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       loading="lazy"
                       decoding="async"

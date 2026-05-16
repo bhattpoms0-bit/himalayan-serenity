@@ -126,8 +126,9 @@ export default function BlogPost() {
       <div className="relative h-[50vh] overflow-hidden">
         <img
           src={post.image}
-          alt={post.title}
+          alt={post.imageAlt || post.title}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div
           className="absolute inset-0"
