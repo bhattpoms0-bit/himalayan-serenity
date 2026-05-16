@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, Calendar } from 'lucide-react'
 
@@ -137,16 +138,23 @@ export default function Hero() {
             </motion.a>
 
             {/* Secondary */}
-            <motion.button
+            <motion.div
               whileHover={{
                 borderColor: 'rgba(255,255,255,0.4)',
                 backgroundColor: 'rgba(255,255,255,0.05)',
               }}
               whileTap={{ scale: 0.95 }}
-              className="border border-white/20 text-white/75 hover:text-white font-sans font-medium rounded-full px-6 py-3 text-[13px] tracking-wide cursor-pointer transition-colors duration-300 w-full sm:w-auto"
+              className="border border-white/20 rounded-full w-full sm:w-auto"
+              style={{ display: 'inline-block' }}
             >
-              Plan My Trip
-            </motion.button>
+              <Link
+                to="/contact#consultation"
+                className="block text-white/75 hover:text-white font-sans font-medium px-6 py-3 text-[13px] tracking-wide cursor-pointer transition-colors duration-300 text-center"
+                style={{ textDecoration: 'none' }}
+              >
+                Plan My Trip
+              </Link>
+            </motion.div>
 
             {/* Video */}
             <button className="flex items-center gap-2 text-white/45 hover:text-white/80 transition-colors duration-300 text-[13px] font-sans ml-1 group">
