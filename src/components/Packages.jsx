@@ -337,7 +337,7 @@ export default function Packages() {
 
         {/* ── Bottom actions ────────────────────────────────────────────── */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/packages" className="btn-primary">View All Packages</a>
+          <a href="/contact#consultation" className="btn-primary">View All Packages</a>
           <a
             href="https://wa.me/9771444000"
             target="_blank"

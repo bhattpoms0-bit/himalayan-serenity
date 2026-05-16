@@ -260,7 +260,7 @@ export default function BlogPost() {
             through our Himalayan expeditions.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
-            <a href="/packages" className="btn-primary text-sm">View Packages</a>
+            <a href="/contact#consultation" className="btn-primary text-sm">View Packages</a>
             <a href="/contact" className="btn-secondary text-sm">Book Consultation</a>
           </div>
         </div>

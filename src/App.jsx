@@ -6,8 +6,6 @@ import WhatsAppButton from './components/WhatsAppButton'
 // Lazy-load every page so only the current route's JS chunk is downloaded
 const Home                           = lazy(() => import('./pages/Home'))
 const About                          = lazy(() => import('./pages/About'))
-const Expeditions                    = lazy(() => import('./pages/Expeditions'))
-const Packages                       = lazy(() => import('./pages/Packages'))
 const FAQ                            = lazy(() => import('./pages/FAQ'))
 const Contact                        = lazy(() => import('./pages/Contact'))
 const Blog                           = lazy(() => import('./pages/Blog'))
@@ -69,8 +67,6 @@ function AnimatedRoutes() {
         <Routes location={location} key={location.pathname}>
           <Route path="/"           element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about"      element={<PageTransition><About /></PageTransition>} />
-          <Route path="/expeditions" element={<PageTransition><Expeditions /></PageTransition>} />
-          <Route path="/packages"   element={<PageTransition><Packages /></PageTransition>} />
           <Route path="/faq"        element={<PageTransition><FAQ /></PageTransition>} />
           <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/blog"          element={<PageTransition><Blog /></PageTransition>} />

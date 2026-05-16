@@ -28,7 +28,7 @@ const MobileCTA = () => {
         >
           <div className="flex gap-3 px-4 py-3">
             <a
-              href="/expeditions"
+              href="/contact#consultation"
               className="flex-1 text-center border border-white/20 text-white text-sm font-sans py-3 rounded-full hover:border-white/40 transition-all duration-200"
             >
               Explore

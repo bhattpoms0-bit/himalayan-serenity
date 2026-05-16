@@ -126,7 +126,7 @@ export default function Transformation() {
             I went to the mountains to find peace,<br />and I found myself.
           </p>
 
-          <a href="/expeditions" className="btn-primary">Begin Your Journey</a>
+          <a href="/contact#consultation" className="btn-primary">Begin Your Journey</a>
         </motion.div>
 
       </div>

@@ -125,7 +125,7 @@ export default function Hero() {
           >
             {/* Primary */}
             <motion.a
-              href="/expeditions"
+              href="/contact#consultation"
               whileHover={{
                 filter: 'brightness(1.1)',
                 boxShadow: '0 0 30px rgba(224,123,42,0.4)',

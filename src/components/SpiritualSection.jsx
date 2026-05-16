@@ -194,7 +194,7 @@ export default function SpiritualSection() {
                 traveler into a pilgrim.
               </p>
               <a
-                href="/expeditions"
+                href="/contact#consultation"
                 className="inline-flex items-center gap-2 text-brand-orange text-[12.5px] font-sans font-semibold tracking-luxury uppercase hover:text-brand-orange-light hover:gap-3 transition-all duration-300"
               >
                 Explore the Route

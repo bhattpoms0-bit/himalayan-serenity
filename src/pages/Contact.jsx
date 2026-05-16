@@ -222,7 +222,7 @@ export default function ContactPage() {
                 <p className="font-sans text-brand-text-muted text-sm mb-5 leading-relaxed">
                   Browse our complete range of curated Himalayan expeditions.
                 </p>
-                <a href="/packages" className="btn-primary block text-center text-sm">
+                <a href="/contact#consultation" className="btn-primary block text-center text-sm">
                   View All Packages
                 </a>
               </div>

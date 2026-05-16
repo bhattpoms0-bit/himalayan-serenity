@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Globe } from 'lucide-react'
 
 const NAV_LINKS = [
-  { label: 'Packages',    href: '/packages'    },
-  { label: 'Expeditions', href: '/expeditions' },
-  { label: 'Blog',        href: '/blog'        },
-  { label: 'About',       href: '/about'       },
-  { label: 'FAQ',         href: '/faq'         },
-  { label: 'Contact',     href: '/contact'     },
+  { label: 'Blog',    href: '/blog'    },
+  { label: 'About',  href: '/about'   },
+  { label: 'FAQ',    href: '/faq'     },
+  { label: 'Contact', href: '/contact' },
 ]
 
 // ─── Entrance easing ──────────────────────────────────────────────────────────

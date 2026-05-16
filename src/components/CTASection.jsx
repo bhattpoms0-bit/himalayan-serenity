@@ -36,7 +36,7 @@ export default function CTASection() {
           sacred corridors of the Himalayas.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a href="/packages" className="btn-primary">
+          <a href="/contact#consultation" className="btn-primary">
             Explore Packages
           </a>
           <a
