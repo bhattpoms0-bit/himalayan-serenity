@@ -17,7 +17,6 @@ const EXPLORATIONS = [
 
 const COMPANY = [
   { label: 'Our Story',       href: '/about'   },
-  { label: 'Sustainability',  href: '/sustainability' },
   { label: 'Certifications',  href: '/about'   },
   { label: 'Careers',         href: '/contact' },
 ]
