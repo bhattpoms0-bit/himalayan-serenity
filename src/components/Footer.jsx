@@ -76,16 +76,21 @@ export default function Footer() {
 
           {/* ── Brand column ──────────────────────────────────────────────── */}
           <div>
-            <h3
-              className="italic mb-4 leading-tight text-2xl lg:text-[2.2rem]"
-              style={{
-                fontFamily: '"Playfair Display", Georgia, serif',
-                color:      '#e07b2a',
-                fontWeight: 400,
-              }}
+            <Link
+              to="/"
+              style={{ textDecoration: 'none' }}
             >
-              Himalayan<br />Serenity
-            </h3>
+              <h3
+                className="italic mb-4 leading-tight text-2xl lg:text-[2.2rem] hover:opacity-80 transition-opacity duration-300"
+                style={{
+                  fontFamily: '"Playfair Display", Georgia, serif',
+                  color:      '#e07b2a',
+                  fontWeight: 400,
+                }}
+              >
+                Himalayan<br />Serenity
+              </h3>
+            </Link>
 
             {/* Orange divider */}
             <div

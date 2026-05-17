@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import WhatsAppButton from './components/WhatsAppButton'
+import GlobalNav from './components/GlobalNav'
 
 // Lazy-load every page so only the current route's JS chunk is downloaded
 const Home                           = lazy(() => import('./pages/Home'))
@@ -63,6 +64,8 @@ function PageLoader() {
 function AnimatedRoutes() {
   const location = useLocation()
   return (
+    <>
+    <GlobalNav />
     <Suspense fallback={<PageLoader />}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -84,6 +87,7 @@ function AnimatedRoutes() {
         </Routes>
       </AnimatePresence>
     </Suspense>
+    </>
   )
 }
 

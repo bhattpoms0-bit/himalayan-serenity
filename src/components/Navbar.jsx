@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Globe } from 'lucide-react'
 
@@ -52,13 +53,13 @@ export default function Navbar({ activePage = 'home' }) {
         <div className="flex items-center justify-between h-[68px]">
 
           {/* ── Logo ──────────────────────────────────────────────────────── */}
-          <a
-            href="/"
+          <Link
+            to="/"
             className="uppercase text-white hover:opacity-75 transition-opacity duration-300 text-xs sm:text-sm"
-            style={{ fontFamily: '"Cinzel", serif', letterSpacing: '0.18em' }}
+            style={{ fontFamily: '"Cinzel", serif', letterSpacing: '0.18em', textDecoration: 'none' }}
           >
             Himalayan Serenity
-          </a>
+          </Link>
 
           {/* ── Desktop nav links ─────────────────────────────────────────── */}
           <div className="hidden md:flex items-center gap-8">
