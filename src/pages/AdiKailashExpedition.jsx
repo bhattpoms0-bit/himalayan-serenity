@@ -3,93 +3,89 @@ import { motion } from "framer-motion";
 
 const itinerary = [
   {
-    day: "Day 0",
-    title: "Overnight Departure from Delhi",
-    subtitle: "Delhi → Kumaon Himalaya",
+    day: "Day 1",
+    title: "Delhi to Pithoragarh",
+    subtitle: "Gateway to the Sacred Kumaon Himalayas",
     description:
-      "Depart from Delhi NCR between 8:00 PM – 10:00 PM for the overnight journey toward the sacred Kumaon Himalaya. The journey to Adi Kailash begins long before the mountains appear.",
-    experiences: ["Private SUV transfer (Ertiga / Scorpio)", "Overnight mountain approach"],
-    stay: null,
+      "Begin your unforgettable Adi Kailash Yatra from Delhi NCR with an overnight Himalayan road journey through the scenic landscapes of Uttarakhand toward the mystical Kumaon region. Depart between 8:00 PM – 10:00 PM or opt for a morning departure between 8:00 AM – 10:00 AM, depending on your preferred travel style. As the plains slowly transition into the Himalayan foothills, the spiritual essence of the journey begins long before reaching the mountains. Arrive in Pithoragarh — famously known as the Gateway to Eastern Kumaon and the official starting point of the sacred Adi Kailash & Om Parvat pilgrimage route. In the evening, enjoy a scenic excursion to Chandak, one of the most breathtaking viewpoints in Kumaon, offering panoramic sunset views over the majestic Soar Valley, pine forests, and distant Himalayan ridges.",
+    experiences: [
+      "Scenic Delhi to Kumaon Himalayan drive",
+      "Arrival in the beautiful Soar Valley",
+      "Sunset experience at Chandak Viewpoint",
+      "Mountain acclimatization for high-altitude travel",
+      "Expedition briefing & spiritual orientation",
+    ],
+    stay: "Pithoragarh",
     altitude: null,
   },
   {
-    day: "Day 1",
-    title: "Arrival in Pithoragarh",
-    subtitle: "Gateway to Eastern Kumaon",
-    description:
-      "Arrive in Pithoragarh – the gateway to Eastern Kumaon and the starting point for the Adi Kailash corridor. Evening excursion to Chandak viewpoint for panoramic sunset views over the vast Soar Valley, surrounded by pine-covered Himalayan ridges.",
-    experiences: ["Scenic Kumaon mountain drive", "Soar Valley arrival", "Chandak sunset viewpoint", "Mountain acclimatization", "Expedition orientation"],
-    stay: "Pithoragarh",
-    altitude: "1,650 m",
-  },
-  {
     day: "Day 2",
-    title: "Pithoragarh → Dharchula",
-    subtitle: "Indo-Nepal Himalayan Corridor",
+    title: "Pithoragarh to Gunji",
+    subtitle: "Into the Sacred Himalayan Frontier",
     description:
-      "A cinematic drive following the turquoise Kali River through the dramatic Indo-Nepal border corridor. Suspension bridges, ancient confluences, mountain bazaars, and the raw energy of Himalayan border life.",
-    experiences: ["Kali River valley expedition", "Jauljibi confluence stop", "Indo-Nepal cultural corridor", "Himalayan suspension bridges", "Dharchula bazaar exploration"],
-    stay: "Dharchula",
-    altitude: "940 m",
+      "Today marks one of the most dramatic and transformative drives of the entire Adi Kailash expedition. Journey deeper into the remote Himalayan frontier through winding mountain roads, cascading waterfalls, ancient valleys, and the breathtaking landscapes of the Kali River corridor. Travel through some of the most untouched regions of Eastern Kumaon as you gradually ascend into the sacred high-altitude zone near the Indo-Tibetan border. The route offers spectacular Himalayan scenery and a rare glimpse into remote mountain life. Arrival at Gunji — a peaceful Himalayan settlement surrounded by towering peaks and spiritual silence.",
+    experiences: [
+      "High-altitude Himalayan terrain",
+      "Scenic waterfalls & river valleys",
+      "Remote Kumaon mountain villages",
+      "Kali River corridor landscapes",
+      "Inner Line Permit checkpoint assistance",
+      "Gradual altitude acclimatization",
+    ],
+    stay: "Gunji",
+    altitude: null,
+    note: "Inner Line Permit (ILP) required – complete assistance and documentation support provided",
   },
   {
     day: "Day 3",
-    title: "Dharchula → Gunji",
-    subtitle: "Entering the Sacred Himalayan Zone",
+    title: "Om Parvat, Adi Kailash & Parvati Sarovar Darshan",
+    subtitle: "The Spiritual Heart",
     description:
-      "The most transformative drive of the expedition – ascending through dramatic Himalayan terrain past Narayan Ashram, scenic waterfalls, and remote mountain valleys into the high-altitude sacred zone. Inner Line Permit verification required.",
-    experiences: ["Narayan Ashram visit", "High-altitude Himalayan terrain", "Scenic waterfalls", "Remote valley exploration", "Inner Line Permit checkpoint"],
-    stay: "Gunji",
-    altitude: "3,300 m",
-    note: "Inner Line Permit required – assistance provided",
-  },
-  {
-    day: "Day 4",
-    title: "Adi Kailash & Parvati Sarovar",
-    subtitle: "Sacred Kailash Darshan",
-    description:
-      "The sacred heart of this expedition. Darshan of Adi Kailash – the earthly abode of Lord Shiva, also known as Chhota Kailash – followed by meditation at the sacred Parvati Sarovar lake. A slow, immersive spiritual experience with full acclimatization and reflection time.",
-    experiences: ["Darshan of Adi Kailash", "Meditation at Parvati Sarovar", "Sacred Himalayan rituals", "High-altitude photography", "Spiritual immersion"],
+      "Experience one of the most sacred and visually extraordinary destinations in the Indian Himalayas. Begin the day with an excursion to Om Parvat via Nabhidhang, where the naturally formed sacred ॐ symbol appears on the snow-covered mountain face — a phenomenon revered by Hindu pilgrims and spiritual seekers from across the world. Continue toward the divine abode of Lord Shiva — Adi Kailash, also known as Chhota Kailash. Spend peaceful moments at the sacred Parvati Sarovar, a pristine high-altitude lake believed to be spiritually connected to Goddess Parvati.",
+    experiences: [
+      "Darshan of sacred Om Parvat",
+      "Adi Kailash pilgrimage experience",
+      "Meditation at Parvati Sarovar",
+      "Indo-Tibet Himalayan landscapes",
+      "Spiritual rituals & reflection time",
+      "High-altitude Himalayan photography",
+      "Nabhidhang viewpoint excursion",
+    ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
   },
   {
-    day: "Day 5",
-    title: "Om Parvat Excursion",
-    subtitle: "The Sacred Om Symbol Mountain",
+    day: "Day 4",
+    title: "Gunji to Pithoragarh",
+    subtitle: "Scenic Return Through Eastern Kumaon",
     description:
-      "Witness one of the most extraordinary natural phenomena in the Himalaya – the sacred Om symbol formed by permanent snow on the face of Om Parvat, visible from Nabhidhang. A profound spiritual and visual experience at the edge of India and Tibet.",
-    experiences: ["Om Parvat darshan from Nabhidhang", "Indo-Tibet Himalayan landscape", "High-altitude photography", "Spiritual reflection", "Himalayan silence"],
-    stay: "Dharchula",
-    altitude: "3,600+ m (Nabhidhang)",
-  },
-  {
-    day: "Day 6",
-    title: "Dharchula → Pithoragarh",
-    subtitle: "Return Through Eastern Kumaon",
-    description:
-      "A gentle return through the Kali River corridor – riverside landscapes, unhurried mountain drives, and a relaxed evening in Pithoragarh to absorb the journey before the descent begins.",
-    experiences: ["Scenic Himalayan return drive", "Riverside landscapes", "Slow mountain travel", "Leisure evening in Pithoragarh"],
+      "After completing the sacred Adi Kailash pilgrimage, begin your gradual return journey through the beautiful valleys of Eastern Kumaon. Drive alongside the serene Kali River corridor while absorbing the peaceful Himalayan landscapes, remote villages, and dramatic mountain scenery one final time. This slower return journey allows time to reflect on the spiritual experiences of the expedition.",
+    experiences: [
+      "Scenic Himalayan return drive",
+      "Kali River riverside landscapes",
+      "Slow & immersive mountain travel",
+      "Leisure evening in Pithoragarh",
+      "Reflection & relaxation time",
+    ],
     stay: "Pithoragarh",
     altitude: "1,650 m",
   },
   {
-    day: "Day 7",
-    title: "Pithoragarh → Almora → Delhi",
-    subtitle: "Farewell to the Himalaya",
+    day: "Day 5",
+    title: "Pithoragarh to Almora to Delhi",
+    subtitle: "Farewell to the Himalayas",
     description:
-      "Optional spiritual stops en route – Patal Bhuvaneshwar Cave Temple, Jageshwar Temple Complex, or Kainchi Dham – before a cultural pause in Almora for local handicrafts and mountain café culture, and the final descent toward the plains.",
-    experiences: ["Patal Bhuvaneshwar Cave (optional)", "Jageshwar Temple (optional)", "Kainchi Dham (optional)", "Almora cultural stop", "Local sweets & handicrafts"],
-    stay: "Overnight return to Delhi",
-    altitude: null,
-  },
-  {
-    day: "Day 8",
-    title: "Arrival in Delhi",
-    subtitle: "Tour Concludes",
-    description: "Return to Delhi NCR carrying memories of the sacred Himalaya – a journey that few travelers in the world will ever make.",
-    experiences: [],
-    stay: null,
+      "Bid farewell to the sacred Himalayas as the journey descends through the cultural heart of Kumaon toward Delhi. Optional spiritual and cultural stops along the route: Patal Bhuvaneshwar cave temple, Jageshwar Temple Complex, or Kainchi Dham associated with Neem Karoli Baba. Pause in Almora to experience traditional Kumaoni culture, local handicrafts, mountain cafés, and famous Himalayan sweets before continuing the overnight return journey toward Delhi NCR.",
+    experiences: [
+      "Optional spiritual temple visits",
+      "Patal Bhuvaneshwar Cave exploration",
+      "Jageshwar Temple cultural heritage",
+      "Kainchi Dham spiritual stop",
+      "Almora cultural & café experience",
+      "Kumaoni handicrafts & local sweets",
+      "Scenic Himalayan descent",
+    ],
+    stay: "Overnight Journey: Return to Delhi NCR",
     altitude: null,
   },
 ];
@@ -177,7 +173,7 @@ export default function AdiKailashExpedition() {
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: gold }} />
               <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold }}>
-                Sacred Himalayan Expedition · 7 Nights / 8 Days
+                Sacred Himalayan Expedition · 5 Days / 4 Nights
               </div>
             </div>
             <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
@@ -207,7 +203,7 @@ export default function AdiKailashExpedition() {
       <div style={{ borderTop: `1px solid #ffffff0f`, borderBottom: `1px solid #ffffff0f`, background: card }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 24 }}>
           {[
-            { label: "Duration", value: "7 Nights / 8 Days" },
+            { label: "Duration", value: "5 Days / 4 Nights" },
             { label: "Max Altitude", value: "3,600+ m" },
             { label: "Group Size", value: "Max 8–10 travelers" },
             { label: "Fitness Level", value: "Moderate" },
