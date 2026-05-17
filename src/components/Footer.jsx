@@ -15,12 +15,6 @@ const EXPLORATIONS = [
   { label: 'Women-Only Expedition (Darma Valley)',  href: '/packages/darma-valley-womens-retreat' },
 ]
 
-const COMPANY = [
-  { label: 'Our Story',       href: '/about'   },
-  { label: 'Certifications',  href: '/about'   },
-  { label: 'Careers',         href: '/contact' },
-]
-
 const SOCIAL = [Globe, Mail, Share2]
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -78,7 +72,7 @@ export default function Footer() {
         viewport={{ once: true }}
         className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-12 lg:py-20"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-10">
 
           {/* ── Brand column ──────────────────────────────────────────────── */}
           <div>
@@ -117,16 +111,6 @@ export default function Footer() {
             <ColLabel>Explorations</ColLabel>
             <ul className="space-y-3.5">
               {EXPLORATIONS.map(({ label, href }) => (
-                <FooterLink key={label} href={href}>{label}</FooterLink>
-              ))}
-            </ul>
-          </div>
-
-          {/* ── Company column ────────────────────────────────────────────── */}
-          <div>
-            <ColLabel>Company</ColLabel>
-            <ul className="space-y-3.5">
-              {COMPANY.map(({ label, href }) => (
                 <FooterLink key={label} href={href}>{label}</FooterLink>
               ))}
             </ul>
