@@ -4,53 +4,76 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const testimonials = [
   {
-    quote:  'I went seeking mountains and found myself. They curated a transformation.',
-    name:   'Priya Sharma',
-    info:   'Adi Kailash, 2024',
-    avatar: 'https://i.pravatar.cc/100?img=10',
+    stars:  5,
+    quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. Himalayan Serenity arranged everything flawlessly — permits, accommodation, guides. A life-changing yatra.',
+    name:   'Rajesh Sharma',
+    info:   'New Delhi, India · Adi Kailash Expedition, May 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Rajesh+Sharma',
     flag:   '🇮🇳',
   },
   {
-    quote:  'The guides understood this was not tourism. Every step was sacred.',
-    name:   'Michael Chen',
-    info:   'Om Parvat, 2024',
-    avatar: 'https://i.pravatar.cc/100?img=11',
-    flag:   '🇸🇬',
+    stars:  5,
+    quote:  'As a solo woman traveler I had concerns, but the all-women group and our female guide made me feel completely safe and empowered. The Darma Valley is paradise on earth. Will do this again next year.',
+    name:   'Priya Nair',
+    info:   'Bangalore, India · Women-Only Expedition, April 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Priya+Nair',
+    flag:   '🇮🇳',
   },
   {
-    quote:  'As a senior traveler I was nervous, but their care was extraordinary.',
-    name:   'Margaret Wilson',
-    info:   'Senior Journey, 2023',
-    avatar: 'https://i.pravatar.cc/100?img=12',
+    stars:  5,
+    quote:  'I have trekked in Nepal, Peru and Patagonia — but Panchachuli was something else entirely. Raw, untouched, spiritual. The team\'s attention to safety at altitude was exceptional. Highly recommended for serious trekkers.',
+    name:   'Thomas Bergmann',
+    info:   'Munich, Germany · Panchachuli Trekking Expedition, Sept 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Thomas+Bergmann',
+    flag:   '🇩🇪',
+  },
+  {
+    stars:  4,
+    quote:  'Maine pehle kai baar suna tha Adi Kailash ke baare mein, par is yatra ne meri aatma ko chhu liya. Guides bahut experienced the aur har zaroorat ka khayal rakha. Bas kuch aur din hote toh aur achha hota. Himalayan Serenity ko dil se dhanyavaad.',
+    name:   'Sunita Rawat',
+    info:   'Dehradun, India · Adi Kailash Yatra, June 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Sunita+Rawat',
+    flag:   '🇮🇳',
+  },
+  {
+    stars:  5,
+    quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. The Milam Trail is absolutely stunning and our guide Deepak\'s knowledge of local culture and flora was incredible. Worth every penny.',
+    name:   'Sarah Mitchell',
+    info:   'London, United Kingdom · Eastern Kumaon Wilderness, Oct 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Sarah+Mitchell',
     flag:   '🇬🇧',
   },
   {
-    quote:  'The women-only expedition was empowering beyond words. We left as sisters.',
-    name:   'Aisha Rahman',
-    info:   "Women's Expedition, 2024",
-    avatar: 'https://i.pravatar.cc/100?img=13',
-    flag:   '🇦🇪',
+    stars:  5,
+    quote:  'As a wildlife and landscape photographer, I needed guides who understood golden hour, patience, and remote access. This team delivered beyond expectations. Came back with 3000 shots, 50 of which are portfolio-worthy. Extraordinary.',
+    name:   'Amit Kulkarni',
+    info:   'Pune, India · Himalayan Photography Expedition, May 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Amit+Kulkarni',
+    flag:   '🇮🇳',
   },
   {
-    quote:  'Luxury and spirituality in perfect balance. The silence was divine.',
-    name:   'James Hartford',
-    info:   'Luxury Retreat, 2024',
-    avatar: 'https://i.pravatar.cc/100?img=14',
-    flag:   '🇺🇸',
-  },
-  {
-    quote:  'My camera captured mountains but my soul captured something greater.',
-    name:   'Kenji Tanaka',
-    info:   'Photography Expedition, 2023',
-    avatar: 'https://i.pravatar.cc/100?img=15',
+    stars:  4,
+    quote:  'I came searching for silence and found something much deeper — a connection to the mountains I did not know was possible. The meditation sessions at altitude were transformative. Would have loved one extra day at the retreat. I will carry this experience forever.',
+    name:   'Yuki Tanaka',
+    info:   'Tokyo, Japan · Himalayan Wellness & Meditation Retreat, March 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Yuki+Tanaka',
     flag:   '🇯🇵',
+  },
+  {
+    stars:  5,
+    quote:  'Turning 40 was the perfect excuse to do something bold. This trek was challenging but the team never let me feel like giving up was an option. Crossed the glacier on day 6 and cried happy tears at the top. Best birthday gift to myself.',
+    name:   'Meera Joshi',
+    info:   'Mumbai, India · Panchachuli Trek, August 2024',
+    avatar: 'https://api.dicebear.com/7.x/personas/svg?seed=Meera+Joshi',
+    flag:   '🇮🇳',
   },
 ]
 
-// Group into slides of 3
+// Group into slides of 3 (3 + 3 + 2)
 const slides = [
   testimonials.slice(0, 3),
   testimonials.slice(3, 6),
+  testimonials.slice(6, 8),
 ]
 const SLIDE_COUNT = slides.length
 
@@ -75,14 +98,18 @@ export default function Testimonials() {
         <div className="flex items-center justify-center gap-8 flex-wrap px-6">
           <div className="flex items-center">
             {testimonials.slice(0, 5).map((t, i) => (
-              <img
+              <div
                 key={i}
-                src={t.avatar}
-                alt={t.name}
-                className={`w-8 h-8 rounded-full object-cover border-2 border-[#111111]${i > 0 ? ' -ml-2' : ''}`}
-                loading="lazy"
-                decoding="async"
-              />
+                className={`w-8 h-8 rounded-full overflow-hidden border-2 border-[#111111] bg-[#222]${i > 0 ? ' -ml-2' : ''}`}
+              >
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-full h-full"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             ))}
           </div>
 
@@ -173,7 +200,9 @@ export default function Testimonials() {
                           onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
                         >
                           {/* Stars */}
-                          <div className="text-brand-orange text-sm mb-4">★★★★★</div>
+                          <div className="text-brand-orange text-sm mb-4">
+                            {'★'.repeat(t.stars)}{'☆'.repeat(5 - t.stars)}
+                          </div>
 
                           {/* Decorative quote mark */}
                           <span
@@ -202,13 +231,15 @@ export default function Testimonials() {
 
                           {/* Author row */}
                           <div className="flex items-center gap-3">
-                            <img
-                              src={t.avatar}
-                              alt={t.name}
-                              className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
-                          loading="lazy"
-                          decoding="async"
-                            />
+                            <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10 flex-shrink-0 bg-[#222]">
+                              <img
+                                src={t.avatar}
+                                alt={t.name}
+                                className="w-full h-full"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
                             <div>
                               <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>
                                 {t.name}
