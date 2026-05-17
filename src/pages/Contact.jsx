@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
@@ -6,6 +7,10 @@ import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
 const WEB3FORMS_ACCESS_KEY = "a4bcce53-4a1d-4217-93b6-30b9d714bbdd"
 
 export default function ContactPage() {
+  useSEO({
+    title: 'Book Adi Kailash Yatra 2026 | Om Parvat Tour | Contact Himalayan Serenity',
+    description: 'Book Adi Kailash Yatra and Om Parvat tour 2026. Call or WhatsApp +91 99978 45351. Best Adi Kailash tour operator in Pithoragarh and Dharchula, Uttarakhand.',
+  })
   const [form, setForm] = useState({
     name: '', email: '', phone: '', expedition: '', pilgrims: '', message: ''
   })

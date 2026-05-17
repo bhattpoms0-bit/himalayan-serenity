@@ -1,8 +1,13 @@
 import React from 'react'
+import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 export default function AboutPage() {
+  useSEO({
+    title: 'Best Adi Kailash Yatra Operator | Himalayan Serenity Pithoragarh & Dharchula',
+    description: 'Himalayan Serenity Travel — best Adi Kailash Yatra operator from Pithoragarh and Dharchula, Uttarakhand. Om Parvat tours, Kumaon trekking and wellness packages from Delhi.',
+  })
   return (
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="about" />

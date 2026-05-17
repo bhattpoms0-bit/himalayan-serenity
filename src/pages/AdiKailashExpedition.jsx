@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 
 const itinerary = [
@@ -150,6 +151,10 @@ const seasons = [
 ];
 
 export default function AdiKailashExpedition() {
+  useSEO({
+    title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
+    description: 'Book Adi Kailash Yatra 2026 from Delhi. Adi Kailash temple darshan with Om Parvat tour. Dharchula to Adi Kailash package with Inner Line Permit included. Adi Kailash opening date 2026 — May to October. Small group departures from Delhi and Pithoragarh.',
+  });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSEO } from '../hooks/useSEO'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, X } from 'lucide-react'
 import Navbar from '../components/Navbar'
@@ -36,6 +37,10 @@ const faqs = [
 const suggestTags = ['Package Cost', 'Best Time', 'Safety', 'Senior Citizens', 'Visa Help', 'Weather']
 
 export default function FAQPage() {
+  useSEO({
+    title: 'Adi Kailash Yatra FAQ 2026 | Opening Date | Distance | Om Parvat Questions',
+    description: 'Answers to Adi Kailash Yatra questions — Adi Kailash opening date 2026, Dharchula to Adi Kailash distance, Inner Line Permit, best time to visit, Om Parvat darshan details.',
+  })
   const [openIndex, setOpenIndex]       = useState(null)
   const [chatOpen, setChatOpen]         = useState(false)
   const [query, setQuery]               = useState('')

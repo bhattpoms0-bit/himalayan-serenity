@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 
 const itinerary = [
@@ -162,6 +163,10 @@ const altitudes = [
 ];
 
 export default function WildernessExpedition() {
+  useSEO({
+    title: 'Kumaon Wilderness Tour 2026 | Eastern Kumaon Travel Package from Delhi',
+    description: 'Eastern Kumaon wilderness tour from Delhi and Pithoragarh. Remote Kumaon villages near Dharchula, ancient forests and Himalayan landscapes. Authentic slow travel package 2026.',
+  });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");
 

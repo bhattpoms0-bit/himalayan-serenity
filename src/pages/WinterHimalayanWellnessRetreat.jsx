@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSEO } from '../hooks/useSEO';
 
 const BASE = "/images/winter-himalayan-wellness-retreat/";
 
@@ -8,6 +9,10 @@ const imgStyle = (h = 220) => ({
 });
 
 const WinterHimalayanWellnessRetreat = () => {
+  useSEO({
+    title: 'Winter Kumaon Tour 2026 | Himalayan Winter Travel Package from Delhi',
+    description: '9-day winter Kumaon tour from Delhi and Pithoragarh. Munsiyari snowfall, Abbott Mount, Jageshwar temple winter tour, Kasar Devi. Best winter Uttarakhand travel package 2026.',
+  });
   const [activeDay, setActiveDay] = useState(null);
   const [activeTab, setActiveTab] = useState("inclusions");
 

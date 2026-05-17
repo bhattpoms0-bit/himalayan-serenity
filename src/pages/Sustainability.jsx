@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -52,6 +53,10 @@ const STATS = [
 ]
 
 export default function Sustainability() {
+  useSEO({
+    title: 'Responsible Adi Kailash Yatra | Eco Tourism Kumaon | Himalayan Serenity',
+    description: 'Responsible Adi Kailash Yatra and Kumaon eco tourism from Pithoragarh. Small groups, supporting local Dharchula communities, plastic-free Himalayan travel.',
+  })
   return (
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="sustainability" />
