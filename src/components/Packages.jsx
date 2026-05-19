@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, MessageCircle, Clock, TrendingUp, Users } from 'lucide-react'
 
@@ -12,6 +12,7 @@ const FEATURED = [
     days:       5,
     difficulty: 'Moderate',
     people:     12,
+    spots:      8,
     price:      'On Request',
     image:      '/images/packages/adi-kailash-base.jpg',
     link:       '/packages/adi-kailash-expedition',
@@ -23,6 +24,7 @@ const FEATURED = [
     days:       10,
     difficulty: 'Challenging',
     people:     8,
+    spots:      4,
     price:      'On Request',
     image:      '/images/packages/panchachuli-real.jpg',
     link:       '/packages/panchachuli-expedition',
@@ -34,6 +36,7 @@ const FEATURED = [
     days:     8,
     difficulty: 'Moderate',
     people:   10,
+    spots:    6,
     price:    'On Request',
     image:    '/images/packages/johar-valley.jpg',
     link:     '/packages/cinematic-expedition',
@@ -45,6 +48,7 @@ const FEATURED = [
     days:     9,
     difficulty: 'Moderate',
     people:   10,
+    spots:    5,
     price:    'On Request',
     image:    '/images/packages/panchachuli-sunrise.jpg',
     link:     '/packages/wilderness-expedition',
@@ -57,6 +61,7 @@ const MORE = [
     title:  'Himalayan Wellness & Meditation Retreat',
     days:   7,
     people: 15,
+    spots:  7,
     price:  'On Request',
     image:  '/images/wellness/forest-meditation.jpg',
     link:   '/packages/wellness-retreat',
@@ -67,6 +72,7 @@ const MORE = [
     subtitle: 'Dharchula · Darma Valley · Hidden Himalayan Villages',
     days:     12,
     people:   6,
+    spots:    3,
     price:    'On Request',
     image:    '/images/darma-valley-womens-retreat/woman-traveler-himalayan-mountain-sunset.jpg',
     alt:      'Women-Only Expedition Darma Valley Himalaya',
@@ -77,6 +83,7 @@ const MORE = [
     title:  'Himalayan Photography Expedition',
     days:   8,
     people: 10,
+    spots:  5,
     price:  'On Request',
     image:  '/images/himalayan-photography-expedition/camera-tripod-golden-hour-himalayan-mountains.jpg',
     alt:    'Himalayan Photography Expedition camera tripod golden hour',
@@ -88,13 +95,14 @@ const MORE = [
     subtitle: 'Pithoragarh · Munsiyari · Abbott Mount · Jageshwar · Kasar Devi',
     days:     9,
     people:   10,
+    spots:    6,
     price:    'On Request',
     image:    '/images/wellness/above-clouds.jpg',
     link:     '/packages/winter-himalayan-wellness-retreat',
   },
 ]
 
-// Tag colour map — Cinzel, 10px, tracking-[0.15em], uppercase, rounded-full
+// Tag colour map
 const TAG_BG = {
   'Most Popular':           '#e07b2a',
   'Trekking Expedition':    'rgba(99,102,241,0.85)',
@@ -106,144 +114,151 @@ const TAG_BG = {
   'Winter Special':         'rgba(99,155,210,0.85)',
 }
 
-// Scroll-reveal easing
-const EASE = [0.25, 0.46, 0.45, 0.94]
-
-// Hover easing — spring-like overshoot makes the lift feel physical, not mechanical
+const EASE       = [0.25, 0.46, 0.45, 0.94]
 const HOVER_EASE = [0.34, 1.56, 0.64, 1]
 
 // ─── Package Card ─────────────────────────────────────────────────────────────
 function PackageCard({ pkg, large = false, index = 0 }) {
   const ref      = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const navigate = useNavigate()
 
-  // Build meta items, filter empty fields
   const meta = [
-    pkg.days       && { Icon: Clock,      label: `${pkg.days} Days`   },
-    pkg.difficulty && { Icon: TrendingUp, label: pkg.difficulty        },
-    pkg.people     && { Icon: Users,      label: `${pkg.people} pax`  },
+    pkg.days       && { Icon: Clock,      label: `${pkg.days} Days`  },
+    pkg.difficulty && { Icon: TrendingUp, label: pkg.difficulty       },
+    pkg.people     && { Icon: Users,      label: `${pkg.people} pax` },
   ].filter(Boolean)
 
-  const cardInner = (
+  const bookUrl = `/contact?expedition=${encodeURIComponent(pkg.title)}`
+
+  return (
     <motion.div
-      whileHover={{
-        y: -10,
-        scale: 1.012,
-        boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(224,123,42,0.25)',
-      }}
-      transition={{ duration: 0.45, ease: HOVER_EASE }}
-      className="group cursor-pointer rounded-2xl overflow-hidden"
-      style={{
-        backgroundColor: '#1a1a1a',
-        border:          '1px solid rgba(255,255,255,0.08)',
-        boxShadow:       '0 0px 0px rgba(0,0,0,0), 0 0 0 0px rgba(224,123,42,0)',
-      }}
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
     >
-      {/* ── Image ──────────────────────────────────────────────────────── */}
-      <div className={`relative overflow-hidden ${large ? 'h-[280px]' : 'h-[224px]'}`}>
-        <img
-          src={pkg.image}
-          alt={pkg.alt ?? pkg.title}
-          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-          loading="lazy"
-          decoding="async"
-        />
+      <motion.div
+        whileHover={{
+          y: -10,
+          scale: 1.012,
+          boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(224,123,42,0.25)',
+        }}
+        transition={{ duration: 0.45, ease: HOVER_EASE }}
+        onClick={() => pkg.link && navigate(pkg.link)}
+        className="group cursor-pointer rounded-2xl overflow-hidden"
+        style={{
+          backgroundColor: '#1a1a1a',
+          border:          '1px solid rgba(255,255,255,0.08)',
+          boxShadow:       '0 0px 0px rgba(0,0,0,0)',
+        }}
+      >
+        {/* ── Image ──────────────────────────────────────────────────────── */}
+        <div className={`relative overflow-hidden ${large ? 'h-[280px]' : 'h-[224px]'}`}>
+          <img
+            src={pkg.image}
+            alt={pkg.alt ?? pkg.title}
+            className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
+            decoding="async"
+          />
 
-        {/* Subtle bottom gradient so card-body transition looks clean */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.45) 100%)' }}
-        />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.45) 100%)' }}
+          />
 
-        {/* Tag badge */}
-        {pkg.tag && (
-          <span
-            className="absolute top-4 left-4 text-white"
-            style={{
-              fontFamily:      '"Cinzel", serif',
-              fontSize:        10,
-              letterSpacing:   '0.15em',
-              textTransform:   'uppercase',
-              backgroundColor: TAG_BG[pkg.tag] ?? '#e07b2a',
-              borderRadius:    9999,
-              padding:         '4px 12px',
-            }}
-          >
-            {pkg.tag}
-          </span>
-        )}
-      </div>
-
-      {/* ── Card body ──────────────────────────────────────────────────── */}
-      <div className="p-7">
-
-        {/* Title */}
-        <h3
-          className={`font-serif text-white leading-snug tracking-[-0.01em] ${pkg.subtitle ? 'mb-2' : 'mb-5'}`}
-          style={{ fontSize: large ? '1.25rem' : '1.05rem' }}
-        >
-          {pkg.title}
-        </h3>
-
-        {/* Optional subtitle */}
-        {pkg.subtitle && (
-          <p
-            className="font-sans mb-5"
-            style={{ fontSize: 12, color: '#666666', letterSpacing: '0.03em' }}
-          >
-            {pkg.subtitle}
-          </p>
-        )}
-
-        {/* Meta row */}
-        <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-6">
-          {meta.map(({ Icon, label }, i) => (
-            <span key={label} className="flex items-center gap-1.5">
-              {i > 0 && (
-                <span style={{ color: '#e07b2a', fontSize: 8, lineHeight: 1 }}>•</span>
-              )}
-              <span
-                className="flex items-center gap-1 font-sans uppercase tracking-wide"
-                style={{ color: '#666666', fontSize: 11 }}
-              >
-                <Icon size={10} strokeWidth={1.5} />
-                {label}
-              </span>
-            </span>
-          ))}
-        </div>
-
-        {/* Price + CTA row */}
-        <div className="flex items-center justify-between">
-          <div>
-            <p
-              className="uppercase mb-1"
+          {/* Tag badge */}
+          {pkg.tag && (
+            <span
+              className="absolute top-4 left-4 text-white"
               style={{
-                fontFamily:    '"Cinzel", serif',
-                fontSize:      9,
-                letterSpacing: '0.15em',
-                color:         '#555555',
+                fontFamily:      '"Cinzel", serif',
+                fontSize:        10,
+                letterSpacing:   '0.15em',
+                textTransform:   'uppercase',
+                backgroundColor: TAG_BG[pkg.tag] ?? '#e07b2a',
+                borderRadius:    9999,
+                padding:         '4px 12px',
               }}
             >
-              Pricing
-            </p>
-            <p
-              className="font-serif leading-none"
-              style={{ fontSize: pkg.price === 'On Request' ? 18 : 26, color: '#e07b2a' }}
+              {pkg.tag}
+            </span>
+          )}
+
+          {/* Spots badge */}
+          {pkg.spots && (
+            <span
+              className="absolute bottom-3 right-3 text-white font-sans"
+              style={{
+                fontSize:        10,
+                letterSpacing:   '0.05em',
+                backgroundColor: pkg.spots <= 4 ? 'rgba(220,38,38,0.85)' : 'rgba(0,0,0,0.65)',
+                backdropFilter:  'blur(4px)',
+                borderRadius:    9999,
+                padding:         '3px 10px',
+                border:          '1px solid rgba(255,255,255,0.12)',
+              }}
             >
-              {pkg.price}
+              Only {pkg.spots} spots left
+            </span>
+          )}
+        </div>
+
+        {/* ── Card body ──────────────────────────────────────────────────── */}
+        <div className="p-7">
+
+          <h3
+            className={`font-serif text-white leading-snug tracking-[-0.01em] ${pkg.subtitle ? 'mb-2' : 'mb-5'}`}
+            style={{ fontSize: large ? '1.25rem' : '1.05rem' }}
+          >
+            {pkg.title}
+          </h3>
+
+          {pkg.subtitle && (
+            <p
+              className="font-sans mb-5"
+              style={{ fontSize: 12, color: '#666666', letterSpacing: '0.03em' }}
+            >
+              {pkg.subtitle}
             </p>
+          )}
+
+          {/* Meta row */}
+          <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-6">
+            {meta.map(({ Icon, label }, i) => (
+              <span key={label} className="flex items-center gap-1.5">
+                {i > 0 && (
+                  <span style={{ color: '#e07b2a', fontSize: 8, lineHeight: 1 }}>•</span>
+                )}
+                <span
+                  className="flex items-center gap-1 font-sans uppercase tracking-wide"
+                  style={{ color: '#666666', fontSize: 11 }}
+                >
+                  <Icon size={10} strokeWidth={1.5} />
+                  {label}
+                </span>
+              </span>
+            ))}
           </div>
 
-          <div className="flex items-center gap-3">
-            {pkg.link && (
-              <span
-                className="font-sans uppercase"
-                style={{ fontSize: 11, color: '#888888', letterSpacing: '0.08em' }}
+          {/* Price row */}
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <p
+                className="uppercase mb-1"
+                style={{ fontFamily: '"Cinzel", serif', fontSize: 9, letterSpacing: '0.15em', color: '#555555' }}
               >
-                View Package
-              </span>
-            )}
+                Pricing
+              </p>
+              <p
+                className="font-serif leading-none"
+                style={{ fontSize: pkg.price === 'On Request' ? 18 : 26, color: '#e07b2a' }}
+              >
+                {pkg.price}
+              </p>
+            </div>
+
             <div
               className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0
                          transition-all duration-300 ease-out
@@ -253,26 +268,34 @@ function PackageCard({ pkg, large = false, index = 0 }) {
               <ArrowRight size={16} strokeWidth={2} className="text-white" />
             </div>
           </div>
+
+          {/* Book CTA — stops card-click propagation so it routes to /contact */}
+          <Link
+            to={bookUrl}
+            onClick={e => e.stopPropagation()}
+            className="block w-full text-center font-sans font-semibold rounded-xl py-3 transition-all duration-200"
+            style={{
+              fontSize:        13,
+              letterSpacing:   '0.04em',
+              color:           '#e07b2a',
+              border:          '1px solid rgba(224,123,42,0.35)',
+              backgroundColor: 'rgba(224,123,42,0.06)',
+              textDecoration:  'none',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.backgroundColor = 'rgba(224,123,42,0.14)'
+              e.currentTarget.style.borderColor = 'rgba(224,123,42,0.6)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.backgroundColor = 'rgba(224,123,42,0.06)'
+              e.currentTarget.style.borderColor = 'rgba(224,123,42,0.35)'
+            }}
+          >
+            Book This Expedition
+          </Link>
+
         </div>
-
-      </div>
-    </motion.div>
-  )
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: EASE }}
-    >
-      {pkg.link ? (
-        <Link to={pkg.link} style={{ textDecoration: 'none', display: 'block' }}>
-          {cardInner}
-        </Link>
-      ) : (
-        cardInner
-      )}
+      </motion.div>
     </motion.div>
   )
 }
@@ -296,19 +319,12 @@ export default function Packages() {
         >
           <p
             className="mb-5 uppercase"
-            style={{
-              fontFamily:    '"Cinzel", serif',
-              fontSize:      11,
-              letterSpacing: '0.2em',
-              color:         '#e07b2a',
-            }}
+            style={{ fontFamily: '"Cinzel", serif', fontSize: 11, letterSpacing: '0.2em', color: '#e07b2a' }}
           >
             Curated Journeys
           </p>
 
-          <h2
-            className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em] text-3xl sm:text-4xl lg:text-5xl"
-          >
+          <h2 className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em] text-3xl sm:text-4xl lg:text-5xl">
             Sacred Peaks &amp; Spiritual Trails
           </h2>
 
@@ -321,15 +337,15 @@ export default function Packages() {
           </p>
         </motion.div>
 
-        {/* ── Featured 2 large cards ─────────────────────────────────────── */}
+        {/* ── Featured 4 large cards ─────────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {FEATURED.map((pkg, i) => (
             <PackageCard key={pkg.title} pkg={pkg} large index={i} />
           ))}
         </div>
 
-        {/* ── 3 smaller cards — stagger restarts from 0 for this grid ─────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* ── 4 smaller cards ──────────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {MORE.map((pkg, i) => (
             <PackageCard key={pkg.title} pkg={pkg} index={i} />
           ))}

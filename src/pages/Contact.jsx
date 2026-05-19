@@ -11,8 +11,9 @@ export default function ContactPage() {
     title: 'Book Adi Kailash Yatra 2026 | Om Parvat Tour | Contact Himalayan Serenity',
     description: 'Book Adi Kailash Yatra and Om Parvat tour 2026. Call or WhatsApp +91 99978 45351. Best Adi Kailash tour operator in Pithoragarh and Dharchula, Uttarakhand.',
   })
-  const [form, setForm] = useState({
-    name: '', email: '', phone: '', expedition: '', pilgrims: '', message: ''
+  const [form, setForm] = useState(() => {
+    const expedition = new URLSearchParams(window.location.search).get('expedition') || ''
+    return { name: '', email: '', phone: '', expedition, pilgrims: '', message: '' }
   })
   const [status, setStatus] = useState('idle') // idle | loading | success | error
 
@@ -104,7 +105,10 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <h3 className="font-serif text-xl text-brand-cream mb-6">Book a Consultation</h3>
+                  <h3 className="font-serif text-xl text-brand-cream mb-2">Book a Consultation</h3>
+                  <p className="font-sans text-xs mb-6 pb-4 border-b border-white/[0.06]" style={{ color: '#e07b2a' }}>
+                    Complete this form and we'll respond within 24 hours.
+                  </p>
 
                   {[
                     { name: 'name',  label: 'Full Name',        type: 'text',  placeholder: 'Your name',       required: true  },

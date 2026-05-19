@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll } from 'framer-motion'
 import WhatsAppButton from './components/WhatsAppButton'
 import GlobalNav from './components/GlobalNav'
+import MobileCTA from './components/MobileCTA'
 
 // Lazy-load every page so only the current route's JS chunk is downloaded
 const Home                           = lazy(() => import('./pages/Home'))
@@ -115,6 +116,7 @@ export default function App() {
 
       {/* Persistent across all pages */}
       <WhatsAppButton />
+      <MobileCTA />
     </BrowserRouter>
   )
 }

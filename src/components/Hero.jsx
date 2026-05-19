@@ -117,12 +117,12 @@ export default function Hero() {
             expeditions with safety, luxury, and authenticity.
           </motion.p>
 
-          {/* Buttons — px-6 py-3, mb-8 = 32px below */}
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.88, ease: SPRING }}
-            className="flex flex-col sm:flex-row gap-3 mb-8 justify-center sm:justify-start"
+            className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start"
           >
             {/* Primary */}
             <motion.a
@@ -134,7 +134,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               className="bg-brand-orange hover:bg-brand-orange-light text-white font-sans font-medium rounded-full px-6 py-3 text-[13px] tracking-wide cursor-pointer inline-flex items-center justify-center gap-2 transition-colors duration-300 w-full sm:w-auto"
             >
-              Explore Journeys
+              Plan My Sacred Journey
             </motion.a>
 
             {/* Secondary */}
@@ -147,13 +147,13 @@ export default function Hero() {
               className="border border-white/20 rounded-full w-full sm:w-auto"
               style={{ display: 'inline-block' }}
             >
-              <Link
-                to="/contact#consultation"
+              <a
+                href="#packages-section"
                 className="block text-white/75 hover:text-white font-sans font-medium px-6 py-3 text-[13px] tracking-wide cursor-pointer transition-colors duration-300 text-center"
                 style={{ textDecoration: 'none' }}
               >
-                Plan My Trip
-              </Link>
+                View Expeditions
+              </a>
             </motion.div>
 
             {/* Video */}
@@ -167,6 +167,17 @@ export default function Hero() {
               Watch Film
             </button>
           </motion.div>
+
+          {/* Urgency text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
+            className="font-sans mt-3 mb-6 text-center sm:text-left"
+            style={{ fontSize: 12, color: 'rgba(224,123,42,0.75)', letterSpacing: '0.04em' }}
+          >
+            ⚡ Limited spots for 2026 season — Book Early
+          </motion.p>
 
           {/* Departure Bar — mt-6 keeps it anchored below buttons */}
           <motion.div
