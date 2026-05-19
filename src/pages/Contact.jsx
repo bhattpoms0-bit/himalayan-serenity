@@ -50,6 +50,13 @@ export default function ContactPage() {
 
       if (res.ok && data.success) {
         setStatus('success')
+        if (typeof window.gtag !== 'undefined') {
+          window.gtag('event', 'form_submit', {
+            event_category: 'Contact',
+            event_label: 'Expedition Inquiry',
+            value: 1
+          });
+        }
       } else {
         console.error('Web3Forms error:', data)
         setStatus('error')
