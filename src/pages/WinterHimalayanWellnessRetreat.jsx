@@ -666,7 +666,7 @@ const WinterHimalayanWellnessRetreat = () => {
           >
             Enquire Now
           </a>
-          <a href="https://wa.me/919997845351" style={{ display: "inline-block", padding: "16px 40px", backgroundColor: "transparent", border: "1px solid rgba(138,180,212,0.4)", color: "#8ab4d4", borderRadius: "100px", textDecoration: "none", fontSize: "0.95rem", letterSpacing: "0.5px", transition: "all 0.3s ease" }}
+          <a href="https://wa.me/919084642557" style={{ display: "inline-block", padding: "16px 40px", backgroundColor: "transparent", border: "1px solid rgba(138,180,212,0.4)", color: "#8ab4d4", borderRadius: "100px", textDecoration: "none", fontSize: "0.95rem", letterSpacing: "0.5px", transition: "all 0.3s ease" }}
             onMouseEnter={e => { e.currentTarget.style.backgroundColor = "rgba(138,180,212,0.1)"; }}
             onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; }}
           >

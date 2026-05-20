@@ -160,7 +160,7 @@ export default function Footer() {
             {/* Contact info */}
             <div className="space-y-1.5 mb-6 font-sans" style={{ fontSize: 12, color: '#555555' }}>
               <p>info@himalayanserenitytravel.com</p>
-              <p>+91 99978 45351</p>
+              <p>+91 90846 42557</p>
               <p>Pithoragarh, Uttarakhand 262529</p>
             </div>
 

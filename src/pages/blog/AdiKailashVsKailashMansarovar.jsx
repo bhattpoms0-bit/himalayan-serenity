@@ -530,7 +530,7 @@ export default function AdiKailashVsKailashMansarovar() {
               }}>
                 Book Consultation
               </a>
-              <a href="https://wa.me/919997845351" style={{
+              <a href="https://wa.me/919084642557" style={{
                 display: "inline-block", padding: "16px 40px",
                 backgroundColor: "transparent",
                 border: "1px solid rgba(196,160,80,0.4)",
@@ -538,7 +538,7 @@ export default function AdiKailashVsKailashMansarovar() {
                 borderRadius: "100px", textDecoration: "none",
                 fontSize: "0.95rem",
               }}>
-                WhatsApp +91 99978 45351
+                WhatsApp +91 90846 42557
               </a>
             </div>
             <p style={{ fontSize: "0.8rem", color: "#4a3a20", marginTop: "20px" }}>
