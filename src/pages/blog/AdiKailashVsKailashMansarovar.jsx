@@ -124,6 +124,21 @@ export default function AdiKailashVsKailashMansarovar() {
           </div>
         </div>
 
+        {/* HERO IMAGE */}
+        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "48px 6% 0" }}>
+          <img
+            src="/images/blog/adi-kailash-vs-mount-kailash-mansarovar-comparison.jpg"
+            alt="Mount Kailash Tibet vs Adi Kailash Uttarakhand comparison"
+            style={{
+              width: "100%",
+              height: "clamp(300px, 40vw, 500px)",
+              objectFit: "cover",
+              borderRadius: "16px",
+              display: "block",
+            }}
+          />
+        </div>
+
         <div style={{ maxWidth: "900px", margin: "0 auto", padding: "80px 6%" }}>
 
           {/* INTRO */}
