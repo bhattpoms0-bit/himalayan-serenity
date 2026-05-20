@@ -1,5 +1,22 @@
 export const blogPosts = [
   {
+    id: 6,
+    slug: "adi-kailash-vs-kailash-mansarovar",
+    title: "Adi Kailash vs Kailash Mansarovar — Which Should You Choose in 2026?",
+    subtitle: "A complete honest comparison of two sacred Himalayan pilgrimages",
+    category: "Pilgrimage Guide",
+    date: "May 20, 2026",
+    readTime: "15 min read",
+    author: "Himalayan Serenity Team",
+    image: "/images/packages/adi-kailash-base.jpg",
+    imageAlt: "Adi Kailash sacred peak Pithoragarh Uttarakhand India",
+    metaTitle: "Adi Kailash vs Kailash Mansarovar 2026 | Complete Verified Guide",
+    metaDescription: "Honest comparison of Adi Kailash Yatra and Kailash Mansarovar Yatra 2026. Official eligibility, selection process, Om Parvat darshan, and which sacred pilgrimage is right for you. KMY facts verified from kmy.gov.in.",
+    keywords: ["Adi Kailash vs Kailash Mansarovar", "Kailash Mansarovar Yatra 2026", "kmy.gov.in", "Adi Kailash Yatra", "Om Parvat darshan", "Himalayan pilgrimage comparison"],
+    excerpt: "A complete honest comparison of two sacred Himalayan pilgrimages — eligibility, selection process, Om Parvat darshan, cost and which Kailash journey is right for you. KMY facts verified from kmy.gov.in.",
+    content: "",
+  },
+  {
     id: 1,
     slug: "adi-kailash-complete-guide-2024",
     title: "Adi Kailash Yatra: The Complete Guide for 2025",
