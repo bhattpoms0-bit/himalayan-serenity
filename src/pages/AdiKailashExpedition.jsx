@@ -113,8 +113,8 @@ const itinerary = [
     ],
     stay: "Bhimtal / Haldwani",
     altitude: null,
-    image: "/images/darma-valley-womens-retreat/darma-valley-dugtu-village-uttarakhand.jpg",
-    imageAlt: "Kumaon village temple circuit Uttarakhand Himalaya",
+    image: "/images/adi-kailash-expedition/kumaon-temple-circuit-jageshwar-uttarakhand.png",
+    imageAlt: "Jageshwar temple complex and Kumaon riverside temple circuit Uttarakhand",
   },
   {
     day: "Day 6",
