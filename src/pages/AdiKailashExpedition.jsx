@@ -6,87 +6,101 @@ const itinerary = [
   {
     day: "Day 1",
     title: "Delhi to Pithoragarh",
-    subtitle: "Gateway to the Sacred Kumaon Himalayas",
+    subtitle: "Gateway to the Sacred Himalayas",
     description:
-      "Begin your unforgettable Adi Kailash Yatra from Delhi NCR with an overnight Himalayan road journey through the scenic landscapes of Uttarakhand toward the mystical Kumaon region. Depart between 8:00 PM – 10:00 PM or opt for a morning departure between 8:00 AM – 10:00 AM, depending on your preferred travel style. As the plains slowly transition into the Himalayan foothills, the spiritual essence of the journey begins long before reaching the mountains. Arrive in Pithoragarh — famously known as the Gateway to Eastern Kumaon and the official starting point of the sacred Adi Kailash & Om Parvat pilgrimage route. In the evening, enjoy a scenic excursion to Chandak, one of the most breathtaking viewpoints in Kumaon, offering panoramic sunset views over the majestic Soar Valley, pine forests, and distant Himalayan ridges.",
+      "Departure from Delhi towards Kumaon Himalayas. Scenic drive through river valleys, forests, and mountain landscapes. Arrival at Pithoragarh — the cultural heart of Kumaon. Expedition briefing and acclimatization support.",
     experiences: [
-      "Scenic Delhi to Kumaon Himalayan drive",
-      "Arrival in the beautiful Soar Valley",
-      "Sunset experience at Chandak Viewpoint",
-      "Mountain acclimatization for high-altitude travel",
-      "Expedition briefing & spiritual orientation",
+      "Himalayan mountain views",
+      "Kumaoni cultural landscapes",
+      "Premium welcome assistance",
+      "Scenic Delhi to Kumaon drive",
     ],
     stay: "Pithoragarh",
     altitude: null,
   },
   {
     day: "Day 2",
-    title: "Pithoragarh to Gunji",
-    subtitle: "Into the Sacred Himalayan Frontier",
+    title: "Pithoragarh to Dharchula",
+    subtitle: "Into the Himalayan Frontier | Optional Nepal Visit",
     description:
-      "Today marks one of the most dramatic and transformative drives of the entire Adi Kailash expedition. Journey deeper into the remote Himalayan frontier through winding mountain roads, cascading waterfalls, ancient valleys, and the breathtaking landscapes of the Kali River corridor. Travel through some of the most untouched regions of Eastern Kumaon as you gradually ascend into the sacred high-altitude zone near the Indo-Tibetan border. The route offers spectacular Himalayan scenery and a rare glimpse into remote mountain life. Arrival at Gunji — a peaceful Himalayan settlement surrounded by towering peaks and spiritual silence.",
+      "Morning drive toward Dharchula via Jauljibi. Arrival at the Indo-Nepal Himalayan border town. Optional Nepal market and cultural visit (subject to permissions). Introduction to high Himalayan trade routes and border culture.",
     experiences: [
-      "High-altitude Himalayan terrain",
-      "Scenic waterfalls & river valleys",
-      "Remote Kumaon mountain villages",
-      "Kali River corridor landscapes",
-      "Inner Line Permit checkpoint assistance",
-      "Gradual altitude acclimatization",
+      "Kali River valley drive",
+      "Indo-Nepal border experience",
+      "Himalayan frontier landscapes",
     ],
-    stay: "Gunji",
+    stay: "Dharchula / Gunji Region",
     altitude: null,
-    note: "Inner Line Permit (ILP) required – complete assistance and documentation support provided",
+    note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
   },
   {
     day: "Day 3",
-    title: "Om Parvat, Adi Kailash & Parvati Sarovar Darshan",
-    subtitle: "The Spiritual Heart",
+    title: "Adi Kailash Darshan Expedition",
+    subtitle: "Sacred Himalayan Pilgrimage Experience",
     description:
-      "Experience one of the most sacred and visually extraordinary destinations in the Indian Himalayas. Begin the day with an excursion to Om Parvat via Nabhidhang, where the naturally formed sacred ॐ symbol appears on the snow-covered mountain face — a phenomenon revered by Hindu pilgrims and spiritual seekers from across the world. Continue toward the divine abode of Lord Shiva — Adi Kailash, also known as Chhota Kailash. Spend peaceful moments at the sacred Parvati Sarovar, a pristine high-altitude lake believed to be spiritually connected to Goddess Parvati.",
+      "Early morning departure toward one of the holiest Himalayan destinations. A deeply sacred day of spiritual immersion, high-altitude landscapes, and mythological heritage.",
+    keyDestinations: [
+      "Adi Kailash Darshan",
+      "Parvati Sarovar",
+      "Gauri Kund",
+      "Bheem Ki Kheti",
+      "Jolingkong Region",
+    ],
     experiences: [
-      "Darshan of sacred Om Parvat",
-      "Adi Kailash pilgrimage experience",
-      "Meditation at Parvati Sarovar",
-      "Indo-Tibet Himalayan landscapes",
-      "Spiritual rituals & reflection time",
-      "High-altitude Himalayan photography",
-      "Nabhidhang viewpoint excursion",
+      "Spiritual Himalayan immersion",
+      "High-altitude sacred lake experience",
+      "Rare Himalayan landscapes",
+      "Photography opportunities",
+      "Mythological storytelling and local culture",
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
   },
   {
     day: "Day 4",
-    title: "Gunji to Pithoragarh",
-    subtitle: "Scenic Return Through Eastern Kumaon",
+    title: "Om Parvat & Lipulekh Viewpoint",
+    subtitle: "Sacred Symbol Mountain & Kailash View Corridor",
     description:
-      "After completing the sacred Adi Kailash pilgrimage, begin your gradual return journey through the beautiful valleys of Eastern Kumaon. Drive alongside the serene Kali River corridor while absorbing the peaceful Himalayan landscapes, remote villages, and dramatic mountain scenery one final time. This slower return journey allows time to reflect on the spiritual experiences of the expedition.",
+      "Early morning excursion toward Om Parvat. View the naturally formed sacred ॐ symbol on the snow-covered mountain face. Continue toward Lipulekh Himalayan viewpoint. Weather permitting, distant Himalayan views toward Mount Kailash region. Return journey toward Pithoragarh.",
     experiences: [
-      "Scenic Himalayan return drive",
-      "Kali River riverside landscapes",
-      "Slow & immersive mountain travel",
-      "Leisure evening in Pithoragarh",
-      "Reflection & relaxation time",
+      "Om Parvat darshan",
+      "Lipulekh Himalayan corridor",
+      "High-altitude scenic drive",
+      "Sacred Himalayan photography points",
     ],
     stay: "Pithoragarh",
-    altitude: "1,650 m",
+    altitude: "3,600+ m",
   },
   {
     day: "Day 5",
-    title: "Pithoragarh to Almora to Delhi",
-    subtitle: "Farewell to the Himalayas",
+    title: "Kumaon Spiritual Temple Circuit",
+    subtitle: "Ancient Temples & Himalayan Heritage",
     description:
-      "Bid farewell to the sacred Himalayas as the journey descends through the cultural heart of Kumaon toward Delhi. Optional spiritual and cultural stops along the route: Patal Bhuvaneshwar cave temple, Jageshwar Temple Complex, or Kainchi Dham associated with Neem Karoli Baba. Pause in Almora to experience traditional Kumaoni culture, local handicrafts, mountain cafés, and famous Himalayan sweets before continuing the overnight return journey toward Delhi NCR.",
-    experiences: [
-      "Optional spiritual temple visits",
-      "Patal Bhuvaneshwar Cave exploration",
-      "Jageshwar Temple cultural heritage",
-      "Kainchi Dham spiritual stop",
-      "Almora cultural & café experience",
-      "Kumaoni handicrafts & local sweets",
-      "Scenic Himalayan descent",
+      "A spiritually immersive journey through Kumaon's revered temple circuit — ancient shrines, sacred forests, and Himalayan cultural heritage.",
+    keyDestinations: [
+      "Haat Kalika Temple (Optional)",
+      "Patal Bhuvaneshwar Cave Temple (Optional)",
+      "Jageshwar Dham",
+      "Chitai Golu Devta Temple",
+      "Kainchi Dham",
     ],
-    stay: "Overnight Journey: Return to Delhi NCR",
+    experiences: [
+      "Ancient Himalayan temple architecture",
+      "Spiritual forest landscapes",
+      "Cave temple exploration",
+      "Cultural and mythological heritage",
+    ],
+    stay: "Bhimtal / Haldwani",
+    altitude: null,
+  },
+  {
+    day: "Day 6",
+    title: "Return to Delhi",
+    subtitle: "Completion of the Sacred Himalayan Journey",
+    description:
+      "Morning departure toward Delhi. Scenic descent through Kumaon hills. Expedition concludes with unforgettable Himalayan memories.",
+    experiences: [],
+    stay: "Home",
     altitude: null,
   },
 ];
@@ -150,6 +164,74 @@ const seasons = [
   { period: "November onwards", experience: "High passes close – expedition not possible" },
 ];
 
+const travelerTypes = [
+  { icon: "🕉️", label: "Spiritual Seekers" },
+  { icon: "🏔️", label: "Adventure Travelers" },
+  { icon: "💎", label: "Luxury Explorers" },
+  { icon: "🌍", label: "International Travelers" },
+  { icon: "📸", label: "Photographers" },
+  { icon: "🧘", label: "Wellness Travelers" },
+  { icon: "🎭", label: "Cultural Explorers" },
+];
+
+const routeStops = [
+  "Delhi", "Kathgodam / Haldwani", "Pithoragarh", "Dharchula",
+  "Tawaghat", "Gunji", "Nabi", "Kuti", "Jolingkong (Adi Kailash)",
+  "Om Parvat", "Lipulekh Viewpoint", "Pithoragarh",
+  "Kumaon Temple Circuit", "Bhimtal / Haldwani", "Delhi",
+];
+
+const pricingTiers = [
+  {
+    name: "Standard Expedition",
+    price: "₹29,999",
+    badge: null,
+    items: [
+      "Standard hotels & guesthouses",
+      "Shared SUV transportation",
+      "Vegetarian meals during expedition",
+      "Permit assistance",
+      "Basic expedition support",
+      "Sightseeing as per itinerary",
+    ],
+    ideal: "Budget-conscious spiritual travelers",
+    cta: "Book Standard",
+  },
+  {
+    name: "Deluxe Expedition",
+    price: "₹44,999",
+    badge: null,
+    items: [
+      "Deluxe hotels & premium homestays",
+      "Comfortable SUV transportation",
+      "All meals included",
+      "Expedition coordinator support",
+      "Guided cultural experiences",
+      "Bonfire sessions (weather permitting)",
+      "Welcome kit",
+    ],
+    ideal: "Travelers seeking enhanced comfort and curated experiences",
+    cta: "Book Deluxe",
+  },
+  {
+    name: "Premium Expedition",
+    price: "₹54,999",
+    badge: "Most Popular",
+    items: [
+      "Premium boutique stays",
+      "Luxury SUV transportation",
+      "Dedicated expedition leader",
+      "Premium meals & hospitality",
+      "Photography assistance",
+      "Oxygen support & altitude care kit",
+      "Personalized travel assistance",
+      "VIP coordination support",
+    ],
+    ideal: "Premium travelers, photographers, international guests and spiritual explorers",
+    cta: "Book Premium",
+  },
+];
+
 export default function AdiKailashExpedition() {
   useSEO({
     title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
@@ -178,7 +260,7 @@ export default function AdiKailashExpedition() {
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: gold }} />
               <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold }}>
-                Sacred Himalayan Expedition · 5 Days / 4 Nights
+                Sacred Himalayan Expedition · 6 Days / 5 Nights
               </div>
             </div>
             <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
@@ -197,8 +279,10 @@ export default function AdiKailashExpedition() {
                 </div>
               ))}
             </div>
-            <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
-              <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>Premium Expedition · Pricing On Request</span>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
+                <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹29,999 per person</span>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -208,12 +292,12 @@ export default function AdiKailashExpedition() {
       <div style={{ borderTop: `1px solid #ffffff0f`, borderBottom: `1px solid #ffffff0f`, background: card }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 24 }}>
           {[
-            { label: "Duration", value: "5 Days / 4 Nights" },
+            { label: "Duration", value: "6 Days / 5 Nights" },
             { label: "Max Altitude", value: "3,600+ m" },
             { label: "Group Size", value: "Max 8–10 travelers" },
             { label: "Fitness Level", value: "Moderate" },
             { label: "Permit Required", value: "Inner Line Permit" },
-            { label: "Pricing", value: "On Request" },
+            { label: "Starting From", value: "₹29,999 / person" },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 6 }}>{item.label}</div>
@@ -224,6 +308,52 @@ export default function AdiKailashExpedition() {
       </div>
 
       <div className="page-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
+
+        {/* EXPEDITION ROUTE */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 28 }}>Expedition Route</div>
+          <div style={{
+            padding: "28px 24px",
+            background: card,
+            border: `1px solid #ffffff0d`,
+            borderTop: `2px solid ${gold}44`,
+            overflowX: "auto",
+          }}>
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "10px 4px",
+              alignItems: "center",
+              minWidth: 0,
+            }}>
+              {routeStops.map((stop, i) => (
+                <span key={i} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                  <span style={{
+                    display: "inline-block",
+                    padding: "5px 14px",
+                    border: `1px solid ${gold}44`,
+                    borderRadius: 2,
+                    fontSize: 12,
+                    color: (stop === "Delhi" && i === 0) || stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat"
+                      ? gold
+                      : accent,
+                    background: stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat"
+                      ? `${gold}18`
+                      : "transparent",
+                    letterSpacing: "0.04em",
+                    whiteSpace: "nowrap",
+                    fontWeight: stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat" ? 500 : 300,
+                  }}>
+                    {stop}
+                  </span>
+                  {i < routeStops.length - 1 && (
+                    <span style={{ color: gold, fontSize: 14, opacity: 0.7, flexShrink: 0 }}>→</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.section>
 
         {/* SACRED IMPORTANCE */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
@@ -238,6 +368,48 @@ export default function AdiKailashExpedition() {
             <p style={{ margin: 0, fontSize: "1.05rem", color: accent, fontStyle: "italic", lineHeight: 1.7 }}>
               "One of the most exclusive Himalayan pilgrimage and expedition routes in India – a journey that combines sacred experiences, cinematic mountain roads, and authentic Indo-Tibetan culture."
             </p>
+          </div>
+        </motion.section>
+
+        {/* BEST SEASON & TRAVELER TYPES */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Best Travel Season</div>
+
+          {/* Season badge */}
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "10px 22px", background: `${gold}18`, border: `1px solid ${gold}55`, borderRadius: 2, marginBottom: 28 }}>
+            <span style={{ fontSize: 16 }}>🗓️</span>
+            <span style={{ fontSize: 14, color: gold, letterSpacing: "0.1em" }}>Best Season: May to October</span>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, marginBottom: 28 }}>
+            {seasons.map(s => (
+              <div key={s.period} style={{ padding: "28px 24px", background: card, border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}` }}>
+                <div style={{ fontSize: "1.1rem", color: text, marginBottom: 10 }}>{s.period}</div>
+                <div style={{ fontSize: 13, color: muted, lineHeight: 1.6 }}>{s.experience}</div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginBottom: 32, padding: "16px 20px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
+            <div style={{ fontSize: 13, color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
+          </div>
+
+          {/* Recommended For */}
+          <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 16 }}>Recommended For</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+            {travelerTypes.map(t => (
+              <div key={t.label} style={{
+                display: "flex", alignItems: "center", gap: 8,
+                padding: "8px 18px",
+                background: card,
+                border: `1px solid ${gold}33`,
+                borderRadius: 2,
+                fontSize: 13, color: accent,
+              }}>
+                <span style={{ fontSize: 16 }}>{t.icon}</span>
+                <span>{t.label}</span>
+              </div>
+            ))}
           </div>
         </motion.section>
 
@@ -346,6 +518,18 @@ export default function AdiKailashExpedition() {
                   </div>
                 )}
                 <p style={{ fontSize: "1.05rem", lineHeight: 1.85, color: accent, marginBottom: 24, fontWeight: 300 }}>{itinerary[activeDay].description}</p>
+                {itinerary[activeDay].keyDestinations && (
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 10 }}>Key Destinations</div>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                      {itinerary[activeDay].keyDestinations.map(dest => (
+                        <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.04em" }}>
+                          {dest}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 {itinerary[activeDay].experiences.length > 0 && (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
                     {itinerary[activeDay].experiences.map(exp => (
@@ -413,6 +597,64 @@ export default function AdiKailashExpedition() {
           </motion.div>
         </motion.section>
 
+        {/* PRICING TIERS */}
+        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Choose Your Expedition</div>
+          <p style={{ fontSize: 14, color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>All packages depart from Delhi</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+            {pricingTiers.map((tier) => (
+              <div key={tier.name} style={{
+                background: card,
+                border: tier.badge ? `1px solid ${gold}` : `1px solid #ffffff0d`,
+                borderTop: `3px solid ${tier.badge ? gold : gold + "44"}`,
+                padding: "32px 28px",
+                position: "relative",
+                boxShadow: tier.badge ? `0 0 40px ${gold}18` : "none",
+              }}>
+                {tier.badge && (
+                  <div style={{
+                    position: "absolute", top: -1, right: 20,
+                    background: gold, color: bg,
+                    fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase",
+                    padding: "4px 12px",
+                    fontFamily: "inherit",
+                  }}>
+                    {tier.badge}
+                  </div>
+                )}
+                <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 8 }}>{tier.name}</div>
+                <div style={{ fontSize: "2.2rem", fontWeight: 300, color: gold, marginBottom: 4, lineHeight: 1 }}>{tier.price}</div>
+                <div style={{ fontSize: 11, color: muted, letterSpacing: "0.08em", marginBottom: 28 }}>per person</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
+                  {tier.items.map(item => (
+                    <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: gold, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: 13, color: accent, lineHeight: 1.5 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ padding: "10px 14px", background: `${gold}0a`, borderLeft: `2px solid ${gold}44`, marginBottom: 24 }}>
+                  <div style={{ fontSize: 10, color: muted, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 4 }}>Ideal For</div>
+                  <div style={{ fontSize: 12, color: accent, lineHeight: 1.5 }}>{tier.ideal}</div>
+                </div>
+                <a href="/contact#consultation" style={{
+                  display: "block", textAlign: "center",
+                  padding: "13px 20px",
+                  background: tier.badge ? gold : "transparent",
+                  border: `1px solid ${gold}`,
+                  color: tier.badge ? bg : gold,
+                  textDecoration: "none",
+                  fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase",
+                  fontFamily: "inherit",
+                  transition: "all 0.2s",
+                }}>
+                  {tier.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </motion.section>
+
         {/* ALTITUDE */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Altitude Profile</div>
@@ -426,19 +668,29 @@ export default function AdiKailashExpedition() {
           </div>
         </motion.section>
 
-        {/* BEST SEASON */}
+        {/* TRAVEL ACCESS INFORMATION */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
-          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Best Travel Season</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20 }}>
-            {seasons.map(s => (
-              <div key={s.period} style={{ padding: "28px 24px", background: card, border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}` }}>
-                <div style={{ fontSize: "1.1rem", color: text, marginBottom: 10 }}>{s.period}</div>
-                <div style={{ fontSize: 13, color: muted, lineHeight: 1.6 }}>{s.experience}</div>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Travel Access Information</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
+            {[
+              { icon: "🚂", label: "Nearest Railway Station", value: "Kathgodam" },
+              { icon: "✈️", label: "Nearest Airport", value: "Pithoragarh Airport (Naini Saini Airport)" },
+              { icon: "🛕", label: "Optional Spiritual Stops", value: "Haat Kalika Temple · Patal Bhuvaneshwar Cave Temple" },
+            ].map(item => (
+              <div key={item.label} style={{
+                padding: "24px",
+                background: card,
+                border: `1px solid #ffffff0d`,
+                borderTop: `2px solid ${gold}44`,
+                display: "flex", gap: 16, alignItems: "flex-start",
+              }}>
+                <div style={{ fontSize: 28, flexShrink: 0 }}>{item.icon}</div>
+                <div>
+                  <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 8 }}>{item.label}</div>
+                  <div style={{ fontSize: 15, color: text, lineHeight: 1.6 }}>{item.value}</div>
+                </div>
               </div>
             ))}
-          </div>
-          <div style={{ marginTop: 20, padding: "16px 20px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
-            <div style={{ fontSize: 13, color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
           </div>
         </motion.section>
 
@@ -463,8 +715,11 @@ export default function AdiKailashExpedition() {
           <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 16px", maxWidth: 480 }}>
             One of India's most exclusive Himalayan expeditions.
           </p>
-          <div style={{ fontSize: "1.4rem", color: gold, margin: "0 auto 36px", letterSpacing: "0.05em" }}>
-            Pricing On Request
+          <div style={{ fontSize: "1.4rem", color: gold, margin: "0 auto 8px", letterSpacing: "0.05em" }}>
+            From ₹29,999 per person
+          </div>
+          <div style={{ fontSize: 12, color: muted, margin: "0 auto 36px", letterSpacing: "0.06em" }}>
+            Standard · Deluxe · Premium
           </div>
           <a href="/contact#consultation" style={{
             display: "inline-block", padding: "16px 52px", background: gold, color: bg,

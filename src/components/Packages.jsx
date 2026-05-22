@@ -9,7 +9,7 @@ const FEATURED = [
     tag:        'Most Popular',
     title:      'Adi Kailash Expedition',
     subtitle:   'Pithoragarh · Dharchula · Gunji · Om Parvat',
-    days:       5,
+    days:       6,
     difficulty: 'Moderate',
     people:     12,
     spots:      8,
