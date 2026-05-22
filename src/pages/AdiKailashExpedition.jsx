@@ -30,8 +30,8 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: null,
-    image: "/images/darma-valley-womens-retreat/scenic-mountain-highway-kumaon-river.jpg",
-    imageAlt: "Scenic mountain highway Kumaon river drive to Pithoragarh",
+    image: "/images/adi-kailash-expedition/pithoragarh-town-valley-kumaon-uttarakhand.png",
+    imageAlt: "Pithoragarh town valley aerial view Kumaon Uttarakhand",
   },
   {
     day: "Day 2",
@@ -47,8 +47,8 @@ const itinerary = [
     stay: "Dharchula / Gunji Region",
     altitude: null,
     note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
-    image: "/images/darma-valley-womens-retreat/naini-saini-airport-pithoragarh-uttarakhand.jpg",
-    imageAlt: "Naini Saini Airport Pithoragarh gateway to Adi Kailash",
+    image: "/images/adi-kailash-expedition/gunji-village-high-altitude-himalaya-uttarakhand.png",
+    imageAlt: "Gunji village high altitude Himalaya Uttarakhand Adi Kailash route",
   },
   {
     day: "Day 3",
@@ -72,8 +72,8 @@ const itinerary = [
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
-    image: "/images/adi-kailash-nandi-bull-sacred-peak-uttarakhand.jpg",
-    imageAlt: "Adi Kailash sacred peak Nandi bull Uttarakhand darshan",
+    image: "/images/adi-kailash-expedition/adi-kailash-parvati-sarovar-sacred-lake-uttarakhand.jpg",
+    imageAlt: "Adi Kailash Parvati Sarovar sacred lake snow peaks Uttarakhand darshan",
   },
   {
     day: "Day 4",
