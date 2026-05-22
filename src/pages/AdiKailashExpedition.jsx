@@ -4,19 +4,34 @@ import { motion } from "framer-motion";
 
 const itinerary = [
   {
+    day: "Day 0",
+    title: "Overnight Departure from Delhi",
+    subtitle: "Delhi → Kumaon Himalaya",
+    description:
+      "Depart from Delhi NCR for the overnight journey toward the sacred Kumaon Himalaya. The journey to Adi Kailash begins long before the mountains appear — in the quiet of night, rolling through the foothills toward Pithoragarh.",
+    experiences: ["Private SUV transfer (Ertiga / Scorpio / Premium SUV)", "Overnight mountain approach"],
+    stay: null,
+    altitude: null,
+    image: null,
+    imageAlt: null,
+  },
+  {
     day: "Day 1",
-    title: "Delhi to Pithoragarh",
+    title: "Arrival in Pithoragarh",
     subtitle: "Gateway to the Sacred Himalayas",
     description:
-      "Departure from Delhi towards Kumaon Himalayas. Scenic drive through river valleys, forests, and mountain landscapes. Arrival at Pithoragarh — the cultural heart of Kumaon. Expedition briefing and acclimatization support.",
+      "Arrive in Pithoragarh — the cultural heart of Kumaon and the gateway to the Adi Kailash corridor. Settle into the rhythm of the mountains. Evening excursion to Chandak viewpoint for panoramic sunset views over the Soar Valley. Expedition briefing and acclimatization support.",
     experiences: [
       "Himalayan mountain views",
       "Kumaoni cultural landscapes",
+      "Chandak sunset viewpoint",
+      "Expedition orientation",
       "Premium welcome assistance",
-      "Scenic Delhi to Kumaon drive",
     ],
     stay: "Pithoragarh",
     altitude: null,
+    image: "/images/darma-valley-womens-retreat/scenic-mountain-highway-kumaon-river.jpg",
+    imageAlt: "Scenic mountain highway Kumaon river drive to Pithoragarh",
   },
   {
     day: "Day 2",
@@ -32,6 +47,8 @@ const itinerary = [
     stay: "Dharchula / Gunji Region",
     altitude: null,
     note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
+    image: "/images/darma-valley-womens-retreat/naini-saini-airport-pithoragarh-uttarakhand.jpg",
+    imageAlt: "Naini Saini Airport Pithoragarh gateway to Adi Kailash",
   },
   {
     day: "Day 3",
@@ -55,6 +72,8 @@ const itinerary = [
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
+    image: "/images/adi-kailash-nandi-bull-sacred-peak-uttarakhand.jpg",
+    imageAlt: "Adi Kailash sacred peak Nandi bull Uttarakhand darshan",
   },
   {
     day: "Day 4",
@@ -70,6 +89,8 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: "3,600+ m",
+    image: "/images/om-parvat-view-himalayan-horses-pithoragarh.jpg",
+    imageAlt: "Om Parvat sacred mountain view Pithoragarh Himalaya",
   },
   {
     day: "Day 5",
@@ -92,6 +113,8 @@ const itinerary = [
     ],
     stay: "Bhimtal / Haldwani",
     altitude: null,
+    image: "/images/darma-valley-womens-retreat/darma-valley-dugtu-village-uttarakhand.jpg",
+    imageAlt: "Kumaon village temple circuit Uttarakhand Himalaya",
   },
   {
     day: "Day 6",
@@ -102,33 +125,8 @@ const itinerary = [
     experiences: [],
     stay: "Home",
     altitude: null,
-  },
-];
-
-const dayImages = [
-  {
-    src: "/images/darma-valley-womens-retreat/scenic-mountain-highway-kumaon-river.jpg",
-    alt: "Scenic drive to Pithoragarh Kumaon Himalaya",
-  },
-  {
-    src: "/images/darma-valley-womens-retreat/naini-saini-airport-pithoragarh-uttarakhand.jpg",
-    alt: "Naini Saini Airport Pithoragarh gateway to Adi Kailash",
-  },
-  {
-    src: "/images/darma-valley-womens-retreat/darma-valley-dugtu-village-uttarakhand.jpg",
-    alt: "Adi Kailash Darshan sacred Himalayan pilgrimage",
-  },
-  {
-    src: "/images/om-parvat-view-himalayan-horses-pithoragarh.jpg",
-    alt: "Om Parvat sacred mountain view Pithoragarh",
-  },
-  {
-    src: "/images/winter-himalayan-wellness-retreat/jageshwar-temple-snow-winter-uttarakhand.jpg",
-    alt: "Jageshwar temple Kumaon spiritual circuit",
-  },
-  {
-    src: "/images/himalayan-photography-expedition/bhimtal-lake-morning-mist-kumaon.jpg",
-    alt: "Bhimtal lake farewell Kumaon journey to Delhi",
+    image: null,
+    imageAlt: null,
   },
 ];
 
@@ -265,6 +263,7 @@ export default function AdiKailashExpedition() {
     description: 'Book Adi Kailash Yatra 2026 from Delhi. Adi Kailash temple darshan with Om Parvat tour. Dharchula to Adi Kailash package with Inner Line Permit included. Adi Kailash opening date 2026 — May to October. Small group departures from Delhi and Pithoragarh.',
   });
   const [tab, setTab] = useState("inclusions");
+  const [activeDay, setActiveDay] = useState(0);
 
   const gold = "#c9a96e";
   const bg = "#07090b";
@@ -276,39 +275,6 @@ export default function AdiKailashExpedition() {
   return (
     <div style={{ minHeight: "100vh", background: `linear-gradient(160deg, ${bg} 0%, #0a0f18 50%, ${bg} 100%)`, color: text, fontFamily: "'Cormorant Garamond', Georgia, serif", overflowX: "hidden" }}>
 
-      {/* Responsive styles for day cards */}
-      <style>{`
-        .day-card-wrap {
-          display: flex;
-          border-radius: 12px;
-          overflow: hidden;
-          background: #0c1018;
-          border: 1px solid rgba(255,255,255,0.05);
-          margin-bottom: 24px;
-        }
-        .day-card-wrap.reverse { flex-direction: row-reverse; }
-        .day-card-img-col {
-          width: 40%;
-          flex-shrink: 0;
-          overflow: hidden;
-        }
-        .day-card-img-col img {
-          width: 100%;
-          height: 320px;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.4s ease;
-        }
-        .day-card-img-col:hover img { transform: scale(1.05); }
-        .day-card-body { flex: 1; padding: 36px; }
-        @media (max-width: 768px) {
-          .day-card-wrap,
-          .day-card-wrap.reverse { flex-direction: column !important; }
-          .day-card-img-col { width: 100%; }
-          .day-card-img-col img { height: 240px; }
-          .day-card-body { padding: 24px 20px; }
-        }
-      `}</style>
 
       {/* HERO */}
       <div style={{
@@ -376,8 +342,8 @@ export default function AdiKailashExpedition() {
           {/* Hero scenic image */}
           <div style={{ borderRadius: "16px", overflow: "hidden", marginBottom: 32 }}>
             <img
-              src="/images/packages/adi-kailash/adi-kailash-approach.jpg"
-              alt="Adi Kailash Om Parvat 6-Day Expedition Route Pithoragarh Kumaon Himalaya"
+              src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.jpg"
+              alt="Adi Kailash Expedition complete route map Delhi to Om Parvat"
               loading="eager"
               style={{
                 width: "100%",
@@ -480,50 +446,67 @@ export default function AdiKailashExpedition() {
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 40 }}>Day by Day Itinerary</div>
 
-          {itinerary.map((day, i) => {
-            const img = dayImages[i];
-            return (
+          <div className="resp-itinerary" style={{ gap: 32 }}>
+
+            {/* LEFT: day navigation tabs */}
+            <div className="resp-itinerary-nav" style={{ gap: 4 }}>
+              {itinerary.map((item, i) => (
+                <button key={i} onClick={() => setActiveDay(i)} style={{
+                  background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "10px 16px",
+                  borderLeft: activeDay === i ? `2px solid ${gold}` : "2px solid #ffffff11",
+                  color: activeDay === i ? gold : "#5a5048",
+                  fontSize: 13, letterSpacing: "0.08em", transition: "all 0.2s", fontFamily: "inherit",
+                }}>
+                  {item.day}
+                </button>
+              ))}
+            </div>
+
+            {/* RIGHT: selected day content panel */}
+            <div style={{ flex: 1, minWidth: 280 }}>
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                style={{
-                  background: card,
-                  border: "1px solid rgba(255,255,255,0.05)",
-                  borderRadius: 12,
-                  overflow: "hidden",
-                  marginBottom: 24,
-                  padding: "24px",
-                }}
+                key={activeDay}
+                initial={{ opacity: 0, x: 16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+                style={{ background: card, border: "1px solid #ffffff0d", padding: "36px", borderRadius: 2 }}
               >
-                {/* Image at top */}
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  loading="lazy"
-                  style={{ width: "100%", height: "260px", objectFit: "cover", borderRadius: "12px", marginBottom: "16px" }}
-                />
+                {/* Day image — shown above title when available */}
+                {itinerary[activeDay].image && (
+                  <img
+                    src={itinerary[activeDay].image}
+                    alt={itinerary[activeDay].imageAlt}
+                    loading="lazy"
+                    style={{ width: "100%", height: 380, objectFit: "cover", borderRadius: 16, marginBottom: 32 }}
+                  />
+                )}
 
-                {/* Day content */}
-                <div style={{ fontSize: 11, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>{day.day}</div>
-                <h3 style={{ fontSize: "1.7rem", fontWeight: 300, margin: "0 0 4px", color: text }}>{day.title}</h3>
-                <div style={{ fontSize: 13, color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>{day.subtitle}</div>
+                {/* Day header */}
+                <div style={{ fontSize: 11, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>
+                  {itinerary[activeDay].day}
+                </div>
+                <h3 style={{ fontSize: "1.7rem", fontWeight: 300, margin: "0 0 4px", color: text }}>
+                  {itinerary[activeDay].title}
+                </h3>
+                <div style={{ fontSize: 13, color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>
+                  {itinerary[activeDay].subtitle}
+                </div>
 
-                {day.altitude && (
+                {itinerary[activeDay].altitude && (
                   <div style={{ display: "inline-block", padding: "3px 10px", background: `${gold}15`, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 11, color: gold, letterSpacing: "0.1em", marginBottom: 16 }}>
-                    ⛰️ {day.altitude}
+                    ⛰️ {itinerary[activeDay].altitude}
                   </div>
                 )}
 
-                <p style={{ fontSize: "1.05rem", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>{day.description}</p>
+                <p style={{ fontSize: "1.05rem", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>
+                  {itinerary[activeDay].description}
+                </p>
 
-                {day.keyDestinations && (
+                {itinerary[activeDay].keyDestinations && (
                   <div style={{ marginBottom: 16 }}>
                     <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 10 }}>Key Destinations</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                      {day.keyDestinations.map(dest => (
+                      {itinerary[activeDay].keyDestinations.map(dest => (
                         <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.04em" }}>
                           {dest}
                         </div>
@@ -532,26 +515,29 @@ export default function AdiKailashExpedition() {
                   </div>
                 )}
 
-                {day.experiences.length > 0 && (
+                {itinerary[activeDay].experiences && itinerary[activeDay].experiences.length > 0 && (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-                    {day.experiences.map(exp => (
+                    {itinerary[activeDay].experiences.map(exp => (
                       <div key={exp} style={{ padding: "5px 12px", border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 12, color: accent, letterSpacing: "0.05em" }}>{exp}</div>
                     ))}
                   </div>
                 )}
 
-                {day.note && (
+                {itinerary[activeDay].note && (
                   <div style={{ padding: "10px 14px", background: "#1a1208", borderLeft: `2px solid ${gold}`, fontSize: 13, color: gold, marginBottom: 12 }}>
-                    ⚠️ {day.note}
+                    ⚠️ {itinerary[activeDay].note}
                   </div>
                 )}
 
-                {day.stay && (
-                  <div style={{ marginTop: 12, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>🏨 Overnight: {day.stay}</div>
+                {itinerary[activeDay].stay && (
+                  <div style={{ marginTop: 12, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
+                    🏨 Overnight: {itinerary[activeDay].stay}
+                  </div>
                 )}
               </motion.div>
-            );
-          })}
+            </div>
+
+          </div>
         </motion.section>
 
         {/* INCLUSIONS */}
