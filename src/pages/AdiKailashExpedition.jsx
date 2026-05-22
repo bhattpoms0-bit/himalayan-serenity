@@ -272,16 +272,133 @@ export default function AdiKailashExpedition() {
   const muted = "#7a7068";
   const accent = "#b5a898";
 
+  const css = `
+    /* ── Global ─────────────────────────────────────────── */
+    .ak-page { overflow-x: hidden; width: 100%; max-width: 100vw; }
+    .ak-page img { max-width: 100%; }
+
+    /* ── Hero ────────────────────────────────────────────── */
+    .ak-hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 0 80px;
+      background: linear-gradient(to bottom,rgba(7,9,11,.2) 0%,rgba(7,9,11,.5) 55%,rgba(7,9,11,.97) 100%),
+        url('/images/packages/adi-kailash/adi-kailash-nandi.jpg') center/cover no-repeat;
+    }
+    .ak-hero-inner { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Stats ───────────────────────────────────────────── */
+    .ak-stats-grid {
+      max-width: 960px; margin: 0 auto;
+      padding: 28px 2rem;
+      display: grid; grid-template-columns: repeat(6,1fr); gap: 24px;
+    }
+
+    /* ── Page inner ──────────────────────────────────────── */
+    .ak-page-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
+
+    /* ── Sections ────────────────────────────────────────── */
+    .ak-section { margin-bottom: 80px; }
+
+    /* ── Route map ───────────────────────────────────────── */
+    .ak-route-map-wrap { border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+    .ak-route-img { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
+
+    /* ── Itinerary ───────────────────────────────────────── */
+    .ak-itinerary-wrap { display: flex; flex-direction: row; gap: 32px; }
+    .ak-itinerary-nav {
+      display: flex; flex-direction: column;
+      width: 160px; flex-shrink: 0; gap: 4px;
+    }
+    .ak-itinerary-panel { flex: 1; min-width: 0; }
+    .ak-day-panel { background: ${card}; border: 1px solid #ffffff0d; padding: 36px; border-radius: 2px; }
+    .ak-day-img {
+      width: 100%; height: 420px;
+      object-fit: cover; object-position: center;
+      border-radius: 12px; margin-bottom: 32px; display: block;
+    }
+
+    /* ── Inclusions / pricing grids ──────────────────────── */
+    .ak-inclusions-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 10px; }
+    .ak-pricing-grid    { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 20px; }
+    .ak-pricing-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 13px 20px; text-decoration: none;
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      font-family: inherit; transition: all .2s; box-sizing: border-box;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────── */
+    .ak-cta-section { text-align: center; padding: 72px 32px; }
+    .ak-cta-btn {
+      display: inline-block; padding: 16px 52px;
+      text-decoration: none; font-size: 13px;
+      letter-spacing: .2em; text-transform: uppercase;
+      font-family: inherit; margin-bottom: 20px;
+    }
+
+    /* ── Tablet 768–1023px ───────────────────────────────── */
+    @media (min-width:768px) and (max-width:1023px) {
+      .ak-stats-grid { grid-template-columns: repeat(3,1fr); padding: 24px 1.5rem; }
+      .ak-page-inner { padding: 3rem 1.5rem; }
+      .ak-section { margin-bottom: 60px; }
+      .ak-itinerary-nav { width: 130px; }
+      .ak-day-panel { padding: 28px; }
+      .ak-day-img { height: 360px; }
+    }
+
+    /* ── Mobile ≤767px ───────────────────────────────────── */
+    @media (max-width:767px) {
+      .ak-hero { min-height: 60vh; padding: 0 0 40px; }
+      .ak-hero-inner { padding: 0 1rem; }
+
+      .ak-stats-grid { grid-template-columns: repeat(2,1fr); padding: 1.5rem 1rem; gap: 16px; }
+
+      .ak-page-inner { padding: 2rem 1rem; }
+      .ak-section { margin-bottom: 48px; }
+
+      .ak-route-map-wrap { border-radius: 12px; }
+      .ak-route-img { border-radius: 12px; }
+      .ak-route-pill { font-size: .75rem !important; }
+
+      /* Horizontal scrollable tab bar */
+      .ak-itinerary-wrap { flex-direction: column; gap: 0; }
+      .ak-itinerary-nav {
+        flex-direction: row; overflow-x: auto;
+        width: 100%; gap: 0; padding-bottom: 4px;
+        scrollbar-width: none; margin-bottom: 16px;
+        border-bottom: 1px solid #ffffff11;
+      }
+      .ak-itinerary-nav::-webkit-scrollbar { display: none; }
+      .ak-day-btn {
+        border-left: none !important;
+        border-bottom: 2px solid transparent !important;
+        white-space: nowrap; flex-shrink: 0;
+        padding: 8px 14px !important;
+      }
+      .ak-day-btn.is-active {
+        border-bottom: 2px solid ${gold} !important;
+        border-left: none !important;
+      }
+
+      .ak-day-panel { padding: 20px 16px; }
+      .ak-day-img { height: 280px; margin-bottom: 20px; border-radius: 12px; }
+
+      .ak-inclusions-grid { grid-template-columns: 1fr; }
+      .ak-pricing-grid    { grid-template-columns: 1fr; }
+
+      .ak-cta-section { padding: 48px 1rem; }
+      .ak-cta-btn { display: block !important; width: 100%; box-sizing: border-box; padding: 16px 20px !important; }
+    }
+  `;
+
   return (
-    <div style={{ minHeight: "100vh", background: `linear-gradient(160deg, ${bg} 0%, #0a0f18 50%, ${bg} 100%)`, color: text, fontFamily: "'Cormorant Garamond', Georgia, serif", overflowX: "hidden" }}>
+    <div className="ak-page" style={{ minHeight: "100vh", background: `linear-gradient(160deg,${bg} 0%,#0a0f18 50%,${bg} 100%)`, color: text, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>
+      <style>{css}</style>
 
-
-      {/* HERO */}
-      <div style={{
-        position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: "linear-gradient(to bottom, rgba(7,9,11,0.2) 0%, rgba(7,9,11,0.5) 55%, rgba(7,9,11,0.97) 100%), url('/images/packages/adi-kailash/adi-kailash-nandi.jpg') center/cover no-repeat",
-      }}>
-        <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <div className="ak-hero">
+        <div className="ak-hero-inner">
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: gold }} />
@@ -289,23 +406,23 @@ export default function AdiKailashExpedition() {
                 Sacred Himalayan Expedition · 6 Days / 5 Nights
               </div>
             </div>
-            <h1 style={{ fontSize: "clamp(2.8rem, 7vw, 5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
+            <h1 style={{ fontSize: "clamp(1.8rem,7vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
               Adi Kailash
             </h1>
-            <h2 style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", fontWeight: 300, fontStyle: "italic", color: gold, margin: "0 0 20px" }}>
+            <h2 style={{ fontSize: "clamp(1rem,4vw,3.2rem)", fontWeight: 300, fontStyle: "italic", color: gold, margin: "0 0 20px" }}>
               Sacred Himalayan Expedition
             </h2>
-            <p style={{ fontSize: "clamp(0.95rem, 1.8vw, 1.15rem)", color: accent, fontWeight: 300, margin: "0 0 36px", letterSpacing: "0.06em" }}>
+            <p style={{ fontSize: "clamp(0.85rem,1.8vw,1.15rem)", color: accent, fontWeight: 300, margin: "0 0 28px", letterSpacing: "0.06em" }}>
               Adi Kailash &nbsp;·&nbsp; Om Parvat &nbsp;·&nbsp; Parvati Sarovar &nbsp;·&nbsp; Narayan Ashram &nbsp;·&nbsp; Dharchula
             </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 40 }}>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 32 }}>
               {["Pilgrimage Travelers", "Spiritual Seekers", "High-Altitude Adventurers"].map(tag => (
-                <div key={tag} style={{ padding: "8px 18px", border: `1px solid ${gold}55`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
+                <div key={tag} style={{ padding: "7px 16px", border: `1px solid ${gold}55`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
                   {tag}
                 </div>
               ))}
             </div>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div>
               <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
                 <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹29,999 per person</span>
               </div>
@@ -314,128 +431,105 @@ export default function AdiKailashExpedition() {
         </div>
       </div>
 
-      {/* STATS STRIP */}
+      {/* ── STATS STRIP ──────────────────────────────────────── */}
       <div style={{ borderTop: `1px solid #ffffff0f`, borderBottom: `1px solid #ffffff0f`, background: card }}>
-        <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 24 }}>
+        <div className="ak-stats-grid">
           {[
-            { label: "Duration", value: "6 Days / 5 Nights" },
-            { label: "Max Altitude", value: "3,600+ m" },
-            { label: "Group Size", value: "Max 8–10 travelers" },
-            { label: "Fitness Level", value: "Moderate" },
-            { label: "Permit Required", value: "Inner Line Permit" },
-            { label: "Starting From", value: "₹29,999 / person" },
+            { label: "Duration",        value: "6 Days / 5 Nights"   },
+            { label: "Max Altitude",    value: "3,600+ m"            },
+            { label: "Group Size",      value: "Max 8–10 travelers"  },
+            { label: "Fitness Level",   value: "Moderate"            },
+            { label: "Permit Required", value: "Inner Line Permit"   },
+            { label: "Starting From",   value: "₹29,999 / person"   },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 6 }}>{item.label}</div>
-              <div style={{ fontSize: 15, color: text }}>{item.value}</div>
+              <div style={{ fontSize: "clamp(0.78rem,1.5vw,0.95rem)", color: text }}>{item.value}</div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="page-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
+      {/* ── PAGE BODY ─────────────────────────────────────────── */}
+      <div className="ak-page-inner">
 
         {/* EXPEDITION ROUTE */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 28 }}>Expedition Route</div>
-
-          {/* Hero scenic image */}
-          <div style={{ borderRadius: "16px", overflow: "hidden", marginBottom: 32 }}>
+          <div className="ak-route-map-wrap">
             <img
+              className="ak-route-img"
               src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.jpg"
               alt="Adi Kailash Expedition complete route map Delhi to Om Parvat"
               loading="eager"
-              style={{
-                width: "100%",
-                height: "380px",
-                objectFit: "cover",
-                objectPosition: "center",
-                display: "block",
-                borderRadius: "16px",
-                boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
-              }}
             />
           </div>
-
-          {/* Journey stops strip */}
-          <div style={{ padding: "28px 32px", background: card, border: `1px solid #ffffff0a`, borderRadius: 12, marginBottom: 16 }}>
-            <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 20 }}>Complete Journey Path</div>
+          <div style={{ padding: "24px 20px", background: card, border: `1px solid #ffffff0a`, borderRadius: 12, marginBottom: 16 }}>
+            <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 16 }}>Complete Journey Path</div>
             <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 0 }}>
               {routeStops.map((stop, i) => (
                 <span key={stop + i} style={{ display: "flex", alignItems: "center" }}>
-                  <span style={{
-                    padding: "5px 12px",
+                  <span className="ak-route-pill" style={{
+                    padding: "4px 10px",
                     background: i === 0 || i === routeStops.length - 1 ? `${gold}22` : "transparent",
                     border: `1px solid ${i === 0 || i === routeStops.length - 1 ? gold + "55" : gold + "22"}`,
-                    borderRadius: 2,
-                    fontSize: 12,
+                    borderRadius: 2, fontSize: 12,
                     color: i === 0 || i === routeStops.length - 1 ? gold : accent,
-                    letterSpacing: "0.04em",
-                    whiteSpace: "nowrap",
+                    letterSpacing: "0.04em", whiteSpace: "nowrap",
                   }}>
                     {stop}
                   </span>
                   {i < routeStops.length - 1 && (
-                    <span style={{ color: `${gold}66`, fontSize: 11, padding: "0 4px", flexShrink: 0 }}>→</span>
+                    <span style={{ color: `${gold}66`, fontSize: 11, padding: "0 3px", flexShrink: 0 }}>→</span>
                   )}
                 </span>
               ))}
             </div>
           </div>
-
           <p style={{ fontSize: "0.8rem", color: "#5a4a30", fontStyle: "italic" }}>
-            Route for reference only. Subject to weather, road &amp; permit conditions. Itinerary may be adjusted as required.
+            Route for reference only. Subject to weather, road &amp; permit conditions.
           </p>
         </motion.section>
 
         {/* SACRED IMPORTANCE */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 24 }}>The Sacred Journey</div>
-          <p style={{ fontSize: "clamp(1.15rem, 2.4vw, 1.45rem)", lineHeight: 1.85, color: accent, fontWeight: 300, maxWidth: 760, marginBottom: 24 }}>
+          <p style={{ fontSize: "clamp(1rem,2.4vw,1.45rem)", lineHeight: 1.85, color: accent, fontWeight: 300, maxWidth: 760, marginBottom: 24 }}>
             Embark on one of the Himalaya's most spiritually significant journeys through the sacred landscapes of Adi Kailash and Om Parvat in the remote Kumaon region of Uttarakhand.
           </p>
-          <p style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 24 }}>
+          <p style={{ fontSize: "clamp(0.9rem,1.8vw,1.2rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 24 }}>
             Often referred to as the "Chhota Kailash," Adi Kailash is believed to be one of the earthly abodes of Lord Shiva and remains among the most exclusive Himalayan pilgrimage routes in India. Unlike conventional pilgrimage tours, this expedition is designed to balance spirituality, comfort, exploration, and authentic Himalayan storytelling.
           </p>
-          <div style={{ padding: "20px 28px", borderLeft: `3px solid ${gold}`, background: `${gold}0a`, maxWidth: 640 }}>
-            <p style={{ margin: 0, fontSize: "1.05rem", color: accent, fontStyle: "italic", lineHeight: 1.7 }}>
+          <div style={{ padding: "20px 24px", borderLeft: `3px solid ${gold}`, background: `${gold}0a`, maxWidth: 640 }}>
+            <p style={{ margin: 0, fontSize: "clamp(0.9rem,1.5vw,1.05rem)", color: accent, fontStyle: "italic", lineHeight: 1.7 }}>
               "One of the most exclusive Himalayan pilgrimage and expedition routes in India – a journey that combines sacred experiences, cinematic mountain roads, and authentic Indo-Tibetan culture."
             </p>
           </div>
         </motion.section>
 
-        {/* BEST SEASON & TRAVELER TYPES */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        {/* BEST SEASON */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Best Travel Season</div>
-
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "10px 22px", background: `${gold}18`, border: `1px solid ${gold}55`, borderRadius: 2, marginBottom: 28 }}>
             <span style={{ fontSize: 16 }}>🗓️</span>
             <span style={{ fontSize: 14, color: gold, letterSpacing: "0.1em" }}>Best Season: May to October</span>
           </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 20, marginBottom: 28 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 16, marginBottom: 28 }}>
             {seasons.map(s => (
-              <div key={s.period} style={{ padding: "28px 24px", background: card, border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}` }}>
-                <div style={{ fontSize: "1.1rem", color: text, marginBottom: 10 }}>{s.period}</div>
-                <div style={{ fontSize: 13, color: muted, lineHeight: 1.6 }}>{s.experience}</div>
+              <div key={s.period} style={{ padding: "24px 20px", background: card, border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}` }}>
+                <div style={{ fontSize: "clamp(0.95rem,1.8vw,1.1rem)", color: text, marginBottom: 10 }}>{s.period}</div>
+                <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: muted, lineHeight: 1.6 }}>{s.experience}</div>
               </div>
             ))}
           </div>
-
-          <div style={{ marginBottom: 32, padding: "16px 20px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
-            <div style={{ fontSize: 13, color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
+          <div style={{ marginBottom: 28, padding: "14px 18px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
+            <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
           </div>
-
           <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 16 }}>Recommended For</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
             {travelerTypes.map(t => (
-              <div key={t.label} style={{
-                display: "flex", alignItems: "center", gap: 8,
-                padding: "8px 18px", background: card,
-                border: `1px solid ${gold}33`, borderRadius: 2,
-                fontSize: 13, color: accent,
-              }}>
-                <span style={{ fontSize: 16 }}>{t.icon}</span>
+              <div key={t.label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 16px", background: card, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: "clamp(0.78rem,1.5vw,0.85rem)", color: accent }}>
+                <span style={{ fontSize: 15 }}>{t.icon}</span>
                 <span>{t.label}</span>
               </div>
             ))}
@@ -443,143 +537,118 @@ export default function AdiKailashExpedition() {
         </motion.section>
 
         {/* ITINERARY */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
-          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 40 }}>Day by Day Itinerary</div>
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Day by Day Itinerary</div>
 
-          <div className="resp-itinerary" style={{ gap: 32 }}>
-
-            {/* LEFT: day navigation tabs */}
-            <div className="resp-itinerary-nav" style={{ gap: 4 }}>
+          <div className="ak-itinerary-wrap">
+            {/* LEFT / TOP: day tabs */}
+            <div className="ak-itinerary-nav">
               {itinerary.map((item, i) => (
-                <button key={i} onClick={() => setActiveDay(i)} style={{
-                  background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: "10px 16px",
-                  borderLeft: activeDay === i ? `2px solid ${gold}` : "2px solid #ffffff11",
-                  color: activeDay === i ? gold : "#5a5048",
-                  fontSize: 13, letterSpacing: "0.08em", transition: "all 0.2s", fontFamily: "inherit",
-                }}>
+                <button
+                  key={i}
+                  onClick={() => setActiveDay(i)}
+                  className={`ak-day-btn${activeDay === i ? " is-active" : ""}`}
+                  style={{
+                    background: "none", border: "none", cursor: "pointer", textAlign: "left",
+                    padding: "10px 16px",
+                    borderLeft: activeDay === i ? `2px solid ${gold}` : "2px solid #ffffff11",
+                    color: activeDay === i ? gold : "#5a5048",
+                    fontSize: "clamp(0.75rem,1.5vw,0.85rem)", letterSpacing: "0.08em",
+                    transition: "all 0.2s", fontFamily: "inherit",
+                  }}
+                >
                   {item.day}
                 </button>
               ))}
             </div>
 
-            {/* RIGHT: selected day content panel */}
-            <div style={{ flex: 1, minWidth: 280 }}>
-              <motion.div
-                key={activeDay}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-                style={{ background: card, border: "1px solid #ffffff0d", padding: "36px", borderRadius: 2 }}
-              >
-                {/* Day image — shown above title when available */}
+            {/* RIGHT / BELOW: content panel */}
+            <div className="ak-itinerary-panel">
+              <motion.div key={activeDay} initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }} className="ak-day-panel">
                 {itinerary[activeDay].image && (
-                  <img
-                    src={itinerary[activeDay].image}
-                    alt={itinerary[activeDay].imageAlt}
-                    loading="lazy"
-                    style={{ width: "100%", height: 450, objectFit: "cover", objectPosition: "center", borderRadius: 16, marginBottom: 32, display: "block" }}
-                  />
+                  <img className="ak-day-img" src={itinerary[activeDay].image} alt={itinerary[activeDay].imageAlt} loading="lazy" />
                 )}
-
-                {/* Day header */}
-                <div style={{ fontSize: 11, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>
+                <div style={{ fontSize: "clamp(0.8rem,2vw,1rem)", letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>
                   {itinerary[activeDay].day}
                 </div>
-                <h3 style={{ fontSize: "1.7rem", fontWeight: 300, margin: "0 0 4px", color: text }}>
+                <h3 style={{ fontSize: "clamp(1.4rem,4vw,2.2rem)", fontWeight: 300, margin: "0 0 4px", color: text }}>
                   {itinerary[activeDay].title}
                 </h3>
-                <div style={{ fontSize: 13, color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>
+                <div style={{ fontSize: "clamp(0.85rem,2vw,1.1rem)", color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>
                   {itinerary[activeDay].subtitle}
                 </div>
-
                 {itinerary[activeDay].altitude && (
                   <div style={{ display: "inline-block", padding: "3px 10px", background: `${gold}15`, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 11, color: gold, letterSpacing: "0.1em", marginBottom: 16 }}>
                     ⛰️ {itinerary[activeDay].altitude}
                   </div>
                 )}
-
-                <p style={{ fontSize: "1.05rem", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>
+                <p style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>
                   {itinerary[activeDay].description}
                 </p>
-
                 {itinerary[activeDay].keyDestinations && (
                   <div style={{ marginBottom: 16 }}>
                     <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 10 }}>Key Destinations</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                       {itinerary[activeDay].keyDestinations.map(dest => (
-                        <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.04em" }}>
+                        <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: gold, letterSpacing: "0.04em" }}>
                           {dest}
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
-
                 {itinerary[activeDay].experiences && itinerary[activeDay].experiences.length > 0 && (
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
                     {itinerary[activeDay].experiences.map(exp => (
-                      <div key={exp} style={{ padding: "5px 12px", border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 12, color: accent, letterSpacing: "0.05em" }}>{exp}</div>
+                      <div key={exp} style={{ padding: "5px 12px", border: `1px solid ${gold}33`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: accent, letterSpacing: "0.05em" }}>{exp}</div>
                     ))}
                   </div>
                 )}
-
                 {itinerary[activeDay].note && (
-                  <div style={{ padding: "10px 14px", background: "#1a1208", borderLeft: `2px solid ${gold}`, fontSize: 13, color: gold, marginBottom: 12 }}>
+                  <div style={{ padding: "10px 14px", background: "#1a1208", borderLeft: `2px solid ${gold}`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, marginBottom: 12 }}>
                     ⚠️ {itinerary[activeDay].note}
                   </div>
                 )}
-
                 {itinerary[activeDay].stay && (
-                  <div style={{ marginTop: 12, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
+                  <div style={{ marginTop: 16, padding: "12px 16px", background: `${gold}0a`, border: `1px solid ${gold}22`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.1em" }}>
                     🏨 Overnight: {itinerary[activeDay].stay}
                   </div>
                 )}
               </motion.div>
             </div>
-
           </div>
         </motion.section>
 
-        {/* INCLUSIONS */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        {/* PACKAGE DETAILS */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Package Details</div>
-          <div style={{ display: "flex", gap: 8, marginBottom: 28 }}>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 28 }}>
             {["inclusions", "exclusions", "packing"].map(t => (
               <button key={t} onClick={() => setTab(t)} style={{
                 background: tab === t ? gold : "transparent", border: `1px solid ${gold}55`,
                 color: tab === t ? bg : gold, padding: "8px 20px", cursor: "pointer",
-                fontSize: 12, letterSpacing: "0.12em", textTransform: "uppercase",
+                fontSize: "clamp(0.75rem,1.5vw,0.8rem)", letterSpacing: "0.12em", textTransform: "uppercase",
                 fontFamily: "inherit", transition: "all 0.2s", borderRadius: 2,
               }}>{t}</button>
             ))}
           </div>
           <motion.div key={tab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
-            {tab === "inclusions" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 10 }}>
-                {inclusions.map(item => (
+            {(tab === "inclusions" || tab === "packing") && (
+              <div className="ak-inclusions-grid">
+                {(tab === "inclusions" ? inclusions : packing).map(item => (
                   <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: `1px solid #ffffff09` }}>
-                    <span style={{ color: gold, marginTop: 2 }}>✓</span>
-                    <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
+                    <span style={{ color: gold, marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontSize: "clamp(0.85rem,2vw,0.9rem)", color: accent, lineHeight: 1.5 }}>{item}</span>
                   </div>
                 ))}
               </div>
             )}
             {tab === "exclusions" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 10 }}>
+              <div className="ak-inclusions-grid">
                 {exclusions.map(item => (
                   <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: `1px solid #ffffff09` }}>
-                    <span style={{ color: muted, marginTop: 2 }}>✗</span>
-                    <span style={{ fontSize: 14, color: muted, lineHeight: 1.5 }}>{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-            {tab === "packing" && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 10 }}>
-                {packing.map(item => (
-                  <div key={item} style={{ display: "flex", gap: 12, padding: "14px 16px", background: card, border: `1px solid #ffffff09` }}>
-                    <span style={{ color: gold, marginTop: 2 }}>✓</span>
-                    <span style={{ fontSize: 14, color: accent, lineHeight: 1.5 }}>{item}</span>
+                    <span style={{ color: muted, marginTop: 2, flexShrink: 0 }}>✗</span>
+                    <span style={{ fontSize: "clamp(0.85rem,2vw,0.9rem)", color: muted, lineHeight: 1.5 }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -587,55 +656,40 @@ export default function AdiKailashExpedition() {
           </motion.div>
         </motion.section>
 
-        {/* PRICING TIERS */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        {/* PRICING */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Choose Your Expedition</div>
-          <p style={{ fontSize: 14, color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>All packages depart from Delhi</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
+          <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>All packages depart from Delhi</p>
+          <div className="ak-pricing-grid">
             {pricingTiers.map((tier) => (
               <div key={tier.name} style={{
                 background: card,
                 border: tier.badge ? `1px solid ${gold}` : `1px solid #ffffff0d`,
                 borderTop: `3px solid ${tier.badge ? gold : gold + "44"}`,
-                padding: "32px 28px",
-                position: "relative",
+                padding: "32px 28px", position: "relative",
                 boxShadow: tier.badge ? `0 0 40px ${gold}18` : "none",
               }}>
                 {tier.badge && (
-                  <div style={{
-                    position: "absolute", top: -1, right: 20,
-                    background: gold, color: bg,
-                    fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase",
-                    padding: "4px 12px", fontFamily: "inherit",
-                  }}>
+                  <div style={{ position: "absolute", top: -1, right: 20, background: gold, color: bg, fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", padding: "4px 12px", fontFamily: "inherit" }}>
                     {tier.badge}
                   </div>
                 )}
                 <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 8 }}>{tier.name}</div>
-                <div style={{ fontSize: "2.2rem", fontWeight: 300, color: gold, marginBottom: 4, lineHeight: 1 }}>{tier.price}</div>
+                <div style={{ fontSize: "clamp(1.5rem,4vw,2.2rem)", fontWeight: 300, color: gold, marginBottom: 4, lineHeight: 1 }}>{tier.price}</div>
                 <div style={{ fontSize: 11, color: muted, letterSpacing: "0.08em", marginBottom: 28 }}>per person</div>
                 <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
                   {tier.items.map(item => (
                     <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                       <span style={{ color: gold, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
-                      <span style={{ fontSize: 13, color: accent, lineHeight: 1.5 }}>{item}</span>
+                      <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{item}</span>
                     </div>
                   ))}
                 </div>
                 <div style={{ padding: "10px 14px", background: `${gold}0a`, borderLeft: `2px solid ${gold}44`, marginBottom: 24 }}>
                   <div style={{ fontSize: 10, color: muted, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 4 }}>Ideal For</div>
-                  <div style={{ fontSize: 12, color: accent, lineHeight: 1.5 }}>{tier.ideal}</div>
+                  <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{tier.ideal}</div>
                 </div>
-                <a href="/contact#consultation" style={{
-                  display: "block", textAlign: "center",
-                  padding: "13px 20px",
-                  background: tier.badge ? gold : "transparent",
-                  border: `1px solid ${gold}`,
-                  color: tier.badge ? bg : gold,
-                  textDecoration: "none",
-                  fontSize: 12, letterSpacing: "0.18em", textTransform: "uppercase",
-                  fontFamily: "inherit", transition: "all 0.2s",
-                }}>
+                <a href="/contact#consultation" className="ak-pricing-btn" style={{ background: tier.badge ? gold : "transparent", border: `1px solid ${gold}`, color: tier.badge ? bg : gold }}>
                   {tier.cta}
                 </a>
               </div>
@@ -643,37 +697,33 @@ export default function AdiKailashExpedition() {
           </div>
         </motion.section>
 
-        {/* ALTITUDE */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        {/* ALTITUDE PROFILE */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Altitude Profile</div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {altitudeChart.map((a, i) => (
               <div key={a.place} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 20px", background: i % 2 === 0 ? card : "transparent", borderBottom: "1px solid #ffffff08" }}>
-                <span style={{ fontSize: 15, color: accent }}>{a.place}</span>
-                <span style={{ fontSize: 13, color: gold, letterSpacing: "0.06em" }}>{a.alt}</span>
+                <span style={{ fontSize: "clamp(0.85rem,1.5vw,0.95rem)", color: accent }}>{a.place}</span>
+                <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.06em" }}>{a.alt}</span>
               </div>
             ))}
           </div>
         </motion.section>
 
-        {/* TRAVEL ACCESS INFORMATION */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        {/* TRAVEL ACCESS */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Travel Access Information</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 16 }}>
             {[
               { icon: "🚂", label: "Nearest Railway Station", value: "Kathgodam" },
               { icon: "✈️", label: "Nearest Airport", value: "Pithoragarh Airport (Naini Saini Airport)" },
               { icon: "🛕", label: "Optional Spiritual Stops", value: "Haat Kalika Temple · Patal Bhuvaneshwar Cave Temple" },
             ].map(item => (
-              <div key={item.label} style={{
-                padding: "24px", background: card,
-                border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}44`,
-                display: "flex", gap: 16, alignItems: "flex-start",
-              }}>
-                <div style={{ fontSize: 28, flexShrink: 0 }}>{item.icon}</div>
+              <div key={item.label} style={{ padding: "24px", background: card, border: `1px solid #ffffff0d`, borderTop: `2px solid ${gold}44`, display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <div style={{ fontSize: 26, flexShrink: 0 }}>{item.icon}</div>
                 <div>
                   <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 8 }}>{item.label}</div>
-                  <div style={{ fontSize: 15, color: text, lineHeight: 1.6 }}>{item.value}</div>
+                  <div style={{ fontSize: "clamp(0.85rem,1.5vw,0.95rem)", color: text, lineHeight: 1.6 }}>{item.value}</div>
                 </div>
               </div>
             ))}
@@ -681,37 +731,33 @@ export default function AdiKailashExpedition() {
         </motion.section>
 
         {/* SAFETY */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Expedition Safety</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 16 }}>
             {["Local mountain coordinators", "Permit support teams", "Basic medical assistance", "Emergency vehicle coordination", "Experienced Himalayan drivers", "Travel insurance strongly recommended"].map(item => (
               <div key={item} style={{ padding: "18px 20px", background: card, border: `1px solid #ffffff09`, display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <span style={{ color: gold, fontSize: 16 }}>🛡️</span>
-                <span style={{ fontSize: 13, color: accent, lineHeight: 1.5 }}>{item}</span>
+                <span style={{ color: gold, fontSize: 16, flexShrink: 0 }}>🛡️</span>
+                <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{item}</span>
               </div>
             ))}
           </div>
         </motion.section>
 
         {/* CTA */}
-        <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
-          style={{ textAlign: "center", padding: "72px 32px", background: card, border: `1px solid ${gold}22`, borderTop: `1px solid ${gold}` }}>
+        <motion.section className="ak-section ak-cta-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
+          style={{ background: card, border: `1px solid ${gold}22`, borderTop: `1px solid ${gold}`, marginBottom: 0 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold, marginBottom: 20 }}>Begin Your Sacred Journey</div>
-          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", fontWeight: 300, margin: "0 0 12px", color: text }}>Adi Kailash Awaits</h2>
-          <p style={{ fontSize: "1.1rem", color: muted, margin: "0 auto 16px", maxWidth: 480 }}>
+          <h2 style={{ fontSize: "clamp(1.6rem,5vw,3.2rem)", fontWeight: 300, margin: "0 0 12px", color: text }}>Adi Kailash Awaits</h2>
+          <p style={{ fontSize: "clamp(0.9rem,1.8vw,1.1rem)", color: muted, margin: "0 auto 16px", maxWidth: 480 }}>
             One of India's most exclusive Himalayan expeditions.
           </p>
-          <div style={{ fontSize: "1.4rem", color: gold, margin: "0 auto 8px", letterSpacing: "0.05em" }}>
+          <div style={{ fontSize: "clamp(1.1rem,3vw,1.4rem)", color: gold, margin: "0 auto 8px", letterSpacing: "0.05em" }}>
             From ₹29,999 per person
           </div>
           <div style={{ fontSize: 12, color: muted, margin: "0 auto 36px", letterSpacing: "0.06em" }}>
             Standard · Deluxe · Premium
           </div>
-          <a href="/contact#consultation" style={{
-            display: "inline-block", padding: "16px 52px", background: gold, color: bg,
-            textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase",
-            fontFamily: "inherit", marginBottom: 20,
-          }}>
+          <a href="/contact#consultation" className="ak-cta-btn" style={{ background: gold, color: bg }}>
             Enquire Now
           </a>
           <div style={{ fontSize: 12, color: "#3a3028", letterSpacing: "0.08em" }}>
