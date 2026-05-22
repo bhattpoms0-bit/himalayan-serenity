@@ -353,6 +353,30 @@ export default function AdiKailashExpedition() {
               ))}
             </div>
           </div>
+
+          <div style={{ marginTop: "32px", borderRadius: "16px", overflow: "hidden" }}>
+            <img
+              src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.jpg"
+              alt="Adi Kailash Om Parvat 6-Day Expedition Route Map Pithoragarh Kumaon"
+              loading="lazy"
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                borderRadius: "16px",
+                boxShadow: "0 8px 40px rgba(0,0,0,0.4)",
+              }}
+            />
+            <p style={{
+              fontSize: "0.8rem",
+              color: "#5a4a30",
+              textAlign: "center",
+              marginTop: "12px",
+              fontStyle: "italic",
+            }}>
+              Route map for reference only. Routes are subject to weather &amp; road conditions. Itinerary may be adjusted as per permits, safety &amp; operational convenience.
+            </p>
+          </div>
         </motion.section>
 
         {/* SACRED IMPORTANCE */}
