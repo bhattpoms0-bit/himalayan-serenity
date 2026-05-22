@@ -312,53 +312,11 @@ export default function AdiKailashExpedition() {
         {/* EXPEDITION ROUTE */}
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 28 }}>Expedition Route</div>
-          <div style={{
-            padding: "28px 24px",
-            background: card,
-            border: `1px solid #ffffff0d`,
-            borderTop: `2px solid ${gold}44`,
-            overflowX: "auto",
-          }}>
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "10px 4px",
-              alignItems: "center",
-              minWidth: 0,
-            }}>
-              {routeStops.map((stop, i) => (
-                <span key={i} style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                  <span style={{
-                    display: "inline-block",
-                    padding: "5px 14px",
-                    border: `1px solid ${gold}44`,
-                    borderRadius: 2,
-                    fontSize: 12,
-                    color: (stop === "Delhi" && i === 0) || stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat"
-                      ? gold
-                      : accent,
-                    background: stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat"
-                      ? `${gold}18`
-                      : "transparent",
-                    letterSpacing: "0.04em",
-                    whiteSpace: "nowrap",
-                    fontWeight: stop === "Jolingkong (Adi Kailash)" || stop === "Om Parvat" ? 500 : 300,
-                  }}>
-                    {stop}
-                  </span>
-                  {i < routeStops.length - 1 && (
-                    <span style={{ color: gold, fontSize: 14, opacity: 0.7, flexShrink: 0 }}>→</span>
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ marginTop: "32px", borderRadius: "16px", overflow: "hidden" }}>
+          <div style={{ borderRadius: "16px", overflow: "hidden" }}>
             <img
               src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.jpg"
               alt="Adi Kailash Om Parvat 6-Day Expedition Route Map Pithoragarh Kumaon"
-              loading="lazy"
+              loading="eager"
               style={{
                 width: "100%",
                 height: "auto",
