@@ -13,7 +13,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:     12,
     spots:      8,
-    price:      'On Request',
+    price:      'Starting from ₹29,999',
     image:      '/images/packages/adi-kailash-base.jpg',
     link:       '/packages/adi-kailash-expedition',
   },
@@ -253,7 +253,7 @@ function PackageCard({ pkg, large = false, index = 0 }) {
               </p>
               <p
                 className="font-serif leading-none"
-                style={{ fontSize: pkg.price === 'On Request' ? 18 : 26, color: '#e07b2a' }}
+                style={{ fontSize: pkg.price.length > 8 ? 18 : 26, color: '#e07b2a' }}
               >
                 {pkg.price}
               </p>
