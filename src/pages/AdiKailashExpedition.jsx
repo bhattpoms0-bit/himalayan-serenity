@@ -477,7 +477,7 @@ export default function AdiKailashExpedition() {
                     src={itinerary[activeDay].image}
                     alt={itinerary[activeDay].imageAlt}
                     loading="lazy"
-                    style={{ width: "100%", height: 380, objectFit: "cover", borderRadius: 16, marginBottom: 32 }}
+                    style={{ width: "100%", height: 450, objectFit: "cover", objectPosition: "center", borderRadius: 16, marginBottom: 32, display: "block" }}
                   />
                 )}
 
