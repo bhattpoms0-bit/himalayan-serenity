@@ -16,8 +16,9 @@ export default function WhatsAppButton() {
         }
         .wa-float {
           position:       fixed;
-          bottom:         24px;
-          right:          24px;
+          bottom:         32px;
+          left:           24px;
+          right:          auto;
           z-index:        9999;
           display:        flex;
           align-items:    center;
@@ -41,6 +42,9 @@ export default function WhatsAppButton() {
 
         @media (max-width: 767px) {
           .wa-float {
+            bottom:        90px;
+            left:          16px;
+            right:         auto;
             padding:       14px;
             border-radius: 50%;
           }
