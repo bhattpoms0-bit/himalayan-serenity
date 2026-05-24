@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, X } from 'lucide-react'
@@ -67,10 +67,10 @@ export default function FAQPage() {
 
         <div
           className="absolute inset-0 bg-cover bg-center scale-[1.05]"
-          style={{ backgroundImage: `url('/images/om-parvat-view-himalayan-horses-pithoragarh.jpg')` }}
+          style={{ backgroundImage: `url('/images/om-parvat-view-himalayan-horses-pithoragarh.webp')` }}
         >
           <img
-            src="/images/om-parvat-view-himalayan-horses-pithoragarh.jpg"
+            src="/images/om-parvat-view-himalayan-horses-pithoragarh.webp"
             alt="Om Parvat View Himalayan Horses Pithoragarh"
             className="sr-only"
             aria-hidden="true"

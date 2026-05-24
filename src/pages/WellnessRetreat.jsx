@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -164,7 +164,7 @@ export default function WellnessRetreat() {
       {/* HERO */}
       <div style={{
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: "linear-gradient(to bottom, rgba(7,10,8,0.2) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/wellness/forest-meditation.jpg') center/cover no-repeat",
+        background: "linear-gradient(to bottom, rgba(7,10,8,0.2) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/wellness/forest-meditation.webp') center/cover no-repeat",
       }}>
         <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
@@ -250,20 +250,20 @@ export default function WellnessRetreat() {
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: sage, marginBottom: 32 }}>Journey Highlights</div>
           <div className="resp-grid-3" style={{ gap: 8 }}>
             {[
-              { src: "/images/wellness/forest-meditation.jpg",  caption: "Forest Meditation",              span: "2" },
-              { src: "/images/wellness/jageshwar-temple.jpg",   caption: "Jageshwar Temple Complex",       span: false },
-              { src: "/images/wellness/kasar-devi-temple.jpg",  caption: "Kasar Devi — Cosmic Ridge",      span: false },
-              { src: "/images/wellness/kasar-devi-sunset.jpg",  caption: "Sunset from Kasar Devi",         span: false },
-              { src: "/images/wellness/cedar-forest.jpg",       caption: "Sacred Cedar Forest",            span: false },
-              { src: "/images/wellness/pine-forest.jpg",        caption: "Forest Retreat",                 span: "2" },
-              { src: "/images/wellness/bhimtal-lake.jpg",       caption: "Bhimtal Farewell Lake",          span: false },
-              { src: "/images/wellness/bhimtal-evening.jpg",    caption: "Bhimtal Evening Reflection",     span: false },
-              { src: "/images/wellness/mountain-cafe.jpg",      caption: "Mountain Café Mindfulness",      span: false },
-              { src: "/images/wellness/yoga-meditation.jpg",    caption: "Guided Meditation Circle",       span: false },
-              { src: "/images/wellness/himalayan-dawn.jpg",     caption: "Himalayan Dawn",                 span: "2" },
-              { src: "/images/wellness/above-clouds.jpg",       caption: "Above the Clouds",               span: false },
-              { src: "/images/wellness/organic-cuisine.jpg",    caption: "Himalayan Organic Cuisine",      span: false },
-              { src: "/images/wellness/mountain-road.jpg",      caption: "Slow Mountain Roads",            span: "2" },
+              { src: "/images/wellness/forest-meditation.webp",  caption: "Forest Meditation",              span: "2" },
+              { src: "/images/wellness/jageshwar-temple.webp",   caption: "Jageshwar Temple Complex",       span: false },
+              { src: "/images/wellness/kasar-devi-temple.webp",  caption: "Kasar Devi — Cosmic Ridge",      span: false },
+              { src: "/images/wellness/kasar-devi-sunset.webp",  caption: "Sunset from Kasar Devi",         span: false },
+              { src: "/images/wellness/cedar-forest.webp",       caption: "Sacred Cedar Forest",            span: false },
+              { src: "/images/wellness/pine-forest.webp",        caption: "Forest Retreat",                 span: "2" },
+              { src: "/images/wellness/bhimtal-lake.webp",       caption: "Bhimtal Farewell Lake",          span: false },
+              { src: "/images/wellness/bhimtal-evening.webp",    caption: "Bhimtal Evening Reflection",     span: false },
+              { src: "/images/wellness/mountain-cafe.webp",      caption: "Mountain Café Mindfulness",      span: false },
+              { src: "/images/wellness/yoga-meditation.webp",    caption: "Guided Meditation Circle",       span: false },
+              { src: "/images/wellness/himalayan-dawn.webp",     caption: "Himalayan Dawn",                 span: "2" },
+              { src: "/images/wellness/above-clouds.webp",       caption: "Above the Clouds",               span: false },
+              { src: "/images/wellness/organic-cuisine.webp",    caption: "Himalayan Organic Cuisine",      span: false },
+              { src: "/images/wellness/mountain-road.webp",      caption: "Slow Mountain Roads",            span: "2" },
             ].map((photo) => (
               <div
                 key={photo.src}

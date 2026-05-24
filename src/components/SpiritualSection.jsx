@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
@@ -24,7 +24,7 @@ export default function SpiritualSection() {
               transition={{ duration: 1.2, ease: EASE }}
             >
               <img
-                src="/images/packages/adi-kailash/adi-kailash-trishul.jpg"
+                src="/images/packages/adi-kailash/adi-kailash-trishul.webp"
                 alt="Trishul at Adi Kailash"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -176,7 +176,7 @@ export default function SpiritualSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
           >
             <img
-              src="/images/packages/adi-kailash/adi-kailash-road.jpg"
+              src="/images/packages/adi-kailash/adi-kailash-road.webp"
               alt="Adi Kailash Road"
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               loading="lazy"

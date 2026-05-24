@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence, useScroll } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useReducedMotion } from 'framer-motion'
 import WhatsAppButton from './components/WhatsAppButton'
 import GlobalNav from './components/GlobalNav'
 import MobileCTA from './components/MobileCTA'
@@ -24,12 +24,13 @@ const Sustainability                 = lazy(() => import('./pages/Sustainability
 const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailashVsKailashMansarovar'))
 
 function PageTransition({ children }) {
+  const prefersReducedMotion = useReducedMotion()
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      exit={{ opacity: prefersReducedMotion ? 1 : 0 }}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.25 }}
     >
       {children}
     </motion.div>

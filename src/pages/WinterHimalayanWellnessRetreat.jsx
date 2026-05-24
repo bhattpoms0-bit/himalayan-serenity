@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import ExpeditionForm from '../components/ExpeditionForm';
 import { useSEO } from '../hooks/useSEO';
 
@@ -31,7 +31,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Opening wellness circle",
       ],
       evening: "Settle into the winter Himalayan atmosphere with a calming opening wellness circle.",
-      dayImage: "chandak-snowfall-pithoragarh-winter-view.jpg",
+      dayImage: "chandak-snowfall-pithoragarh-winter-view.webp",
       dayImageAlt: "Chandak viewpoint during snowfall, Pithoragarh winter panorama",
     },
     {
@@ -47,7 +47,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Cozy fireplace evening",
       ],
       evening: "Cozy fireplace evening with views of the Panchachuli massif.",
-      dayImage: "panchachuli-snow-view-munsiyari-winter.jpg",
+      dayImage: "panchachuli-snow-view-munsiyari-winter.webp",
       dayImageAlt: "Panchachuli snow peaks panorama from Munsiyari in winter",
     },
     {
@@ -66,7 +66,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Stargazing session (weather permitting)",
       ],
       evening: "Bonfire storytelling and stargazing in the crisp Himalayan night.",
-      dayImage: "winter-bonfire-himalayan-cabin-night.jpg",
+      dayImage: "winter-bonfire-himalayan-cabin-night.webp",
       dayImageAlt: "Winter bonfire outside a Himalayan cabin at night",
     },
     {
@@ -82,7 +82,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Relaxed wellness evening",
       ],
       evening: "A gentle, unhurried return through snow-dusted Himalayan valleys.",
-      dayImage: "himalayan-snow-peaks-scenic-winter-view.jpg",
+      dayImage: "himalayan-snow-peaks-scenic-winter-view.webp",
       dayImageAlt: "Scenic Himalayan snow peaks on the winter drive from Munsiyari to Pithoragarh",
     },
     {
@@ -98,7 +98,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Fireplace storytelling evening",
       ],
       evening: "Fireplace storytelling in the colonial charm of Abbott Mount.",
-      dayImage: "himalayan-forest-snowfall-winter-landscape.jpg",
+      dayImage: "himalayan-forest-snowfall-winter-landscape.webp",
       dayImageAlt: "Himalayan forest during heavy snowfall, atmospheric winter landscape",
     },
     {
@@ -114,7 +114,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Sacred Himalayan silence",
       ],
       evening: "Evening aarti in the ancient Jageshwar temple complex.",
-      dayImage: "jageshwar-temple-snow-winter-uttarakhand.jpg",
+      dayImage: "jageshwar-temple-snow-winter-uttarakhand.webp",
       dayImageAlt: "Jageshwar temple complex covered in snow, sacred winter scene in Uttarakhand",
     },
     {
@@ -130,7 +130,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Reflection journaling",
       ],
       evening: "Sunset meditation at the mystical Kasar Devi ridge.",
-      dayImage: "snow-covered-trees-himalayan-winter.jpg",
+      dayImage: "snow-covered-trees-himalayan-winter.webp",
       dayImageAlt: "Snow covered trees along the Himalayan road to Kasar Devi in winter",
     },
     {
@@ -146,7 +146,7 @@ const WinterHimalayanWellnessRetreat = () => {
         "Final reflection session",
       ],
       evening: "A gentle farewell by the lake, reflecting on the journey.",
-      dayImage: "nainital-lake-aerial-winter-snowfall-kumaon.jpg",
+      dayImage: "nainital-lake-aerial-winter-snowfall-kumaon.webp",
       dayImageAlt: "Nainital lake aerial view during winter snowfall, Kumaon Himalayas",
     },
     {
@@ -212,11 +212,11 @@ const WinterHimalayanWellnessRetreat = () => {
   ];
 
   const galleryImages = [
-    { src: "jageshwar-ancient-temple-snow-kumaon.jpg",         alt: "Ancient Jageshwar temple complex in snow, Kumaon Uttarakhand", span: 1, h: 340 },
-    { src: "munsiyari-snowfall-pine-trees-winter.jpg",         alt: "Pine trees under heavy snowfall in Munsiyari winter",          span: 1, h: 340 },
-    { src: "himalayan-winter-camp-sunrise-snowfield.jpg",      alt: "Himalayan winter camp at sunrise on a snowfield",              span: 1, h: 340 },
-    { src: "snow-covered-trees-himalayan-winter.jpg",          alt: "Snow covered trees lining the Himalayan winter road",          span: 2, h: 280 },
-    { src: "chandak-panchachuli-silhouette-winter-view.jpg",   alt: "Panchachuli peaks silhouette seen from Chandak in winter",     span: 1, h: 280 },
+    { src: "jageshwar-ancient-temple-snow-kumaon.webp",         alt: "Ancient Jageshwar temple complex in snow, Kumaon Uttarakhand", span: 1, h: 340 },
+    { src: "munsiyari-snowfall-pine-trees-winter.webp",         alt: "Pine trees under heavy snowfall in Munsiyari winter",          span: 1, h: 340 },
+    { src: "himalayan-winter-camp-sunrise-snowfield.webp",      alt: "Himalayan winter camp at sunrise on a snowfield",              span: 1, h: 340 },
+    { src: "snow-covered-trees-himalayan-winter.webp",          alt: "Snow covered trees lining the Himalayan winter road",          span: 2, h: 280 },
+    { src: "chandak-panchachuli-silhouette-winter-view.webp",   alt: "Panchachuli peaks silhouette seen from Chandak in winter",     span: 1, h: 280 },
   ];
 
   return (
@@ -233,7 +233,7 @@ const WinterHimalayanWellnessRetreat = () => {
       }}>
         {/* Hero background image */}
         <img
-          src={`${BASE}nainital-lake-aerial-winter-snowfall-kumaon.jpg`}
+          src={`${BASE}nainital-lake-aerial-winter-snowfall-kumaon.webp`}
           alt="Nainital lake aerial view during winter snowfall, Kumaon Himalayas"
           fetchPriority="high"
           loading="eager"
@@ -348,8 +348,8 @@ const WinterHimalayanWellnessRetreat = () => {
         {/* Overview image pair */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px", marginTop: "60px" }}>
           {[
-            { src: "panchachuli-snow-view-munsiyari-winter.jpg",       alt: "Panchachuli snow peaks panorama from Munsiyari in winter" },
-            { src: "chandak-panchachuli-silhouette-winter-view.jpg",   alt: "Panchachuli peaks silhouette from Chandak viewpoint in winter" },
+            { src: "panchachuli-snow-view-munsiyari-winter.webp",       alt: "Panchachuli snow peaks panorama from Munsiyari in winter" },
+            { src: "chandak-panchachuli-silhouette-winter-view.webp",   alt: "Panchachuli peaks silhouette from Chandak viewpoint in winter" },
           ].map(img => (
             <div key={img.src} style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}>
               <img
@@ -376,7 +376,7 @@ const WinterHimalayanWellnessRetreat = () => {
           {/* Atmospheric feature image */}
           <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.6)", marginBottom: "48px" }}>
             <img
-              src={`${BASE}himalayan-winter-camp-sunrise-snowfield.jpg`}
+              src={`${BASE}himalayan-winter-camp-sunrise-snowfield.webp`}
               alt="Himalayan winter camp at sunrise on a pristine snowfield"
               loading="lazy"
               style={imgStyle(400)}
@@ -518,9 +518,9 @@ const WinterHimalayanWellnessRetreat = () => {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "14px" }}>
           {[
-            { src: "himalayan-village-sunny-winter-day-kumaon.jpg",   alt: "Himalayan village on a clear sunny winter day, Kumaon Uttarakhand" },
-            { src: "himalayan-village-snowfall-winter-kumaon.jpg",    alt: "Himalayan village during snowfall in winter, Kumaon" },
-            { src: "munsiyari-winter-village-snow-kumaon.jpg",        alt: "Munsiyari winter village covered in snow, Kumaon Himalayas" },
+            { src: "himalayan-village-sunny-winter-day-kumaon.webp",   alt: "Himalayan village on a clear sunny winter day, Kumaon Uttarakhand" },
+            { src: "himalayan-village-snowfall-winter-kumaon.webp",    alt: "Himalayan village during snowfall in winter, Kumaon" },
+            { src: "munsiyari-winter-village-snow-kumaon.webp",        alt: "Munsiyari winter village covered in snow, Kumaon Himalayas" },
           ].map(img => (
             <div key={img.src} style={{ borderRadius: 14, overflow: "hidden", boxShadow: "0 6px 24px rgba(0,0,0,0.5)" }}>
               <img
@@ -586,8 +586,8 @@ const WinterHimalayanWellnessRetreat = () => {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "16px" }}>
           {[
-            { src: "munsiyari-snow-dome-camp-winter-night.jpg",    alt: "Snow dome camp at Munsiyari lit up during a winter night" },
-            { src: "munsiyari-winter-himalayan-resort-snow.jpg",   alt: "Himalayan resort in Munsiyari covered in fresh snow in winter" },
+            { src: "munsiyari-snow-dome-camp-winter-night.webp",    alt: "Snow dome camp at Munsiyari lit up during a winter night" },
+            { src: "munsiyari-winter-himalayan-resort-snow.webp",   alt: "Himalayan resort in Munsiyari covered in fresh snow in winter" },
           ].map(img => (
             <div key={img.src} style={{ borderRadius: 14, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.55)" }}>
               <img

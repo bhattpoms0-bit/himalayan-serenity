@@ -216,6 +216,16 @@
     .resp-itinerary-nav { flex-direction: row; flex-wrap: wrap; min-width: unset; width: 100%; gap: 4px; }
   }
 
+  /* ─── Prefers Reduced Motion ──────────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   /* ─── Animation Delays ────────────────────────────────────── */
   .animate-delay-75  { animation-delay: 75ms; }
   .animate-delay-100 { animation-delay: 100ms; }

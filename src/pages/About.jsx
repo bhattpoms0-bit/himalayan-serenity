@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -16,7 +16,7 @@ export default function AboutPage() {
       <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/images/parvati-sarovar-hero.jpg')` }}
+          style={{ backgroundImage: `url('/images/parvati-sarovar-hero.webp')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
@@ -67,7 +67,7 @@ export default function AboutPage() {
             </div>
             <div className="relative rounded-2xl overflow-hidden h-96">
               <img
-                src="/images/om-parvat-shrine.jpg"
+                src="/images/om-parvat-shrine.webp"
                 alt="Om Parvat Shrine"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -91,9 +91,9 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { src: '/images/culture/wisdom-of-elders.jpg', label: 'The Wisdom of Elders', sub: 'Stories etched in time and tradition.' },
-              { src: '/images/culture/eternal-flames.jpg',   label: 'Eternal Flames',        sub: 'A light that never fades in the cold.' },
-              { src: '/images/culture/rhythm-of-faith.jpg',  label: 'Rhythm of Faith',       sub: 'Cycles of devotion in every turn.' },
+              { src: '/images/culture/wisdom-of-elders.webp', label: 'The Wisdom of Elders', sub: 'Stories etched in time and tradition.' },
+              { src: '/images/culture/eternal-flames.webp',   label: 'Eternal Flames',        sub: 'A light that never fades in the cold.' },
+              { src: '/images/culture/rhythm-of-faith.webp',  label: 'Rhythm of Faith',       sub: 'Cycles of devotion in every turn.' },
             ].map((item, i) => (
               <div key={i} className="relative rounded-xl overflow-hidden h-64 group">
                 <img src={item.src} alt={item.label} className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" decoding="async" />

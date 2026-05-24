@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -173,15 +173,15 @@ const seasons = [
 ];
 
 const galleryImages = [
-  { src: "himalayan-snow-peaks-darma-valley-panorama.jpg", alt: "Himalayan snow peaks panorama over Darma Valley, Uttarakhand", span: 2 },
-  { src: "darma-valley-himalayan-village-sunset-view.jpg", alt: "Darma Valley Himalayan village at sunset, Eastern Kumaon", span: 1 },
-  { src: "woman-trekking-himalaya-darma-valley.jpg", alt: "Woman trekking in Darma Valley, Himalayan women's retreat", span: 1 },
-  { src: "darma-valley-waterfall-mountain-road.jpg", alt: "Waterfall alongside mountain road into Darma Valley", span: 1 },
-  { src: "himalayan-pine-forest-kumaon.jpg", alt: "Pine forest in Kumaon Himalaya, wellness retreat setting", span: 1 },
-  { src: "sunrise-pithoragarh-himalayan-valley-fog.jpg", alt: "Sunrise over Pithoragarh valley with morning fog", span: 2 },
-  { src: "bhimtal-lake-kumaon-uttarakhand.jpg", alt: "Bhimtal lake reflection, Kumaon Uttarakhand", span: 1 },
-  { src: "way-to-darma-valley-waterfall-gorge.jpg", alt: "Scenic gorge and waterfall on the way to Darma Valley", span: 1 },
-  { src: "woman-traveler-himalayan-mountain-sunset.jpg", alt: "Woman traveler at Himalayan mountain sunset, Darma Valley retreat", span: 1 },
+  { src: "himalayan-snow-peaks-darma-valley-panorama.webp", alt: "Himalayan snow peaks panorama over Darma Valley, Uttarakhand", span: 2 },
+  { src: "darma-valley-himalayan-village-sunset-view.webp", alt: "Darma Valley Himalayan village at sunset, Eastern Kumaon", span: 1 },
+  { src: "woman-trekking-himalaya-darma-valley.webp", alt: "Woman trekking in Darma Valley, Himalayan women's retreat", span: 1 },
+  { src: "darma-valley-waterfall-mountain-road.webp", alt: "Waterfall alongside mountain road into Darma Valley", span: 1 },
+  { src: "himalayan-pine-forest-kumaon.webp", alt: "Pine forest in Kumaon Himalaya, wellness retreat setting", span: 1 },
+  { src: "sunrise-pithoragarh-himalayan-valley-fog.webp", alt: "Sunrise over Pithoragarh valley with morning fog", span: 2 },
+  { src: "bhimtal-lake-kumaon-uttarakhand.webp", alt: "Bhimtal lake reflection, Kumaon Uttarakhand", span: 1 },
+  { src: "way-to-darma-valley-waterfall-gorge.webp", alt: "Scenic gorge and waterfall on the way to Darma Valley", span: 1 },
+  { src: "woman-traveler-himalayan-mountain-sunset.webp", alt: "Woman traveler at Himalayan mountain sunset, Darma Valley retreat", span: 1 },
 ];
 
 export default function DarmaValleyWomensRetreat() {
@@ -205,7 +205,7 @@ export default function DarmaValleyWomensRetreat() {
       {/* HERO */}
       <div style={{
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: `linear-gradient(to bottom, rgba(10,7,8,0.2) 0%, rgba(10,7,8,0.55) 55%, rgba(10,7,8,0.97) 100%), url('${BASE}woman-traveler-himalayan-mountain-sunset.jpg') center/cover no-repeat`,
+        background: `linear-gradient(to bottom, rgba(10,7,8,0.2) 0%, rgba(10,7,8,0.55) 55%, rgba(10,7,8,0.97) 100%), url('${BASE}woman-traveler-himalayan-mountain-sunset.webp') center/cover no-repeat`,
       }}>
         <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
@@ -284,7 +284,7 @@ export default function DarmaValleyWomensRetreat() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
             <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}>
               <img
-                src={`${BASE}darma-valley-dugtu-village-uttarakhand.jpg`}
+                src={`${BASE}darma-valley-dugtu-village-uttarakhand.webp`}
                 alt="Dugtu village in Darma Valley, Uttarakhand – ancient Himalayan settlement"
                 loading="lazy"
                 style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}
@@ -292,7 +292,7 @@ export default function DarmaValleyWomensRetreat() {
             </div>
             <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.5)" }}>
               <img
-                src={`${BASE}darma-valley-village-misty-himalayas.jpg`}
+                src={`${BASE}darma-valley-village-misty-himalayas.webp`}
                 alt="Misty Himalayan village in Darma Valley at dawn, Uttarakhand"
                 loading="lazy"
                 style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}
@@ -344,9 +344,9 @@ export default function DarmaValleyWomensRetreat() {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
             {[
-              { src: "naini-saini-airport-pithoragarh-uttarakhand.jpg", alt: "Naini Saini Airport, Pithoragarh – gateway to Kumaon Himalayas", caption: "Naini Saini Airport, Pithoragarh" },
-              { src: "scenic-mountain-highway-kumaon-river.jpg", alt: "Scenic mountain highway alongside Kali River, Kumaon Uttarakhand", caption: "Kali River Valley Highway" },
-              { src: "road-to-darma-valley-himalayan-gorge.jpg", alt: "Road winding through Himalayan gorge on the way to Darma Valley", caption: "Into the Darma Valley Gorge" },
+              { src: "naini-saini-airport-pithoragarh-uttarakhand.webp", alt: "Naini Saini Airport, Pithoragarh – gateway to Kumaon Himalayas", caption: "Naini Saini Airport, Pithoragarh" },
+              { src: "scenic-mountain-highway-kumaon-river.webp", alt: "Scenic mountain highway alongside Kali River, Kumaon Uttarakhand", caption: "Kali River Valley Highway" },
+              { src: "road-to-darma-valley-himalayan-gorge.webp", alt: "Road winding through Himalayan gorge on the way to Darma Valley", caption: "Into the Darma Valley Gorge" },
             ].map(img => (
               <div key={img.src}>
                 <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.45)", marginBottom: 12 }}>
@@ -414,9 +414,9 @@ export default function DarmaValleyWomensRetreat() {
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 12 }}>
             {[
-              { src: "yoga-pose-himalayan-snow-peaks-retreat.jpg", alt: "Yoga pose with Himalayan snow peaks in background, women's retreat", caption: "Sunrise yoga with snow peaks" },
-              { src: "group-yoga-session-himalayan-meadow.jpg", alt: "Group yoga session in Himalayan meadow, Darma Valley women's retreat", caption: "Group sessions in mountain meadows" },
-              { src: "woman-meditation-himalayan-mountain-view.jpg", alt: "Woman in meditation with Himalayan mountain panorama, wellness retreat", caption: "Meditation & mountain stillness" },
+              { src: "yoga-pose-himalayan-snow-peaks-retreat.webp", alt: "Yoga pose with Himalayan snow peaks in background, women's retreat", caption: "Sunrise yoga with snow peaks" },
+              { src: "group-yoga-session-himalayan-meadow.webp", alt: "Group yoga session in Himalayan meadow, Darma Valley women's retreat", caption: "Group sessions in mountain meadows" },
+              { src: "woman-meditation-himalayan-mountain-view.webp", alt: "Woman in meditation with Himalayan mountain panorama, wellness retreat", caption: "Meditation & mountain stillness" },
             ].map(img => (
               <div key={img.src}>
                 <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,0.45)", marginBottom: 12 }}>
@@ -450,7 +450,7 @@ export default function DarmaValleyWomensRetreat() {
         <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ marginBottom: 80 }}>
           <div style={{ position: "relative", borderRadius: 4, overflow: "hidden", boxShadow: "0 16px 48px rgba(0,0,0,0.6)" }}>
             <img
-              src={`${BASE}women-retreat-bonfire-circle-himalaya.jpg`}
+              src={`${BASE}women-retreat-bonfire-circle-himalaya.webp`}
               alt="Women's retreat bonfire circle under the Himalayan night sky, Darma Valley"
               loading="lazy"
               style={{ width: "100%", height: 420, objectFit: "cover", objectPosition: "center", display: "block" }}
@@ -482,7 +482,7 @@ export default function DarmaValleyWomensRetreat() {
             <div style={{ flexShrink: 0, width: "min(340px, 100%)" }}>
               <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.55)" }}>
                 <img
-                  src={`${BASE}rang-tribal-festival-darma-valley-culture.jpg`}
+                  src={`${BASE}rang-tribal-festival-darma-valley-culture.webp`}
                   alt="Rang tribal festival in Darma Valley – traditional culture of Eastern Kumaon, Uttarakhand"
                   loading="lazy"
                   style={{ width: "100%", height: 320, objectFit: "cover", objectPosition: "center", display: "block" }}
@@ -546,7 +546,7 @@ export default function DarmaValleyWomensRetreat() {
             <div style={{ flexShrink: 0, width: "min(260px, 100%)" }}>
               <div style={{ borderRadius: 4, overflow: "hidden", boxShadow: "0 12px 40px rgba(0,0,0,0.55)" }}>
                 <img
-                  src={`${BASE}womens-retreat-wellness-kit-himalaya.jpg`}
+                  src={`${BASE}womens-retreat-wellness-kit-himalaya.webp`}
                   alt="Women's retreat wellness kit for Himalayan journey – yoga mat, journal, herbal tea"
                   loading="lazy"
                   style={{ width: "100%", height: 300, objectFit: "cover", objectPosition: "center", display: "block" }}

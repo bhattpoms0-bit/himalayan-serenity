@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -24,8 +24,8 @@ const itinerary = [
     stay: "Abbott Mount",
     focus: "📷 Atmospheric & Moody",
     dayImages: [
-      { src: BASE + "abbott-mount-colonial-church-forest-uttarakhand.jpg", alt: "Abbott Mount colonial church in pine forest Uttarakhand" },
-      { src: BASE + "abbott-mount-pine-forest-fog-photography.jpg", alt: "Abbott Mount pine forest fog photography morning" },
+      { src: BASE + "abbott-mount-colonial-church-forest-uttarakhand.webp", alt: "Abbott Mount colonial church in pine forest Uttarakhand" },
+      { src: BASE + "abbott-mount-pine-forest-fog-photography.webp", alt: "Abbott Mount pine forest fog photography morning" },
     ],
     imageHeight: 200,
     imageLayout: "two",
@@ -39,7 +39,7 @@ const itinerary = [
     stay: "Pithoragarh",
     focus: "📷 Ridge & Valley",
     dayImages: [
-      { src: BASE + "pithoragarh-sunset-valley-view-kumaon.jpg", alt: "Pithoragarh sunset valley view Kumaon Himalayas" },
+      { src: BASE + "pithoragarh-sunset-valley-view-kumaon.webp", alt: "Pithoragarh sunset valley view Kumaon Himalayas" },
     ],
     imageHeight: 220,
     imageLayout: "one",
@@ -53,8 +53,8 @@ const itinerary = [
     stay: "Munsiyari",
     focus: "📷 Waterfalls & Peaks",
     dayImages: [
-      { src: BASE + "panchachuli-peak-sunrise-pink-munsiyari.jpg", alt: "Panchachuli peak sunrise pink glow Munsiyari" },
-      { src: BASE + "birthi-falls-waterfall-munsiyari-kumaon.jpg", alt: "Birthi Falls waterfall Munsiyari Kumaon" },
+      { src: BASE + "panchachuli-peak-sunrise-pink-munsiyari.webp", alt: "Panchachuli peak sunrise pink glow Munsiyari" },
+      { src: BASE + "birthi-falls-waterfall-munsiyari-kumaon.webp", alt: "Birthi Falls waterfall Munsiyari Kumaon" },
     ],
     imageHeight: 200,
     imageLayout: "two",
@@ -68,9 +68,9 @@ const itinerary = [
     stay: "Munsiyari",
     focus: "📷 Sunrise & Milky Way",
     dayImages: [
-      { src: BASE + "milky-way-galaxy-himalayan-night-sky-tent.jpg", alt: "Milky Way galaxy over Himalayan night sky with tent camp" },
-      { src: BASE + "astrophotography-milky-way-himalayan-silhouette.jpg", alt: "Astrophotography Milky Way with Himalayan mountain silhouette" },
-      { src: BASE + "milky-way-night-sky-darma-valley-kumaon.jpg", alt: "Milky Way night sky over Darma Valley Kumaon" },
+      { src: BASE + "milky-way-galaxy-himalayan-night-sky-tent.webp", alt: "Milky Way galaxy over Himalayan night sky with tent camp" },
+      { src: BASE + "astrophotography-milky-way-himalayan-silhouette.webp", alt: "Astrophotography Milky Way with Himalayan mountain silhouette" },
+      { src: BASE + "milky-way-night-sky-darma-valley-kumaon.webp", alt: "Milky Way night sky over Darma Valley Kumaon" },
     ],
     imageHeight: 240,
     imageLayout: "three",
@@ -84,8 +84,8 @@ const itinerary = [
     stay: "Darma Valley Homestay / Retreat Camp",
     focus: "📷 Documentary & Landscape",
     dayImages: [
-      { src: BASE + "remote-himalayan-village-prayer-flags-kumaon.jpg", alt: "Remote Himalayan village with prayer flags Kumaon" },
-      { src: BASE + "darma-valley-landscape-eastern-kumaon.jpg", alt: "Darma Valley landscape Eastern Kumaon Himalayas" },
+      { src: BASE + "remote-himalayan-village-prayer-flags-kumaon.webp", alt: "Remote Himalayan village with prayer flags Kumaon" },
+      { src: BASE + "darma-valley-landscape-eastern-kumaon.webp", alt: "Darma Valley landscape Eastern Kumaon Himalayas" },
     ],
     imageHeight: 200,
     imageLayout: "two",
@@ -99,7 +99,7 @@ const itinerary = [
     stay: "Darma Valley",
     focus: "📷 Portrait & Culture",
     dayImages: [
-      { src: BASE + "himalayan-photography-expedition-group-kumaon.jpg", alt: "Himalayan Photography Expedition group in Kumaon" },
+      { src: BASE + "himalayan-photography-expedition-group-kumaon.webp", alt: "Himalayan Photography Expedition group in Kumaon" },
     ],
     imageHeight: 220,
     imageLayout: "one",
@@ -113,7 +113,7 @@ const itinerary = [
     stay: "Pithoragarh",
     focus: "📷 Golden Hour & Roads",
     dayImages: [
-      { src: BASE + "photographer-capturing-himalayan-landscape-snow.jpg", alt: "Photographer capturing Himalayan landscape in snow" },
+      { src: BASE + "photographer-capturing-himalayan-landscape-snow.webp", alt: "Photographer capturing Himalayan landscape in snow" },
     ],
     imageHeight: 220,
     imageLayout: "one",
@@ -127,7 +127,7 @@ const itinerary = [
     stay: "Overnight journey to Delhi",
     focus: "📷 Final Frame",
     dayImages: [
-      { src: BASE + "bhimtal-lake-morning-mist-kumaon.jpg", alt: "Bhimtal lake morning mist Kumaon hills" },
+      { src: BASE + "bhimtal-lake-morning-mist-kumaon.webp", alt: "Bhimtal lake morning mist Kumaon hills" },
     ],
     imageHeight: 220,
     imageLayout: "one",
@@ -220,12 +220,12 @@ const seasons = [
 ];
 
 const galleryImages = [
-  { src: BASE + "panchachuli-sunrise-photography-munsiyari-dawn.jpg", alt: "Panchachuli sunrise photography Munsiyari dawn golden light", span: 2, h: 340 },
-  { src: BASE + "kumaon-hills-terraced-fields-aerial-view.jpg", alt: "Kumaon hills terraced fields aerial view Eastern Himalayas", span: 1, h: 340 },
-  { src: BASE + "abbott-mount-pine-forest-fog-photography.jpg", alt: "Abbott Mount pine forest fog photography morning mist", span: 1, h: 280 },
-  { src: BASE + "remote-himalayan-village-prayer-flags-kumaon.jpg", alt: "Remote Himalayan village with colorful prayer flags Kumaon", span: 1, h: 280 },
-  { src: BASE + "birthi-falls-waterfall-munsiyari-kumaon.jpg", alt: "Birthi Falls waterfall cascading Munsiyari Kumaon", span: 1, h: 280 },
-  { src: BASE + "panchachuli-peak-sunrise-pink-munsiyari.jpg", alt: "Panchachuli peak bathed in pink sunrise light Munsiyari", span: 3, h: 320 },
+  { src: BASE + "panchachuli-sunrise-photography-munsiyari-dawn.webp", alt: "Panchachuli sunrise photography Munsiyari dawn golden light", span: 2, h: 340 },
+  { src: BASE + "kumaon-hills-terraced-fields-aerial-view.webp", alt: "Kumaon hills terraced fields aerial view Eastern Himalayas", span: 1, h: 340 },
+  { src: BASE + "abbott-mount-pine-forest-fog-photography.webp", alt: "Abbott Mount pine forest fog photography morning mist", span: 1, h: 280 },
+  { src: BASE + "remote-himalayan-village-prayer-flags-kumaon.webp", alt: "Remote Himalayan village with colorful prayer flags Kumaon", span: 1, h: 280 },
+  { src: BASE + "birthi-falls-waterfall-munsiyari-kumaon.webp", alt: "Birthi Falls waterfall cascading Munsiyari Kumaon", span: 1, h: 280 },
+  { src: BASE + "panchachuli-peak-sunrise-pink-munsiyari.webp", alt: "Panchachuli peak bathed in pink sunrise light Munsiyari", span: 3, h: 320 },
 ];
 
 function DayImages({ day }) {
@@ -275,7 +275,7 @@ export default function PhotographyExpedition() {
       <div style={{ position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0" }}>
         {/* Hero background image */}
         <img
-          src={BASE + "panchachuli-mountain-golden-sunrise-kumaon.jpg"}
+          src={BASE + "panchachuli-mountain-golden-sunrise-kumaon.webp"}
           alt="Panchachuli mountain golden sunrise Kumaon Himalayas"
           loading="eager"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }}
@@ -353,8 +353,8 @@ export default function PhotographyExpedition() {
           {/* Overview 2-image pair */}
           <div className="resp-grid-2" style={{ gap: 16 }}>
             {[
-              { src: BASE + "darma-valley-landscape-eastern-kumaon.jpg", alt: "Darma Valley sweeping landscape Eastern Kumaon Himalayas" },
-              { src: BASE + "kumaon-hills-terraced-fields-aerial-view.jpg", alt: "Kumaon hills terraced fields aerial view Uttarakhand" },
+              { src: BASE + "darma-valley-landscape-eastern-kumaon.webp", alt: "Darma Valley sweeping landscape Eastern Kumaon Himalayas" },
+              { src: BASE + "kumaon-hills-terraced-fields-aerial-view.webp", alt: "Kumaon hills terraced fields aerial view Uttarakhand" },
             ].map((img, i) => (
               <div key={i} style={{ overflow: "hidden", borderRadius: 16 }}>
                 <img
@@ -378,9 +378,9 @@ export default function PhotographyExpedition() {
           <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 12 }}>Photography in Action</div>
           <div className="resp-grid-3" style={{ gap: 12, marginBottom: 36 }}>
             {[
-              { src: BASE + "camera-tripod-golden-hour-himalayan-mountains.jpg", alt: "Camera on tripod golden hour Himalayan mountains" },
-              { src: BASE + "photographer-camera-himalayan-valley-kumaon.jpg", alt: "Photographer with camera in Himalayan valley Kumaon" },
-              { src: BASE + "photographer-shooting-himalayan-peaks-kumaon.jpg", alt: "Photographer shooting Himalayan peaks Kumaon" },
+              { src: BASE + "camera-tripod-golden-hour-himalayan-mountains.webp", alt: "Camera on tripod golden hour Himalayan mountains" },
+              { src: BASE + "photographer-camera-himalayan-valley-kumaon.webp", alt: "Photographer with camera in Himalayan valley Kumaon" },
+              { src: BASE + "photographer-shooting-himalayan-peaks-kumaon.webp", alt: "Photographer shooting Himalayan peaks Kumaon" },
             ].map((img, i) => (
               <div key={i} style={{ overflow: "hidden", borderRadius: 14 }}>
                 <img
@@ -511,9 +511,9 @@ export default function PhotographyExpedition() {
                 {/* Gear photographer images */}
                 <div className="resp-grid-3" style={{ gap: 12, marginBottom: 24 }}>
                   {[
-                    { src: BASE + "photographer-snow-landscape-himalayan-expedition.jpg", alt: "Photographer in snow landscape Himalayan expedition" },
-                    { src: BASE + "photographer-capturing-himalayan-landscape-snow.jpg", alt: "Photographer capturing Himalayan landscape in snow" },
-                    { src: BASE + "photographer-camera-himalayan-valley-kumaon.jpg", alt: "Photographer with camera in Himalayan valley Kumaon" },
+                    { src: BASE + "photographer-snow-landscape-himalayan-expedition.webp", alt: "Photographer in snow landscape Himalayan expedition" },
+                    { src: BASE + "photographer-capturing-himalayan-landscape-snow.webp", alt: "Photographer capturing Himalayan landscape in snow" },
+                    { src: BASE + "photographer-camera-himalayan-valley-kumaon.webp", alt: "Photographer with camera in Himalayan valley Kumaon" },
                   ].map((img, i) => (
                     <div key={i} style={{ overflow: "hidden", borderRadius: 14 }}>
                       <img

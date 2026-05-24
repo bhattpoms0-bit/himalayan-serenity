@@ -13,6 +13,11 @@ import CTASection from '../components/CTASection'
 import Footer from '../components/Footer'
 
 export default function Home() {
+  // Respect system preference — animations skip/reduce for motion-sensitive users
+  const prefersReducedMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   useSEO({
     title: 'Himalayan Serenity | Adi Kailash Yatra & Om Parvat Tour from Delhi',
     description: 'Book Adi Kailash Yatra, Om Parvat tour, Panchachuli trek and Darma Valley tour from Delhi. Adi Kailash temple darshan with Inner Line Permit. Headquartered in Pithoragarh & Dharchula, Uttarakhand.',

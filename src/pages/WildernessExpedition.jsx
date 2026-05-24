@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -191,7 +191,7 @@ export default function WildernessExpedition() {
           justifyContent: "flex-end",
           padding: "0 0 80px 0",
           background:
-            "linear-gradient(to bottom, rgba(7,10,8,0.25) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/packages/panchachuli-sunrise.jpg') center/cover no-repeat",
+            "linear-gradient(to bottom, rgba(7,10,8,0.25) 0%, rgba(7,10,8,0.55) 55%, rgba(7,10,8,0.97) 100%), url('/images/packages/panchachuli-sunrise.webp') center/cover no-repeat",
         }}
       >
         <div className="hero-inner" style={{ maxWidth: 900, margin: "0 auto" }}>
@@ -332,13 +332,13 @@ export default function WildernessExpedition() {
           </div>
           <div className="resp-grid-3" style={{ gap: 8 }}>
             {[
-              { src: "/images/packages/abbott-mount.jpg",   caption: "Abbott Mount, Lohaghat",         span: "2" },
-              { src: "/images/packages/banasur-fort.jpg",   caption: "Banasur Fort Ruins",             span: false },
-              { src: "/images/packages/birthi-falls.jpg",   caption: "Birthi Falls, Munsiyari Road",   span: false },
-              { src: "/images/packages/khaliya-meadow.jpg", caption: "Khaliya Top Alpine Meadow",      span: false },
-              { src: "/images/packages/askot-wildlife.jpg",  caption: "Himalayan Wildflower Valley",    span: false },
-              { src: "/images/packages/askot-deer.jpg",     caption: "Askot Wildlife Sanctuary",       span: false },
-              { src: "/images/packages/himalayan-view.jpg", caption: "Milam Glacier Trail",            span: "2" },
+              { src: "/images/packages/abbott-mount.webp",   caption: "Abbott Mount, Lohaghat",         span: "2" },
+              { src: "/images/packages/banasur-fort.webp",   caption: "Banasur Fort Ruins",             span: false },
+              { src: "/images/packages/birthi-falls.webp",   caption: "Birthi Falls, Munsiyari Road",   span: false },
+              { src: "/images/packages/khaliya-meadow.webp", caption: "Khaliya Top Alpine Meadow",      span: false },
+              { src: "/images/packages/askot-wildlife.webp",  caption: "Himalayan Wildflower Valley",    span: false },
+              { src: "/images/packages/askot-deer.webp",     caption: "Askot Wildlife Sanctuary",       span: false },
+              { src: "/images/packages/himalayan-view.webp", caption: "Milam Glacier Trail",            span: "2" },
             ].map((photo) => (
               <div
                 key={photo.src}

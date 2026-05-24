@@ -2,11 +2,10 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+  ],
   build: {
-    // Drop console/debugger in production via esbuild (no terser dependency needed)
-    minify: 'esbuild',
-    target: 'es2015',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -17,9 +16,14 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-  },
-  esbuild: {
-    drop: ['console', 'debugger'],
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    assetsInlineLimit: 4096,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],

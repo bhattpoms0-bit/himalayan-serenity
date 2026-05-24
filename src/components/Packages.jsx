@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+﻿import { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, MessageCircle, Clock, TrendingUp, Users } from 'lucide-react'
@@ -14,7 +14,7 @@ const FEATURED = [
     people:     12,
     spots:      8,
     price:      'Starting from ₹29,999',
-    image:      '/images/packages/adi-kailash-base.jpg',
+    image:      '/images/packages/adi-kailash-base.webp',
     link:       '/packages/adi-kailash-expedition',
   },
   {
@@ -26,7 +26,7 @@ const FEATURED = [
     people:     8,
     spots:      4,
     price:      'On Request',
-    image:      '/images/packages/panchachuli-real.jpg',
+    image:      '/images/packages/panchachuli-real.webp',
     link:       '/packages/panchachuli-expedition',
   },
   {
@@ -38,7 +38,7 @@ const FEATURED = [
     people:   10,
     spots:    6,
     price:    'On Request',
-    image:    '/images/packages/johar-valley.jpg',
+    image:    '/images/packages/johar-valley.webp',
     link:     '/packages/cinematic-expedition',
   },
   {
@@ -50,7 +50,7 @@ const FEATURED = [
     people:   10,
     spots:    5,
     price:    'On Request',
-    image:    '/images/packages/panchachuli-sunrise.jpg',
+    image:    '/images/packages/panchachuli-sunrise.webp',
     link:     '/packages/wilderness-expedition',
   },
 ]
@@ -63,7 +63,7 @@ const MORE = [
     people: 15,
     spots:  7,
     price:  'On Request',
-    image:  '/images/wellness/forest-meditation.jpg',
+    image:  '/images/wellness/forest-meditation.webp',
     link:   '/packages/wellness-retreat',
   },
   {
@@ -74,7 +74,7 @@ const MORE = [
     people:   6,
     spots:    3,
     price:    'On Request',
-    image:    '/images/darma-valley-womens-retreat/woman-traveler-himalayan-mountain-sunset.jpg',
+    image:    '/images/darma-valley-womens-retreat/woman-traveler-himalayan-mountain-sunset.webp',
     alt:      'Women-Only Expedition Darma Valley Himalaya',
     link:     '/packages/darma-valley-womens-retreat',
   },
@@ -85,7 +85,7 @@ const MORE = [
     people: 10,
     spots:  5,
     price:  'On Request',
-    image:  '/images/himalayan-photography-expedition/camera-tripod-golden-hour-himalayan-mountains.jpg',
+    image:  '/images/himalayan-photography-expedition/camera-tripod-golden-hour-himalayan-mountains.webp',
     alt:    'Himalayan Photography Expedition camera tripod golden hour',
     link:   '/packages/photography-expedition',
   },
@@ -97,7 +97,7 @@ const MORE = [
     people:   10,
     spots:    6,
     price:    'On Request',
-    image:    '/images/wellness/above-clouds.jpg',
+    image:    '/images/wellness/above-clouds.webp',
     link:     '/packages/winter-himalayan-wellness-retreat',
   },
 ]

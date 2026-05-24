@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -8,7 +8,7 @@ const testimonials = [
     quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. Himalayan Serenity arranged everything flawlessly — permits, accommodation, guides. A life-changing yatra.',
     name:   'Rajesh Sharma',
     info:   'New Delhi, India · Adi Kailash Expedition, May 2024',
-    avatar: '/images/testimonials/rajesh-sharma.jpg',
+    avatar: '/images/testimonials/rajesh-sharma.webp',
     flag:   '🇮🇳',
   },
   {
@@ -16,7 +16,7 @@ const testimonials = [
     quote:  'As a solo woman traveler I had concerns, but the all-women group and our female guide made me feel completely safe and empowered. The Darma Valley is paradise on earth. Will do this again next year.',
     name:   'Priya Nair',
     info:   'Bangalore, India · Women-Only Expedition, April 2024',
-    avatar: '/images/testimonials/priya-nair.jpg',
+    avatar: '/images/testimonials/priya-nair.webp',
     flag:   '🇮🇳',
   },
   {
@@ -24,7 +24,7 @@ const testimonials = [
     quote:  'I have trekked in Nepal, Peru and Patagonia — but Panchachuli was something else entirely. Raw, untouched, spiritual. The team\'s attention to safety at altitude was exceptional. Highly recommended for serious trekkers.',
     name:   'Thomas Bergmann',
     info:   'Munich, Germany · Panchachuli Trekking Expedition, Sept 2024',
-    avatar: '/images/testimonials/thomas-bergmann.jpg',
+    avatar: '/images/testimonials/thomas-bergmann.webp',
     flag:   '🇩🇪',
   },
   {
@@ -32,7 +32,7 @@ const testimonials = [
     quote:  'Maine pehle kai baar suna tha Adi Kailash ke baare mein, par is yatra ne meri aatma ko chhu liya. Guides bahut experienced the aur har zaroorat ka khayal rakha. Bas kuch aur din hote toh aur achha hota. Himalayan Serenity ko dil se dhanyavaad.',
     name:   'Sunita Rawat',
     info:   'Dehradun, India · Adi Kailash Yatra, June 2024',
-    avatar: '/images/testimonials/sunita-rawat.jpg',
+    avatar: '/images/testimonials/sunita-rawat.webp',
     flag:   '🇮🇳',
   },
   {
@@ -40,7 +40,7 @@ const testimonials = [
     quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. The Milam Trail is absolutely stunning and our guide Deepak\'s knowledge of local culture and flora was incredible. Worth every penny.',
     name:   'Sarah Mitchell',
     info:   'London, United Kingdom · Eastern Kumaon Wilderness, Oct 2024',
-    avatar: '/images/testimonials/sarah-mitchell.jpg',
+    avatar: '/images/testimonials/sarah-mitchell.webp',
     flag:   '🇬🇧',
   },
   {
@@ -48,7 +48,7 @@ const testimonials = [
     quote:  'As a wildlife and landscape photographer, I needed guides who understood golden hour, patience, and remote access. This team delivered beyond expectations. Came back with 3000 shots, 50 of which are portfolio-worthy. Extraordinary.',
     name:   'Amit Kulkarni',
     info:   'Pune, India · Himalayan Photography Expedition, May 2024',
-    avatar: '/images/testimonials/amit-kulkarni.jpg',
+    avatar: '/images/testimonials/amit-kulkarni.webp',
     flag:   '🇮🇳',
   },
   {
@@ -56,7 +56,7 @@ const testimonials = [
     quote:  'I came searching for silence and found something much deeper — a connection to the mountains I did not know was possible. The meditation sessions at altitude were transformative. Would have loved one extra day at the retreat. I will carry this experience forever.',
     name:   'Yuki Tanaka',
     info:   'Tokyo, Japan · Himalayan Wellness & Meditation Retreat, March 2024',
-    avatar: '/images/testimonials/yuki-tanaka.jpg',
+    avatar: '/images/testimonials/yuki-tanaka.webp',
     flag:   '🇯🇵',
   },
   {
@@ -64,7 +64,7 @@ const testimonials = [
     quote:  'Turning 40 was the perfect excuse to do something bold. This trek was challenging but the team never let me feel like giving up was an option. Crossed the glacier on day 6 and cried happy tears at the top. Best birthday gift to myself.',
     name:   'Meera Joshi',
     info:   'Mumbai, India · Panchachuli Trek, August 2024',
-    avatar: '/images/testimonials/meera-joshi.jpg',
+    avatar: '/images/testimonials/meera-joshi.webp',
     flag:   '🇮🇳',
   },
 ]

@@ -1,4 +1,4 @@
-import { useSEO } from '../../hooks/useSEO'
+﻿import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
@@ -127,7 +127,7 @@ export default function AdiKailashVsKailashMansarovar() {
         {/* HERO IMAGE */}
         <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "48px 6% 0" }}>
           <img
-            src="/images/blog/adi-kailash-vs-mount-kailash-mansarovar-comparison.jpg"
+            src="/images/blog/adi-kailash-vs-mount-kailash-mansarovar-comparison.webp"
             alt="Mount Kailash Tibet vs Adi Kailash Uttarakhand comparison"
             loading="lazy"
             decoding="async"

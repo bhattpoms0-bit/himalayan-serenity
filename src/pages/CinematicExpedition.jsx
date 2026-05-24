@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -162,7 +162,7 @@ export default function CinematicExpedition() {
           justifyContent: "flex-end",
           padding: "0 0 80px 0",
           background:
-            "linear-gradient(to bottom, rgba(8,12,16,0.3) 0%, rgba(8,12,16,0.6) 60%, rgba(8,12,16,0.97) 100%), url('/images/packages/village-road.jpg') center/cover no-repeat",
+            "linear-gradient(to bottom, rgba(8,12,16,0.3) 0%, rgba(8,12,16,0.6) 60%, rgba(8,12,16,0.97) 100%), url('/images/packages/village-road.webp') center/cover no-repeat",
         }}
       >
         <div className="hero-inner" style={{ maxWidth: 900, margin: "0 auto" }}>
@@ -309,11 +309,11 @@ export default function CinematicExpedition() {
           </div>
           <div className="resp-grid-3" style={{ gap: 8 }}>
             {[
-              { src: "/images/packages/abbott-mount.jpg",   caption: "Lohaghat Forest Trails",         span: false },
-              { src: "/images/packages/himalayan-view.jpg", caption: "Kumaoni Village Life",            span: false },
-              { src: "/images/packages/river-rafting.jpg",  caption: "Kali River Adventure",           span: false },
-              { src: "/images/packages/dharchula-town.jpg", caption: "Dharchula — Gateway to Tibet",   span: false },
-              { src: "/images/packages/johar-valley.jpg",   caption: "Johar Valley Corridor",          span: "2" },
+              { src: "/images/packages/abbott-mount.webp",   caption: "Lohaghat Forest Trails",         span: false },
+              { src: "/images/packages/himalayan-view.webp", caption: "Kumaoni Village Life",            span: false },
+              { src: "/images/packages/river-rafting.webp",  caption: "Kali River Adventure",           span: false },
+              { src: "/images/packages/dharchula-town.webp", caption: "Dharchula — Gateway to Tibet",   span: false },
+              { src: "/images/packages/johar-valley.webp",   caption: "Johar Valley Corridor",          span: "2" },
             ].map((photo) => (
               <div
                 key={photo.src}

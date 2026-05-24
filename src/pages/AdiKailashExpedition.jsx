@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -31,7 +31,7 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: null,
-    image: "/images/adi-kailash-expedition/pithoragarh-town-valley-kumaon-uttarakhand.png",
+    image: "/images/adi-kailash-expedition/pithoragarh-town-valley-kumaon-uttarakhand.webp",
     imageAlt: "Pithoragarh town valley aerial view Kumaon Uttarakhand",
   },
   {
@@ -48,7 +48,7 @@ const itinerary = [
     stay: "Dharchula / Gunji Region",
     altitude: null,
     note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
-    image: "/images/adi-kailash-expedition/gunji-village-high-altitude-himalaya-uttarakhand.png",
+    image: "/images/adi-kailash-expedition/gunji-village-high-altitude-himalaya-uttarakhand.webp",
     imageAlt: "Gunji village high altitude Himalaya Uttarakhand Adi Kailash route",
   },
   {
@@ -73,7 +73,7 @@ const itinerary = [
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
-    image: "/images/adi-kailash-expedition/adi-kailash-parvati-sarovar-sacred-lake-uttarakhand.jpg",
+    image: "/images/adi-kailash-expedition/adi-kailash-parvati-sarovar-sacred-lake-uttarakhand.webp",
     imageAlt: "Adi Kailash Parvati Sarovar sacred lake snow peaks Uttarakhand darshan",
   },
   {
@@ -90,7 +90,7 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: "3,600+ m",
-    image: "/images/om-parvat-view-himalayan-horses-pithoragarh.jpg",
+    image: "/images/om-parvat-view-himalayan-horses-pithoragarh.webp",
     imageAlt: "Om Parvat sacred mountain view Pithoragarh Himalaya",
   },
   {
@@ -114,7 +114,7 @@ const itinerary = [
     ],
     stay: "Bhimtal / Haldwani",
     altitude: null,
-    image: "/images/adi-kailash-expedition/kumaon-temple-circuit-jageshwar-uttarakhand.png",
+    image: "/images/adi-kailash-expedition/kumaon-temple-circuit-jageshwar-uttarakhand.webp",
     imageAlt: "Jageshwar temple complex and Kumaon riverside temple circuit Uttarakhand",
   },
   {
@@ -284,7 +284,7 @@ export default function AdiKailashExpedition() {
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 0 0 80px;
       background: linear-gradient(to bottom,rgba(7,9,11,.2) 0%,rgba(7,9,11,.5) 55%,rgba(7,9,11,.97) 100%),
-        url('/images/packages/adi-kailash/adi-kailash-nandi.jpg') center/cover no-repeat;
+        url('/images/packages/adi-kailash/adi-kailash-nandi.webp') center/cover no-repeat;
     }
     .ak-hero-inner   { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
     .ak-hero-layout  { display: flex; align-items: flex-end; gap: 48px; }
@@ -480,7 +480,7 @@ export default function AdiKailashExpedition() {
           <div className="ak-route-map-wrap">
             <img
               className="ak-route-img"
-              src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.jpg"
+              src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.webp"
               alt="Adi Kailash Expedition complete route map Delhi to Om Parvat"
               loading="eager"
             />

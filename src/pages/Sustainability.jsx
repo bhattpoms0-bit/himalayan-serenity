@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -65,7 +65,7 @@ export default function Sustainability() {
       <section className="relative min-h-[70vh] flex items-end pb-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/images/packages/khaliya-meadow.jpg')` }}
+          style={{ backgroundImage: `url('/images/packages/khaliya-meadow.webp')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/90" />
 

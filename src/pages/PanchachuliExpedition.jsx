@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 import ExpeditionForm from '../components/ExpeditionForm';
@@ -175,7 +175,7 @@ export default function PanchachuliExpedition() {
       {/* HERO */}
       <div style={{
         position: "relative", minHeight: "95vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 0 80px 0",
-        background: "linear-gradient(to bottom, rgba(8,9,11,0.2) 0%, rgba(8,9,11,0.55) 55%, rgba(8,9,11,0.97) 100%), url('/images/packages/panchachuli-real.jpg') center/cover no-repeat",
+        background: "linear-gradient(to bottom, rgba(8,9,11,0.2) 0%, rgba(8,9,11,0.55) 55%, rgba(8,9,11,0.97) 100%), url('/images/packages/panchachuli-real.webp') center/cover no-repeat",
       }}>
         <div className="hero-inner" style={{ maxWidth: 960, margin: "0 auto" }}>
           <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
