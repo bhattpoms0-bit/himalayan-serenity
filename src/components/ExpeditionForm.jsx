@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useId } from "react";
 
 const WEB3FORMS_KEY = "a4bcce53-4a1d-4217-93b6-30b9d714bbdd";
 
@@ -48,6 +48,7 @@ const labelStyle = {
 };
 
 export default function ExpeditionForm({ defaultPackage = "" }) {
+  const uid = useId(); // unique per instance — avoids duplicate IDs when 2 forms on same page
   const [form, setForm]     = useState({ name: "", whatsapp: "", pkg: defaultPackage, month: "" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
@@ -107,8 +108,9 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
       {/* Name */}
       <div>
-        <label style={labelStyle}>Your Name</label>
+        <label htmlFor={`${uid}-name`} style={labelStyle}>Your Name</label>
         <input
+          id={`${uid}-name`}
           type="text" name="name" value={form.name} onChange={set}
           placeholder="Your Name" required style={inputStyle}
         />
@@ -116,8 +118,9 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
 
       {/* WhatsApp */}
       <div>
-        <label style={labelStyle}>WhatsApp Number</label>
+        <label htmlFor={`${uid}-whatsapp`} style={labelStyle}>WhatsApp Number</label>
         <input
+          id={`${uid}-whatsapp`}
           type="tel" name="whatsapp" value={form.whatsapp} onChange={set}
           placeholder="WhatsApp Number" required style={inputStyle}
         />
@@ -125,8 +128,9 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
 
       {/* Package */}
       <div>
-        <label style={labelStyle}>Preferred Travel Package</label>
+        <label htmlFor={`${uid}-pkg`} style={labelStyle}>Preferred Travel Package</label>
         <select
+          id={`${uid}-pkg`}
           name="pkg" value={form.pkg} onChange={set}
           required
           style={{ ...inputStyle, cursor: "pointer", appearance: "none", WebkitAppearance: "none" }}
@@ -138,8 +142,9 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
 
       {/* Month */}
       <div>
-        <label style={labelStyle}>Preferred Travel Month</label>
+        <label htmlFor={`${uid}-month`} style={labelStyle}>Preferred Travel Month</label>
         <select
+          id={`${uid}-month`}
           name="month" value={form.month} onChange={set}
           required
           style={{ ...inputStyle, cursor: "pointer", appearance: "none", WebkitAppearance: "none" }}

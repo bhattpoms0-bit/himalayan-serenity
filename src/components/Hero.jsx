@@ -1,6 +1,4 @@
-import { useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Play, Calendar } from 'lucide-react'
 
 const SPRING = [0.16, 1, 0.3, 1]
@@ -13,29 +11,23 @@ const H1_LINES = [
 ]
 
 export default function Hero() {
-  const sectionRef = useRef(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  })
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
-
   return (
     <section
-      ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-16"
     >
 
-      {/* Mountain background with parallax */}
-      <motion.div
+      {/* Mountain background — eager LCP image */}
+      <img
+        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
+        alt=""
         aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-[1.14]"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85')`,
-          y: bgY,
-          willChange: 'transform',
-        }}
+        fetchPriority="high"
+        loading="eager"
+        decoding="async"
+        width="1920"
+        height="1080"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ display: 'block' }}
       />
 
       {/* Layer 1 — radial vignette */}
@@ -75,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: SPRING }}
-            className="inline-flex items-center gap-2.5 border border-brand-orange/40 bg-brand-orange/[0.07] backdrop-blur-sm rounded-full px-4 py-2 mb-6"
+            className="inline-flex items-center gap-2.5 border border-brand-orange/40 bg-brand-orange/[0.07] rounded-full px-4 py-2 mb-6"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse-slow flex-shrink-0" />
             <span
@@ -184,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 1.05, ease: SPRING }}
-            className="inline-flex flex-wrap items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 border border-white/10 backdrop-blur-md mt-6"
+            className="inline-flex flex-wrap items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 border border-white/10 mt-6"
             style={{ background: 'rgba(0,0,0,0.5)' }}
           >
             <Calendar size={12} strokeWidth={1.5} className="text-brand-orange flex-shrink-0" />

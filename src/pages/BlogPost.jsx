@@ -129,6 +129,7 @@ export default function BlogPost() {
           alt={post.imageAlt || post.title}
           className="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
         <div
           className="absolute inset-0"

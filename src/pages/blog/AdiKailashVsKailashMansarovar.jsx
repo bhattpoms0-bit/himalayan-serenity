@@ -129,6 +129,8 @@ export default function AdiKailashVsKailashMansarovar() {
           <img
             src="/images/blog/adi-kailash-vs-mount-kailash-mansarovar-comparison.jpg"
             alt="Mount Kailash Tibet vs Adi Kailash Uttarakhand comparison"
+            loading="lazy"
+            decoding="async"
             style={{
               width: "100%",
               height: "clamp(300px, 40vw, 500px)",

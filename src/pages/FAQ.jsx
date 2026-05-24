@@ -74,6 +74,8 @@ export default function FAQPage() {
             alt="Om Parvat View Himalayan Horses Pithoragarh"
             className="sr-only"
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 

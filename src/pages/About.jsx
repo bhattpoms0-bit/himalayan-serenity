@@ -70,6 +70,8 @@ export default function AboutPage() {
                 src="/images/om-parvat-shrine.jpg"
                 alt="Om Parvat Shrine"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -94,7 +96,7 @@ export default function AboutPage() {
               { src: '/images/culture/rhythm-of-faith.jpg',  label: 'Rhythm of Faith',       sub: 'Cycles of devotion in every turn.' },
             ].map((item, i) => (
               <div key={i} className="relative rounded-xl overflow-hidden h-64 group">
-                <img src={item.src} alt={item.label} className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500" />
+                <img src={item.src} alt={item.label} className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-500" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <p className="section-tag mb-1">{item.label}</p>

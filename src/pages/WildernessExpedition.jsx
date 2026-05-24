@@ -353,6 +353,8 @@ export default function WildernessExpedition() {
                 <img
                   src={photo.src}
                   alt={photo.caption}
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: "100%",
                     height: "100%",
