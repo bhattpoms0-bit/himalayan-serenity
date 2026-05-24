@@ -1,22 +1,66 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 
-const WhatsAppButton = () => (
-  <motion.a
-    href="https://wa.me/919084642557"
-    target="_blank"
-    rel="noopener noreferrer"
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{ scale: 1, opacity: 1 }}
-    transition={{ delay: 2, type: 'spring', stiffness: 200 }}
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.95 }}
-    className="fixed bottom-6 left-6 z-50 flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-sm font-sans px-4 py-3 rounded-full shadow-lg transition-colors duration-300"
-    style={{ boxShadow: '0 8px 30px rgba(34,197,94,0.4)' }}
-  >
-    <MessageCircle size={16} />
-    <span className="hidden sm:inline">WhatsApp</span>
-  </motion.a>
+const WA_MSG = encodeURIComponent(
+  "Hello! I found your website and I am interested in your Himalayan travel packages. Please share more details."
 )
 
-export default WhatsAppButton
+export default function WhatsAppButton() {
+  return (
+    <>
+      <style>{`
+        @keyframes wa-pulse {
+          0%   { box-shadow: 0 0 0 0   rgba(37,211,102,0.55); }
+          70%  { box-shadow: 0 0 0 12px rgba(37,211,102,0);   }
+          100% { box-shadow: 0 0 0 0   rgba(37,211,102,0);    }
+        }
+        .wa-float {
+          position:       fixed;
+          bottom:         24px;
+          right:          24px;
+          z-index:        9999;
+          display:        flex;
+          align-items:    center;
+          gap:            8px;
+          background:     #25D366;
+          color:          #ffffff;
+          text-decoration: none;
+          border-radius:  50px;
+          padding:        12px 20px;
+          font-size:      14px;
+          font-weight:    600;
+          font-family:    sans-serif;
+          animation:      wa-pulse 2s infinite;
+          box-shadow:     0 4px 20px rgba(37,211,102,0.35);
+          transition:     transform 0.2s ease, background 0.2s ease;
+          user-select:    none;
+        }
+        .wa-float:hover  { background: #20c05a; transform: scale(1.05); }
+        .wa-float:active { transform: scale(0.96); }
+        .wa-label { display: inline; white-space: nowrap; }
+
+        @media (max-width: 767px) {
+          .wa-float {
+            padding:       14px;
+            border-radius: 50%;
+          }
+          .wa-label { display: none; }
+        }
+      `}</style>
+
+      <motion.a
+        href={`https://wa.me/919084642557?text=${WA_MSG}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="wa-float"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 2, type: 'spring', stiffness: 200 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <MessageCircle size={20} strokeWidth={2} />
+        <span className="wa-label">Chat on WhatsApp</span>
+      </motion.a>
+    </>
+  )
+}

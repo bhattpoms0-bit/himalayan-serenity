@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
+import ExpeditionForm from '../components/ExpeditionForm';
 
 const itinerary = [
   {
@@ -285,7 +286,10 @@ export default function AdiKailashExpedition() {
       background: linear-gradient(to bottom,rgba(7,9,11,.2) 0%,rgba(7,9,11,.5) 55%,rgba(7,9,11,.97) 100%),
         url('/images/packages/adi-kailash/adi-kailash-nandi.jpg') center/cover no-repeat;
     }
-    .ak-hero-inner { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+    .ak-hero-inner   { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+    .ak-hero-layout  { display: flex; align-items: flex-end; gap: 48px; }
+    .ak-hero-text    { flex: 1; min-width: 0; }
+    .ak-hero-form-wrap { width: 380px; flex-shrink: 0; }
 
     /* ── Stats ───────────────────────────────────────────── */
     .ak-stats-grid {
@@ -349,8 +353,10 @@ export default function AdiKailashExpedition() {
 
     /* ── Mobile ≤767px ───────────────────────────────────── */
     @media (max-width:767px) {
-      .ak-hero { min-height: 60vh; padding: 0 0 40px; }
+      .ak-hero { min-height: auto; padding: 0 0 40px; }
       .ak-hero-inner { padding: 0 1rem; }
+      .ak-hero-layout { flex-direction: column; gap: 24px; }
+      .ak-hero-form-wrap { width: 100%; }
 
       .ak-stats-grid { grid-template-columns: repeat(2,1fr); padding: 1.5rem 1rem; gap: 16px; }
 
@@ -399,35 +405,50 @@ export default function AdiKailashExpedition() {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <div className="ak-hero">
         <div className="ak-hero-inner">
-          <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
-              <div style={{ height: 1, width: 40, background: gold }} />
-              <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold }}>
-                Sacred Himalayan Expedition · 6 Days / 5 Nights
-              </div>
-            </div>
-            <h1 style={{ fontSize: "clamp(1.8rem,7vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
-              Adi Kailash
-            </h1>
-            <h2 style={{ fontSize: "clamp(1rem,4vw,3.2rem)", fontWeight: 300, fontStyle: "italic", color: gold, margin: "0 0 20px" }}>
-              Sacred Himalayan Expedition
-            </h2>
-            <p style={{ fontSize: "clamp(0.85rem,1.8vw,1.15rem)", color: accent, fontWeight: 300, margin: "0 0 28px", letterSpacing: "0.06em" }}>
-              Adi Kailash &nbsp;·&nbsp; Om Parvat &nbsp;·&nbsp; Parvati Sarovar &nbsp;·&nbsp; Narayan Ashram &nbsp;·&nbsp; Dharchula
-            </p>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 32 }}>
-              {["Pilgrimage Travelers", "Spiritual Seekers", "High-Altitude Adventurers"].map(tag => (
-                <div key={tag} style={{ padding: "7px 16px", border: `1px solid ${gold}55`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
-                  {tag}
+          <div className="ak-hero-layout">
+
+            {/* Left: title / subtitle */}
+            <motion.div className="ak-hero-text" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
+                <div style={{ height: 1, width: 40, background: gold }} />
+                <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold }}>
+                  Sacred Himalayan Expedition · 6 Days / 5 Nights
                 </div>
-              ))}
-            </div>
-            <div>
-              <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
-                <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹29,999 per person</span>
               </div>
-            </div>
-          </motion.div>
+              <h1 style={{ fontSize: "clamp(1.8rem,7vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
+                Adi Kailash
+              </h1>
+              <h2 style={{ fontSize: "clamp(1rem,4vw,3.2rem)", fontWeight: 300, fontStyle: "italic", color: gold, margin: "0 0 20px" }}>
+                Sacred Himalayan Expedition
+              </h2>
+              <p style={{ fontSize: "clamp(0.85rem,1.8vw,1.15rem)", color: accent, fontWeight: 300, margin: "0 0 28px", letterSpacing: "0.06em" }}>
+                Adi Kailash &nbsp;·&nbsp; Om Parvat &nbsp;·&nbsp; Parvati Sarovar &nbsp;·&nbsp; Narayan Ashram &nbsp;·&nbsp; Dharchula
+              </p>
+              <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 32 }}>
+                {["Pilgrimage Travelers", "Spiritual Seekers", "High-Altitude Adventurers"].map(tag => (
+                  <div key={tag} style={{ padding: "7px 16px", border: `1px solid ${gold}55`, borderRadius: 2, fontSize: 12, color: gold, letterSpacing: "0.1em" }}>
+                    {tag}
+                  </div>
+                ))}
+              </div>
+              <div>
+                <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
+                  <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹29,999 per person</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right: booking form card */}
+            <motion.div className="ak-hero-form-wrap" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}>
+              <div style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)", borderRadius: 16, padding: "1.5rem", border: `1px solid rgba(201,169,110,0.3)` }}>
+                <div style={{ fontSize: "1.1rem", color: gold, letterSpacing: "0.1em", marginBottom: 20 }}>
+                  Plan Your Sacred Journey
+                </div>
+                <ExpeditionForm defaultPackage="Adi Kailash & Om Parvat Expedition" />
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </div>
 
@@ -766,6 +787,23 @@ export default function AdiKailashExpedition() {
         </motion.section>
 
       </div>
+
+      {/* ── BOTTOM CTA FORM ──────────────────────────────── */}
+      <section style={{ background: "#0a0a0a", padding: "80px 24px", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
+        <div style={{ maxWidth: 500, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 16 }}>
+            Begin Your Journey
+          </div>
+          <h2 style={{ fontSize: "clamp(1.5rem,4vw,2.5rem)", fontWeight: 300, color: gold, margin: "0 0 16px", lineHeight: 1.2 }}>
+            Ready to Begin Your Sacred Himalayan Journey?
+          </h2>
+          <p style={{ fontSize: "1rem", color: muted, marginBottom: 36, lineHeight: 1.7 }}>
+            Join hundreds of pilgrims who have experienced the divine darshan of Adi Kailash &amp; Om Parvat
+          </p>
+          <ExpeditionForm defaultPackage="Adi Kailash & Om Parvat Expedition" />
+        </div>
+      </section>
+
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
+import ExpeditionForm from '../components/ExpeditionForm';
 
 const itinerary = [
   {
@@ -459,6 +460,21 @@ export default function WellnessRetreat() {
         </motion.section>
 
       </div>
+
+      {/* ── BOTTOM CTA FORM ──────────────────────────────── */}
+      <section style={{ background: "#0a0a0a", padding: "80px 24px", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
+        <div style={{ maxWidth: 500, margin: "0 auto", textAlign: "center" }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 16, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>Begin Your Journey</div>
+          <h2 style={{ fontSize: "clamp(1.5rem,4vw,2.5rem)", fontWeight: 300, color: "#c9a96e", margin: "0 0 16px", lineHeight: 1.2, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>
+            Ready for a Himalayan Wellness Transformation?
+          </h2>
+          <p style={{ fontSize: "1rem", color: "#7a7068", marginBottom: 36, lineHeight: 1.7, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>
+            Restore your mind, body and spirit in the sacred Himalayan forests of Kumaon
+          </p>
+          <ExpeditionForm defaultPackage="Himalayan Wellness & Meditation Retreat" />
+        </div>
+      </section>
+
     </div>
   );
 }
