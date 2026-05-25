@@ -13,7 +13,7 @@ const FEATURED = [
     difficulty: 'Moderate',
     people:     12,
     spots:      8,
-    price:      'Starting from ₹29,999',
+    price:      'Starting from ₹34,999',
     image:      '/images/packages/adi-kailash-base.webp',
     link:       '/packages/adi-kailash-expedition',
   },

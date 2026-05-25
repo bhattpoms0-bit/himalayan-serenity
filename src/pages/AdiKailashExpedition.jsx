@@ -210,7 +210,7 @@ const routeStops = [
 const pricingTiers = [
   {
     name: "Standard Expedition",
-    price: "₹29,999",
+    price: "₹34,999",
     badge: null,
     items: [
       "Standard hotels & guesthouses",
@@ -443,7 +443,7 @@ export default function AdiKailashExpedition() {
               </div>
               <div>
                 <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
-                  <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹29,999 per person</span>
+                  <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹34,999 per person</span>
                 </div>
               </div>
             </motion.div>
@@ -471,7 +471,7 @@ export default function AdiKailashExpedition() {
             { label: "Group Size",      value: "Max 8–10 travelers"  },
             { label: "Fitness Level",   value: "Moderate"            },
             { label: "Permit Required", value: "Inner Line Permit"   },
-            { label: "Starting From",   value: "₹29,999 / person"   },
+            { label: "Starting From",   value: "₹34,999 / person"   },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 6 }}>{item.label}</div>
@@ -783,7 +783,7 @@ export default function AdiKailashExpedition() {
             One of India's most exclusive Himalayan expeditions.
           </p>
           <div style={{ fontSize: "clamp(1.1rem,3vw,1.4rem)", color: gold, margin: "0 auto 8px", letterSpacing: "0.05em" }}>
-            From ₹29,999 per person
+            From ₹34,999 per person
           </div>
           <div style={{ fontSize: 12, color: muted, margin: "0 auto 36px", letterSpacing: "0.06em" }}>
             Standard · Deluxe · Premium
