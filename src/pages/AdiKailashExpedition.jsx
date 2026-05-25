@@ -305,7 +305,7 @@ export default function AdiKailashExpedition() {
     .ak-section { margin-bottom: 80px; }
 
     /* ── Route map ───────────────────────────────────────── */
-    .ak-route-map-wrap { border-radius: 16px; overflow: hidden; margin-bottom: 32px; }
+    .ak-route-map-wrap { border-radius: 16px; margin-bottom: 32px; }
     .ak-route-img { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
 
     /* ── Itinerary ───────────────────────────────────────── */
@@ -490,8 +490,8 @@ export default function AdiKailashExpedition() {
           <div className="ak-route-map-wrap">
             <img
               className="ak-route-img"
-              src="/images/adi-kailash-expedition-route-map-6-day-pithoragarh.webp"
-              alt="Adi Kailash Expedition complete route map Delhi to Om Parvat"
+              src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.png"
+              alt="Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map"
               loading="eager"
             />
           </div>
