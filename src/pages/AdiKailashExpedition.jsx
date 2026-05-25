@@ -490,7 +490,7 @@ export default function AdiKailashExpedition() {
           <div className="ak-route-map-wrap">
             <img
               className="ak-route-img"
-              src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.png"
+              src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.jpg"
               alt="Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map"
               loading="eager"
             />
