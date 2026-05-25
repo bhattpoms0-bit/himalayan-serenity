@@ -410,8 +410,18 @@ export default function AdiKailashExpedition() {
             {/* Left: title / subtitle */}
             <motion.div className="ak-hero-text" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease: "easeOut" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
-                <div style={{ height: 1, width: 40, background: gold }} />
-                <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: gold }}>
+                <div style={{ height: 1, width: 40, background: gold, flexShrink: 0 }} />
+                <div style={{
+                  fontSize: "0.75rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#C9A84C",
+                  background: "rgba(0,0,0,0.5)",
+                  padding: "6px 16px",
+                  borderRadius: 4,
+                  border: "1px solid rgba(201,168,76,0.5)",
+                }}>
                   Sacred Himalayan Expedition · 6 Days / 5 Nights
                 </div>
               </div>
