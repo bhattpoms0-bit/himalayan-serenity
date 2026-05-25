@@ -29,8 +29,8 @@ export default function Home() {
         <section aria-label="Hero"><Hero /></section>
         <TrustBar />
         <section aria-label="Why Choose Us"><WhyChooseUs /></section>
-        <section aria-label="Testimonials"><Testimonials /></section>
         <section id="packages-section" aria-label="Packages"><Packages /></section>
+        <section aria-label="Testimonials"><Testimonials /></section>
         <SpiritualSection />
         <RouteMap />
         <Transformation />
