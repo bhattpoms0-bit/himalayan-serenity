@@ -61,6 +61,11 @@ export default function Sustainability() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="sustainability" />
 
+      {/* Visually hidden SEO h1 */}
+      <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        Our Sustainability Commitment — Responsible Himalayan Travel
+      </h1>
+
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[70vh] flex items-end pb-24 overflow-hidden">
         <div
@@ -76,12 +81,12 @@ export default function Sustainability() {
             transition={{ duration: 1, ease: EASE }}
           >
             <p className="section-tag mb-5">Our Philosophy</p>
-            <h1
+            <h2
               className="section-title max-w-3xl"
               style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)', lineHeight: 1.1 }}
             >
               Sustainability
-            </h1>
+            </h2>
             <p
               className="font-sans mt-6 max-w-xl leading-relaxed"
               style={{ fontSize: 'clamp(1.1rem, 2vw, 1.3rem)', color: '#c8b89a', fontStyle: 'italic' }}

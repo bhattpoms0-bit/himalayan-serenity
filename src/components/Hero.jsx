@@ -79,7 +79,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Heading — 4 lines, sized to stay under 280px total */}
-          <h1 className="mb-5 leading-[1.05] tracking-[-0.02em]">
+          <h2 className="mb-5 leading-[1.05] tracking-[-0.02em]">
             {H1_LINES.map(({ text, italic }, i) => (
               <span key={text} className="block overflow-hidden pb-[0.05em]">
                 <motion.span
@@ -95,7 +95,7 @@ export default function Hero() {
                 </motion.span>
               </span>
             ))}
-          </h1>
+          </h2>
 
           {/* Subtitle — #999, tighter mb */}
           <motion.p

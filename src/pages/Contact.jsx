@@ -72,6 +72,11 @@ export default function ContactPage() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="contact" />
 
+      {/* Visually hidden SEO h1 */}
+      <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        Contact Himalayan Serenity Travel — Plan Your Sacred Journey
+      </h1>
+
       <section className="relative pt-32 pb-20">
         {/* Hero bg */}
         <div
@@ -83,9 +88,9 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="section-tag mb-4">The Final Ascent</p>
-            <h1 className="section-title text-5xl lg:text-6xl mb-5">
+            <h2 className="section-title text-5xl lg:text-6xl mb-5">
               Your Himalayan Journey<br />Begins Here
-            </h1>
+            </h2>
             <p className="font-sans text-brand-text-muted text-lg max-w-xl mx-auto">
               The peaks are calling. Step into a world of ancient wisdom and breathtaking beauty.
               Your spiritual ascent is just a conversation away.
@@ -244,6 +249,73 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── SEO Content Section ───────────────────────────────────────── */}
+      <section className="py-16" style={{ backgroundColor: '#0d0d0d', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+            Get in Touch
+          </h2>
+          <p className="font-sans mb-4 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
+            Himalayan Serenity Travel is a Pithoragarh-based expedition company specializing in sacred Himalayan
+            journeys to Adi Kailash, Om Parvat, Panchachuli and Darma Valley. Our team of experienced local guides
+            and permit specialists ensure a seamless, safe and spiritually enriching experience for every traveler.
+          </p>
+          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
+            We typically respond to all inquiries within 2–4 hours on WhatsApp and within 24 hours via email.
+            For urgent Inner Line Permit or booking queries, WhatsApp is the fastest way to reach us.
+          </p>
+
+          <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
+            Why Reach Out to Us?
+          </h2>
+          <ul className="font-sans mb-10 space-y-3" style={{ color: '#888888', fontSize: 15 }}>
+            <li>• Complete ILP and Inner Line Permit assistance for Adi Kailash Yatra and Darma Valley expeditions</li>
+            <li>• Custom itinerary planning for groups, families and solo Himalayan pilgrimage travelers</li>
+            <li>• On-ground local support from Pithoragarh and Dharchula — real people, real expertise</li>
+            <li>• Medical documentation guidance and high-altitude preparation for Om Parvat darshan</li>
+          </ul>
+
+          <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
+            Our Location
+          </h2>
+          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
+            Himalayan Serenity Travel is headquartered in Pithoragarh, Uttarakhand — the gateway district to
+            Adi Kailash, Om Parvat, Darma Valley and Panchachuli Base Camp. Our local presence means faster
+            Inner Line Permit processing, real-time route updates and genuine on-ground support throughout your
+            Himalayan pilgrimage journey.
+          </p>
+
+          <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
+            Common Questions
+          </h2>
+          <div className="space-y-5" style={{ color: '#888888', fontSize: 15 }}>
+            <div>
+              <p className="font-sans font-semibold mb-1" style={{ color: '#bbbbbb' }}>Do you arrange Inner Line Permits (ILP) for Adi Kailash?</p>
+              <p className="font-sans leading-relaxed">
+                Yes. We provide complete ILP assistance for Adi Kailash Yatra, Om Parvat darshan and Darma Valley expeditions —
+                covering documentation, SDM Dharchula coordination, submission and collection.
+              </p>
+            </div>
+            <div>
+              <p className="font-sans font-semibold mb-1" style={{ color: '#bbbbbb' }}>Can you plan a custom Himalayan itinerary from Delhi?</p>
+              <p className="font-sans leading-relaxed">
+                Absolutely. We design custom Adi Kailash Yatra and Kumaon expedition packages from Delhi with flexible
+                dates, group sizes and comfort levels — including senior-friendly and women-only options.
+              </p>
+            </div>
+            <div>
+              <p className="font-sans font-semibold mb-1" style={{ color: '#bbbbbb' }}>What is the Adi Kailash opening date in 2026?</p>
+              <p className="font-sans leading-relaxed">
+                The Adi Kailash Yatra season typically opens in May and closes in October. Exact 2026 dates are
+                confirmed once the district administration issues the annual notification. Contact us for the latest update.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 

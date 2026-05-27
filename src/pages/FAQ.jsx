@@ -62,6 +62,11 @@ export default function FAQPage() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="faq" />
 
+      {/* Visually hidden SEO h1 */}
+      <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        Frequently Asked Questions — Adi Kailash &amp; Himalayan Expedition Guide
+      </h1>
+
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[50vh] flex items-end pb-20 pt-32 overflow-hidden">
 
@@ -101,7 +106,7 @@ export default function FAQPage() {
         />
 
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full">
-          <motion.h1
+          <motion.h2
             className="font-serif text-white max-w-2xl leading-tight tracking-[-0.02em]"
             style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)' }}
             initial={{ opacity: 0, y: 30 }}
@@ -109,8 +114,8 @@ export default function FAQPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: EASE }}
           >
-            Common Inquiries &<br />Sacred Guidance
-          </motion.h1>
+            Common Inquiries &amp;<br />Sacred Guidance
+          </motion.h2>
         </div>
       </section>
 

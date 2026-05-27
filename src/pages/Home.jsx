@@ -26,6 +26,10 @@ export default function Home() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="home" />
       <main>
+        {/* Visually hidden SEO h1 — Hero carries the visual heading (h2) */}
+        <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+          Sacred Himalayan Journeys — Adi Kailash, Om Parvat &amp; Kumaon Expeditions
+        </h1>
         <section aria-label="Hero"><Hero /></section>
         <TrustBar />
         <section aria-label="Why Choose Us"><WhyChooseUs /></section>

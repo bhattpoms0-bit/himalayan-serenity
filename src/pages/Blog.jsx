@@ -19,6 +19,11 @@ export default function Blog() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="blog" />
 
+      {/* Visually hidden SEO h1 */}
+      <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        Himalayan Travel Blog — Guides, Tips &amp; Expedition Stories
+      </h1>
+
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="relative pt-32 pb-20">
         <div
@@ -42,7 +47,7 @@ export default function Blog() {
             >
               Himalayan Insights
             </p>
-            <h1
+            <h2
               style={{
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.4rem, 5vw, 3.5rem)',
@@ -54,7 +59,7 @@ export default function Blog() {
               }}
             >
               Stories from the Sacred Trail
-            </h1>
+            </h2>
             <p className="font-sans text-base max-w-lg mx-auto" style={{ color: '#888888', lineHeight: 1.8 }}>
               Guides, insights, and wisdom from the heart of the Himalayas.
             </p>

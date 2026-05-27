@@ -12,6 +12,11 @@ export default function AboutPage() {
     <div className="min-h-screen bg-brand-dark">
       <Navbar activePage="about" />
 
+      {/* Visually hidden SEO h1 */}
+      <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
+        About Himalayan Serenity Travel — Pithoragarh Based Expedition Company
+      </h1>
+
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden">
         <div
@@ -21,7 +26,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
           <p className="section-tag mb-4">Elite Mountain Journeys</p>
-          <h1 className="section-title text-5xl lg:text-6xl max-w-2xl">The Foundation of Your Journey</h1>
+          <h2 className="section-title text-5xl lg:text-6xl max-w-2xl">The Foundation of Your Journey</h2>
         </div>
       </section>
 
