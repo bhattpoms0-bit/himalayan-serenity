@@ -1,4 +1,5 @@
 ﻿import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, X } from 'lucide-react'
@@ -177,6 +178,20 @@ export default function FAQPage() {
               </AnimatePresence>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── ILP Guide Link ───────────────────────────────────────────────── */}
+      <section style={{ backgroundColor: '#090909', padding: '0 0 3rem' }}>
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div style={{ borderLeft: '2px solid rgba(201,168,76,0.3)', paddingLeft: '1.2rem' }}>
+            <p className="font-sans" style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.8 }}>
+              Need help with Inner Line Permit for Adi Kailash or Om Parvat?{' '}
+              <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: '#C9A84C', textDecoration: 'none' }}>
+                Read our complete ILP guide →
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
 
