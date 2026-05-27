@@ -22,6 +22,7 @@ const PhotographyExpedition          = lazy(() => import('./pages/PhotographyExp
 const WinterHimalayanWellnessRetreat = lazy(() => import('./pages/WinterHimalayanWellnessRetreat'))
 const Sustainability                 = lazy(() => import('./pages/Sustainability'))
 const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailashVsKailashMansarovar'))
+const AdiKailashILPGuide             = lazy(() => import('./pages/blog/AdiKailashILPGuide'))
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
@@ -78,6 +79,7 @@ function AnimatedRoutes() {
           <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
           <Route path="/blog"          element={<PageTransition><Blog /></PageTransition>} />
           <Route path="/blog/adi-kailash-vs-kailash-mansarovar" element={<PageTransition><AdiKailashVsKailashMansarovar /></PageTransition>} />
+          <Route path="/blog/adi-kailash-ilp-guide-2026"       element={<PageTransition><AdiKailashILPGuide /></PageTransition>} />
           <Route path="/blog/:slug"    element={<PageTransition><BlogPost /></PageTransition>} />
           <Route path="/packages/cinematic-expedition"              element={<PageTransition><CinematicExpedition /></PageTransition>} />
           <Route path="/packages/wilderness-expedition"             element={<PageTransition><WildernessExpedition /></PageTransition>} />
