@@ -1,22 +1,33 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Globe } from 'lucide-react'
+import { Globe, ChevronDown } from 'lucide-react'
+
+const EXPERIENCES = [
+  { label: 'Adi Kailash & Om Parvat',   href: '/packages/adi-kailash-expedition'     },
+  { label: 'Panchachuli Trek',           href: '/packages/panchachuli-expedition'      },
+  { label: 'Munsiyari & Wilderness',     href: '/packages/wilderness-expedition'       },
+  { label: "Darma Valley Women's Trek",  href: '/packages/darma-valley-womens-retreat' },
+  { label: 'Eastern Kumaon Cinematic',   href: '/packages/cinematic-expedition'        },
+  { label: 'Himalayan Wellness Retreat', href: '/packages/wellness-retreat'            },
+  { label: 'Photography Expedition',     href: '/packages/photography-expedition'      },
+]
 
 const NAV_LINKS = [
-  { label: 'Blog',           href: '/blog'           },
-  { label: 'About',          href: '/about'          },
-  { label: 'Sustainability', href: '/sustainability'  },
-  { label: 'FAQ',            href: '/faq'            },
-  { label: 'Contact',        href: '/contact'        },
+  { label: 'About',   href: '/about'   },
+  { label: 'Blog',    href: '/blog'    },
+  { label: 'Contact', href: '/contact' },
 ]
 
 // ─── Entrance easing ──────────────────────────────────────────────────────────
 const EASE_OUT_EXPO = [0.25, 0.46, 0.45, 0.94]
 
 export default function Navbar({ activePage = 'home' }) {
-  const [scrollY, setScrollY]     = useState(0)
-  const [menuOpen, setMenuOpen]   = useState(false)
+  const [scrollY, setScrollY]           = useState(0)
+  const [menuOpen, setMenuOpen]         = useState(false)
+  const [expOpen, setExpOpen]           = useState(false)
+  const [mobileExpOpen, setMobileExpOpen] = useState(false)
+  const closeTimer                      = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrollY(window.scrollY)
@@ -32,6 +43,15 @@ export default function Navbar({ activePage = 'home' }) {
 
   const showBlur   = scrollY > 50
   const showBorder = scrollY > 50
+
+  // Delay-close keeps dropdown alive while mouse travels to panel
+  const handleExpEnter = () => {
+    clearTimeout(closeTimer.current)
+    setExpOpen(true)
+  }
+  const handleExpLeave = () => {
+    closeTimer.current = setTimeout(() => setExpOpen(false), 120)
+  }
 
   return (
     <motion.nav
@@ -63,6 +83,58 @@ export default function Navbar({ activePage = 'home' }) {
 
           {/* ── Desktop nav links ─────────────────────────────────────────── */}
           <div className="hidden md:flex items-center gap-8">
+
+            {/* Experiences dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={handleExpEnter}
+              onMouseLeave={handleExpLeave}
+            >
+              <button className="flex items-center gap-1 font-sans text-[13px] text-[#aaaaaa] hover:text-white transition-colors duration-200 cursor-pointer">
+                Experiences
+                <ChevronDown
+                  size={12}
+                  strokeWidth={1.5}
+                  className={`transition-transform duration-200 ${expOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {expOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.16, ease: 'easeOut' }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl py-2 z-50 border border-white/[0.08] shadow-2xl"
+                    style={{ background: 'rgba(10,10,10,0.97)' }}
+                  >
+                    {EXPERIENCES.map(exp => (
+                      <Link
+                        key={exp.href}
+                        to={exp.href}
+                        onClick={() => setExpOpen(false)}
+                        className="block px-4 py-2.5 font-sans text-[12.5px] text-[#999999] hover:text-white hover:bg-white/[0.05] transition-colors duration-150"
+                        style={{ textDecoration: 'none' }}
+                      >
+                        {exp.label}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* International Retreats */}
+            <Link
+              to="/international-retreats"
+              className="font-sans text-[13px] text-[#1D9E75] hover:opacity-75 transition-opacity duration-200 cursor-pointer"
+              style={{ textDecoration: 'none' }}
+            >
+              International Retreats
+            </Link>
+
+            {/* Regular links */}
             {NAV_LINKS.map((link) => {
               const isActive = activePage === link.label.toLowerCase()
               return (
@@ -159,7 +231,59 @@ export default function Navbar({ activePage = 'home' }) {
           >
             <div className="px-5 pt-2 pb-6 border-t border-white/[0.06]">
 
-              {/* Staggered nav links */}
+              {/* Experiences accordion */}
+              <div className="border-b border-white/[0.06]">
+                <button
+                  onClick={() => setMobileExpOpen(v => !v)}
+                  className="w-full flex items-center justify-between py-4 font-sans text-base transition-colors duration-200 cursor-pointer"
+                  style={{ color: '#777777' }}
+                >
+                  Experiences
+                  <ChevronDown
+                    size={14}
+                    strokeWidth={1.5}
+                    className={`transition-transform duration-200 ${mobileExpOpen ? 'rotate-180' : ''}`}
+                    style={{ color: '#555555' }}
+                  />
+                </button>
+                <AnimatePresence initial={false}>
+                  {mobileExpOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      {EXPERIENCES.map(exp => (
+                        <Link
+                          key={exp.href}
+                          to={exp.href}
+                          onClick={() => { setMenuOpen(false); setMobileExpOpen(false) }}
+                          className="flex items-center py-3 pl-4 border-b border-white/[0.04] font-sans text-sm transition-colors duration-150"
+                          style={{ color: '#555555', textDecoration: 'none' }}
+                          onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')}
+                          onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+                        >
+                          {exp.label}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* International Retreats */}
+              <a
+                href="/international-retreats"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-between py-4 border-b border-white/[0.06] font-sans text-base transition-colors duration-200 cursor-pointer"
+                style={{ color: '#1D9E75', textDecoration: 'none' }}
+              >
+                International Retreats
+              </a>
+
+              {/* Regular links */}
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.label}
