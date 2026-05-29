@@ -32,6 +32,48 @@ export default function Home() {
           Adi Kailash Yatra &amp; Om Parvat Tour from Delhi — Himalayan Serenity Travel
         </h1>
         <section aria-label="Hero"><Hero /></section>
+
+        {/* ── Audience Split ────────────────────────────────────────────── */}
+        <section aria-label="Who we serve" className="bg-[#0d0d0d] border-b border-white/[0.06]">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10">
+            <div className="flex flex-col md:flex-row gap-4">
+
+              {/* Left — Indian Pilgrims */}
+              <div className="flex-1 border border-[#e07b2a]/20 rounded-xl p-8">
+                <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#e07b2a] mb-3">
+                  Indian Pilgrims &amp; Trekkers
+                </p>
+                <p className="font-sans text-sm text-white/60 leading-relaxed mb-5">
+                  Adi Kailash, Om Parvat, Panchachuli yatras
+                </p>
+                <Link
+                  to="/experiences"
+                  className="font-sans text-sm text-[#e07b2a] no-underline hover:opacity-75 transition-opacity duration-200"
+                >
+                  Explore expeditions →
+                </Link>
+              </div>
+
+              {/* Right — International Travellers */}
+              <div className="flex-1 border border-[#1D9E75]/20 rounded-xl p-8">
+                <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1D9E75] mb-3">
+                  International Travellers
+                </p>
+                <p className="font-sans text-sm text-white/60 leading-relaxed mb-5">
+                  Yoga, meditation, Ayurveda &amp; detox retreats
+                </p>
+                <Link
+                  to="/international-retreats"
+                  className="font-sans text-sm text-[#1D9E75] no-underline hover:opacity-75 transition-opacity duration-200"
+                >
+                  Discover retreats →
+                </Link>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         <TrustBar />
         <section aria-label="Why Choose Us"><WhyChooseUs /></section>
         <section id="packages-section" aria-label="Packages"><Packages /></section>
