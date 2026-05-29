@@ -6,7 +6,7 @@ const testimonials = [
   {
     stars:  5,
     quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. Himalayan Serenity arranged everything flawlessly — permits, accommodation, guides. A life-changing yatra.',
-    name:   'Rajesh Sharma',
+    name:   '🇮🇳 Rajesh Sharma',
     info:   'New Delhi, India · Adi Kailash Expedition, May 2024',
     avatar: '/images/testimonials/rajesh-sharma.webp',
     flag:   '🇮🇳',
@@ -38,18 +38,18 @@ const testimonials = [
   {
     stars:  5,
     quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. The Milam Trail is absolutely stunning and our guide Deepak\'s knowledge of local culture and flora was incredible. Worth every penny.',
-    name:   'Sarah Mitchell',
-    info:   'London, United Kingdom · Eastern Kumaon Wilderness, Oct 2024',
+    name:   '🇬🇧 Sarah T. — London, UK',
+    info:   'London, UK · Eastern Kumaon Wilderness, Oct 2024',
     avatar: '/images/testimonials/sarah-mitchell.webp',
     flag:   '🇬🇧',
   },
   {
     stars:  5,
     quote:  'As a wildlife and landscape photographer, I needed guides who understood golden hour, patience, and remote access. This team delivered beyond expectations. Came back with 3000 shots, 50 of which are portfolio-worthy. Extraordinary.',
-    name:   'Amit Kulkarni',
-    info:   'Pune, India · Himalayan Photography Expedition, May 2024',
+    name:   '🇩🇪 Klaus W. — Munich, Germany',
+    info:   'Munich, Germany · Himalayan Photography Expedition, May 2024',
     avatar: '/images/testimonials/amit-kulkarni.webp',
-    flag:   '🇮🇳',
+    flag:   '🇩🇪',
   },
   {
     stars:  4,
