@@ -21,6 +21,7 @@ const DarmaValleyWomensRetreat       = lazy(() => import('./pages/DarmaValleyWom
 const PhotographyExpedition          = lazy(() => import('./pages/PhotographyExpedition'))
 const WinterHimalayanWellnessRetreat = lazy(() => import('./pages/WinterHimalayanWellnessRetreat'))
 const Sustainability                 = lazy(() => import('./pages/Sustainability'))
+const InternationalRetreats          = lazy(() => import('./pages/InternationalRetreats'))
 const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailashVsKailashMansarovar'))
 const AdiKailashILPGuide             = lazy(() => import('./pages/blog/AdiKailashILPGuide'))
 
@@ -89,7 +90,8 @@ function AnimatedRoutes() {
           <Route path="/packages/darma-valley-womens-retreat"      element={<PageTransition><DarmaValleyWomensRetreat /></PageTransition>} />
           <Route path="/packages/photography-expedition"           element={<PageTransition><PhotographyExpedition /></PageTransition>} />
           <Route path="/packages/winter-himalayan-wellness-retreat" element={<PageTransition><WinterHimalayanWellnessRetreat /></PageTransition>} />
-          <Route path="/sustainability" element={<PageTransition><Sustainability /></PageTransition>} />
+          <Route path="/sustainability"          element={<PageTransition><Sustainability /></PageTransition>} />
+          <Route path="/international-retreats" element={<PageTransition><InternationalRetreats /></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Suspense>

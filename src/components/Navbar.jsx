@@ -35,6 +35,14 @@ export default function Navbar({ activePage = 'home' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const isIntlPage = activePage === 'international-retreats'
+  const ctaLabel   = isIntlPage ? 'Enquire Now' : 'Book Now'
+  const ctaHref    = isIntlPage ? '#enquiry' : '/contact'
+  const ctaBg      = isIntlPage ? '#1D9E75' : '#e07b2a'
+  const ctaGlow    = isIntlPage
+    ? '0 0 20px rgba(29,158,117,0.4)'
+    : '0 0 20px rgba(224,123,42,0.4)'
+
   // 3-state background driven by scroll depth
   const navBg =
     scrollY > 100 ? 'rgba(8,8,8,0.95)'
@@ -167,25 +175,25 @@ export default function Navbar({ activePage = 'home' }) {
               <Globe size={15} strokeWidth={1.5} />
             </button>
 
-            {/* Book Now */}
+            {/* Book / Enquire Now */}
             <motion.a
-              href="/contact"
+              href={ctaHref}
               whileHover={{
                 scale: 1.03,
                 filter: 'brightness(1.1)',
-                boxShadow: '0 0 20px rgba(224,123,42,0.4)',
+                boxShadow: ctaGlow,
               }}
               whileTap={{ scale: 0.97 }}
-              className="text-white rounded-full px-5 py-2.5 cursor-pointer inline-block"
+              className="text-white rounded-full px-5 py-2.5 cursor-pointer inline-block transition-colors duration-300"
               style={{
                 fontFamily:      '"Cinzel", serif',
                 fontSize:        11,
                 letterSpacing:   '0.15em',
                 textTransform:   'uppercase',
-                backgroundColor: '#e07b2a',
+                backgroundColor: ctaBg,
               }}
             >
-              Book Now
+              {ctaLabel}
             </motion.a>
           </div>
 
@@ -306,9 +314,9 @@ export default function Navbar({ activePage = 'home' }) {
                 </motion.a>
               ))}
 
-              {/* Book Now — full width */}
+              {/* Book / Enquire Now — full width */}
               <motion.a
-                href="/contact"
+                href={ctaHref}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 8 }}
@@ -320,10 +328,10 @@ export default function Navbar({ activePage = 'home' }) {
                   fontSize:        11,
                   letterSpacing:   '0.15em',
                   textTransform:   'uppercase',
-                  backgroundColor: '#e07b2a',
+                  backgroundColor: ctaBg,
                 }}
               >
-                Book Now
+                {ctaLabel}
               </motion.a>
             </div>
           </motion.div>
