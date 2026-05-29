@@ -15,6 +15,11 @@ const EXPLORATIONS = [
   { label: 'Women-Only Expedition (Darma Valley)',  href: '/packages/darma-valley-womens-retreat' },
 ]
 
+const COMPANY_LINKS = [
+  { label: 'Sustainability', href: '/sustainability' },
+  { label: 'FAQ',            href: '/faq'            },
+]
+
 const SOCIAL = [Globe, Mail, Share2]
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -119,6 +124,15 @@ export default function Footer() {
                 <FooterLink key={label} href={href}>{label}</FooterLink>
               ))}
             </ul>
+
+            <div className="mt-8">
+              <ColLabel>Company</ColLabel>
+              <ul className="space-y-3.5">
+                {COMPANY_LINKS.map(({ label, href }) => (
+                  <FooterLink key={label} href={href}>{label}</FooterLink>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* ── Newsletter + social column ────────────────────────────────── */}
