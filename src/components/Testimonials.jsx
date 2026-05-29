@@ -6,10 +6,10 @@ const testimonials = [
   {
     stars:  5,
     quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. Himalayan Serenity arranged everything flawlessly — permits, accommodation, guides. A life-changing yatra.',
-    name:   '🇮🇳 Rajesh Sharma',
+    name:   <><img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Rajesh Sharma</>,
     info:   'New Delhi, India · Adi Kailash Expedition, May 2024',
     avatar: '/images/testimonials/rajesh-sharma.webp',
-    flag:   '🇮🇳',
+    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  5,
@@ -17,7 +17,7 @@ const testimonials = [
     name:   'Priya Nair',
     info:   'Bangalore, India · Women-Only Expedition, April 2024',
     avatar: '/images/testimonials/priya-nair.webp',
-    flag:   '🇮🇳',
+    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  5,
@@ -25,7 +25,7 @@ const testimonials = [
     name:   'Thomas Bergmann',
     info:   'Munich, Germany · Panchachuli Trekking Expedition, Sept 2024',
     avatar: '/images/testimonials/thomas-bergmann.webp',
-    flag:   '🇩🇪',
+    flag:   <img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  4,
@@ -33,23 +33,23 @@ const testimonials = [
     name:   'Sunita Rawat',
     info:   'Dehradun, India · Adi Kailash Yatra, June 2024',
     avatar: '/images/testimonials/sunita-rawat.webp',
-    flag:   '🇮🇳',
+    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  5,
     quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. The Milam Trail is absolutely stunning and our guide Deepak\'s knowledge of local culture and flora was incredible. Worth every penny.',
-    name:   '🇬🇧 Sarah T. — London, UK',
+    name:   <><img src="https://flagcdn.com/24x18/gb.png" alt="UK" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Sarah T. — London, UK</>,
     info:   'London, UK · Eastern Kumaon Wilderness, Oct 2024',
     avatar: '/images/testimonials/sarah-mitchell.webp',
-    flag:   '🇬🇧',
+    flag:   <img src="https://flagcdn.com/24x18/gb.png" alt="UK" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  5,
     quote:  'As a wildlife and landscape photographer, I needed guides who understood golden hour, patience, and remote access. This team delivered beyond expectations. Came back with 3000 shots, 50 of which are portfolio-worthy. Extraordinary.',
-    name:   '🇩🇪 Klaus W. — Munich, Germany',
+    name:   <><img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Klaus W. — Munich, Germany</>,
     info:   'Munich, Germany · Himalayan Photography Expedition, May 2024',
     avatar: '/images/testimonials/amit-kulkarni.webp',
-    flag:   '🇩🇪',
+    flag:   <img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
   {
     stars:  4,
@@ -65,7 +65,7 @@ const testimonials = [
     name:   'Meera Joshi',
     info:   'Mumbai, India · Panchachuli Trek, August 2024',
     avatar: '/images/testimonials/meera-joshi.webp',
-    flag:   '🇮🇳',
+    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
   },
 ]
 
