@@ -77,6 +77,93 @@ export default function Home() {
         <TrustBar />
         <section aria-label="Why Choose Us"><WhyChooseUs /></section>
         <section id="packages-section" aria-label="Packages"><Packages /></section>
+
+        {/* ── International Retreats Preview ────────────────────────────── */}
+        <section aria-label="International Retreats" className="bg-[#0a100d] py-28 lg:py-36">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+
+            {/* Header */}
+            <div className="text-center mb-16">
+              <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1D9E75] mb-5">
+                International Retreats · Yoga · Meditation · Ayurveda
+              </p>
+              <h2 className="font-serif text-brand-cream text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-[-0.02em]">
+                Heal in the world's most sacred mountains
+              </h2>
+            </div>
+
+            {/* Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+
+              {/* Card 1 — Yoga & Ayurveda */}
+              <Link to="/international-retreats" className="no-underline group">
+                <div className="rounded-2xl border border-[#1D9E75]/20 bg-[#0d1510] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-[#1D9E75]/40 group-hover:-translate-y-1">
+                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-[#1D9E75] bg-[#1D9E75]/10 rounded-full px-3 py-1.5 mb-6">
+                    Yoga &amp; Ayurveda
+                  </span>
+                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
+                    Kumaon Wellness Immersion
+                  </h3>
+                  <p className="font-sans text-sm text-white/50 mb-5">
+                    Munsiyari · 7 nights · No permit required
+                  </p>
+                  <p className="font-sans text-sm font-medium text-[#1D9E75] mt-auto">
+                    From €1,400 per person
+                  </p>
+                </div>
+              </Link>
+
+              {/* Card 2 — Wilderness Detox */}
+              <Link to="/international-retreats" className="no-underline group">
+                <div className="rounded-2xl border border-[#1D9E75]/20 bg-[#0d1510] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-[#1D9E75]/40 group-hover:-translate-y-1">
+                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-[#1D9E75] bg-[#1D9E75]/10 rounded-full px-3 py-1.5 mb-6">
+                    Wilderness Detox
+                  </span>
+                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
+                    Darma Valley Detox Trek
+                  </h3>
+                  <p className="font-sans text-sm text-white/50 mb-5">
+                    Darma Valley · 11 nights · No permit required
+                  </p>
+                  <p className="font-sans text-sm font-medium text-[#1D9E75] mt-auto">
+                    From €2,200 per person
+                  </p>
+                </div>
+              </Link>
+
+              {/* Card 3 — Women Only */}
+              <Link to="/international-retreats" className="no-underline group">
+                <div className="rounded-2xl border border-pink-500/20 bg-[#110d0e] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-pink-500/40 group-hover:-translate-y-1">
+                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-pink-400 bg-pink-500/10 rounded-full px-3 py-1.5 mb-6">
+                    Women Only
+                  </span>
+                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
+                    Women's Sacred Himalaya Retreat
+                  </h3>
+                  <p className="font-sans text-sm text-white/50 mb-5">
+                    Munsiyari + Darma · 9 nights
+                  </p>
+                  <p className="font-sans text-sm font-medium text-pink-400 mt-auto">
+                    From €2,000 per person
+                  </p>
+                </div>
+              </Link>
+
+            </div>
+
+            {/* Explore all link */}
+            <div className="flex justify-center">
+              <Link
+                to="/international-retreats"
+                className="font-sans text-sm text-[#1D9E75] no-underline hover:opacity-75 transition-opacity duration-200"
+              >
+                Explore all international retreats →
+              </Link>
+            </div>
+
+          </div>
+        </section>
+
         <section aria-label="Testimonials"><Testimonials /></section>
         <SpiritualSection />
         <RouteMap />

@@ -1,7 +1,7 @@
 ﻿import { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-import { ArrowRight, MessageCircle, Clock, TrendingUp, Users } from 'lucide-react'
+import { ArrowRight, Clock, TrendingUp, Users } from 'lucide-react'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const FEATURED = [
@@ -337,32 +337,21 @@ export default function Packages() {
           </p>
         </motion.div>
 
-        {/* ── Featured 4 large cards ─────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          {FEATURED.map((pkg, i) => (
+        {/* ── 2 featured cards ─────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {FEATURED.slice(0, 2).map((pkg, i) => (
             <PackageCard key={pkg.title} pkg={pkg} large index={i} />
           ))}
         </div>
 
-        {/* ── 4 smaller cards ──────────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {MORE.map((pkg, i) => (
-            <PackageCard key={pkg.title} pkg={pkg} index={i} />
-          ))}
-        </div>
-
-        {/* ── Bottom actions ────────────────────────────────────────────── */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/contact#consultation" className="btn-primary">View All Packages</a>
-          <a
-            href="https://wa.me/919084642557"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 border border-emerald-800/50 text-emerald-500/80 text-[12.5px] font-sans font-semibold tracking-luxury uppercase px-6 py-3.5 rounded-full hover:border-emerald-700/70 hover:text-emerald-400 transition-all duration-300"
+        {/* ── View all link ─────────────────────────────────────────── */}
+        <div className="flex justify-center">
+          <Link
+            to="/experiences"
+            className="font-sans text-sm text-[#e07b2a] no-underline hover:opacity-75 transition-opacity duration-200"
           >
-            <MessageCircle size={13} strokeWidth={1.5} />
-            WhatsApp Concierge
-          </a>
+            View all expeditions →
+          </Link>
         </div>
 
       </div>
