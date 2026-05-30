@@ -188,11 +188,14 @@ export default function InternationalRetreats() {
                     src={cardImg}
                     alt={cardImgAlt}
                     loading="lazy"
+                    className="w-full block"
                     style={{
                       width: '100%',
                       height: 'auto',
+                      display: 'block',
                       objectFit: 'contain',
                       backgroundColor: '#0a100d',
+                      maxWidth: '100%',
                     }}
                   />
                 )}
