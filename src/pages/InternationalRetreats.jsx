@@ -38,13 +38,15 @@ const WHY_CARDS = [
 
 const RETREAT_CARDS = [
   {
-    badge:      'Yoga & Ayurveda',
-    badgeClass: 'bg-[#1D9E75]/20 text-[#5DCAA5]',
-    title:      'Kumaon Wellness Immersion',
-    meta:       'Munsiyari · Khaliya Top · 7 nights',
-    highlights: 'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
-    price:      'From €1,400 per person',
-    href:       '/retreats/kumaon-wellness',
+    badge:       'Yoga & Ayurveda',
+    badgeClass:  'bg-[#1D9E75]/20 text-[#5DCAA5]',
+    title:       'Kumaon Wellness Immersion',
+    meta:        'Munsiyari · Khaliya Top · 7 nights',
+    highlights:  'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
+    price:       'From €1,400 per person',
+    href:        '/retreats/kumaon-wellness',
+    cardImg:     '/images/retreats/kumaon-wellness-retreat-card.jfif',
+    cardImgAlt:  'Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat',
   },
   {
     badge:      'Wilderness Detox',
@@ -178,16 +180,27 @@ export default function InternationalRetreats() {
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Our Retreats</p>
         <h2 className="font-serif text-[#f0ece4] text-3xl mb-8">Four ways to find stillness</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, href }) => (
+          {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, href, cardImg, cardImgAlt }) => (
             <Link key={href} to={href} className="no-underline group">
-              <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl p-7 h-full flex flex-col hover:border-[#1D9E75]/30 transition-colors duration-200">
-                <span className={`inline-block self-start text-xs rounded-full px-3 py-1 mb-4 ${badgeClass}`}>
-                  {badge}
-                </span>
-                <h3 className="font-serif text-[#f0ece4] text-xl mb-2">{title}</h3>
-                <p className="text-[#f0ece4]/50 text-sm mb-3">{meta}</p>
-                <p className="text-[#f0ece4]/60 text-sm mb-6">{highlights}</p>
-                <p className="text-[#1D9E75] font-medium mt-auto">{price}</p>
+              <div className={`bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col hover:border-[#1D9E75]/30 transition-colors duration-200 ${cardImg ? 'overflow-hidden' : 'p-7'}`}>
+                {cardImg && (
+                  <img
+                    src={cardImg}
+                    alt={cardImgAlt}
+                    loading="lazy"
+                    className="w-full h-48 object-cover rounded-t-xl"
+                    style={{ objectPosition: '50% 40%' }}
+                  />
+                )}
+                <div className={`flex flex-col flex-1 ${cardImg ? 'p-7' : ''}`}>
+                  <span className={`inline-block self-start text-xs rounded-full px-3 py-1 mb-4 ${badgeClass}`}>
+                    {badge}
+                  </span>
+                  <h3 className="font-serif text-[#f0ece4] text-xl mb-2">{title}</h3>
+                  <p className="text-[#f0ece4]/50 text-sm mb-3">{meta}</p>
+                  <p className="text-[#f0ece4]/60 text-sm mb-6">{highlights}</p>
+                  <p className="text-[#1D9E75] font-medium mt-auto">{price}</p>
+                </div>
               </div>
             </Link>
           ))}
