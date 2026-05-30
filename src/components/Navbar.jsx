@@ -35,7 +35,7 @@ export default function Navbar({ activePage = 'home' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const isIntlPage = activePage === 'international-retreats' || activePage === 'kumaon-wellness'
+  const isIntlPage = activePage === 'international-retreats' || activePage === 'kumaon-wellness' || activePage === 'darma-detox'
   const ctaLabel   = isIntlPage ? 'Enquire Now' : 'Book Now'
   const ctaHref    = isIntlPage ? '#enquiry' : '/contact'
   const ctaBg      = isIntlPage ? '#1D9E75' : '#e07b2a'

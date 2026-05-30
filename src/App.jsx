@@ -23,6 +23,7 @@ const WinterHimalayanWellnessRetreat = lazy(() => import('./pages/WinterHimalaya
 const Sustainability                 = lazy(() => import('./pages/Sustainability'))
 const InternationalRetreats          = lazy(() => import('./pages/InternationalRetreats'))
 const KumaonWellness                 = lazy(() => import('./pages/retreats/KumaonWellness'))
+const DarmaDetox                     = lazy(() => import('./pages/retreats/DarmaDetox'))
 const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailashVsKailashMansarovar'))
 const AdiKailashILPGuide             = lazy(() => import('./pages/blog/AdiKailashILPGuide'))
 
@@ -94,6 +95,7 @@ function AnimatedRoutes() {
           <Route path="/sustainability"          element={<PageTransition><Sustainability /></PageTransition>} />
           <Route path="/international-retreats"    element={<PageTransition><InternationalRetreats /></PageTransition>} />
           <Route path="/retreats/kumaon-wellness" element={<PageTransition><KumaonWellness /></PageTransition>} />
+          <Route path="/retreats/darma-detox"    element={<PageTransition><DarmaDetox /></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Suspense>
