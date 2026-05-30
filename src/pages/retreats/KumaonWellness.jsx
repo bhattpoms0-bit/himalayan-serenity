@@ -217,7 +217,7 @@ export default function KumaonWellness() {
           src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
           alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
           loading="eager"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-[60vh] md:h-[70vh] object-cover"
         />
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -310,12 +310,12 @@ export default function KumaonWellness() {
               </ul>
               <p className="text-[#1D9E75]/70 text-xs italic">Overnight: {day.stay}</p>
               {day.img && (
-                <div className="mt-4 overflow-hidden rounded-xl">
+                <div className="w-full bg-[#0a100d] rounded-xl overflow-hidden mt-4 lg:max-w-3xl lg:mx-auto">
                   <img
                     src={day.img}
                     alt={day.imgAlt}
                     loading="lazy"
-                    className="w-full h-48 object-cover rounded-xl"
+                    className="w-full max-w-full object-contain rounded-xl"
                   />
                 </div>
               )}
