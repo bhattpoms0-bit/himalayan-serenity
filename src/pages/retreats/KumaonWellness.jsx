@@ -37,6 +37,7 @@ const DAYS = [
     stay:   'Munsiyari',
     img:    '/images/retreats/kumaon-wellness/meditation-munsiyari-panchachuli-peaks-ayurveda.webp',
     imgAlt: 'Meditation in Munsiyari forest with Panchachuli peaks backdrop',
+    imgPos: 'object-[center_70%]',
   },
   {
     route:  'DAY 4 · MUNSIYARI',
@@ -64,6 +65,7 @@ const DAYS = [
     stay:   'Munsiyari',
     img:    '/images/retreats/kumaon-wellness/shauka-tribe-weaving-darma-valley-cultural-immersion.webp',
     imgAlt: 'Shauka tribe woman weaving in Darma Valley cultural immersion',
+    imgPos: 'object-[center_30%]',
   },
   {
     route:  'DAY 7 · MUNSIYARI',
@@ -305,7 +307,7 @@ export default function KumaonWellness() {
                     src={day.img}
                     alt={day.imgAlt}
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${day.imgPos ?? ''}`}
                   />
                 </div>
 
