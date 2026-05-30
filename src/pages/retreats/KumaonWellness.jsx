@@ -35,9 +35,10 @@ const DAYS = [
     desc:   'The retreat begins with a personalised Ayurvedic consultation to understand your unique constitution and wellbeing needs.',
     exp:    ['Individual Ayurvedic assessment', 'Personal wellness consultation', 'Gentle yoga practice', 'Introduction to Himalayan medicinal herbs', 'Sunset mindfulness session'],
     stay:   'Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/meditation-munsiyari-panchachuli-peaks-ayurveda.webp',
-    imgAlt: 'Meditation in Munsiyari forest with Panchachuli peaks backdrop',
-    imgPos: 'object-[center_70%]',
+    img:      '/images/retreats/kumaon-wellness/meditation-munsiyari-panchachuli-peaks-ayurveda.webp',
+    imgAlt:   'Meditation in Munsiyari forest with Panchachuli peaks backdrop',
+    imgPos:   'object-[center_70%]',
+    imgStyle: { objectPosition: 'center 70%' },
   },
   {
     route:  'DAY 4 · MUNSIYARI',
@@ -63,9 +64,10 @@ const DAYS = [
     desc:   'Meet the people whose traditions have shaped life in these mountains for centuries.',
     exp:    ['Guided cultural immersion walk', 'Visit traditional Shauka community', 'Artisan demonstrations', 'Home-hosted Kumaoni lunch', 'Himalayan folklore evening'],
     stay:   'Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/shauka-tribe-weaving-darma-valley-cultural-immersion.webp',
-    imgAlt: 'Shauka tribe woman weaving in Darma Valley cultural immersion',
-    imgPos: 'object-[center_30%]',
+    img:      '/images/retreats/kumaon-wellness/shauka-tribe-weaving-darma-valley-cultural-immersion.webp',
+    imgAlt:   'Shauka tribe woman weaving in Darma Valley cultural immersion',
+    imgPos:   'object-[center_30%]',
+    imgStyle: { objectPosition: 'center 20%' },
   },
   {
     route:  'DAY 7 · MUNSIYARI',
@@ -308,6 +310,7 @@ export default function KumaonWellness() {
                     alt={day.imgAlt}
                     loading="lazy"
                     className={`w-full h-full object-cover ${day.imgPos ?? ''}`}
+                    style={day.imgStyle ?? undefined}
                   />
                 </div>
 
