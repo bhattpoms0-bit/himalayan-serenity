@@ -35,9 +35,9 @@ const DAYS = [
     desc:   'The retreat begins with a personalised Ayurvedic consultation to understand your unique constitution and wellbeing needs.',
     exp:    ['Individual Ayurvedic assessment', 'Personal wellness consultation', 'Gentle yoga practice', 'Introduction to Himalayan medicinal herbs', 'Sunset mindfulness session'],
     stay:   'Munsiyari',
-    img:         '/images/retreats/kumaon-wellness/meditation-munsiyari-panchachuli-peaks-ayurveda.webp',
-    imgAlt:      'Woman meditating facing Panchachuli peaks through pine forest, Munsiyari',
-    imgOverride: { width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 80%' },
+    img:         '/images/retreats/kumaon-wellness/ayurveda-meditation-mountain-valley-kumaon-day3.jfif',
+    imgAlt:      'Woman meditating in lotus pose on mountain rock with valley view, Ayurveda day Kumaon',
+    imgOverride: { width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 40%' },
   },
   {
     route:  'DAY 4 · MUNSIYARI',
