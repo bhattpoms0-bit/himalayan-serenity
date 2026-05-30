@@ -212,63 +212,63 @@ export default function KumaonWellness() {
       <Navbar activePage="kumaon-wellness" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-36 pb-24">
+      <section className="relative overflow-hidden h-[85vh] flex flex-col justify-end">
         <img
           src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
           alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
           loading="eager"
-          className="absolute inset-0 w-full h-[60vh] md:h-[70vh] object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="max-w-3xl">
-          <span className="inline-block bg-[#1D9E75]/20 text-[#5DCAA5] text-xs rounded-full px-3 py-1 mb-6">
-            Yoga &amp; Ayurveda
-          </span>
-          <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-5xl leading-tight tracking-tight mb-4">
-            Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
-          </h1>
-          <p className="font-serif italic text-[#1D9E75] text-xl mb-8">
-            Yoga · Ayurveda · Himalayan Culture · Slow Travel · Personal Transformation
-          </p>
-          <div className="flex flex-wrap gap-3 mb-10">
-            {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Small Group'].map(stat => (
-              <span
-                key={stat}
-                className="border border-[#1D9E75]/30 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70"
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
+          <div className="max-w-3xl">
+            <span className="inline-block bg-[#1D9E75]/20 text-[#5DCAA5] text-xs rounded-full px-3 py-1 mb-6">
+              Yoga &amp; Ayurveda
+            </span>
+            <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-5xl leading-tight tracking-tight mb-4">
+              Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
+            </h1>
+            <p className="font-serif italic text-[#1D9E75] text-xl mb-8">
+              Yoga · Ayurveda · Himalayan Culture · Slow Travel · Personal Transformation
+            </p>
+            <div className="flex flex-wrap gap-3 mb-10">
+              {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Small Group'].map(stat => (
+                <span
+                  key={stat}
+                  className="border border-[#1D9E75]/30 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70"
+                >
+                  {stat}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#enquiry"
+                className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
               >
-                {stat}
-              </span>
-            ))}
+                Enquire about this retreat
+              </a>
+              <a
+                href="https://wa.me/919084642557"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
+              >
+                Download full itinerary
+              </a>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#enquiry"
-              className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
-            >
-              Enquire about this retreat
-            </a>
-            <a
-              href="https://wa.me/919084642557"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
-            >
-              Download full itinerary
-            </a>
-          </div>
-        </div>
         </div>
       </section>
 
       {/* ── SECTION 2 — JOURNEY PHILOSOPHY ──────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
+      <section className="max-w-3xl mx-auto px-5 sm:px-8 py-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Journey Philosophy</p>
-        <h2 className="font-serif text-[#f0ece4] text-2xl leading-snug mb-8 max-w-3xl">
+        <h2 className="font-serif text-[#f0ece4] text-2xl leading-snug mb-8">
           Most wellness retreats teach you how to practice yoga.
           This journey teaches you how to live differently.
         </h2>
-        <div className="space-y-4 max-w-3xl">
+        <div className="space-y-4">
           <p className="text-[#f0ece4]/70 text-sm leading-relaxed">
             Designed for discerning international travelers, this immersive Himalayan retreat combines
             Ayurveda, yoga, meditation, authentic mountain culture, conscious travel, and meaningful
@@ -283,49 +283,75 @@ export default function KumaonWellness() {
       </section>
 
       {/* ── SECTION 3 — ITINERARY ────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
-        <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Itinerary</p>
-        <h2 className="font-serif text-[#f0ece4] text-2xl mb-10">Your journey day by day</h2>
+      <section className="pb-0">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
+          <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Itinerary</p>
+          <h2 className="font-serif text-[#f0ece4] text-2xl">Your journey day by day</h2>
+        </div>
 
-        <div className="relative">
-          {DAYS.map((day, i) => (
-            <div key={i} className="relative pl-8 pb-10 last:pb-0">
-              {/* Vertical line */}
-              <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-[#1D9E75]/20 last:hidden" />
-              {/* Dot */}
-              <div className="absolute left-[-5px] top-[6px] w-2.5 h-2.5 rounded-full bg-[#1D9E75]/40 border border-[#1D9E75]/60" />
-
-              <p className="text-[#1D9E75] font-medium text-sm uppercase tracking-wider mb-1">
-                {day.route}
-              </p>
-              <h3 className="font-serif text-[#f0ece4] text-lg mb-2">{day.theme}</h3>
-              <p className="text-[#f0ece4]/60 text-sm leading-relaxed mb-3">{day.desc}</p>
-              <ul className="space-y-1 mb-3">
-                {day.exp.map(item => (
-                  <li key={item} className="text-[#f0ece4]/50 text-xs flex items-start gap-2">
-                    <span className="text-[#1D9E75]/60 mt-0.5">·</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-[#1D9E75]/70 text-xs italic">Overnight: {day.stay}</p>
-              {day.img && (
-                <div className="w-full bg-[#0a100d] rounded-xl overflow-hidden mt-4 lg:max-w-3xl lg:mx-auto">
+        <div>
+          {DAYS.map((day, i) => {
+            const isEven = i % 2 === 1
+            return (
+              <div
+                key={i}
+                className={`grid grid-cols-1 lg:grid-cols-2 border-b border-[#1D9E75]/10 ${isEven ? 'bg-[#0a1510]' : 'bg-[#0d1a0f]'}`}
+              >
+                {/* Image column */}
+                <div
+                  className={`h-[260px] lg:h-[420px] overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
+                >
                   <img
                     src={day.img}
                     alt={day.imgAlt}
                     loading="lazy"
-                    className="w-full max-w-full object-contain rounded-xl"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-              )}
-            </div>
-          ))}
+
+                {/* Text column */}
+                <div
+                  className={`px-6 py-8 lg:p-10 xl:p-14 flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}
+                >
+                  <p className="text-[#1D9E75] text-xs font-medium tracking-[0.2em] uppercase mb-2">
+                    {day.route}
+                  </p>
+                  <h3 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-4">
+                    {day.theme}
+                  </h3>
+                  <p className="text-[#f0ece4]/60 text-sm leading-relaxed mb-6">
+                    {day.desc}
+                  </p>
+                  <ul className="space-y-2">
+                    {day.exp.map(item => (
+                      <li key={item} className="flex items-start gap-2 text-[#f0ece4]/50 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1D9E75] flex-shrink-0 mt-1.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-[#1D9E75]/60 text-xs italic mt-6 pt-4 border-t border-[#1D9E75]/10">
+                    Overnight: {day.stay}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 
+      {/* ── ACCENT IMAGE ─────────────────────────────────────────────────── */}
+      <div className="w-full h-[50vh] border-t border-b border-[#1D9E75]/20 overflow-hidden">
+        <img
+          src="/images/retreats/kumaon-wellness/panchachuli-peaks-sunrise-darma-valley-kumaon.webp"
+          alt="Panchachuli peaks at sunrise, Darma Valley, Kumaon Himalaya"
+          loading="lazy"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
       {/* ── SECTION 4 — WHAT'S INCLUDED ──────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">What's Included</p>
         <h2 className="font-serif text-[#f0ece4] text-2xl mb-10">Everything taken care of</h2>
 
