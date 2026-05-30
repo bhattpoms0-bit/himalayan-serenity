@@ -188,8 +188,12 @@ export default function InternationalRetreats() {
                     src={cardImg}
                     alt={cardImgAlt}
                     loading="lazy"
-                    className="w-full h-48 object-cover rounded-t-xl"
-                    style={{ objectPosition: '50% 40%' }}
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      backgroundColor: '#0a100d',
+                    }}
                   />
                 )}
                 <div className={`flex flex-col flex-1 ${cardImg ? 'p-7' : ''}`}>
