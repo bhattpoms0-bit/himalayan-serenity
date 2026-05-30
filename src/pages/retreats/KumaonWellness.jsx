@@ -12,67 +12,85 @@ const INPUT_CLASS =
 
 const DAYS = [
   {
-    route: 'DAY 1 · DELHI → BHIMTAL',
-    theme: 'Arrival & Decompression',
-    desc:  'After arrival in Delhi, guests travel to the serene lakeside town of Bhimtal. The first day is intentionally slow, allowing guests to recover from international travel and begin disconnecting from everyday life.',
-    exp:   ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Himalayan wellness traditions', 'Sunset walk along Bhimtal Lake', 'Farm-to-table Kumaoni dinner'],
-    stay:  'Boutique Lakeside Retreat, Bhimtal',
+    route:  'DAY 1 · DELHI → BHIMTAL',
+    theme:  'Arrival & Decompression',
+    desc:   'After arrival in Delhi, guests travel to the serene lakeside town of Bhimtal. The first day is intentionally slow, allowing guests to recover from international travel and begin disconnecting from everyday life.',
+    exp:    ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Himalayan wellness traditions', 'Sunset walk along Bhimtal Lake', 'Farm-to-table Kumaoni dinner'],
+    stay:   'Boutique Lakeside Retreat, Bhimtal',
+    img:    '/images/retreats/kumaon-wellness/bhimtal-lake-kumaon-arrival-day1.webp',
+    imgAlt: 'Bhimtal Lake at golden hour, Kumaon Himalaya arrival',
   },
   {
-    route: 'DAY 2 · BHIMTAL → MUNSIYARI',
-    theme: 'Crossing Into Another World',
-    desc:  'Travel deeper into Kumaon\'s mountain heartland through ancient river valleys, pine forests, and remote Himalayan landscapes.',
-    exp:   ['Scenic mountain drive', 'Stop at Birthi Waterfall', 'Traditional mountain lunch', 'Storytelling about Himalayan culture and history', 'Arrival in Munsiyari beneath Panchachuli Peaks'],
-    stay:  'Premium Mountain Lodge, Munsiyari',
+    route:  'DAY 2 · BHIMTAL → MUNSIYARI',
+    theme:  'Crossing Into Another World',
+    desc:   'Travel deeper into Kumaon\'s mountain heartland through ancient river valleys, pine forests, and remote Himalayan landscapes.',
+    exp:    ['Scenic mountain drive', 'Stop at Birthi Waterfall', 'Traditional mountain lunch', 'Storytelling about Himalayan culture and history', 'Arrival in Munsiyari beneath Panchachuli Peaks'],
+    stay:   'Premium Mountain Lodge, Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/road-to-munsiyari-himalayan-drive-kumaon.webp',
+    imgAlt: 'Scenic mountain road to Munsiyari with snow peaks, Kumaon',
   },
   {
-    route: 'DAY 3 · MUNSIYARI',
-    theme: 'The Science of Self — Ayurveda & Personal Wellbeing',
-    desc:  'The retreat begins with a personalised Ayurvedic consultation to understand your unique constitution and wellbeing needs.',
-    exp:   ['Individual Ayurvedic assessment', 'Personal wellness consultation', 'Gentle yoga practice', 'Introduction to Himalayan medicinal herbs', 'Sunset mindfulness session'],
-    stay:  'Munsiyari',
+    route:  'DAY 3 · MUNSIYARI',
+    theme:  'The Science of Self — Ayurveda & Personal Wellbeing',
+    desc:   'The retreat begins with a personalised Ayurvedic consultation to understand your unique constitution and wellbeing needs.',
+    exp:    ['Individual Ayurvedic assessment', 'Personal wellness consultation', 'Gentle yoga practice', 'Introduction to Himalayan medicinal herbs', 'Sunset mindfulness session'],
+    stay:   'Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/meditation-munsiyari-panchachuli-peaks-ayurveda.webp',
+    imgAlt: 'Meditation in Munsiyari forest with Panchachuli peaks backdrop',
   },
   {
-    route: 'DAY 4 · MUNSIYARI',
-    theme: 'Sunrise Above the Clouds — Awakening',
-    desc:  'Before dawn, guests journey to the alpine meadows of Khaliya Top where the Panchachuli range emerges in golden light.',
-    exp:   ['Sunrise yoga at Khaliya Top (3,500m)', 'Guided meditation', 'Himalayan breathwork session', 'Mountain breakfast', 'Ayurvedic Abhyanga therapy'],
-    stay:  'Munsiyari',
+    route:  'DAY 4 · MUNSIYARI',
+    theme:  'Sunrise Above the Clouds — Awakening',
+    desc:   'Before dawn, guests journey to the alpine meadows of Khaliya Top where the Panchachuli range emerges in golden light.',
+    exp:    ['Sunrise yoga at Khaliya Top (3,500m)', 'Guided meditation', 'Himalayan breathwork session', 'Mountain breakfast', 'Ayurvedic Abhyanga therapy'],
+    stay:   'Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/sunrise-yoga-khaliya-top-kumaon-himalaya.webp',
+    imgAlt: 'Sunrise yoga at Khaliya Top alpine meadows, Kumaon Himalaya',
   },
   {
-    route: 'DAY 5 · MUNSIYARI',
-    theme: 'Himalayan Healing & Restoration — Restore',
-    desc:  'A full day dedicated to healing and renewal. No schedule, no destinations — only the practice of receiving.',
-    exp:   ['Yoga Nidra', 'Herbal steam therapy', 'Ayurvedic treatment session', 'Himalayan herbal tea ritual', 'Guided reflection and journalling'],
-    stay:  'Munsiyari',
+    route:  'DAY 5 · MUNSIYARI',
+    theme:  'Himalayan Healing & Restoration — Restore',
+    desc:   'A full day dedicated to healing and renewal. No schedule, no destinations — only the practice of receiving.',
+    exp:    ['Yoga Nidra', 'Herbal steam therapy', 'Ayurvedic treatment session', 'Himalayan herbal tea ritual', 'Guided reflection and journalling'],
+    stay:   'Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/yoga-restoration-himalayan-forest-munsiyari.webp',
+    imgAlt: 'Restorative yoga on wooden deck in Himalayan forest, Munsiyari',
   },
   {
-    route: 'DAY 6 · MUNSIYARI',
-    theme: 'Living Himalayan Traditions — Connection',
-    desc:  'Meet the people whose traditions have shaped life in these mountains for centuries.',
-    exp:   ['Guided cultural immersion walk', 'Visit traditional Shauka community', 'Artisan demonstrations', 'Home-hosted Kumaoni lunch', 'Himalayan folklore evening'],
-    stay:  'Munsiyari',
+    route:  'DAY 6 · MUNSIYARI',
+    theme:  'Living Himalayan Traditions — Connection',
+    desc:   'Meet the people whose traditions have shaped life in these mountains for centuries.',
+    exp:    ['Guided cultural immersion walk', 'Visit traditional Shauka community', 'Artisan demonstrations', 'Home-hosted Kumaoni lunch', 'Himalayan folklore evening'],
+    stay:   'Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/shauka-tribe-weaving-darma-valley-cultural-immersion.webp',
+    imgAlt: 'Shauka tribe woman weaving in Darma Valley cultural immersion',
   },
   {
-    route: 'DAY 7 · MUNSIYARI',
-    theme: 'Silence, Nature & Reflection — Stillness',
-    desc:  'A carefully curated digital detox day. No screens, no schedules — only forest, breath, and silence.',
-    exp:   ['Guided forest bathing', 'Silent nature immersion', 'Meditation practices', 'Journalling session', 'Optional wellness coaching'],
-    stay:  'Munsiyari',
+    route:  'DAY 7 · MUNSIYARI',
+    theme:  'Silence, Nature & Reflection — Stillness',
+    desc:   'A carefully curated digital detox day. No screens, no schedules — only forest, breath, and silence.',
+    exp:    ['Guided forest bathing', 'Silent nature immersion', 'Meditation practices', 'Journalling session', 'Optional wellness coaching'],
+    stay:   'Munsiyari',
+    img:    '/images/retreats/kumaon-wellness/munsiyari-valley-panchachuli-view-silence-retreat.webp',
+    imgAlt: 'Munsiyari valley panoramic view with Panchachuli peaks, silence retreat',
   },
   {
-    route: 'DAY 8 · MUNSIYARI → KASAR DEVI',
-    theme: 'The Spiritual Ridge of the Himalaya — Integration',
-    desc:  'Travel through the Himalayan foothills to the legendary spiritual enclave of Kasar Devi. For generations, philosophers, artists, seekers, and writers have been drawn to this extraordinary ridge overlooking the Himalaya.',
-    exp:   ['Scenic Himalayan drive', 'Traditional lunch en route', 'Sunset meditation at Kasar Devi', 'Walk along Crank\'s Ridge', 'Reflection circle'],
-    stay:  'Boutique Heritage Stay, Kasar Devi',
+    route:  'DAY 8 · MUNSIYARI → KASAR DEVI',
+    theme:  'The Spiritual Ridge of the Himalaya — Integration',
+    desc:   'Travel through the Himalayan foothills to the legendary spiritual enclave of Kasar Devi. For generations, philosophers, artists, seekers, and writers have been drawn to this extraordinary ridge overlooking the Himalaya.',
+    exp:    ['Scenic Himalayan drive', 'Traditional lunch en route', 'Sunset meditation at Kasar Devi', 'Walk along Crank\'s Ridge', 'Reflection circle'],
+    stay:   'Boutique Heritage Stay, Kasar Devi',
+    img:    '/images/retreats/kumaon-wellness/kasar-devi-temple-sunset-spiritual-himalayas.webp',
+    imgAlt: 'Kasar Devi temple at sunset, spiritual Himalayan ridge',
   },
   {
-    route: 'DAY 9 · KASAR DEVI → DEPARTURE',
-    theme: 'The Final Sunrise — Carrying the Mountains Home',
-    desc:  'The final morning offers space for gratitude, reflection, and intention-setting before departure.',
-    exp:   ['Sunrise yoga session', 'Closing wellness ceremony', 'Personal reflection time', 'Departure transfer to Delhi or Kathgodam'],
-    stay:  'Departure day',
+    route:  'DAY 9 · KASAR DEVI → DEPARTURE',
+    theme:  'The Final Sunrise — Carrying the Mountains Home',
+    desc:   'The final morning offers space for gratitude, reflection, and intention-setting before departure.',
+    exp:    ['Sunrise yoga session', 'Closing wellness ceremony', 'Personal reflection time', 'Departure transfer to Delhi or Kathgodam'],
+    stay:   'Departure day',
+    img:    '/images/retreats/kumaon-wellness/himalayan-yoga-meditation-mountain-closing-ceremony.webp',
+    imgAlt: 'Himalayan yoga meditation at closing ceremony, mountain backdrop',
   },
 ]
 
@@ -194,7 +212,15 @@ export default function KumaonWellness() {
       <Navbar activePage="kumaon-wellness" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="pt-36 pb-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+      <section className="relative overflow-hidden pt-36 pb-24">
+        <img
+          src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
+          alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="max-w-3xl">
           <span className="inline-block bg-[#1D9E75]/20 text-[#5DCAA5] text-xs rounded-full px-3 py-1 mb-6">
             Yoga &amp; Ayurveda
@@ -231,6 +257,7 @@ export default function KumaonWellness() {
               Download full itinerary
             </a>
           </div>
+        </div>
         </div>
       </section>
 
@@ -282,6 +309,16 @@ export default function KumaonWellness() {
                 ))}
               </ul>
               <p className="text-[#1D9E75]/70 text-xs italic">Overnight: {day.stay}</p>
+              {day.img && (
+                <div className="mt-4 overflow-hidden rounded-xl">
+                  <img
+                    src={day.img}
+                    alt={day.imgAlt}
+                    loading="lazy"
+                    className="w-full h-48 object-cover rounded-xl"
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>
