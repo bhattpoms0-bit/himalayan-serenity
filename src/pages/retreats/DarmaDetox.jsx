@@ -12,88 +12,112 @@ const INPUT_CLASS =
 
 const DAYS = [
   {
-    route: 'DAY 1 · DELHI → PITHORAGARH',
-    theme: 'Arrival in the Kumaon Himalaya',
-    desc:  'Your journey begins with a scenic drive into the Kumaon Himalaya. As the plains gradually give way to forested hills and mountain valleys, the pace of life begins to slow. Upon arrival in Pithoragarh — often called the Little Kashmir of Uttarakhand — guests are welcomed with a traditional herbal infusion and an introduction to the landscapes, culture, and communities that will shape the days ahead.',
-    exp:   ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Kumaon landscapes and culture', 'Soar Valley sunset walk', 'Rest and acclimatisation'],
-    stay:  'Premium Hotel, Pithoragarh',
+    route:  'DAY 1 · DELHI → PITHORAGARH',
+    theme:  'Arrival in the Kumaon Himalaya',
+    desc:   'Your journey begins with a scenic drive into the Kumaon Himalaya. As the plains gradually give way to forested hills and mountain valleys, the pace of life begins to slow. Upon arrival in Pithoragarh — often called the Little Kashmir of Uttarakhand — guests are welcomed with a traditional herbal infusion and an introduction to the landscapes, culture, and communities that will shape the days ahead.',
+    exp:    ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Kumaon landscapes and culture', 'Soar Valley sunset walk', 'Rest and acclimatisation'],
+    stay:   'Premium Hotel, Pithoragarh',
+    img:    '/images/retreats/darma-detox/pithoragarh-sunset-kumaon-arrival-day1.jfif',
+    imgAlt: 'Pithoragarh sunset panorama, Kumaon Himalaya arrival',
   },
   {
-    route: 'DAY 2 · PITHORAGARH',
-    theme: 'Discovering Hidden Kumaon',
-    desc:  'Today is dedicated to gentle exploration and acclimatisation. Visit the panoramic viewpoints of Chandak, where sweeping views extend across the valleys and distant Himalayan ridges. Learn about Kumaoni traditions, mountain livelihoods, and the rich cultural heritage of the region.',
-    exp:   ['Chandak panoramic viewpoints', 'Kumaoni cultural orientation', 'Mountain heritage walk', 'Evening meditation session', 'Reconnecting with the present moment'],
-    stay:  'Premium Hotel, Pithoragarh',
+    route:  'DAY 2 · PITHORAGARH',
+    theme:  'Discovering Hidden Kumaon',
+    desc:   'Today is dedicated to gentle exploration and acclimatisation. Visit the panoramic viewpoints of Chandak, where sweeping views extend across the valleys and distant Himalayan ridges. Learn about Kumaoni traditions, mountain livelihoods, and the rich cultural heritage of the region.',
+    exp:    ['Chandak panoramic viewpoints', 'Kumaoni cultural orientation', 'Mountain heritage walk', 'Evening meditation session', 'Reconnecting with the present moment'],
+    stay:   'Premium Hotel, Pithoragarh',
+    img:    '/images/retreats/darma-detox/kumaon-village-stone-house-himalayan-peaks-day2.jfif',
+    imgAlt: 'Traditional Kumaoni stone village with Himalayan peaks, Chandak viewpoint',
   },
   {
-    route: 'DAY 3 · PITHORAGARH → DHARCHULA',
-    theme: 'Gateway to the Frontier',
-    desc:  'Journey deeper into the Himalaya towards Dharchula, a historic border town nestled beside the Kali River. For centuries this region served as an important trading corridor linking India and Tibet. Today it marks the threshold between the modern world and the remote mountain landscapes that await. Digital detox officially begins.',
-    exp:   ['Scenic drive along Kali River', 'Arrival in historic Dharchula', 'Meet the expedition team', 'Full trek briefing', 'Digital detox begins — phones collected and stored'],
-    stay:  'Boutique Guesthouse, Dharchula',
+    route:  'DAY 3 · PITHORAGARH → DHARCHULA',
+    theme:  'Gateway to the Frontier',
+    desc:   'Journey deeper into the Himalaya towards Dharchula, a historic border town nestled beside the Kali River. For centuries this region served as an important trading corridor linking India and Tibet. Today it marks the threshold between the modern world and the remote mountain landscapes that await. Digital detox officially begins.',
+    exp:    ['Scenic drive along Kali River', 'Arrival in historic Dharchula', 'Meet the expedition team', 'Full trek briefing', 'Digital detox begins — phones collected and stored'],
+    stay:   'Boutique Guesthouse, Dharchula',
+    img:    '/images/retreats/darma-detox/dharchula-suspension-bridge-kali-river-day3.jfif',
+    imgAlt: 'Dharchula suspension bridge over turquoise Kali River, border town',
   },
   {
-    route: 'DAY 4 · DHARCHULA → SOBLA → BONGLING',
-    theme: 'Into the Darma Valley',
-    desc:  'The expedition begins. After a short drive to Sobla, the trek enters the spectacular Darma Valley. Ancient trails wind through forests, river valleys, and traditional Himalayan settlements. The first evening is spent beneath vast mountain skies, where the sounds of modern life are replaced by flowing rivers and crackling campfires.',
-    exp:   ['Drive to Sobla trailhead', 'Trek into Darma Valley', 'Ancient forest and river valley trails', 'Traditional settlement visits', 'First campfire beneath mountain skies'],
-    stay:  'Premium Expedition Camp',
+    route:  'DAY 4 · DHARCHULA → SOBLA → BONGLING',
+    theme:  'Into the Darma Valley',
+    desc:   'The expedition begins. After a short drive to Sobla, the trek enters the spectacular Darma Valley. Ancient trails wind through forests, river valleys, and traditional Himalayan settlements. The first evening is spent beneath vast mountain skies, where the sounds of modern life are replaced by flowing rivers and crackling campfires.',
+    exp:    ['Drive to Sobla trailhead', 'Trek into Darma Valley', 'Ancient forest and river valley trails', 'Traditional settlement visits', 'First campfire beneath mountain skies'],
+    stay:   'Premium Expedition Camp',
+    img:    '/images/retreats/darma-detox/darma-valley-glacier-river-forest-gorge-entry-day4.jfif',
+    imgAlt: 'Darma Valley glacier river through dense forest gorge, trek entry',
   },
   {
-    route: 'DAY 5 · BONGLING → SELA',
-    theme: 'Following the Rivers of the Himalaya',
-    desc:  "Each morning begins with breathwork and gentle stretching facing the Panchachuli range. Today's trail follows glacier-fed rivers through pristine alpine landscapes where nature remains largely untouched. Along the way, your guide shares insights into local ecology, wildlife, and mountain traditions.",
-    exp:   ['Morning breathwork facing Panchachuli', 'Glacier-fed river trail', 'Wildlife and ecology insights', 'Traditional mountain knowledge', 'Campfire beneath stars'],
-    stay:  'Expedition Camp',
+    route:  'DAY 5 · BONGLING → SELA',
+    theme:  'Following the Rivers of the Himalaya',
+    desc:   "Each morning begins with breathwork and gentle stretching facing the Panchachuli range. Today's trail follows glacier-fed rivers through pristine alpine landscapes where nature remains largely untouched. Along the way, your guide shares insights into local ecology, wildlife, and mountain traditions.",
+    exp:    ['Morning breathwork facing Panchachuli', 'Glacier-fed river trail', 'Wildlife and ecology insights', 'Traditional mountain knowledge', 'Campfire beneath stars'],
+    stay:   'Expedition Camp',
+    img:    '/images/retreats/darma-detox/himalayan-trekker-alpine-meadow-wildflowers-day5.jfif',
+    imgAlt: 'Trekker walking through alpine meadow with wildflowers, Darma Valley',
   },
   {
-    route: 'DAY 6 · SELA → NAGLING',
-    theme: 'Along Ancient Himalayan Trade Routes',
-    desc:  'Walk paths once travelled by generations of traders moving between India and Tibet. Traditional villages, stone houses, and terraced fields offer a glimpse into a way of life shaped by the mountains for centuries. This is a day of stories — of resilience, migration, culture, and connection.',
-    exp:   ['Ancient Tibet trade route trail', 'Traditional stone villages', 'Terraced field landscapes', 'Cultural storytelling with local guide', 'Village camp evening'],
-    stay:  'Village Camp',
+    route:  'DAY 6 · SELA → NAGLING',
+    theme:  'Along Ancient Himalayan Trade Routes',
+    desc:   'Walk paths once travelled by generations of traders moving between India and Tibet. Traditional villages, stone houses, and terraced fields offer a glimpse into a way of life shaped by the mountains for centuries. This is a day of stories — of resilience, migration, culture, and connection.',
+    exp:    ['Ancient Tibet trade route trail', 'Traditional stone villages', 'Terraced field landscapes', 'Cultural storytelling with local guide', 'Village camp evening'],
+    stay:   'Village Camp',
+    img:    '/images/retreats/darma-detox/darma-valley-stone-village-ancient-trade-route-day6.jfif',
+    imgAlt: 'Ancient stone village on Himalayan trade route, Darma Valley',
   },
   {
-    route: 'DAY 7 · DUKTU VILLAGE',
-    theme: 'Life Beneath Panchachuli',
-    desc:  'Arrive in Duktu, one of the most picturesque villages in the entire Himalaya. Surrounded by towering peaks and dramatic landscapes, Duktu provides a rare opportunity to experience authentic mountain life. Spend time with local Shauka families, learn about traditional weaving practices, and enjoy a home-hosted cultural experience.',
-    exp:   ['Arrival in Duktu village', 'Shauka family cultural exchange', 'Traditional weaving demonstration', 'Home-hosted cultural experience', 'Panchachuli peaks panorama'],
-    stay:  'Village Homestay',
+    route:  'DAY 7 · DUKTU VILLAGE',
+    theme:  'Life Beneath Panchachuli',
+    desc:   'Arrive in Duktu, one of the most picturesque villages in the entire Himalaya. Surrounded by towering peaks and dramatic landscapes, Duktu provides a rare opportunity to experience authentic mountain life. Spend time with local Shauka families, learn about traditional weaving practices, and enjoy a home-hosted cultural experience.',
+    exp:    ['Arrival in Duktu village', 'Shauka family cultural exchange', 'Traditional weaving demonstration', 'Home-hosted cultural experience', 'Panchachuli peaks panorama'],
+    stay:   'Village Homestay',
+    img:    '/images/retreats/darma-detox/duktu-village-darma-valley-panchachuli-homestay-day7.jfif',
+    imgAlt: 'Duktu village stone houses beneath Panchachuli peaks, Darma Valley homestay',
   },
   {
-    route: 'DAY 8 · DUKTU — THE SILENCE DAY',
-    theme: 'The Rarest Experience',
-    desc:  'In a world filled with constant noise, true silence has become one of the rarest experiences. Today is intentionally unstructured. Guests are invited to spend the day in quiet reflection through guided meditation, mindful walking, journaling, and personal contemplation. Without phones, notifications, or distractions, the valley reveals itself in a different way.',
-    exp:   ['Guided morning meditation', 'Mindful valley walking', 'Personal journalling time', 'Silent contemplation', 'No schedule, no phones, no distractions'],
-    stay:  'Village Homestay',
+    route:  'DAY 8 · DUKTU — THE SILENCE DAY',
+    theme:  'The Rarest Experience',
+    desc:   'In a world filled with constant noise, true silence has become one of the rarest experiences. Today is intentionally unstructured. Guests are invited to spend the day in quiet reflection through guided meditation, mindful walking, journaling, and personal contemplation. Without phones, notifications, or distractions, the valley reveals itself in a different way.',
+    exp:    ['Guided morning meditation', 'Mindful valley walking', 'Personal journalling time', 'Silent contemplation', 'No schedule, no phones, no distractions'],
+    stay:   'Village Homestay',
+    img:    '/images/retreats/darma-detox/silence-mindfulness-meditation-himalayan-valley-day8.jfif',
+    imgAlt: 'Woman in mindful silence on rock in Himalayan valley, digital detox day',
   },
   {
-    route: 'DAY 9 · DUKTU — PANCHACHULI WILDERNESS',
-    theme: 'The Defining Moment',
-    desc:  "The iconic Panchachuli peaks dominate today's experience. Begin the morning with yoga and meditation while the first sunlight illuminates the snow-covered summits. The remainder of the day is devoted to exploration, photography, and personal reflection amid some of the most inspiring landscapes in the Indian Himalaya. For many guests, this becomes the defining moment of the journey.",
-    exp:   ['Sunrise yoga with Panchachuli backdrop', 'Morning meditation', 'Wilderness exploration', 'Himalayan photography', 'Personal reflection time'],
-    stay:  'Village Homestay',
+    route:  'DAY 9 · DUKTU — PANCHACHULI WILDERNESS',
+    theme:  'The Defining Moment',
+    desc:   "The iconic Panchachuli peaks dominate today's experience. Begin the morning with yoga and meditation while the first sunlight illuminates the snow-covered summits. The remainder of the day is devoted to exploration, photography, and personal reflection amid some of the most inspiring landscapes in the Indian Himalaya. For many guests, this becomes the defining moment of the journey.",
+    exp:    ['Sunrise yoga with Panchachuli backdrop', 'Morning meditation', 'Wilderness exploration', 'Himalayan photography', 'Personal reflection time'],
+    stay:   'Village Homestay',
+    img:    '/images/retreats/darma-detox/panchachuli-base-trekker-glacier-stream-wilderness-day9.png',
+    imgAlt: 'Trekker beside glacier stream with Panchachuli massif, wilderness day',
   },
   {
-    route: 'DAY 10 · DUKTU → DHARCHULA',
-    theme: 'Return Through the Valley',
-    desc:  'The return journey offers a final opportunity to absorb the beauty and solitude of Darma Valley. As you retrace the trail back toward Dharchula, there is time to reflect on the experiences, friendships, and insights gained during the expedition. A farewell gathering with the trekking team marks the end of the wilderness phase.',
-    exp:   ['Final Darma Valley morning', 'Return trail reflection walk', 'Farewell gathering with expedition team', 'Sharing circle', 'Return to Dharchula'],
-    stay:  'Dharchula',
+    route:  'DAY 10 · DUKTU → DHARCHULA',
+    theme:  'Return Through the Valley',
+    desc:   'The return journey offers a final opportunity to absorb the beauty and solitude of Darma Valley. As you retrace the trail back toward Dharchula, there is time to reflect on the experiences, friendships, and insights gained during the expedition. A farewell gathering with the trekking team marks the end of the wilderness phase.',
+    exp:    ['Final Darma Valley morning', 'Return trail reflection walk', 'Farewell gathering with expedition team', 'Sharing circle', 'Return to Dharchula'],
+    stay:   'Dharchula',
+    img:    '/images/retreats/darma-detox/himalayan-footbridge-glacial-river-return-journey-day10.jfif',
+    imgAlt: 'Himalayan footbridge over glacial river, return journey through valley',
   },
   {
-    route: 'DAY 11 · DHARCHULA → PITHORAGARH',
-    theme: 'Wellness Reintegration',
-    desc:  "After days immersed in nature, today's focus shifts toward recovery and reintegration. Upon arrival in Pithoragarh, guests enjoy a wellness programme designed to support both body and mind after the trek. Experiences include an Ayurvedic consultation, herbal therapies, relaxation treatments, and a restorative wellness session inspired by traditional Panchakarma principles.",
-    exp:   ['Scenic return drive', 'Ayurvedic consultation', 'Herbal therapy treatments', 'Panchakarma-inspired restoration session', 'Body and mind recovery programme'],
-    stay:  'Premium Wellness Hotel, Pithoragarh',
+    route:  'DAY 11 · DHARCHULA → PITHORAGARH',
+    theme:  'Wellness Reintegration',
+    desc:   "After days immersed in nature, today's focus shifts toward recovery and reintegration. Upon arrival in Pithoragarh, guests enjoy a wellness programme designed to support both body and mind after the trek. Experiences include an Ayurvedic consultation, herbal therapies, relaxation treatments, and a restorative wellness session inspired by traditional Panchakarma principles.",
+    exp:    ['Scenic return drive', 'Ayurvedic consultation', 'Herbal therapy treatments', 'Panchakarma-inspired restoration session', 'Body and mind recovery programme'],
+    stay:   'Premium Wellness Hotel, Pithoragarh',
+    img:    '/images/retreats/darma-detox/yoga-wellness-reintegration-golden-mountain-horizon-day11.jfif',
+    imgAlt: 'Yoga wellness reintegration at golden mountain horizon, Pithoragarh',
   },
   {
-    route: 'DAY 12 · PITHORAGARH → DEPARTURE',
-    theme: 'The Art of Returning',
-    desc:  'The final day is dedicated to integrating the lessons of the journey. A guided forest immersion at Thalkedar offers one last opportunity to connect with the natural world. Visit local Kumaoni markets, then gather at Chandak Hill for a sunset reflection ceremony. Each guest receives a personalised 30-day reintegration guide designed to carry the benefits of the journey into everyday life.',
-    exp:   ['Thalkedar guided forest immersion', 'Kumaoni market visit', 'Chandak Hill sunset reflection ceremony', '30-day reintegration guide handover', 'Departure'],
-    stay:  'Departure day',
+    route:  'DAY 12 · PITHORAGARH → DEPARTURE',
+    theme:  'The Art of Returning',
+    desc:   'The final day is dedicated to integrating the lessons of the journey. A guided forest immersion at Thalkedar offers one last opportunity to connect with the natural world. Visit local Kumaoni markets, then gather at Chandak Hill for a sunset reflection ceremony. Each guest receives a personalised 30-day reintegration guide designed to carry the benefits of the journey into everyday life.',
+    exp:    ['Thalkedar guided forest immersion', 'Kumaoni market visit', 'Chandak Hill sunset reflection ceremony', '30-day reintegration guide handover', 'Departure'],
+    stay:   'Departure day',
+    img:    '/images/retreats/darma-detox/himalayan-peaks-reflection-water-dawn-departure-day12.jfif',
+    imgAlt: 'Himalayan peaks reflected in still water at dawn, final departure day',
   },
 ]
 
@@ -212,8 +236,16 @@ export default function DarmaDetox() {
       <Navbar activePage="darma-detox" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="h-[85vh] bg-[#061008] flex flex-col justify-end">
-        <div className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
+      <section className="relative overflow-hidden h-[85vh] flex flex-col justify-end">
+        <img
+          src="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero.jfif"
+          alt="Panchachuli peaks at golden sunrise over Darma Valley, Uttarakhand"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: '50% 50%' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
           <div className="max-w-3xl">
             <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-4">
               Wilderness Detox · 12 Days
@@ -298,19 +330,25 @@ export default function DarmaDetox() {
                 key={i}
                 className={`grid grid-cols-1 lg:grid-cols-2 border-b border-[#1D9E75]/10 ${isEven ? 'bg-[#0a1510]' : 'bg-[#0d1a0f]'}`}
               >
-                {/* Image placeholder column */}
-                <div
-                  className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
-                >
-                  <div className="w-full h-full min-h-[420px] bg-[#0a1a0e] flex items-center justify-center text-[#1D9E75]/20 text-xs tracking-widest uppercase">
-                    Day {dayNum} · Image
-                  </div>
+                {/* Image column */}
+                <div className={`h-[260px] lg:h-[420px] overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
+                  {day.img ? (
+                    <img
+                      src={day.img}
+                      alt={day.imgAlt}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: '50% 50%' }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-[#0a1a0e] flex items-center justify-center text-[#1D9E75]/20 text-xs tracking-widest uppercase">
+                      Day {dayNum} · Image
+                    </div>
+                  )}
                 </div>
 
                 {/* Text column */}
-                <div
-                  className={`px-6 py-8 lg:p-10 xl:p-14 flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}
-                >
+                <div className={`px-6 py-8 lg:p-10 xl:p-14 flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}>
                   <p className="text-[#1D9E75] text-xs font-medium tracking-[0.2em] uppercase mb-2">
                     {day.route}
                   </p>
@@ -323,7 +361,7 @@ export default function DarmaDetox() {
                   <ul className="space-y-2">
                     {day.exp.map(item => (
                       <li key={item} className="flex items-start gap-2 text-[#f0ece4]/50 text-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1D9E75] flex-shrink-0 mt-1.5" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1D9E75] flex-shrink-0 mt-1.5"></span>
                         {item}
                       </li>
                     ))}
@@ -339,13 +377,19 @@ export default function DarmaDetox() {
       </section>
 
       {/* ── SECTION 4 — ACCENT BREAK ─────────────────────────────────────── */}
-      <div className="bg-[#061008] py-16 px-6 text-center">
-        <p className="font-serif italic text-[#1D9E75]/40 text-2xl">· · ·</p>
+      <div className="w-full border-t border-b border-[#1D9E75]/20 overflow-hidden">
+        <img
+          src="/images/retreats/darma-detox/darma-valley-gorge-waterfall-himalayan-wilderness.jfif"
+          alt="Darma Valley dramatic gorge with waterfalls, Himalayan wilderness"
+          loading="lazy"
+          className="w-full object-cover"
+          style={{ height: '50vh', objectPosition: '50% 40%' }}
+        />
       </div>
 
       {/* ── SECTION 5 — WHAT'S INCLUDED ──────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
-        <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">What's Included</p>
+        <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">{"What's Included"}</p>
         <h2 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-10">Everything taken care of</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -365,7 +409,6 @@ export default function DarmaDetox() {
             </div>
           ))}
 
-          {/* Not Included */}
           <div className="bg-[#0a1a0a] border border-red-900/20 rounded-xl p-6">
             <h3 className="text-red-400/70 font-medium text-sm mb-3 uppercase tracking-wide">
               Not Included
