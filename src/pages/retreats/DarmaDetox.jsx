@@ -44,7 +44,7 @@ const DAYS = [
     desc:   'The expedition begins. After a short drive to Sobla, the trek enters the spectacular Darma Valley. Ancient trails wind through forests, river valleys, and traditional Himalayan settlements. The first evening is spent beneath vast mountain skies, where the sounds of modern life are replaced by flowing rivers and crackling campfires.',
     exp:    ['Drive to Sobla trailhead', 'Trek into Darma Valley', 'Ancient forest and river valley trails', 'Traditional settlement visits', 'First campfire beneath mountain skies'],
     stay:   'Premium Expedition Camp',
-    img:    '/images/retreats/darma-detox/darma-valley-glacier-river-forest-gorge-entry-day4.jfif',
+    img:    '/images/retreats/darma-detox/darma-valley-glacier-river-forest-gorge-entry-day4.png',
     imgAlt: 'Darma Valley glacier river through dense forest gorge, trek entry',
   },
   {
@@ -89,7 +89,7 @@ const DAYS = [
     desc:   "The iconic Panchachuli peaks dominate today's experience. Begin the morning with yoga and meditation while the first sunlight illuminates the snow-covered summits. The remainder of the day is devoted to exploration, photography, and personal reflection amid some of the most inspiring landscapes in the Indian Himalaya. For many guests, this becomes the defining moment of the journey.",
     exp:    ['Sunrise yoga with Panchachuli backdrop', 'Morning meditation', 'Wilderness exploration', 'Himalayan photography', 'Personal reflection time'],
     stay:   'Village Homestay',
-    img:    '/images/retreats/darma-detox/panchachuli-base-trekker-glacier-stream-wilderness-day9.png',
+    img:    '/images/retreats/darma-detox/panchachuli-base-trekker-glacier-stream-wilderness-day9.jfif',
     imgAlt: 'Trekker beside glacier stream with Panchachuli massif, wilderness day',
   },
   {
