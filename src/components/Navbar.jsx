@@ -35,11 +35,15 @@ export default function Navbar({ activePage = 'home' }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const isIntlPage = activePage === 'international-retreats' || activePage === 'kumaon-wellness' || activePage === 'darma-detox'
-  const ctaLabel   = isIntlPage ? 'Enquire Now' : 'Book Now'
-  const ctaHref    = isIntlPage ? '#enquiry' : '/contact'
-  const ctaBg      = isIntlPage ? '#1D9E75' : '#e07b2a'
-  const ctaGlow    = isIntlPage
+  const isIntlPage    = activePage === 'international-retreats' || activePage === 'kumaon-wellness' || activePage === 'darma-detox'
+  const isWomensPage  = activePage === 'womens-retreat'
+  const showEnquiry   = isIntlPage || isWomensPage
+  const ctaLabel      = showEnquiry ? 'Enquire Now' : 'Book Now'
+  const ctaHref       = showEnquiry ? '#enquiry' : '/contact'
+  const ctaBg         = isWomensPage ? '#be123c' : isIntlPage ? '#1D9E75' : '#e07b2a'
+  const ctaGlow       = isWomensPage
+    ? '0 0 20px rgba(190,18,60,0.4)'
+    : isIntlPage
     ? '0 0 20px rgba(29,158,117,0.4)'
     : '0 0 20px rgba(224,123,42,0.4)'
 
