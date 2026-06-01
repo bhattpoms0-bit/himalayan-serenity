@@ -80,7 +80,7 @@ const DAYS = [
     img:         '/images/retreats/womens-retreat/women-journalling-panchachuli-view-reflection-day7.png',
     imgAlt:      'Women journalling together with Panchachuli peaks through window, reflection day',
     imgStyle:    { objectPosition: '50% 30%' },
-    imgOverride: { width: '100%', height: 'auto', display: 'block', objectFit: 'contain', backgroundColor: '#150810', maxWidth: '100%' },
+    imgOverride: { width: '100%', height: 'auto', display: 'block', maxWidth: '100%' },
   },
   {
     route:    'DAY 8 · PITHORAGARH → LOHAGHAT',
@@ -323,10 +323,10 @@ export default function WomensRetreat() {
             return (
               <div
                 key={i}
-                className={`grid grid-cols-1 lg:grid-cols-2 border-b border-rose-400/10 ${isEven ? 'bg-[#150810]' : 'bg-[#1a0a0e]'}`}
+                className={`grid grid-cols-1 lg:grid-cols-2 border-b border-rose-400/10 ${isEven ? 'bg-[#150810]' : 'bg-[#1a0a0e]'} ${day.imgOverride ? 'items-stretch' : ''}`}
               >
                 {/* Image column */}
-                <div className={`h-[260px] lg:h-[420px] overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
+                <div className={`${day.imgOverride ? 'w-full' : 'h-[260px] lg:h-[420px]'} overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
                   {day.img ? (
                     day.imgOverride ? (
                       <img
@@ -353,7 +353,7 @@ export default function WomensRetreat() {
                 </div>
 
                 {/* Text column */}
-                <div className={`px-6 py-8 lg:p-10 xl:p-14 flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}>
+                <div className={`${day.imgOverride ? 'px-6 py-8 lg:p-10' : 'px-6 py-8 lg:p-10 xl:p-14'} flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}>
                   <p className="text-rose-400 text-xs font-medium tracking-[0.2em] uppercase mb-2">
                     {day.route}
                   </p>
