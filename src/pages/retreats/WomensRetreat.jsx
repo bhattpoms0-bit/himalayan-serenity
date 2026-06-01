@@ -77,9 +77,10 @@ const DAYS = [
     desc:     'A slower-paced day designed for reflection and integration of the experiences gained throughout the journey. The valleys look different on the return — familiar now, and full of memory.',
     exp:      ['Scenic drive through the Himalayan valleys', 'Personal journalling session', 'Free time for rest and reflection', 'Group sharing circle'],
     stay:     'Boutique Heritage Hotel, Pithoragarh',
-    img:      '/images/retreats/womens-retreat/women-journalling-panchachuli-view-reflection-day7.png',
-    imgAlt:   'Women journalling together with Panchachuli peaks through window, reflection day',
-    imgStyle: { objectPosition: '50% 30%' },
+    img:         '/images/retreats/womens-retreat/women-journalling-panchachuli-view-reflection-day7.png',
+    imgAlt:      'Women journalling together with Panchachuli peaks through window, reflection day',
+    imgStyle:    { objectPosition: '50% 30%' },
+    imgOverride: { width: '100%', height: 'auto', display: 'block', objectFit: 'contain', backgroundColor: '#150810', maxWidth: '100%' },
   },
   {
     route:    'DAY 8 · PITHORAGARH → LOHAGHAT',
@@ -327,13 +328,23 @@ export default function WomensRetreat() {
                 {/* Image column */}
                 <div className={`h-[260px] lg:h-[420px] overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
                   {day.img ? (
-                    <img
-                      src={day.img}
-                      alt={day.imgAlt}
-                      loading="lazy"
-                      className="w-full h-full object-cover"
-                      style={day.imgStyle}
-                    />
+                    day.imgOverride ? (
+                      <img
+                        src={day.img}
+                        alt={day.imgAlt}
+                        loading="lazy"
+                        className="w-full block"
+                        style={day.imgOverride}
+                      />
+                    ) : (
+                      <img
+                        src={day.img}
+                        alt={day.imgAlt}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        style={day.imgStyle}
+                      />
+                    )
                   ) : (
                     <div className="w-full h-full bg-[#1a0a0e] flex items-center justify-center text-rose-400/20 text-xs tracking-widest uppercase">
                       Day {dayNum} · Image
@@ -371,13 +382,20 @@ export default function WomensRetreat() {
       </section>
 
       {/* ── SECTION 4 — ACCENT BREAK ─────────────────────────────────────── */}
-      <div className="w-full border-t border-b border-rose-400/20 overflow-hidden">
+      <div className="my-16 mx-0 border-t border-b border-rose-400/20">
         <img
           src="/images/retreats/womens-retreat/kumaoni-thali-traditional-food-mountain-cuisine.jfif"
           alt="Traditional Kumaoni thali with mountain herbs and local cuisine"
           loading="lazy"
-          className="w-full object-cover"
-          style={{ height: '50vh', objectPosition: '50% 50%' }}
+          className="w-full block"
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+            objectFit: 'contain',
+            backgroundColor: '#0d0508',
+            maxWidth: '100%',
+          }}
         />
       </div>
 
