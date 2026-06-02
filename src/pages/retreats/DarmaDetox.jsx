@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -236,7 +237,7 @@ export default function DarmaDetox() {
       <Navbar activePage="darma-detox" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden h-[85vh] flex flex-col justify-end">
+      <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
         <img
           src="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero.jfif"
           alt="Panchachuli peaks at golden sunrise over Darma Valley, Uttarakhand"
@@ -245,44 +246,43 @@ export default function DarmaDetox() {
           style={{ objectPosition: '50% 50%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
-          <div className="max-w-3xl">
-            <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-4">
-              Wilderness Detox · 12 Days
-            </span>
-            <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
-              Darma Valley Digital Detox<br />
-              &amp; Panchachuli Immersion
-            </h1>
-            <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
-              Wilderness · Culture · Silence · Self-Discovery
-            </p>
-            <div className="mb-8">
-              {['12 Days / 11 Nights', 'Darma Valley', 'Max 6 Guests'].map(stat => (
-                <span
-                  key={stat}
-                  className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
-                >
-                  {stat}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#enquiry"
-                className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+        <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
+        <div className="relative z-20 px-6 lg:px-16 pb-16">
+          <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-4">
+            Wilderness Detox · 12 Days
+          </span>
+          <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
+            Darma Valley Digital Detox<br />
+            &amp; Panchachuli Immersion
+          </h1>
+          <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
+            Wilderness · Culture · Silence · Self-Discovery
+          </p>
+          <div className="mb-8">
+            {['12 Days / 11 Nights', 'Darma Valley', 'Max 6 Guests'].map(stat => (
+              <span
+                key={stat}
+                className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
               >
-                Enquire about this retreat
-              </a>
-              <a
-                href="https://wa.me/919084642557"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
-              >
-                Download full itinerary
-              </a>
-            </div>
+                {stat}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#enquiry"
+              className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+            >
+              Enquire about this retreat
+            </a>
+            <a
+              href="https://wa.me/919084642557"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
+            >
+              Download full itinerary
+            </a>
           </div>
         </div>
       </section>

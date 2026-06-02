@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -214,7 +215,7 @@ export default function KumaonWellness() {
       <Navbar activePage="kumaon-wellness" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden h-[85vh] flex flex-col justify-end">
+      <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
         <img
           src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
           alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
@@ -222,43 +223,42 @@ export default function KumaonWellness() {
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
-          <div className="max-w-3xl">
-            <span className="inline-block bg-[#1D9E75]/20 text-[#5DCAA5] text-xs rounded-full px-3 py-1 mb-6">
-              Yoga &amp; Ayurveda
-            </span>
-            <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-5xl leading-tight tracking-tight mb-4">
-              Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
-            </h1>
-            <p className="font-serif italic text-[#1D9E75] text-xl mb-8">
-              Yoga · Ayurveda · Himalayan Culture · Slow Travel · Personal Transformation
-            </p>
-            <div className="flex flex-wrap gap-3 mb-10">
-              {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Small Group'].map(stat => (
-                <span
-                  key={stat}
-                  className="border border-[#1D9E75]/30 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70"
-                >
-                  {stat}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="#enquiry"
-                className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+        <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
+        <div className="relative z-20 px-6 lg:px-16 pb-16">
+          <span className="inline-block bg-[#1D9E75]/20 text-[#5DCAA5] text-xs rounded-full px-3 py-1 mb-6">
+            Yoga &amp; Ayurveda
+          </span>
+          <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-5xl leading-tight tracking-tight mb-4">
+            Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
+          </h1>
+          <p className="font-serif italic text-[#1D9E75] text-xl mb-8">
+            Yoga · Ayurveda · Himalayan Culture · Slow Travel · Personal Transformation
+          </p>
+          <div className="flex flex-wrap gap-3 mb-10">
+            {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Small Group'].map(stat => (
+              <span
+                key={stat}
+                className="border border-[#1D9E75]/30 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70"
               >
-                Enquire about this retreat
-              </a>
-              <a
-                href="https://wa.me/919084642557"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
-              >
-                Download full itinerary
-              </a>
-            </div>
+                {stat}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href="#enquiry"
+              className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+            >
+              Enquire about this retreat
+            </a>
+            <a
+              href="https://wa.me/919084642557"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
+            >
+              Download full itinerary
+            </a>
           </div>
         </div>
       </section>

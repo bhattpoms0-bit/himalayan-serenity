@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -241,49 +242,45 @@ export default function Panchakarma() {
       <Navbar activePage="panchakarma" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative h-[85vh] w-full overflow-hidden bg-[#080a12] flex flex-col justify-end">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
-          <div className="max-w-3xl">
-            <span className="inline-block border border-amber-400 text-amber-400 uppercase text-xs rounded-full px-3 py-1 mb-4">
-              Premium Cultural Journey · 10 Days · Max 10 Guests
-            </span>
-            <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-3">
-              The Borderlands of the Himalaya
-            </h1>
-            <p className="font-serif italic text-amber-400 text-xl mb-3">
-              Myths · Mountains · Ancient Trade Routes
-            </p>
-            <p className="text-[#f0ece4]/60 text-sm mb-6 max-w-xl">
-              A rare journey into one of the Himalaya's last living frontiers — where ancient
-              Indo-Tibetan trade routes, mountain kingdoms, sacred caves, and living Bhotiya
-              culture still thrive.
-            </p>
-            <div className="mb-8">
-              {['10 Days / 9 Nights', 'Kumaon Himalaya', 'Max 10 Guests'].map(stat => (
-                <span
-                  key={stat}
-                  className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
-                >
-                  {stat}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#enquiry"
-                className="bg-amber-700 text-white rounded-full px-6 py-3 mr-3 text-sm font-medium hover:bg-amber-800 transition-colors duration-200"
+      <section className="relative w-full min-h-screen bg-[#080a12] flex flex-col justify-start overflow-hidden">
+        <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
+        <div className="relative z-20 px-6 lg:px-16 pb-16">
+          <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-3">
+            The Borderlands of the Himalaya
+          </h1>
+          <p className="font-serif italic text-amber-400 text-xl mb-3">
+            Myths · Mountains · Ancient Trade Routes
+          </p>
+          <p className="text-[#f0ece4]/60 text-sm mb-6 max-w-xl">
+            A rare journey into one of the Himalaya's last living frontiers — where ancient
+            Indo-Tibetan trade routes, mountain kingdoms, sacred caves, and living Bhotiya
+            culture still thrive.
+          </p>
+          <div className="mb-8">
+            {['10 Days / 9 Nights', 'Kumaon Himalaya', 'Max 10 Guests'].map(stat => (
+              <span
+                key={stat}
+                className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
               >
-                Enquire about this journey
-              </a>
-              <a
-                href="https://wa.me/919084642557"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
-              >
-                Download full itinerary
-              </a>
-            </div>
+                {stat}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#enquiry"
+              className="bg-amber-700 text-white rounded-full px-6 py-3 mr-3 text-sm font-medium hover:bg-amber-800 transition-colors duration-200"
+            >
+              Enquire about this journey
+            </a>
+            <a
+              href="https://wa.me/919084642557"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
+            >
+              Download full itinerary
+            </a>
           </div>
         </div>
       </section>

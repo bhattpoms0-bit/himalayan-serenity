@@ -56,7 +56,7 @@ export default function GlobalNav() {
     <>
       {/* ── Back button / breadcrumb — all non-home pages ──────────────── */}
       <AnimatePresence>
-        {!isHome && (
+        {!isHome && !pathname.startsWith('/retreats/') && (
           <motion.div
             key={pathname}
             initial={{ opacity: 0, y: -6 }}

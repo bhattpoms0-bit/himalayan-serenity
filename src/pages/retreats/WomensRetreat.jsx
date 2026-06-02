@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
@@ -218,7 +219,7 @@ export default function WomensRetreat() {
       <Navbar activePage="womens-retreat" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full h-screen max-h-[85vh] overflow-hidden" style={{ backgroundColor: '#0d0508' }}>
+      <section className="relative w-full min-h-screen bg-[#0d0508] flex flex-col justify-start overflow-hidden">
         <img
           src="/images/retreats/womens-retreat/women-kumaon-retreat-mountain-terrace-sunset-hero.png"
           alt="Woman on stone terrace with tea facing Himalayan sunset, Women of Kumaon retreat"
@@ -227,46 +228,45 @@ export default function WomensRetreat() {
           onError={(e) => { e.target.style.display = 'none' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 z-10" />
-        <div className="relative z-20 flex flex-col justify-end h-full pb-16 px-8 lg:px-16">
-          <div className="max-w-3xl">
-            <span className="inline-block border border-rose-400 text-rose-400 uppercase text-xs rounded-full px-3 py-1 mb-4">
-              Women Only · 9 Days · Max 8 Guests
-            </span>
-            <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
-              Women of Kumaon
-            </h1>
-            <p className="font-serif italic text-rose-400 text-xl mb-3">
-              Mountain Wisdom · Living Traditions · Sacred Landscapes
-            </p>
-            <p className="text-[#f0ece4]/60 text-sm mb-6">
-              A premium women-led cultural immersion journey through the Kumaon Himalaya
-            </p>
-            <div className="mb-8">
-              {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Max 8 Guests'].map(stat => (
-                <span
-                  key={stat}
-                  className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
-                >
-                  {stat}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <a
-                href="#enquiry"
-                className="bg-rose-700 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-rose-800 transition-colors duration-200"
+        <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
+        <div className="relative z-20 px-6 lg:px-16 pb-16">
+          <span className="inline-block border border-rose-400 text-rose-400 uppercase text-xs rounded-full px-3 py-1 mb-4">
+            Women Only · 9 Days · Max 8 Guests
+          </span>
+          <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
+            Women of Kumaon
+          </h1>
+          <p className="font-serif italic text-rose-400 text-xl mb-3">
+            Mountain Wisdom · Living Traditions · Sacred Landscapes
+          </p>
+          <p className="text-[#f0ece4]/60 text-sm mb-6">
+            A premium women-led cultural immersion journey through the Kumaon Himalaya
+          </p>
+          <div className="mb-8">
+            {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Max 8 Guests'].map(stat => (
+              <span
+                key={stat}
+                className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
               >
-                Enquire about this retreat
-              </a>
-              <a
-                href="https://wa.me/919084642557"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
-              >
-                Download full itinerary
-              </a>
-            </div>
+                {stat}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#enquiry"
+              className="bg-rose-700 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-rose-800 transition-colors duration-200"
+            >
+              Enquire about this retreat
+            </a>
+            <a
+              href="https://wa.me/919084642557"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
+            >
+              Download full itinerary
+            </a>
           </div>
         </div>
       </section>
