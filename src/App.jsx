@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useReducedMotion } from 'framer-motion'
 import WhatsAppButton from './components/WhatsAppButton'
 import GlobalNav from './components/GlobalNav'
@@ -96,10 +96,12 @@ function AnimatedRoutes() {
           <Route path="/packages/winter-himalayan-wellness-retreat" element={<PageTransition><WinterHimalayanWellnessRetreat /></PageTransition>} />
           <Route path="/sustainability"          element={<PageTransition><Sustainability /></PageTransition>} />
           <Route path="/international-retreats"    element={<PageTransition><InternationalRetreats /></PageTransition>} />
-          <Route path="/retreats/kumaon-wellness" element={<PageTransition><KumaonWellness /></PageTransition>} />
-          <Route path="/retreats/darma-detox"    element={<PageTransition><DarmaDetox /></PageTransition>} />
-          <Route path="/retreats/womens-retreat"   element={<PageTransition><WomensRetreat /></PageTransition>} />
-          <Route path="/retreats/panchakarma"    element={<PageTransition><Panchakarma /></PageTransition>} />
+          <Route path="/retreats/panchachuli-wellness" element={<PageTransition><KumaonWellness /></PageTransition>} />
+          <Route path="/retreats/kumaon-wellness"     element={<Navigate to="/retreats/panchachuli-wellness" replace />} />
+          <Route path="/retreats/darma-detox"         element={<PageTransition><DarmaDetox /></PageTransition>} />
+          <Route path="/retreats/womens-retreat"      element={<PageTransition><WomensRetreat /></PageTransition>} />
+          <Route path="/retreats/borderlands-himalaya" element={<PageTransition><Panchakarma /></PageTransition>} />
+          <Route path="/retreats/panchakarma"          element={<Navigate to="/retreats/borderlands-himalaya" replace />} />
         </Routes>
       </AnimatePresence>
     </Suspense>

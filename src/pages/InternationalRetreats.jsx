@@ -44,7 +44,7 @@ const RETREAT_CARDS = [
     meta:        'Munsiyari · Khaliya Top · 7 nights',
     highlights:  'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
     price:       'From €1,400 per person',
-    href:        '/retreats/kumaon-wellness',
+    href:        '/retreats/panchachuli-wellness',
     cardImg:     '/images/retreats/kumaon-wellness-retreat-card.jfif',
     cardImgAlt:  'Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat',
   },
@@ -75,7 +75,7 @@ const RETREAT_CARDS = [
     meta:       'Johar Valley · Abbott Mount · Kasar Devi · Lohaghat',
     highlights: 'Myths · Mountains · Ancient Trade Routes · Signature experiences',
     price:      'From €1,800 per person',
-    href:       '/retreats/panchakarma',
+    href:       '/retreats/borderlands-himalaya',
   },
 ]
 
