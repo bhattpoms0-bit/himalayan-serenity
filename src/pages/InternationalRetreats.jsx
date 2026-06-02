@@ -184,7 +184,7 @@ export default function InternationalRetreats() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, href, cardImg, cardImgAlt }) => (
             <Link key={href} to={href} className="no-underline group">
-              <div className={`bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col hover:border-[#1D9E75]/30 transition-colors duration-200 ${cardImg ? 'overflow-hidden' : 'p-7'}`}>
+              <div className={`bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col hover:border-[#1D9E75]/30 transition-colors duration-200 ${cardImg || href === '/retreats/womens-retreat' ? 'overflow-hidden' : 'p-7'}`}>
                 {cardImg && (
                   <img
                     src={cardImg}
@@ -201,7 +201,24 @@ export default function InternationalRetreats() {
                     }}
                   />
                 )}
-                <div className={`flex flex-col flex-1 ${cardImg ? 'p-7' : ''}`}>
+                {href === '/retreats/womens-retreat' && (
+                  <div className="w-full rounded-t-xl overflow-hidden bg-[#150810]">
+                    <img
+                      src="/images/retreats/women-retreat-card.jpg"
+                      alt="Woman on mountain terrace at sunset, Women of Kumaon retreat"
+                      loading="lazy"
+                      className="w-full block"
+                      style={{
+                        width: '100%',
+                        height: 'auto',
+                        display: 'block',
+                        objectFit: 'contain',
+                        maxWidth: '100%'
+                      }}
+                    />
+                  </div>
+                )}
+                <div className={`flex flex-col flex-1 ${cardImg || href === '/retreats/womens-retreat' ? 'p-7' : ''}`}>
                   <span className={`inline-block self-start text-xs rounded-full px-3 py-1 mb-4 ${badgeClass}`}>
                     {badge}
                   </span>
