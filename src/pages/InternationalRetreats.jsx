@@ -126,36 +126,45 @@ export default function InternationalRetreats() {
       <Navbar activePage="international-retreats" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="pt-36 pb-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="max-w-2xl">
-          <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-6">
-            International Retreats · No Permit Required
-          </span>
-          <h1 className="font-serif text-[#f0ece4] text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight tracking-tight mb-4">
-            Where the Himalayas become your healer
-          </h1>
-          <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
-            Yoga · Meditation · Ayurveda · Detox
-          </p>
-          <p className="text-sm text-[#f0ece4]/60 max-w-lg leading-relaxed mb-8">
-            Intimate small-group retreats in the Kumaon Himalaya — the India that Rishikesh has
-            forgotten. No crowds. No permits. Just the mountains and your practice.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#retreats"
-              className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
-            >
-              See all retreats
-            </a>
-            <a
-              href="https://wa.me/919084642557"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
-            >
-              Download retreat guide
-            </a>
+      <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
+        <img
+          src="/images/retreats/himalayan-yoga-meditation-retreat-hero.png"
+          alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+        />
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="relative z-10 pt-36 pb-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div className="max-w-2xl">
+            <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-6">
+              International Retreats · No Permit Required
+            </span>
+            <h1 className="font-serif text-[#f0ece4] text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight tracking-tight mb-4">
+              Where the Himalayas become your healer
+            </h1>
+            <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
+              Yoga · Meditation · Ayurveda · Detox
+            </p>
+            <p className="text-sm text-[#f0ece4]/60 max-w-lg leading-relaxed mb-8">
+              Intimate small-group retreats in the Kumaon Himalaya — the India that Rishikesh has
+              forgotten. No crowds. No permits. Just the mountains and your practice.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="#retreats"
+                className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+              >
+                See all retreats
+              </a>
+              <a
+                href="https://wa.me/919084642557"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
+              >
+                Download retreat guide
+              </a>
+            </div>
           </div>
         </div>
       </section>
