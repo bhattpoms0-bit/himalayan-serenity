@@ -40,7 +40,7 @@ const RETREAT_CARDS = [
   {
     badge:       'Yoga & Ayurveda',
     badgeClass:  'bg-[#1D9E75]/20 text-[#5DCAA5]',
-    title:       'Kumaon Wellness Immersion',
+    title:       'Panchachuli Himalayan Wellness & Cultural Immersion Retreat',
     meta:        'Munsiyari · Khaliya Top · 7 nights',
     highlights:  'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
     price:       'From €1,400 per person',
@@ -51,7 +51,7 @@ const RETREAT_CARDS = [
   {
     badge:       'Wilderness Detox',
     badgeClass:  'bg-[#1D9E75]/20 text-[#5DCAA5]',
-    title:       'Darma Valley Detox Trek',
+    title:       'Darma Valley Digital Detox',
     meta:        'Darma Valley · 11 nights',
     highlights:  'Digital detox · Tribal village stay · Trail yoga · Herbal medicine',
     price:       'From €2,200 per person',
@@ -71,10 +71,10 @@ const RETREAT_CARDS = [
   {
     badge:      'Ultra Premium',
     badgeClass: 'bg-purple-900/30 text-purple-300',
-    title:      'Panchakarma Silence Retreat',
-    meta:       'Munsiyari · 14 nights · Max 4 guests',
-    highlights: 'BAMS physician · Panchakarma treatments · 3-day silence',
-    price:      'From €3,500 per person',
+    title:      'The Borderlands of the Himalaya',
+    meta:       'Johar Valley · Abbott Mount · Kasar Devi · Lohaghat',
+    highlights: 'Myths · Mountains · Ancient Trade Routes · Signature experiences',
+    price:      'From €1,800 per person',
     href:       '/retreats/panchakarma',
   },
 ]
