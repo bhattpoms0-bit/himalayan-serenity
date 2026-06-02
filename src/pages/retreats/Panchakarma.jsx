@@ -20,6 +20,8 @@ const DAYS = [
     sigExp: 'Welcome Kumaoni herbal tea ceremony followed by a Flavours of Kumaon hosted dinner with a local food expert — introducing regional ingredients, traditions, and stories.',
     exp:    ['Scenic drive from Delhi into Kumaon hills', 'Welcome herbal tea ceremony', 'Flavours of Kumaon hosted dinner', 'Introduction to regional ingredients and food traditions', 'Lakeside arrival and evening walk'],
     stay:   'Boutique Lakeside Retreat, Bhimtal',
+    img:    '/images/retreats/borderlands/bhimtal-lake-reflection-himalayan-foothills-uttarakhand.png',
+    imgAlt: 'Bhimtal lake mirroring the Himalayan foothills at dusk, arrival day on the Borderlands of the Himalaya retreat',
   },
   {
     route:  'DAY 2 · BHIMTAL → ABBOTT MOUNT',
@@ -29,6 +31,8 @@ const DAYS = [
     sigExp: 'Guided hike to Vanasur Ka Kila — the legendary fort of the Demon King. Explore the atmospheric ruins while your guide shares local folklore as the sun sets across the ridges.',
     exp:    ['Drive through pine forests', 'Guided hike to Vanasur Ka Kila', 'Local folklore and mythology storytelling', 'Sunset over the Himalayan ridges', 'Colonial heritage exploration'],
     stay:   'Heritage Colonial Cottage, Abbott Mount',
+    img:    '/images/retreats/borderlands/vanasur-ka-kila-fort-ruins-sunset-kumaon-himalaya.png',
+    imgAlt: 'Atmospheric ruins of Vanasur Ka Kila fort at sunset, Abbott Mount, Kumaon Himalaya',
   },
   {
     route:  'DAY 3 · ABBOTT MOUNT → MUNSIYARI',
@@ -38,6 +42,8 @@ const DAYS = [
     sigExp: 'Private evening with a Bhotiya family around the traditional hearth. Learn about the ancient trans-Himalayan trade routes between India and Tibet.',
     exp:    ['Stop at Birthi Falls', 'Hidden tea estate interaction', 'Shepherd community visit', 'Private Bhotiya family hearthside evening', 'Introduction to ancient Indo-Tibetan trade route history'],
     stay:   'Premium Mountain Lodge, Munsiyari (first of 4 nights)',
+    img:    '/images/retreats/borderlands/johar-valley-ancient-trade-route-munsiyari-uttarakhand.png',
+    imgAlt: 'Ancient Indo-Tibetan trade route winding through Johar Valley toward Munsiyari, Uttarakhand',
   },
   {
     route:  'DAY 4 · MUNSIYARI — KHALIYA TOP',
@@ -47,6 +53,8 @@ const DAYS = [
     sigExp: 'Curated Himalayan Picnic Experience featuring local cheeses, mountain herbs, traditional breads, and seasonal foraged elements — served at altitude with five sacred peaks as the backdrop.',
     exp:    ['Full-day Khaliya Top excursion', 'Panchachuli and Nanda Devi panoramic views', 'Curated high-altitude Himalayan picnic', 'Mountain herb and foraged element tasting', 'Photography of the five sacred summits'],
     stay:   'Premium Mountain Lodge, Munsiyari',
+    img:    '/images/retreats/borderlands/khaliya-top-trek-panoramic-himalayan-views-munsiyari.png',
+    imgAlt: 'Panoramic Himalayan views from Khaliya Top alpine meadows above Munsiyari, Panchachuli and Nanda Devi peaks',
   },
   {
     route:  'DAY 5 · MUNSIYARI — STORYKEEPERS DAY',
@@ -56,6 +64,8 @@ const DAYS = [
     sigExp: 'Private Hearthside Storykeepers Supper — an exclusive gathering with Bhotiya elders, folk musicians, artisans, and historians. Stories, songs, and traditions shared across the firelight.',
     exp:    ['Full day in the Johar Valley', "Women's artisan workshop", 'Traditional weaving demonstration', 'Private Hearthside Storykeepers Supper', 'Evening with Bhotiya elders, folk musicians, and historians'],
     stay:   'Premium Mountain Lodge, Munsiyari',
+    img:    '/images/retreats/borderlands/shauka-tribal-women-johar-valley-bhotiya-culture-kumaon.png',
+    imgAlt: 'Shauka tribal women of Johar Valley sharing traditional Bhotiya culture and artisan heritage, Kumaon Himalaya',
   },
   {
     route:  'DAY 6 · MUNSIYARI → GANGOLIHAT',
@@ -65,6 +75,8 @@ const DAYS = [
     sigExp: "Private guided exploration of Patal Bhuvaneshwar — one of India's most mystical underground cave temple systems, rich in Hindu mythology and natural limestone formations that have drawn pilgrims for centuries.",
     exp:    ['Departure from Munsiyari after 4 nights', 'Scenic mountain descent', 'Private guided Patal Bhuvaneshwar cave exploration', 'Hindu mythology and limestone formation interpretation', 'Evening at Gangolihat'],
     stay:   'Boutique Mountain Retreat, Gangolihat',
+    img:    '/images/retreats/borderlands/patal-bhuvaneshwar-cave-temple-shiva-shrine-uttarakhand.png',
+    imgAlt: 'Mystical underground chambers of Patal Bhuvaneshwar cave temple, ancient Shiva shrine, Uttarakhand',
   },
   {
     route:  'DAY 7 · GANGOLIHAT → JAGESHWAR',
@@ -74,6 +86,8 @@ const DAYS = [
     sigExp: 'Exclusive twilight exploration of the Jageshwar Dham temple complex after the day visitors depart — an atmospheric and deeply spiritual moment in near-silence among 125 ancient stone temples.',
     exp:    ['Drive through ancient cedar forests', 'Arrival at sacred Jageshwar temple town', 'Exclusive post-sunset temple complex exploration', '125 ancient stone temples in twilight', 'Deep spiritual immersion in near-silence'],
     stay:   'Forest Heritage Retreat, Jageshwar',
+    img:    '/images/retreats/borderlands/jageshwar-dham-ancient-shiva-temples-deodar-forest-kumaon.png',
+    imgAlt: 'Ancient Jageshwar Dham Shiva temples at twilight among deodar cedar forest, Kumaon Himalaya',
   },
   {
     route:  'DAY 8 · JAGESHWAR → LAKHUDIYAR → KASAR DEVI',
@@ -83,6 +97,8 @@ const DAYS = [
     sigExp: "Exploration of prehistoric Lakhudiyar rock art shelters — some of the oldest human markings in the Himalayan region, thousands of years old. In Kasar Devi: Private conversation with a local artist, writer, or cultural historian for deeper insight into the region's creative and spiritual legacy.",
     exp:    ['Lakhudiyar prehistoric rock art exploration', 'Expert archaeological interpretation', 'Drive to legendary Kasar Devi ridge', 'Private conversation with local creative or historian', "Crank's Ridge evening walk"],
     stay:   'Boutique Retreat, Kasar Devi',
+    img:    '/images/retreats/borderlands/kasar-devi-temple-lakhudiyar-rock-art-almora-uttarakhand.png',
+    imgAlt: 'Kasar Devi spiritual ridge and prehistoric Lakhudiyar rock art shelters, Almora, Uttarakhand',
   },
   {
     route:  'DAY 9 · KASAR DEVI → SHITLAKHET',
@@ -92,6 +108,8 @@ const DAYS = [
     sigExp: 'Special cultural farewell dinner celebrating the stories and friendships formed across nine days in the Himalayan borderlands.',
     exp:    ['Final Kasar Devi morning walk', 'Gentle forest photography session', 'Local craft and market exploration', 'Special cultural farewell dinner', 'Reflection and integration time'],
     stay:   'Luxury Mountain Retreat, Shitlakhet',
+    img:    '/images/retreats/borderlands/kasar-devi-sunrise-meditation-himalayan-view-shitlakhet.png',
+    imgAlt: 'Sunrise meditation at Kasar Devi ridge overlooking the Himalaya, farewell morning before Shitlakhet',
   },
   {
     route:  'DAY 10 · SHITLAKHET → KATHGODAM → DELHI',
@@ -101,6 +119,8 @@ const DAYS = [
     sigExp: null,
     exp:    ['Final Himalayan sunrise contemplation', 'Farewell breakfast', 'Departure transfer to Kathgodam or Delhi'],
     stay:   'Departure day',
+    img:    '/images/retreats/borderlands/himalayan-journey-sunrise-kumaon-borderlands-retreat.png',
+    imgAlt: 'Final Himalayan sunrise over the Kumaon borderlands, departure day of the Borderlands of the Himalaya retreat',
   },
 ]
 
@@ -200,7 +220,7 @@ export default function Panchakarma() {
   })
 
   const [form, setForm] = useState({
-    name: '', country: '', retreat: 'Panchakarma Silence Retreat',
+    name: '', country: '', retreat: 'Borderlands of the Himalaya',
     dates: '', groupSize: '', heardFrom: '', email: '', message: '',
   })
   const [status, setStatus] = useState('idle')
@@ -243,6 +263,13 @@ export default function Panchakarma() {
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#080a12] flex flex-col justify-start overflow-hidden">
+        <img
+          src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png"
+          alt="Sunrise panorama over the Kumaon Himalaya, Borderlands of the Himalaya luxury cultural retreat"
+          loading="eager"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
         <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
         <div className="relative z-20 px-6 lg:px-16 pb-16">
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-3">
@@ -344,10 +371,15 @@ export default function Panchakarma() {
                 key={i}
                 className={`grid grid-cols-1 lg:grid-cols-2 border-b border-amber-400/10 ${isEven ? 'bg-[#100d14]' : 'bg-[#14100a]'}`}
               >
-                {/* Image placeholder column */}
+                {/* Image column */}
                 <div className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
-                  <div className="w-full h-full min-h-[420px] bg-[#14100a] flex items-center justify-center text-amber-400/20 text-xs tracking-widest uppercase">
-                    Day {i + 1} · Image
+                  <div className="w-full h-full min-h-[420px]">
+                    <img
+                      src={day.img}
+                      alt={day.imgAlt}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center"
+                    />
                   </div>
                 </div>
 
@@ -510,7 +542,7 @@ export default function Panchakarma() {
                 <option>Kumaon Wellness Immersion</option>
                 <option>Darma Valley Detox Trek</option>
                 <option>{"Women's Sacred Himalaya Retreat"}</option>
-                <option>Panchakarma Silence Retreat</option>
+                <option>Borderlands of the Himalaya</option>
                 <option>Not sure yet — help me choose</option>
               </select>
               <input
