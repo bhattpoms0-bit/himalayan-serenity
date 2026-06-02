@@ -369,16 +369,16 @@ export default function Panchakarma() {
             return (
               <div
                 key={i}
-                className={`grid grid-cols-1 lg:grid-cols-2 border-b border-amber-400/10 ${isEven ? 'bg-[#100d14]' : 'bg-[#14100a]'}`}
+                className={`grid grid-cols-1 lg:grid-cols-[60%_40%] border-b border-amber-400/10 ${isEven ? 'bg-[#100d14]' : 'bg-[#14100a]'}`}
               >
                 {/* Image column */}
                 <div className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
-                  <div className="w-full h-full min-h-[420px]">
+                  <div className="w-full h-auto">
                     <img
                       src={day.img}
                       alt={day.imgAlt}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
                 </div>
