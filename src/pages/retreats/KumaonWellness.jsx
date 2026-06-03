@@ -18,8 +18,9 @@ const DAYS = [
     desc:   'After arrival in Delhi, guests travel to the serene lakeside town of Bhimtal. The first day is intentionally slow, allowing guests to recover from international travel and begin disconnecting from everyday life.',
     exp:    ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Himalayan wellness traditions', 'Sunset walk along Bhimtal Lake', 'Farm-to-table Kumaoni dinner'],
     stay:   'Boutique Lakeside Retreat, Bhimtal',
-    img:    '/images/retreats/kumaon-wellness/bhimtal-lake-kumaon-arrival-day1.webp',
-    imgAlt: 'Bhimtal Lake at golden hour, Kumaon Himalaya arrival',
+    img:         '/images/retreats/kumaon-wellness/pithoragarh-arrival-decompression-himalayan-wellness-day1.png',
+    imgAlt:      'Pithoragarh arrival and decompression, Himalayan wellness retreat day one',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 2 · BHIMTAL → MUNSIYARI',
@@ -27,8 +28,9 @@ const DAYS = [
     desc:   'Travel deeper into Kumaon\'s mountain heartland through ancient river valleys, pine forests, and remote Himalayan landscapes.',
     exp:    ['Scenic mountain drive', 'Stop at Birthi Waterfall', 'Traditional mountain lunch', 'Storytelling about Himalayan culture and history', 'Arrival in Munsiyari beneath Panchachuli Peaks'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/road-to-munsiyari-himalayan-drive-kumaon.webp',
-    imgAlt: 'Scenic mountain road to Munsiyari with snow peaks, Kumaon',
+    img:         '/images/retreats/kumaon-wellness/munsiyari-himalayan-drive-birthi-waterfall-day2.png',
+    imgAlt:      'Munsiyari Himalayan drive passing Birthi Waterfall, day two journey into the mountains',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 3 · MUNSIYARI',
@@ -36,9 +38,9 @@ const DAYS = [
     desc:   'The retreat begins with a personalised Ayurvedic consultation to understand your unique constitution and wellbeing needs.',
     exp:    ['Individual Ayurvedic assessment', 'Personal wellness consultation', 'Gentle yoga practice', 'Introduction to Himalayan medicinal herbs', 'Sunset mindfulness session'],
     stay:   'Munsiyari',
-    img:         '/images/retreats/kumaon-wellness/ayurveda-meditation-mountain-valley-kumaon-day3.jfif',
-    imgAlt:      'Woman meditating in lotus pose on mountain rock with valley view, Ayurveda day Kumaon',
-    imgOverride: { width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 40%' },
+    img:         '/images/retreats/kumaon-wellness/ayurveda-yoga-munsiyari-panchachuli-wellness-day3.png',
+    imgAlt:      'Ayurveda and yoga practice in Munsiyari with Panchachuli peaks, wellness day three',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 4 · MUNSIYARI',
@@ -46,8 +48,9 @@ const DAYS = [
     desc:   'Before dawn, guests journey to the alpine meadows of Khaliya Top where the Panchachuli range emerges in golden light.',
     exp:    ['Sunrise yoga at Khaliya Top (3,500m)', 'Guided meditation', 'Himalayan breathwork session', 'Mountain breakfast', 'Ayurvedic Abhyanga therapy'],
     stay:   'Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/sunrise-yoga-khaliya-top-kumaon-himalaya.webp',
-    imgAlt: 'Sunrise yoga at Khaliya Top alpine meadows, Kumaon Himalaya',
+    img:         '/images/retreats/kumaon-wellness/khaliya-top-sunrise-yoga-panchachuli-awakening-day4.png',
+    imgAlt:      'Sunrise yoga at Khaliya Top with Panchachuli awakening, day four mountain meditation',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 5 · MUNSIYARI',
@@ -55,8 +58,9 @@ const DAYS = [
     desc:   'A full day dedicated to healing and renewal. No schedule, no destinations — only the practice of receiving.',
     exp:    ['Yoga Nidra', 'Herbal steam therapy', 'Ayurvedic treatment session', 'Himalayan herbal tea ritual', 'Guided reflection and journalling'],
     stay:   'Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/yoga-restoration-himalayan-forest-munsiyari.webp',
-    imgAlt: 'Restorative yoga on wooden deck in Himalayan forest, Munsiyari',
+    img:         '/images/retreats/kumaon-wellness/yoga-nidra-himalayan-healing-restoration-munsiyari-day5.png',
+    imgAlt:      'Yoga nidra and Himalayan healing restoration in Munsiyari, day five wellness retreat',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:    'DAY 6 · PITHORAGARH',
@@ -75,8 +79,9 @@ const DAYS = [
     desc:   'A carefully curated digital detox day. No screens, no schedules — only forest, breath, and silence.',
     exp:    ['Guided forest bathing', 'Silent nature immersion', 'Meditation practices', 'Journalling session', 'Optional wellness coaching'],
     stay:   'Munsiyari',
-    img:    '/images/retreats/kumaon-wellness/munsiyari-valley-panchachuli-view-silence-retreat.webp',
-    imgAlt: 'Munsiyari valley panoramic view with Panchachuli peaks, silence retreat',
+    img:         '/images/retreats/kumaon-wellness/forest-bathing-silence-pithoragarh-digital-detox-day7.png',
+    imgAlt:      'Forest bathing and silence practice in Pithoragarh, digital detox day seven',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 8 · PITHORAGARH → KASAR DEVI',
@@ -84,8 +89,9 @@ const DAYS = [
     desc:   'Travel through the Himalayan foothills to the legendary spiritual enclave of Kasar Devi. For generations, philosophers, artists, seekers, and writers have been drawn to this extraordinary ridge overlooking the Himalaya.',
     exp:    ['Scenic Himalayan drive', 'Traditional lunch en route', 'Sunset meditation at Kasar Devi', 'Walk along Crank\'s Ridge', 'Reflection circle'],
     stay:   'Boutique Heritage Stay, Kasar Devi',
-    img:    '/images/retreats/kumaon-wellness/kasar-devi-temple-sunset-spiritual-himalayas.webp',
-    imgAlt: 'Kasar Devi temple at sunset, spiritual Himalayan ridge',
+    img:         '/images/retreats/kumaon-wellness/kasar-devi-spiritual-ridge-meditation-integration-day8.png',
+    imgAlt:      'Kasar Devi spiritual ridge meditation and integration practice, day eight Himalayan retreat',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
     route:  'DAY 9 · KASAR DEVI → DEPARTURE',
@@ -93,8 +99,9 @@ const DAYS = [
     desc:   'The final morning offers space for gratitude, reflection, and intention-setting before departure.',
     exp:    ['Sunrise yoga session', 'Closing wellness ceremony', 'Personal reflection time', 'Departure transfer to Delhi or Kathgodam'],
     stay:   'Departure day',
-    img:    '/images/retreats/kumaon-wellness/himalayan-yoga-meditation-mountain-closing-ceremony.webp',
-    imgAlt: 'Himalayan yoga meditation at closing ceremony, mountain backdrop',
+    img:         '/images/retreats/kumaon-wellness/final-sunrise-yoga-carrying-mountains-home-day9.png',
+    imgAlt:      'Final sunrise yoga session carrying the mountains home, departure day nine of Himalayan wellness retreat',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
 ]
 
@@ -302,7 +309,7 @@ export default function KumaonWellness() {
               >
                 {/* Image column */}
                 <div
-                  className={`h-[260px] ${i === 5 ? 'lg:h-auto' : 'lg:h-[420px]'} overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
+                  className={`h-auto overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
                 >
                   {day.imgOverride ? (
                     <img
