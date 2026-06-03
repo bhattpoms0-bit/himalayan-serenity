@@ -59,17 +59,18 @@ const DAYS = [
     imgAlt: 'Restorative yoga on wooden deck in Himalayan forest, Munsiyari',
   },
   {
-    route:  'DAY 6 · MUNSIYARI',
-    theme:  'Living Himalayan Traditions — Connection',
-    desc:   'Meet the people whose traditions have shaped life in these mountains for centuries.',
-    exp:    ['Guided cultural immersion walk', 'Visit traditional Shauka community', 'Artisan demonstrations', 'Home-hosted Kumaoni lunch', 'Himalayan folklore evening'],
-    stay:   'Munsiyari',
-    img:         '/images/retreats/kumaon-wellness/bhotia-shauka-woman-traditional-weaving-kumaon.webp',
-    imgAlt:      'Bhotia Shauka woman weaving traditional textile, Kumaon cultural immersion',
-    imgOverride: { width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 15%' },
+    route:    'DAY 6 · PITHORAGARH',
+    theme:    'Himalayan Ayurveda & Renewal',
+    subtitle: 'Ayurvedic Consultation · Panchakarma Therapy · Mountain Yoga',
+    desc:     "A dedicated day of Himalayan healing in Pithoragarh — one of Kumaon's most sacred towns. Meet an Ayurvedic physician for a personalised consultation, experience traditional Panchakarma therapies, and close the day with a mountain yoga session overlooking the picturesque peaks.",
+    exp:      ['Personal Ayurvedic dosha consultation', 'Signature Panchakarma therapy session', 'Himalayan herb walk with local vaidya', 'Mountain yoga', 'Sattvic Ayurvedic dinner'],
+    stay:     'Heritage Stay, Pithoragarh',
+    img:         '/images/retreats/kumaon-wellness/ayurvedic-consultation-panchakarma-yoga-pithoragarh-himalaya.png',
+    imgAlt:      'Ayurvedic consultation and Panchakarma therapy with mountain yoga in Pithoragarh Himalaya',
+    imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
-    route:  'DAY 7 · MUNSIYARI',
+    route:  'DAY 7 · PITHORAGARH',
     theme:  'Silence, Nature & Reflection — Stillness',
     desc:   'A carefully curated digital detox day. No screens, no schedules — only forest, breath, and silence.',
     exp:    ['Guided forest bathing', 'Silent nature immersion', 'Meditation practices', 'Journalling session', 'Optional wellness coaching'],
@@ -78,7 +79,7 @@ const DAYS = [
     imgAlt: 'Munsiyari valley panoramic view with Panchachuli peaks, silence retreat',
   },
   {
-    route:  'DAY 8 · MUNSIYARI → KASAR DEVI',
+    route:  'DAY 8 · PITHORAGARH → KASAR DEVI',
     theme:  'The Spiritual Ridge of the Himalaya — Integration',
     desc:   'Travel through the Himalayan foothills to the legendary spiritual enclave of Kasar Devi. For generations, philosophers, artists, seekers, and writers have been drawn to this extraordinary ridge overlooking the Himalaya.',
     exp:    ['Scenic Himalayan drive', 'Traditional lunch en route', 'Sunset meditation at Kasar Devi', 'Walk along Crank\'s Ridge', 'Reflection circle'],
@@ -301,7 +302,7 @@ export default function KumaonWellness() {
               >
                 {/* Image column */}
                 <div
-                  className={`h-[260px] lg:h-[420px] overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
+                  className={`h-[260px] ${i === 5 ? 'lg:h-auto' : 'lg:h-[420px]'} overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}
                 >
                   {day.imgOverride ? (
                     <img
@@ -327,9 +328,12 @@ export default function KumaonWellness() {
                   <p className="text-[#1D9E75] text-xs font-medium tracking-[0.2em] uppercase mb-2">
                     {day.route}
                   </p>
-                  <h3 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-4">
+                  <h3 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-3">
                     {day.theme}
                   </h3>
+                  {day.subtitle && (
+                    <p className="font-serif italic text-[#1D9E75] text-sm mb-4">{day.subtitle}</p>
+                  )}
                   <p className="text-[#f0ece4]/60 text-sm leading-relaxed mb-6">
                     {day.desc}
                   </p>
