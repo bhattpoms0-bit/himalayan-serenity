@@ -13,11 +13,11 @@ const INPUT_CLASS =
 
 const DAYS = [
   {
-    route:  'DAY 1 · DELHI → BHIMTAL',
+    route:  'DAY 1 · DELHI → PITHORAGARH',
     theme:  'Arrival & Decompression',
-    desc:   'After arrival in Delhi, guests travel to the serene lakeside town of Bhimtal. The first day is intentionally slow, allowing guests to recover from international travel and begin disconnecting from everyday life.',
-    exp:    ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Himalayan wellness traditions', 'Sunset walk along Bhimtal Lake', 'Farm-to-table Kumaoni dinner'],
-    stay:   'Boutique Lakeside Retreat, Bhimtal',
+    desc:   'After arrival in Delhi, guests travel to the "Little Kashmir" of Uttarakhand—Pithoragarh. The first day is intentionally slow, allowing guests to recover from international travel and begin disconnecting from everyday life.',
+    exp:    ['Private arrival transfer', 'Welcome herbal infusion ceremony', 'Introduction to Himalayan wellness traditions', 'Sunset walk in Chandak Hill', 'Farm-to-table Kumaoni dinner'],
+    stay:   'Boutique Heritage Stay, Pithoragarh',
     img:         '/images/retreats/kumaon-wellness/pithoragarh-arrival-decompression-himalayan-wellness-day1.png',
     imgAlt:      'Pithoragarh arrival and decompression, Himalayan wellness retreat day one',
     imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
