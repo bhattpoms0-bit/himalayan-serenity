@@ -514,8 +514,13 @@ export default function AdiKailashExpedition() {
                 </p>
               </div>
             </div>
-            <div style={{ height: 400, background: card, border: `1px solid ${gold}22`, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: `${gold}40` }}>Image Placeholder</span>
+            <div style={{ height: 400, borderRadius: 12, overflow: "hidden" }}>
+              <img
+                src="/images/adi-kailash-expedition/om-parvat-sacred-shrine-himalayan-pilgrimage-kumaon.jpg"
+                alt="Om Parvat sacred shrine with Himalayan peaks Kumaon pilgrimage"
+                loading="lazy"
+                style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 12, display: "block" }}
+              />
             </div>
           </div>
         </motion.section>
