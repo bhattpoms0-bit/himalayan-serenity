@@ -18,8 +18,8 @@ const DAYS = [
     desc:   'Upon arrival in Delhi, guests begin their journey into the Kumaon foothills. The day is intentionally relaxed, allowing time to recover from international travel and settle into the slower rhythm of the mountains.',
     exp:    ['Private transfer from Delhi', 'Welcome herbal tea ceremony', 'Introduction to Kumaon and the journey ahead', 'Lakeside sunset walk', 'Farm-to-table Kumaoni dinner'],
     stay:   'Premium Lakeside Retreat, Bhimtal',
-    img:    '/images/retreats/womens-retreat/bhimtal-lake-evening-women-tea-arrival-day1.png',
-    imgAlt: 'Two women having evening tea by Bhimtal lake at dusk, arrival day',
+    img:    '/images/retreats/womens-retreat/bhimtal-arrival-women-kumaon-retreat-day1.png',
+    imgAlt: 'Bhimtal arrival on the Women of Kumaon retreat, day one beginning of the Himalayan journey',
   },
   {
     route:  'DAY 2 · BHIMTAL → PITHORAGARH',
@@ -27,8 +27,8 @@ const DAYS = [
     desc:   'Travel through scenic mountain roads, forests, and traditional villages toward Pithoragarh — often referred to as the cultural gateway to eastern Kumaon.',
     exp:    ['Scenic drive through the Kumaon Himalaya', 'Traditional Kumaoni lunch', 'Exploration of local markets', 'Evening storytelling session with local hosts', 'Introduction to Kumaoni customs and traditions'],
     stay:   'Boutique Heritage Hotel, Pithoragarh',
-    img:    '/images/retreats/womens-retreat/birthi-waterfall-mountain-road-kumaon-drive-day2.png',
-    imgAlt: 'Birthi Waterfall on scenic mountain road, drive to Pithoragarh Kumaon',
+    img:    '/images/retreats/womens-retreat/kainchi-dham-jageshwar-womens-cultural-journey-day2.png',
+    imgAlt: 'Kainchi Dham and Jageshwar temple cultural journey, day two women\'s Himalayan retreat',
   },
   {
     route:  'DAY 3 · PITHORAGARH → MUNSIYARI',
@@ -36,8 +36,8 @@ const DAYS = [
     desc:   'The road gradually ascends into one of the most spectacular mountain regions in India. Along the way, guests experience dramatic landscapes and their first views of the Panchachuli mountain range — five sacred summits that will define the days ahead.',
     exp:    ['Visit to Birthi Waterfall', 'Scenic mountain viewpoints', 'Introduction to the history and mythology of Panchachuli', 'Sunset gathering overlooking the mountains'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/women-group-breakfast-mountain-sunrise-munsiyari-day3.png',
-    imgAlt: 'Women sharing breakfast at mountain viewpoint above clouds at sunrise, Munsiyari',
+    img:    '/images/retreats/womens-retreat/panchachuli-peaks-munsiyari-sacred-himalaya-day3.png',
+    imgAlt: 'Panchachuli peaks above Munsiyari in the sacred Himalaya, day three women\'s retreat',
   },
   {
     route:  'DAY 4 · MUNSIYARI',
@@ -45,8 +45,8 @@ const DAYS = [
     desc:   'Spend the day learning from the women who sustain families, farms, and traditions in the high Himalaya. These are conversations and encounters that no guidebook can prepare you for — honest, warm, and quietly transformative.',
     exp:    ['Visit women-led farms and households', 'Learn about mountain agriculture and seasonal lifestyles', 'Traditional cooking experience', 'Shared lunch with local families', 'Conversations about life, resilience, and community in the Himalaya'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/women-mountain-farm-kumaoni-woman-himalayan-peaks-day4.png',
-    imgAlt: 'European and local Kumaoni women working together on mountain farm with Himalayan peaks',
+    img:    '/images/retreats/womens-retreat/women-mountain-farming-kumaoni-community-munsiyari-day4.png',
+    imgAlt: 'Women mountain farming with Kumaoni community in Munsiyari, day four cultural immersion',
   },
   {
     route:  'DAY 5 · MUNSIYARI',
@@ -54,8 +54,8 @@ const DAYS = [
     desc:   'Discover the artistic traditions that have been passed down through generations of Kumaoni women. Under the guidance of master artisans, guests participate in the creative process — not as observers, but as makers.',
     exp:    ['Traditional weaving workshop', 'Natural dye demonstration', 'Wool preparation and textile techniques', 'Create a handmade keepsake under artisan guidance', 'Evening cultural interaction'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/women-weaving-workshop-shauka-artisan-kumaon-day5.png',
-    imgAlt: 'Women learning traditional weaving from Shauka artisan, craft workshop Kumaon',
+    img:    '/images/retreats/womens-retreat/traditional-weaving-craft-himalayan-artisan-munsiyari-day5.png',
+    imgAlt: 'Traditional weaving craft with Himalayan artisan in Munsiyari, day five creative workshop',
   },
   {
     route:  'DAY 6 · MUNSIYARI',
@@ -63,8 +63,8 @@ const DAYS = [
     desc:   'Explore the spiritual relationship between local communities and the mountains they call home. This is Kumaon as it has always been — unhurried, rooted, and quietly profound.',
     exp:    ['Sunrise mindfulness session', 'Heritage village walk', 'Visit sacred springs and community gathering places', 'Introduction to traditional Himalayan herbs and healing practices', 'Reflection circle at sunset'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/women-heritage-walk-sacred-spring-pine-forest-kumaon-day6.png',
-    imgAlt: 'Women walking heritage trail beside sacred spring in pine forest, Kumaon',
+    img:    '/images/retreats/womens-retreat/sacred-landscapes-himalayan-women-community-munsiyari-day6.png',
+    imgAlt: 'Sacred landscapes and Himalayan women community gathering in Munsiyari, day six',
   },
   {
     route:  'DAY 7 · MUNSIYARI → PITHORAGARH',
@@ -72,8 +72,8 @@ const DAYS = [
     desc:   'A slower-paced day designed for reflection and integration of the experiences gained throughout the journey. The valleys look different on the return — familiar now, and full of memory.',
     exp:    ['Scenic drive through the Himalayan valleys', 'Personal journalling session', 'Free time for rest and reflection', 'Group sharing circle'],
     stay:   'Boutique Heritage Hotel, Pithoragarh',
-    img:    '/images/retreats/womens-retreat/women-journalling-panchachuli-view-reflection-day7.png',
-    imgAlt: 'Women journalling together with Panchachuli peaks through window, reflection day',
+    img:    '/images/retreats/womens-retreat/women-journalling-reflection-himalayan-valley-pithoragarh-day7.png',
+    imgAlt: 'Women journalling in reflection overlooking the Himalayan valley in Pithoragarh, day seven',
   },
   {
     route:  'DAY 8 · PITHORAGARH → LOHAGHAT',
@@ -81,8 +81,8 @@ const DAYS = [
     desc:   'Travel to the peaceful hill region of Lohaghat and Abbott Mount, known for its pine forests, colonial heritage, and quiet atmosphere. A gentle, unhurried final full day.',
     exp:    ['Guided forest walk', 'Himalayan herbal tea experience', 'Personal reflection time', 'Closing ceremony', 'Farewell dinner with local specialties'],
     stay:   'Heritage Retreat, Abbott Mount',
-    img:    '/images/retreats/womens-retreat/abbott-mount-colonial-church-pine-forest-lohaghat-day8.jfif',
-    imgAlt: 'Abbott Mount colonial stone church in pine forest, Lohaghat Kumaon',
+    img:    '/images/retreats/womens-retreat/abbott-mount-slow-living-lohaghat-himalayan-views-day8.png',
+    imgAlt: 'Abbott Mount slow living in Lohaghat with Himalayan views, day eight peaceful retreat',
   },
   {
     route:  'DAY 9 · LOHAGHAT → DELHI',
@@ -90,8 +90,8 @@ const DAYS = [
     desc:   'After breakfast, begin the journey back to Delhi with memories, friendships, and stories from the Kumaon Himalaya. The mountains do not leave you when you leave them.',
     exp:    ['Morning contemplation session', 'Closing blessing ceremony', 'Departure transfer'],
     stay:   'Departure day',
-    img:    '/images/retreats/womens-retreat/kumaon-mountain-path-return-journey-departure-day9.jfif',
-    imgAlt: 'Mountain stone path winding through Kumaon valley, return journey departure',
+    img:    '/images/retreats/womens-retreat/carrying-kumaon-home-lohaghat-delhi-departure-day9.png',
+    imgAlt: 'Carrying Kumaon home from Lohaghat to Delhi, day nine departure',
   },
 ]
 
@@ -309,34 +309,22 @@ export default function WomensRetreat() {
         <div>
           {DAYS.map((day, i) => {
             const isEven = i % 2 === 1
-            const isDay7 = i === 6
             return (
               <div
                 key={i}
                 className={`grid grid-cols-1 lg:grid-cols-2 border-b border-rose-400/10 ${isEven ? 'bg-[#150810]' : 'bg-[#1a0a0e]'}`}
               >
                 {/* Image column */}
-                {isDay7 ? (
-                  <div className="w-full lg:h-full min-h-[500px] overflow-hidden">
+                <div className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
+                  <div className="w-full h-auto overflow-hidden">
                     <img
-                      src="/images/retreats/womens-retreat/women-journalling-panchachuli-view-reflection-day7.png"
-                      alt="Women journalling together with Panchachuli peaks through window, reflection day"
+                      src={day.img}
+                      alt={day.imgAlt}
                       loading="lazy"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-auto object-contain"
                     />
                   </div>
-                ) : (
-                  <div className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
-                    <div className="w-full h-[420px] lg:h-full overflow-hidden">
-                      <img
-                        src={day.img}
-                        alt={day.imgAlt}
-                        loading="lazy"
-                        className="w-full h-full object-cover object-center"
-                      />
-                    </div>
-                  </div>
-                )}
+                </div>
 
                 {/* Text column */}
                 <div className={`px-6 py-8 lg:p-10 xl:p-14 flex flex-col justify-center ${isEven ? 'order-last lg:order-first' : ''}`}>
