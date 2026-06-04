@@ -76,6 +76,8 @@ const RETREAT_CARDS = [
     highlights: 'Myths · Mountains · Ancient Trade Routes · Signature experiences',
     price:      'From €1,800 per person',
     href:       '/retreats/borderlands-himalaya',
+    cardImg:    '/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png',
+    cardImgAlt: 'Kumaon Himalaya luxury retreat sunrise view, Borderlands of the Himalaya cultural journey',
   },
 ]
 
