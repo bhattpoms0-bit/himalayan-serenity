@@ -1,5 +1,5 @@
+import { Fragment } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Calendar } from 'lucide-react'
 
 const SPRING = [0.16, 1, 0.3, 1]
 
@@ -8,6 +8,13 @@ const H1_LINES = [
   { text: 'Journeys',         italic: false },
   { text: 'Beyond Ordinary',  italic: true  },
   { text: 'Travel',           italic: true  },
+]
+
+const STATS = [
+  { value: '500+',  label: 'Pilgrims Guided'    },
+  { value: '15+',   label: 'Years Experience'   },
+  { value: '100%',  label: 'Safe Expeditions'   },
+  { value: '★ 4.9', label: 'Expert Guides'      },
 ]
 
 export default function Hero() {
@@ -30,25 +37,16 @@ export default function Hero() {
         style={{ display: 'block' }}
       />
 
-      {/* Layer 1 — radial vignette */}
+      {/* Left-to-right dark overlay — left readable, right shows mountain */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 40%, transparent 25%, rgba(0,0,0,0.52) 100%)',
+          background: 'linear-gradient(to right, rgba(8,18,14,0.90) 0%, rgba(8,18,14,0.08) 100%)',
         }}
       />
 
-      {/* Layer 2 — cinematic bottom fade */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 40%, rgba(13,13,13,1) 100%)',
-        }}
-      />
-
-      {/* Layer 3 — 3% grain */}
+      {/* 3% grain texture */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none mix-blend-overlay"
@@ -59,37 +57,43 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-5 sm:px-8 lg:px-10 -translate-y-[5%]">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-10 -translate-y-[5%]">
         <div className="text-center sm:text-left">
 
-          {/* Badge — 32px height, mb-6 = 24px bottom margin */}
+          {/* Eyebrow — dot + text, no pill/border */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: SPRING }}
-            className="inline-flex items-center gap-2.5 border border-brand-orange/40 bg-brand-orange/[0.07] rounded-full px-4 py-2 mb-6"
+            className="inline-flex items-center gap-2 mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse-slow flex-shrink-0" />
+            <span style={{ color: '#e07b2a', fontSize: 8, lineHeight: 1 }}>●</span>
             <span
-              className="text-brand-orange uppercase"
-              style={{ fontFamily: '"Cinzel", serif', fontSize: 10, letterSpacing: '0.25em' }}
+              style={{
+                fontFamily:    '"Cinzel", serif',
+                fontSize:      11,
+                letterSpacing: '0.16em',
+                textTransform: 'uppercase',
+                color:         '#e07b2a',
+              }}
             >
-              Luxury Heritage
+              Pithoragarh, Uttarakhand · Government Registered
             </span>
           </motion.div>
 
-          {/* Heading — 4 lines, sized to stay under 280px total */}
+          {/* Heading — unchanged lines, clamp for mobile */}
           <h2 className="mb-5 leading-[1.05] tracking-[-0.02em]">
             {H1_LINES.map(({ text, italic }, i) => (
               <span key={text} className="block overflow-hidden pb-[0.05em]">
                 <motion.span
-                  className={`block font-serif text-[38px] sm:text-5xl lg:text-[56px] ${
-                    italic ? 'font-light italic' : 'font-normal'
-                  }`}
+                  className={`block font-serif ${italic ? 'font-light italic' : 'font-normal'}`}
                   initial={{ opacity: 0, y: 28 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.0, delay: 0.35 + i * 0.14, ease: SPRING }}
-                  style={{ color: italic ? '#d4af7a' : '#ffffff' }}
+                  style={{
+                    color:    italic ? '#d4af7a' : '#ffffff',
+                    fontSize: 'clamp(32px, 8vw, 56px)',
+                  }}
                 >
                   {text}
                 </motion.span>
@@ -97,128 +101,167 @@ export default function Hero() {
             ))}
           </h2>
 
-          {/* Subtitle — #999, tighter mb */}
+          {/* Subtitle — new copy, 62% opacity, light weight */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.72, ease: 'easeOut' }}
-            className="font-sans mb-5 sm:mx-0 mx-auto text-sm sm:text-base"
-            style={{ color: '#999999', maxWidth: 460, lineHeight: 1.8 }}
+            className="font-sans mb-8 sm:mx-0 mx-auto"
+            style={{
+              color:      'rgba(255,255,255,0.62)',
+              maxWidth:   440,
+              lineHeight: 1.8,
+              fontWeight: 300,
+              fontSize:   15,
+            }}
           >
-            Experience Adi Kailash, Om Parvat, and transformative Himalayan
-            expeditions with safety, luxury, and authenticity.
+            Pilgrimage expeditions, yoga retreats and Ayurvedic immersions
+            in the world's most sacred mountains — for seekers from every
+            corner of the world.
           </motion.p>
 
-          {/* Buttons */}
+          {/* Single CTA — solid gold, sharp corners */}
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.88, ease: SPRING }}
-            className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start"
+            className="mb-8 flex justify-center sm:justify-start"
           >
-            {/* Primary */}
             <motion.a
-              href="/contact#consultation"
-              whileHover={{
-                filter: 'brightness(1.1)',
-                boxShadow: '0 0 30px rgba(224,123,42,0.4)',
+              href="#packages-section"
+              whileHover={{ filter: 'brightness(1.1)' }}
+              whileTap={{ scale: 0.97 }}
+              style={{
+                display:        'inline-block',
+                background:     '#e07b2a',
+                color:          '#ffffff',
+                padding:        '15px 32px',
+                borderRadius:   4,
+                fontSize:       12,
+                fontFamily:     '"Cinzel", serif',
+                letterSpacing:  '0.1em',
+                textTransform:  'uppercase',
+                textDecoration: 'none',
+                fontWeight:     500,
               }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-brand-orange hover:bg-brand-orange-light text-white font-sans font-medium rounded-full px-6 py-3 text-[13px] tracking-wide cursor-pointer inline-flex items-center justify-center gap-2 transition-colors duration-300 w-full sm:w-auto"
             >
-              Plan My Sacred Journey
+              Explore All Experiences
             </motion.a>
-
-            {/* Secondary */}
-            <motion.div
-              whileHover={{
-                borderColor: 'rgba(255,255,255,0.4)',
-                backgroundColor: 'rgba(255,255,255,0.05)',
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-white/20 rounded-full w-full sm:w-auto"
-              style={{ display: 'inline-block' }}
-            >
-              <a
-                href="#packages-section"
-                className="block text-white/75 hover:text-white font-sans font-medium px-6 py-3 text-[13px] tracking-wide cursor-pointer transition-colors duration-300 text-center"
-                style={{ textDecoration: 'none' }}
-              >
-                View Expeditions
-              </a>
-            </motion.div>
-
-            {/* Video */}
-            <button className="flex items-center gap-2 text-white/45 hover:text-white/80 transition-colors duration-300 text-[13px] font-sans ml-1 group">
-              <motion.span
-                whileHover={{ backgroundColor: 'rgba(224,123,42,0.18)' }}
-                className="w-8 h-8 rounded-full border border-white/20 group-hover:border-white/35 flex items-center justify-center flex-shrink-0 transition-colors duration-300"
-              >
-                <Play size={9} fill="currentColor" />
-              </motion.span>
-              Watch Film
-            </button>
           </motion.div>
 
-          {/* Urgency text */}
-          <motion.p
+          {/* Trust stats — inside hero */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.0, ease: 'easeOut' }}
-            className="font-sans mt-3 mb-6 text-center sm:text-left"
-            style={{ fontSize: 12, color: 'rgba(224,123,42,0.75)', letterSpacing: '0.04em' }}
+            transition={{ duration: 0.8, delay: 1.05, ease: 'easeOut' }}
+            style={{ maxWidth: 440 }}
+            className="mx-auto sm:mx-0"
           >
-            ⚡ Limited spots for 2026 season — Book Early
-          </motion.p>
+            {/* Thin rule */}
+            <div style={{ height: 1, background: 'rgba(255,255,255,0.12)', marginBottom: 20 }} />
 
-          {/* Departure Bar — mt-6 keeps it anchored below buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 1.05, ease: SPRING }}
-            className="inline-flex flex-wrap items-center gap-2 rounded-full px-4 sm:px-5 py-2.5 sm:py-3 border border-white/10 mt-6"
-            style={{ background: 'rgba(0,0,0,0.5)' }}
-          >
-            <Calendar size={12} strokeWidth={1.5} className="text-brand-orange flex-shrink-0" />
-            <span
-              className="text-white/40 uppercase flex-shrink-0"
-              style={{ fontFamily: '"Cinzel", serif', fontSize: 9, letterSpacing: '0.22em' }}
-            >
-              Next Departure:
-            </span>
-            <span className="w-px h-3 bg-white/15 flex-shrink-0" />
-            <span className="text-white/85 text-xs sm:text-[13px] font-sans font-medium whitespace-nowrap">
-              Adi Kailash — June 15
-            </span>
-            <span className="text-brand-orange text-[11px] font-sans font-semibold uppercase tracking-wide cursor-pointer hover:underline hover:text-brand-orange-light transition-colors duration-200 whitespace-nowrap">
-              View All Dates
-            </span>
+            {/* Stats row (desktop) / 2×2 grid (mobile) */}
+            <div className="hidden sm:flex sm:items-center">
+              {STATS.map(({ value, label }, i) => (
+                <Fragment key={label}>
+                  <div className="flex flex-col">
+                    <span
+                      className="font-serif"
+                      style={{ fontSize: 19, color: '#e07b2a', lineHeight: 1.2 }}
+                    >
+                      {value}
+                    </span>
+                    <span
+                      className="font-sans uppercase"
+                      style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.38)' }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                  {i < STATS.length - 1 && (
+                    <div
+                      style={{
+                        width:      1,
+                        height:     28,
+                        background: 'rgba(255,255,255,0.12)',
+                        margin:     '0 20px',
+                        flexShrink: 0,
+                      }}
+                    />
+                  )}
+                </Fragment>
+              ))}
+            </div>
+
+            {/* Mobile 2×2 grid */}
+            <div className="grid grid-cols-2 gap-5 sm:hidden">
+              {STATS.map(({ value, label }) => (
+                <div key={label} className="flex flex-col">
+                  <span
+                    className="font-serif"
+                    style={{ fontSize: 19, color: '#e07b2a', lineHeight: 1.2 }}
+                  >
+                    {value}
+                  </span>
+                  <span
+                    className="font-sans uppercase"
+                    style={{ fontSize: 9, letterSpacing: '0.1em', color: 'rgba(255,255,255,0.38)' }}
+                  >
+                    {label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10 pointer-events-none">
-        <motion.span
-          animate={{ opacity: [0.3, 0.65, 0.3] }}
-          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
+      {/* Season Badge — bottom right, hidden on mobile */}
+      <div
+        className="hidden sm:block absolute z-10"
+        style={{
+          bottom:       28,
+          right:        28,
+          background:   'rgba(255,255,255,0.04)',
+          border:       '1px solid rgba(201,168,76,0.25)',
+          borderRadius: 8,
+          padding:      '12px 16px',
+        }}
+      >
+        <div
+          className="font-sans uppercase"
           style={{
-            fontFamily: '"Cinzel", serif',
-            fontSize: 9,
-            letterSpacing: '0.3em',
-            color: 'rgba(255,255,255,0.5)',
+            fontSize:      9,
+            letterSpacing: '0.14em',
+            color:         'rgba(255,255,255,0.38)',
+            marginBottom:  4,
+          }}
+        >
+          Season Open
+        </div>
+        <div
+          className="font-sans"
+          style={{ fontSize: 13, color: '#ffffff', fontWeight: 400 }}
+        >
+          May – October 2026
+        </div>
+      </div>
+
+      {/* Scroll Indicator — centered bottom */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 pointer-events-none">
+        <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.18)' }} />
+        <span
+          style={{
+            fontFamily:    '"Cinzel", serif',
+            fontSize:      9,
+            letterSpacing: '0.15em',
+            color:         'rgba(255,255,255,0.22)',
             textTransform: 'uppercase',
           }}
         >
-          Ascend Further
-        </motion.span>
-        <motion.div
-          animate={{ y: [0, 12, 0], opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px bg-gradient-to-b from-white/40 to-transparent"
-          style={{ height: 60 }}
-        />
+          Scroll
+        </span>
       </div>
 
     </section>

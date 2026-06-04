@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Shield, Users, Star, Heart, Globe, Headphones, ArrowRight } from 'lucide-react'
+import { Shield, Users, Star, Heart, Globe, Headphones } from 'lucide-react'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
@@ -129,40 +129,6 @@ export default function WhyChooseUs() {
             <FeatureCard key={i} feature={feature} index={i} />
           ))}
         </div>
-
-        {/* CTA */}
-        <motion.div
-          className="mt-16 flex items-center gap-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6, delay: 0.3, ease: EASE }}
-        >
-          <span className="divider-luxury" />
-          <motion.a
-            href="/about"
-            className="inline-flex items-center gap-2 relative"
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            style={{
-              fontFamily:    '"Cinzel", serif',
-              fontSize:      11,
-              letterSpacing: '0.15em',
-              textTransform: 'uppercase',
-              color:         '#e07b2a',
-            }}
-          >
-            Begin Your Ascent
-            <ArrowRight size={13} strokeWidth={1.5} />
-            <motion.span
-              variants={{ rest: { scaleX: 0 }, hover: { scaleX: 1 } }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className="absolute -bottom-1 left-0 right-0 h-px"
-              style={{ backgroundColor: '#e07b2a', transformOrigin: 'left' }}
-            />
-          </motion.a>
-        </motion.div>
 
       </div>
     </section>
