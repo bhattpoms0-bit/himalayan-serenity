@@ -213,8 +213,8 @@ export default function InternationalRetreats() {
                 {href === '/retreats/womens-retreat' && (
                   <div className="w-full rounded-t-xl overflow-hidden bg-[#150810]">
                     <img
-                      src="/images/retreats/women-retreat-card.jpg"
-                      alt="Woman on mountain terrace at sunset, Women of Kumaon retreat"
+                      src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+                      alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
                       loading="lazy"
                       className="w-full block"
                       style={{

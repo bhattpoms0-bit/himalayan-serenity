@@ -221,10 +221,10 @@ export default function WomensRetreat() {
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0d0508] flex flex-col justify-start overflow-hidden">
         <img
-          src="/images/retreats/womens-retreat/women-kumaon-retreat-mountain-terrace-sunset-hero.png"
-          alt="Woman on stone terrace with tea facing Himalayan sunset, Women of Kumaon retreat"
+          src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+          alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
           loading="eager"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[center_top]"
           onError={(e) => { e.target.style.display = 'none' }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 z-10" />
