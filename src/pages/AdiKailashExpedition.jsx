@@ -1,7 +1,6 @@
 ﻿import { useState } from "react";
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
-import ExpeditionForm from '../components/ExpeditionForm';
 
 const itinerary = [
   {
@@ -31,8 +30,8 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: null,
-    image: "/images/adi-kailash-expedition/pithoragarh-town-valley-kumaon-uttarakhand.webp",
-    imageAlt: "Pithoragarh town valley aerial view Kumaon Uttarakhand",
+    image: "/images/adi-kailash-expedition/pithoragarh-arrival-gateway-sacred-himalayas-day1.png",
+    imageAlt: "Pithoragarh arrival gateway to the sacred Himalayas, day one of Adi Kailash expedition",
   },
   {
     day: "Day 2",
@@ -48,8 +47,8 @@ const itinerary = [
     stay: "Dharchula / Gunji Region",
     altitude: null,
     note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
-    image: "/images/adi-kailash-expedition/gunji-village-high-altitude-himalaya-uttarakhand.webp",
-    imageAlt: "Gunji village high altitude Himalaya Uttarakhand Adi Kailash route",
+    image: "/images/adi-kailash-expedition/dharchula-himalayan-frontier-gunji-day2.png",
+    imageAlt: "Dharchula Himalayan frontier en route to Gunji, day two of Adi Kailash expedition",
   },
   {
     day: "Day 3",
@@ -73,8 +72,8 @@ const itinerary = [
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
-    image: "/images/adi-kailash-expedition/adi-kailash-parvati-sarovar-sacred-lake-uttarakhand.webp",
-    imageAlt: "Adi Kailash Parvati Sarovar sacred lake snow peaks Uttarakhand darshan",
+    image: "/images/adi-kailash-expedition/adi-kailash-darshan-expedition-parvati-sarovar-day3.png",
+    imageAlt: "Adi Kailash darshan and Parvati Sarovar sacred lake, day three spiritual expedition",
   },
   {
     day: "Day 4",
@@ -90,8 +89,8 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: "3,600+ m",
-    image: "/images/om-parvat-view-himalayan-horses-pithoragarh.webp",
-    imageAlt: "Om Parvat sacred mountain view Pithoragarh Himalaya",
+    image: "/images/adi-kailash-expedition/om-parvat-lipulekh-viewpoint-sacred-himalaya-day4.png",
+    imageAlt: "Om Parvat and Lipulekh viewpoint sacred Himalaya, day four of Adi Kailash expedition",
   },
   {
     day: "Day 5",
@@ -114,8 +113,8 @@ const itinerary = [
     ],
     stay: "Bhimtal / Haldwani",
     altitude: null,
-    image: "/images/adi-kailash-expedition/kumaon-temple-circuit-jageshwar-uttarakhand.webp",
-    imageAlt: "Jageshwar temple complex and Kumaon riverside temple circuit Uttarakhand",
+    image: "/images/adi-kailash-expedition/kumaon-spiritual-temple-circuit-jageshwar-kainchi-day5.png",
+    imageAlt: "Kumaon spiritual temple circuit including Jageshwar and Kainchi Dham, day five",
   },
   {
     day: "Day 6",
@@ -265,6 +264,8 @@ export default function AdiKailashExpedition() {
   });
   const [tab, setTab] = useState("inclusions");
   const [activeDay, setActiveDay] = useState(0);
+  const [waName, setWaName] = useState('');
+  const [waPhone, setWaPhone] = useState('');
 
   const gold = "#c9a96e";
   const bg = "#07090b";
@@ -289,7 +290,6 @@ export default function AdiKailashExpedition() {
     .ak-hero-inner   { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
     .ak-hero-layout  { display: flex; align-items: flex-end; gap: 48px; }
     .ak-hero-text    { flex: 1; min-width: 0; }
-    .ak-hero-form-wrap { width: 380px; flex-shrink: 0; }
 
     /* ── Stats ───────────────────────────────────────────── */
     .ak-stats-grid {
@@ -302,7 +302,7 @@ export default function AdiKailashExpedition() {
     .ak-page-inner { max-width: 960px; margin: 0 auto; padding: 4rem 2rem; }
 
     /* ── Sections ────────────────────────────────────────── */
-    .ak-section { margin-bottom: 80px; }
+    .ak-section { padding: 80px 0; }
 
     /* ── Route map ───────────────────────────────────────── */
     .ak-route-map-wrap { border-radius: 16px; margin-bottom: 32px; }
@@ -314,13 +314,13 @@ export default function AdiKailashExpedition() {
       display: flex; flex-direction: column;
       width: 160px; flex-shrink: 0; gap: 4px;
     }
-    .ak-itinerary-panel { flex: 1; min-width: 0; }
-    .ak-day-panel { background: ${card}; border: 1px solid #ffffff0d; padding: 36px; border-radius: 2px; }
-    .ak-day-img {
-      width: 100%; height: 420px;
-      object-fit: cover; object-position: center;
-      border-radius: 12px; margin-bottom: 32px; display: block;
-    }
+    .ak-itinerary-panel { flex: 1; min-width: 0; overflow: visible; }
+    .ak-day-panel { background: ${card}; border: 1px solid #ffffff0d; padding: 24px; border-radius: 2px; width: 100%; box-sizing: border-box; }
+    .ak-day-layout { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+    .ak-day-img-col { width: 100%; }
+    .ak-day-img-col img { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 12px; }
+    .ak-day-text-col { width: 100%; }
+    .ak-day-text-col { flex: 1; min-width: 0; }
 
     /* ── Inclusions / pricing grids ──────────────────────── */
     .ak-inclusions-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 10px; }
@@ -345,7 +345,7 @@ export default function AdiKailashExpedition() {
     @media (min-width:768px) and (max-width:1023px) {
       .ak-stats-grid { grid-template-columns: repeat(3,1fr); padding: 24px 1.5rem; }
       .ak-page-inner { padding: 3rem 1.5rem; }
-      .ak-section { margin-bottom: 60px; }
+      .ak-section { padding: 60px 0; }
       .ak-itinerary-nav { width: 130px; }
       .ak-day-panel { padding: 28px; }
       .ak-day-img { height: 360px; }
@@ -356,12 +356,10 @@ export default function AdiKailashExpedition() {
       .ak-hero { min-height: auto; padding: 0 0 40px; }
       .ak-hero-inner { padding: 0 1rem; }
       .ak-hero-layout { flex-direction: column; gap: 24px; }
-      .ak-hero-form-wrap { width: 100%; }
-
       .ak-stats-grid { grid-template-columns: repeat(2,1fr); padding: 1.5rem 1rem; gap: 16px; }
 
       .ak-page-inner { padding: 2rem 1rem; }
-      .ak-section { margin-bottom: 48px; }
+      .ak-section { padding: 48px 0; }
 
       .ak-route-map-wrap { border-radius: 12px; }
       .ak-route-img { border-radius: 12px; }
@@ -388,7 +386,8 @@ export default function AdiKailashExpedition() {
       }
 
       .ak-day-panel { padding: 20px 16px; }
-      .ak-day-img { height: 280px; margin-bottom: 20px; border-radius: 12px; }
+      .ak-day-layout { flex-direction: column; }
+      .ak-day-img-col { width: 100%; }
 
       .ak-inclusions-grid { grid-template-columns: 1fr; }
       .ak-pricing-grid    { grid-template-columns: 1fr; }
@@ -442,19 +441,17 @@ export default function AdiKailashExpedition() {
                 ))}
               </div>
               <div>
-                <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2 }}>
+                <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2, marginBottom: 28 }}>
                   <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹34,999 per person</span>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Right: booking form card */}
-            <motion.div className="ak-hero-form-wrap" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}>
-              <div style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)", borderRadius: 16, padding: "1.5rem", border: `1px solid rgba(201,169,110,0.3)` }}>
-                <div style={{ fontSize: "1.1rem", color: gold, letterSpacing: "0.1em", marginBottom: 20 }}>
-                  Plan Your Sacred Journey
-                </div>
-                <ExpeditionForm defaultPackage="Adi Kailash & Om Parvat Expedition" />
+              <div>
+                <a
+                  href="#enquiry"
+                  style={{ display: "inline-block", padding: "16px 48px", background: gold, color: bg, textDecoration: "none", fontSize: 13, letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "inherit", borderRadius: 2 }}
+                >
+                  Plan Your Expedition
+                </a>
               </div>
             </motion.div>
 
@@ -495,28 +492,6 @@ export default function AdiKailashExpedition() {
               loading="eager"
             />
           </div>
-          <div style={{ padding: "24px 20px", background: card, border: `1px solid #ffffff0a`, borderRadius: 12, marginBottom: 16 }}>
-            <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 16 }}>Complete Journey Path</div>
-            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 0 }}>
-              {routeStops.map((stop, i) => (
-                <span key={stop + i} style={{ display: "flex", alignItems: "center" }}>
-                  <span className="ak-route-pill" style={{
-                    padding: "4px 10px",
-                    background: i === 0 || i === routeStops.length - 1 ? `${gold}22` : "transparent",
-                    border: `1px solid ${i === 0 || i === routeStops.length - 1 ? gold + "55" : gold + "22"}`,
-                    borderRadius: 2, fontSize: 12,
-                    color: i === 0 || i === routeStops.length - 1 ? gold : accent,
-                    letterSpacing: "0.04em", whiteSpace: "nowrap",
-                  }}>
-                    {stop}
-                  </span>
-                  {i < routeStops.length - 1 && (
-                    <span style={{ color: `${gold}66`, fontSize: 11, padding: "0 3px", flexShrink: 0 }}>→</span>
-                  )}
-                </span>
-              ))}
-            </div>
-          </div>
           <p style={{ fontSize: "0.8rem", color: "#5a4a30", fontStyle: "italic" }}>
             Route for reference only. Subject to weather, road &amp; permit conditions.
           </p>
@@ -525,16 +500,23 @@ export default function AdiKailashExpedition() {
         {/* SACRED IMPORTANCE */}
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 24 }}>The Sacred Journey</div>
-          <p style={{ fontSize: "clamp(1rem,2.4vw,1.45rem)", lineHeight: 1.85, color: accent, fontWeight: 300, maxWidth: 760, marginBottom: 24 }}>
-            Embark on one of the Himalaya's most spiritually significant journeys through the sacred landscapes of Adi Kailash and Om Parvat in the remote Kumaon region of Uttarakhand.
-          </p>
-          <p style={{ fontSize: "clamp(0.9rem,1.8vw,1.2rem)", lineHeight: 1.85, color: muted, fontWeight: 300, maxWidth: 720, marginBottom: 24 }}>
-            Often referred to as the "Chhota Kailash," Adi Kailash is believed to be one of the earthly abodes of Lord Shiva and remains among the most exclusive Himalayan pilgrimage routes in India. Unlike conventional pilgrimage tours, this expedition is designed to balance spirituality, comfort, exploration, and authentic Himalayan storytelling.
-          </p>
-          <div style={{ padding: "20px 24px", borderLeft: `3px solid ${gold}`, background: `${gold}0a`, maxWidth: 640 }}>
-            <p style={{ margin: 0, fontSize: "clamp(0.9rem,1.5vw,1.05rem)", color: accent, fontStyle: "italic", lineHeight: 1.7 }}>
-              "One of the most exclusive Himalayan pilgrimage and expedition routes in India – a journey that combines sacred experiences, cinematic mountain roads, and authentic Indo-Tibetan culture."
-            </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start" }}>
+            <div>
+              <p style={{ fontSize: "clamp(1rem,2.4vw,1.45rem)", lineHeight: 1.85, color: accent, fontWeight: 300, marginBottom: 24 }}>
+                Embark on one of the Himalaya's most spiritually significant journeys through the sacred landscapes of Adi Kailash and Om Parvat in the remote Kumaon region of Uttarakhand.
+              </p>
+              <p style={{ fontSize: "clamp(0.9rem,1.8vw,1.2rem)", lineHeight: 1.85, color: muted, fontWeight: 300, marginBottom: 24 }}>
+                Often referred to as the "Chhota Kailash," Adi Kailash is believed to be one of the earthly abodes of Lord Shiva and remains among the most exclusive Himalayan pilgrimage routes in India. Unlike conventional pilgrimage tours, this expedition is designed to balance spirituality, comfort, exploration, and authentic Himalayan storytelling.
+              </p>
+              <div style={{ padding: "20px 24px", borderLeft: `3px solid ${gold}`, background: `${gold}0a` }}>
+                <p style={{ margin: 0, fontSize: "clamp(0.9rem,1.5vw,1.05rem)", color: accent, fontStyle: "italic", lineHeight: 1.7 }}>
+                  "One of the most exclusive Himalayan pilgrimage and expedition routes in India – a journey that combines sacred experiences, cinematic mountain roads, and authentic Indo-Tibetan culture."
+                </p>
+              </div>
+            </div>
+            <div style={{ height: 400, background: card, border: `1px solid ${gold}22`, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <span style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: `${gold}40` }}>Image Placeholder</span>
+            </div>
           </div>
         </motion.section>
 
@@ -555,15 +537,6 @@ export default function AdiKailashExpedition() {
           </div>
           <div style={{ marginBottom: 28, padding: "14px 18px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
             <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
-          </div>
-          <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 16 }}>Recommended For</div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-            {travelerTypes.map(t => (
-              <div key={t.label} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 16px", background: card, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: "clamp(0.78rem,1.5vw,0.85rem)", color: accent }}>
-                <span style={{ fontSize: 15 }}>{t.icon}</span>
-                <span>{t.label}</span>
-              </div>
-            ))}
           </div>
         </motion.section>
 
@@ -596,55 +569,66 @@ export default function AdiKailashExpedition() {
             {/* RIGHT / BELOW: content panel */}
             <div className="ak-itinerary-panel">
               <motion.div key={activeDay} initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }} className="ak-day-panel">
-                {itinerary[activeDay].image && (
-                  <img className="ak-day-img" src={itinerary[activeDay].image} alt={itinerary[activeDay].imageAlt} loading="lazy" />
-                )}
-                <div style={{ fontSize: "clamp(0.8rem,2vw,1rem)", letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>
-                  {itinerary[activeDay].day}
-                </div>
-                <h3 style={{ fontSize: "clamp(1.4rem,4vw,2.2rem)", fontWeight: 300, margin: "0 0 4px", color: text }}>
-                  {itinerary[activeDay].title}
-                </h3>
-                <div style={{ fontSize: "clamp(0.85rem,2vw,1.1rem)", color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>
-                  {itinerary[activeDay].subtitle}
-                </div>
-                {itinerary[activeDay].altitude && (
-                  <div style={{ display: "inline-block", padding: "3px 10px", background: `${gold}15`, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 11, color: gold, letterSpacing: "0.1em", marginBottom: 16 }}>
-                    ⛰️ {itinerary[activeDay].altitude}
-                  </div>
-                )}
-                <p style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>
-                  {itinerary[activeDay].description}
-                </p>
-                {itinerary[activeDay].keyDestinations && (
-                  <div style={{ marginBottom: 16 }}>
-                    <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 10 }}>Key Destinations</div>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                      {itinerary[activeDay].keyDestinations.map(dest => (
-                        <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: gold, letterSpacing: "0.04em" }}>
-                          {dest}
-                        </div>
-                      ))}
+                <div className="ak-day-layout">
+                  {itinerary[activeDay].image && (
+                    <div className="ak-day-img-col">
+                      <img
+                        src={itinerary[activeDay].image}
+                        alt={itinerary[activeDay].imageAlt}
+                        loading="lazy"
+                        style={{ width: "100%", height: "auto", objectFit: "contain", borderRadius: 12, display: "block" }}
+                      />
                     </div>
+                  )}
+                  <div className="ak-day-text-col">
+                    <div style={{ fontSize: "clamp(0.8rem,2vw,1rem)", letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 6 }}>
+                      {itinerary[activeDay].day}
+                    </div>
+                    <h3 style={{ fontSize: "clamp(1.4rem,4vw,2.2rem)", fontWeight: 300, margin: "0 0 4px", color: text }}>
+                      {itinerary[activeDay].title}
+                    </h3>
+                    <div style={{ fontSize: "clamp(0.85rem,2vw,1.1rem)", color: muted, letterSpacing: "0.08em", marginBottom: 20 }}>
+                      {itinerary[activeDay].subtitle}
+                    </div>
+                    {itinerary[activeDay].altitude && (
+                      <div style={{ display: "inline-block", padding: "3px 10px", background: `${gold}15`, border: `1px solid ${gold}33`, borderRadius: 2, fontSize: 11, color: gold, letterSpacing: "0.1em", marginBottom: 16 }}>
+                        ⛰️ {itinerary[activeDay].altitude}
+                      </div>
+                    )}
+                    <p style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)", lineHeight: 1.85, color: accent, marginBottom: 20, fontWeight: 300 }}>
+                      {itinerary[activeDay].description}
+                    </p>
+                    {itinerary[activeDay].keyDestinations && (
+                      <div style={{ marginBottom: 16 }}>
+                        <div style={{ fontSize: 10, letterSpacing: "0.2em", color: gold, textTransform: "uppercase", marginBottom: 10 }}>Key Destinations</div>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+                          {itinerary[activeDay].keyDestinations.map(dest => (
+                            <div key={dest} style={{ padding: "4px 12px", background: `${gold}12`, border: `1px solid ${gold}44`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: gold, letterSpacing: "0.04em" }}>
+                              {dest}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {itinerary[activeDay].experiences && itinerary[activeDay].experiences.length > 0 && (
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
+                        {itinerary[activeDay].experiences.map(exp => (
+                          <div key={exp} style={{ padding: "5px 12px", border: `1px solid ${gold}33`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: accent, letterSpacing: "0.05em" }}>{exp}</div>
+                        ))}
+                      </div>
+                    )}
+                    {itinerary[activeDay].note && (
+                      <div style={{ padding: "10px 14px", background: "#1a1208", borderLeft: `2px solid ${gold}`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, marginBottom: 12 }}>
+                        ⚠️ {itinerary[activeDay].note}
+                      </div>
+                    )}
+                    {itinerary[activeDay].stay && (
+                      <div style={{ marginTop: 16, padding: "12px 16px", background: `${gold}0a`, border: `1px solid ${gold}22`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.1em" }}>
+                        🏨 Overnight: {itinerary[activeDay].stay}
+                      </div>
+                    )}
                   </div>
-                )}
-                {itinerary[activeDay].experiences && itinerary[activeDay].experiences.length > 0 && (
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 16 }}>
-                    {itinerary[activeDay].experiences.map(exp => (
-                      <div key={exp} style={{ padding: "5px 12px", border: `1px solid ${gold}33`, borderRadius: 2, fontSize: "clamp(0.75rem,1.5vw,0.8rem)", color: accent, letterSpacing: "0.05em" }}>{exp}</div>
-                    ))}
-                  </div>
-                )}
-                {itinerary[activeDay].note && (
-                  <div style={{ padding: "10px 14px", background: "#1a1208", borderLeft: `2px solid ${gold}`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, marginBottom: 12 }}>
-                    ⚠️ {itinerary[activeDay].note}
-                  </div>
-                )}
-                {itinerary[activeDay].stay && (
-                  <div style={{ marginTop: 16, padding: "12px 16px", background: `${gold}0a`, border: `1px solid ${gold}22`, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.1em" }}>
-                    🏨 Overnight: {itinerary[activeDay].stay}
-                  </div>
-                )}
+                </div>
               </motion.div>
             </div>
           </div>
@@ -731,14 +715,19 @@ export default function AdiKailashExpedition() {
         {/* ALTITUDE PROFILE */}
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Altitude Profile</div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {altitudeChart.map((a, i) => (
-              <div key={a.place} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 20px", background: i % 2 === 0 ? card : "transparent", borderBottom: "1px solid #ffffff08" }}>
-                <span style={{ fontSize: "clamp(0.85rem,1.5vw,0.95rem)", color: accent }}>{a.place}</span>
-                <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.06em" }}>{a.alt}</span>
+          {(() => {
+            const altNums = [216, 1650, 2000, 940, 2734, 3300, 3600, 3600];
+            const maxAlt = 3600;
+            return altitudeChart.map((a, i) => (
+              <div key={a.place} style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 14 }}>
+                <span style={{ width: 180, fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: accent, textAlign: "right", flexShrink: 0 }}>{a.place}</span>
+                <div style={{ flex: 1, background: "#ffffff08", borderRadius: 2, height: 8 }}>
+                  <div style={{ width: `${(altNums[i] / maxAlt) * 100}%`, height: "100%", background: gold, borderRadius: 2 }} />
+                </div>
+                <span style={{ width: 90, fontSize: "clamp(0.78rem,1.5vw,0.85rem)", color: gold, letterSpacing: "0.05em", flexShrink: 0 }}>{a.alt}</span>
               </div>
-            ))}
-          </div>
+            ));
+          })()}
         </motion.section>
 
         {/* TRAVEL ACCESS */}
@@ -798,8 +787,8 @@ export default function AdiKailashExpedition() {
 
       </div>
 
-      {/* ── BOTTOM CTA FORM ──────────────────────────────── */}
-      <section style={{ background: "#0a0a0a", padding: "80px 24px", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
+      {/* ── ENQUIRY FORM ──────────────────────────────── */}
+      <section id="enquiry" style={{ background: "#0a0a0a", padding: "80px 24px", borderTop: "1px solid rgba(201,169,110,0.15)" }}>
         <div style={{ maxWidth: 500, margin: "0 auto", textAlign: "center" }}>
           <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 16 }}>
             Begin Your Journey
@@ -810,7 +799,31 @@ export default function AdiKailashExpedition() {
           <p style={{ fontSize: "1rem", color: muted, marginBottom: 36, lineHeight: 1.7 }}>
             Join hundreds of pilgrims who have experienced the divine darshan of Adi Kailash &amp; Om Parvat
           </p>
-          <ExpeditionForm defaultPackage="Adi Kailash & Om Parvat Expedition" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 14, textAlign: "left" }}>
+            <input
+              type="text"
+              placeholder="Your name"
+              value={waName}
+              onChange={e => setWaName(e.target.value)}
+              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit", outline: "none" }}
+            />
+            <input
+              type="tel"
+              placeholder="WhatsApp number (with country code)"
+              value={waPhone}
+              onChange={e => setWaPhone(e.target.value)}
+              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit", outline: "none" }}
+            />
+            <button
+              onClick={() => {
+                const msg = encodeURIComponent(`Hi, I'm ${waName || 'interested in'} the Adi Kailash & Om Parvat Expedition. My WhatsApp: ${waPhone}`);
+                window.open(`https://wa.me/919084642557?text=${msg}`, '_blank');
+              }}
+              style={{ background: gold, color: bg, border: "none", borderRadius: 4, padding: "18px", fontSize: 13, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer", width: "100%" }}
+            >
+              Start Planning on WhatsApp
+            </button>
+          </div>
         </div>
       </section>
 
