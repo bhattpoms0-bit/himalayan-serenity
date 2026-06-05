@@ -20,6 +20,13 @@ const COMPANY_LINKS = [
   { label: 'FAQ',            href: '/faq'            },
 ]
 
+const INTERNATIONAL_RETREATS = [
+  { label: 'Panchachuli Himalayan Wellness Retreat', href: '/retreats/panchachuli-wellness'  },
+  { label: "Women's Sacred Himalaya Retreat",        href: '/retreats/womens-retreat'         },
+  { label: 'The Borderlands of the Himalaya',        href: '/retreats/borderlands-himalaya'   },
+  { label: 'Darma Valley Digital Detox',             href: '/retreats/darma-detox'            },
+]
+
 const SOCIAL = [Globe, Mail, Share2]
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -77,7 +84,7 @@ export default function Footer() {
         viewport={{ once: true }}
         className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-12 lg:py-20"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
 
           {/* ── Brand column ──────────────────────────────────────────────── */}
           <div>
@@ -133,6 +140,16 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* ── International Retreats column ─────────────────────────────── */}
+          <div>
+            <ColLabel>International Retreats</ColLabel>
+            <ul className="space-y-3.5">
+              {INTERNATIONAL_RETREATS.map(({ label, href }) => (
+                <FooterLink key={label} href={href}>{label}</FooterLink>
+              ))}
+            </ul>
           </div>
 
           {/* ── Newsletter + social column ────────────────────────────────── */}

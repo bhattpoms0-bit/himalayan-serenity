@@ -111,7 +111,9 @@ export default function WhyChooseUs() {
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <p className="section-tag mb-5">Why Choose Us</p>
+          <span style={{ color: '#C8A44B', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: 12 }}>
+            WHY CHOOSE US
+          </span>
           <h2
             className="font-serif text-brand-cream leading-tight tracking-[-0.02em] mb-5 text-3xl sm:text-4xl lg:text-5xl"
           >

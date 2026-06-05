@@ -6,28 +6,28 @@ import { ArrowRight, Clock, TrendingUp, Users } from 'lucide-react'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const FEATURED = [
   {
-    tag:        'Most Popular',
-    title:      'Adi Kailash Expedition',
-    subtitle:   'Pithoragarh · Dharchula · Gunji · Om Parvat',
-    days:       6,
-    difficulty: 'Moderate',
-    people:     12,
-    spots:      8,
-    price:      'Starting from ₹34,999',
-    image:      '/images/packages/adi-kailash-base.webp',
-    link:       '/packages/adi-kailash-expedition',
+    tag:           'Most Popular',
+    title:         'Adi Kailash Expedition',
+    subtitle:      'Pithoragarh · Dharchula · Gunji · Om Parvat',
+    days:          6,
+    difficulty:    'Moderate',
+    people:        12,
+    nextDeparture: 'Next departure: June 15, 2026',
+    price:         'Starting from ₹34,999',
+    image:         '/images/packages/adi-kailash-base.webp',
+    link:          '/packages/adi-kailash-expedition',
   },
   {
-    tag:        'Trekking Expedition',
-    title:      'Panchachuli Trekking Expedition',
-    subtitle:   'Munsiyari · Darkot · Duktu · Panchachuli Glacier Region',
-    days:       10,
-    difficulty: 'Challenging',
-    people:     8,
-    spots:      4,
-    price:      'On Request',
-    image:      '/images/packages/panchachuli-real.webp',
-    link:       '/packages/panchachuli-expedition',
+    tag:           'Trekking Expedition',
+    title:         'Panchachuli Trekking Expedition',
+    subtitle:      'Munsiyari · Darkot · Duktu · Panchachuli Glacier Region',
+    days:          10,
+    difficulty:    'Challenging',
+    people:        8,
+    nextDeparture: 'Next departure: September 2026',
+    price:         'On Request',
+    image:         '/images/packages/panchachuli-real.webp',
+    link:          '/packages/panchachuli-expedition',
   },
   {
     tag:      'Couples & Photographers',
@@ -217,10 +217,15 @@ function PackageCard({ pkg, large = false, index = 0 }) {
 
           {pkg.subtitle && (
             <p
-              className="font-sans mb-5"
+              className={`font-sans ${pkg.nextDeparture ? 'mb-2' : 'mb-5'}`}
               style={{ fontSize: 12, color: '#666666', letterSpacing: '0.03em' }}
             >
               {pkg.subtitle}
+            </p>
+          )}
+          {pkg.nextDeparture && (
+            <p className="font-sans mb-5" style={{ fontSize: 12, color: 'rgba(255,255,255,0.48)' }}>
+              {pkg.nextDeparture}
             </p>
           )}
 
@@ -306,7 +311,7 @@ export default function Packages() {
   const headerInView = useInView(headerRef, { once: true, margin: '-80px' })
 
   return (
-    <section className="bg-brand-dark-2 py-28 lg:py-36">
+    <section className="bg-brand-dark-2 pt-12 pb-16">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* ── Section header ─────────────────────────────────────────────── */}
@@ -315,25 +320,28 @@ export default function Packages() {
           initial={{ opacity: 0, y: 24 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
-          className="text-center mb-20"
+          className="mb-12"
+          style={{ textAlign: 'left', maxWidth: 700 }}
         >
           <p
             className="mb-5 uppercase"
-            style={{ fontFamily: '"Cinzel", serif', fontSize: 11, letterSpacing: '0.2em', color: '#e07b2a' }}
+            style={{ fontFamily: '"Cinzel", serif', fontSize: 11, letterSpacing: '0.14em', color: '#C8A44B' }}
           >
-            Curated Journeys
+            Himalayan Expeditions
           </p>
 
-          <h2 className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em] text-3xl sm:text-4xl lg:text-5xl">
-            Sacred Peaks &amp; Spiritual Trails
+          <h2
+            className="font-serif text-brand-cream mb-5 leading-tight tracking-[-0.02em] text-3xl sm:text-4xl lg:text-5xl"
+            style={{ textAlign: 'left' }}
+          >
+            Curated Himalayan Expeditions
           </h2>
 
           <p
-            className="font-sans mx-auto text-center leading-[1.75]"
-            style={{ fontSize: 16, color: '#888888', maxWidth: '36rem' }}
+            className="font-sans leading-[1.75]"
+            style={{ fontSize: 16, color: '#888888', maxWidth: '560px', textAlign: 'left' }}
           >
-            Embark on a transformative journey through the world's most majestic landscapes.
-            Our expeditions blend physical challenge with profound spiritual renewal.
+            Hand-crafted sacred journeys into the high Kumaon Himalaya — fully permitted, safety-assured, culturally immersive.
           </p>
         </motion.div>
 

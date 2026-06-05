@@ -15,7 +15,16 @@ export default function CTASection() {
   }, [])
 
   return (
-    <section className="bg-brand-dark py-28 lg:py-36 relative overflow-hidden">
+    <section
+      className="py-16 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/packages/panchachuli-sunrise.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+      }}
+    >
+      {/* Dark overlay */}
+      <div className="absolute inset-0" style={{ background: 'rgba(8, 18, 14, 0.82)' }} />
       {/* Subtle radial glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[300px] rounded-full bg-brand-orange/[0.04] blur-[100px]" />
