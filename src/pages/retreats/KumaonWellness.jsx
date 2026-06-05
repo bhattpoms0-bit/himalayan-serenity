@@ -182,7 +182,7 @@ export default function KumaonWellness() {
   })
 
   const [form, setForm] = useState({
-    name: '', country: '', retreat: 'Kumaon Wellness Immersion',
+    name: '', country: '', retreat: 'Panchachuli Himalayan Wellness & Cultural Immersion Retreat',
     dates: '', groupSize: '', email: '', message: '',
   })
   const [status, setStatus] = useState('idle')
@@ -466,10 +466,11 @@ export default function KumaonWellness() {
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
-                <option>Kumaon Wellness Immersion</option>
-                <option>Darma Valley Detox Trek</option>
+                <option value="" disabled>Which retreat?</option>
+                <option>Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat</option>
                 <option>{"Women's Sacred Himalaya Retreat"}</option>
-                <option>Panchakarma Silence Retreat</option>
+                <option>The Borderlands of the Himalaya</option>
+                <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
               <input

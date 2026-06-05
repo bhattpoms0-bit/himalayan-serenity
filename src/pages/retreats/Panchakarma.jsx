@@ -220,7 +220,7 @@ export default function Panchakarma() {
   })
 
   const [form, setForm] = useState({
-    name: '', country: '', retreat: 'Borderlands of the Himalaya',
+    name: '', country: '', retreat: 'The Borderlands of the Himalaya',
     dates: '', groupSize: '', heardFrom: '', email: '', message: '',
   })
   const [status, setStatus] = useState('idle')
@@ -539,10 +539,11 @@ export default function Panchakarma() {
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#14100a]`}
               >
-                <option>Kumaon Wellness Immersion</option>
-                <option>Darma Valley Detox Trek</option>
+                <option value="" disabled>Which retreat?</option>
+                <option>Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat</option>
                 <option>{"Women's Sacred Himalaya Retreat"}</option>
-                <option>Borderlands of the Himalaya</option>
+                <option>The Borderlands of the Himalaya</option>
+                <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
               <input

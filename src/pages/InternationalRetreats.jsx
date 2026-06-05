@@ -299,10 +299,10 @@ export default function InternationalRetreats() {
                 className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
                 <option value="" disabled>Which retreat?</option>
-                <option>Kumaon Wellness Immersion</option>
-                <option>Darma Valley Detox Trek</option>
+                <option>Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat</option>
                 <option>{"Women's Sacred Himalaya Retreat"}</option>
-                <option>Panchakarma Silence Retreat</option>
+                <option>The Borderlands of the Himalaya</option>
+                <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
               <input

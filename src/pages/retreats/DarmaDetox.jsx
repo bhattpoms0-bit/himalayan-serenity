@@ -195,7 +195,7 @@ export default function DarmaDetox() {
   })
 
   const [form, setForm] = useState({
-    name: '', country: '', retreat: 'Darma Valley Detox Trek',
+    name: '', country: '', retreat: 'Darma Valley Digital Detox',
     dates: '', groupSize: '', fitnessLevel: '', email: '', message: '',
   })
   const [status, setStatus] = useState('idle')
@@ -472,10 +472,11 @@ export default function DarmaDetox() {
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
-                <option>Darma Valley Detox Trek</option>
-                <option>Kumaon Wellness Immersion</option>
+                <option value="" disabled>Which retreat?</option>
+                <option>Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat</option>
                 <option>{"Women's Sacred Himalaya Retreat"}</option>
-                <option>Panchakarma Silence Retreat</option>
+                <option>The Borderlands of the Himalaya</option>
+                <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
               <input

@@ -138,7 +138,7 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
-                      Interested Expedition
+                      Interested In
                     </label>
                     <select
                       name="expedition"
@@ -146,15 +146,23 @@ export default function ContactPage() {
                       onChange={handleChange}
                       className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm focus:outline-none focus:border-brand-orange/50 transition-colors"
                     >
-                      <option value="" disabled>Select an expedition...</option>
-                      <option>Adi Kailash Expedition</option>
-                      <option>Panchachuli Trekking Expedition</option>
-                      <option>Eastern Kumaon Cinematic Expedition</option>
-                      <option>Eastern Kumaon Wilderness Expedition</option>
-                      <option>Himalayan Wellness & Meditation Retreat</option>
-                      <option>Himalayan Photography Expedition</option>
-                      <option>Winter Himalayan Wellness Retreat</option>
-                      <option>Women-Only Expedition (Darma Valley)</option>
+                      <option value="" disabled>Select an expedition or retreat...</option>
+                      <optgroup label="Himalayan Expeditions">
+                        <option>Adi Kailash Expedition</option>
+                        <option>Panchachuli Trekking Expedition</option>
+                        <option>Eastern Kumaon Cinematic Expedition</option>
+                        <option>Eastern Kumaon Wilderness Expedition</option>
+                        <option>Himalayan Wellness &amp; Meditation Retreat</option>
+                        <option>Himalayan Photography Expedition</option>
+                        <option>Winter Himalayan Wellness Retreat</option>
+                        <option>Women-Only Expedition (Darma Valley)</option>
+                      </optgroup>
+                      <optgroup label="International Retreats">
+                        <option>Panchachuli Himalayan Wellness Retreat</option>
+                        <option>Women's Sacred Himalaya Retreat</option>
+                        <option>The Borderlands of the Himalaya</option>
+                        <option>Darma Valley Digital Detox</option>
+                      </optgroup>
                     </select>
                   </div>
 
