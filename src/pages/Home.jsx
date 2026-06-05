@@ -30,51 +30,78 @@ export default function Home() {
         <section aria-label="Hero"><Hero /></section>
 
         {/* ── Audience Split ────────────────────────────────────────────── */}
-        <section aria-label="Who we serve" className="bg-[#0d0d0d] border-b border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10">
+        <section aria-label="Who we serve" className="bg-[#0d0d0d] py-10">
+          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
             <div className="flex flex-col md:flex-row gap-4">
 
-              {/* Left — Indian Pilgrims */}
-              <div className="flex-1 border border-[#e07b2a]/20 rounded-xl p-8">
-                <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#e07b2a] mb-3">
-                  Indian Pilgrims &amp; Trekkers
-                </p>
-                <p className="font-sans text-sm text-white/60 leading-relaxed mb-5">
-                  Adi Kailash, Om Parvat, Panchachuli yatras
-                </p>
-                <Link
-                  to="/experiences"
-                  className="font-sans text-sm text-[#e07b2a] no-underline hover:opacity-75 transition-opacity duration-200"
-                >
-                  Explore expeditions →
-                </Link>
-              </div>
+              {/* Card 1 — Indian Pilgrims */}
+              <Link to="/experiences" className="flex-1 no-underline group">
+                <div className="relative h-[300px] rounded-[10px] overflow-hidden">
+                  <img
+                    src="/images/packages/adi-kailash/om-parvat-1.webp"
+                    alt="Om Parvat sacred mountain, Adi Kailash yatra Kumaon Himalaya"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)' }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="font-sans" style={{ color: '#e07b2a', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 0 }}>
+                      Indian Pilgrims &amp; Trekkers
+                    </p>
+                    <h3 className="font-serif text-white" style={{ fontSize: 22, fontWeight: 400, margin: '6px 0' }}>
+                      Adi Kailash, Om Parvat &amp; Panchachuli Yatras
+                    </h3>
+                    <p className="font-sans" style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: 10 }}>
+                      Sacred high-altitude pilgrimages from Pithoragarh into the divine Kumaon Himalaya.
+                    </p>
+                    <span className="font-sans" style={{ color: '#e07b2a', fontSize: 13, fontWeight: 500 }}>
+                      Explore expeditions →
+                    </span>
+                  </div>
+                </div>
+              </Link>
 
-              {/* Right — International Travellers */}
-              <div className="flex-1 border border-[#1D9E75]/20 rounded-xl p-8">
-                <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#1D9E75] mb-3">
-                  International Travellers
-                </p>
-                <p className="font-sans text-sm text-white/60 leading-relaxed mb-5">
-                  Yoga, meditation, Ayurveda &amp; detox retreats
-                </p>
-                <Link
-                  to="/international-retreats"
-                  className="font-sans text-sm text-[#1D9E75] no-underline hover:opacity-75 transition-opacity duration-200"
-                >
-                  Discover retreats →
-                </Link>
-              </div>
+              {/* Card 2 — International Travellers */}
+              <Link to="/international-retreats" className="flex-1 no-underline group">
+                <div className="relative h-[300px] rounded-[10px] overflow-hidden">
+                  <img
+                    src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
+                    alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon wellness retreat"
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)' }}
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <p className="font-sans" style={{ color: '#1D9E75', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 0 }}>
+                      International Travellers
+                    </p>
+                    <h3 className="font-serif text-white" style={{ fontSize: 22, fontWeight: 400, margin: '6px 0' }}>
+                      Yoga, Ayurveda &amp; Himalayan Wellness Retreats
+                    </h3>
+                    <p className="font-sans" style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: 10 }}>
+                      Transformative retreats designed for global seekers — no permits required.
+                    </p>
+                    <span className="font-sans" style={{ color: '#1D9E75', fontSize: 13, fontWeight: 500 }}>
+                      Discover retreats →
+                    </span>
+                  </div>
+                </div>
+              </Link>
 
             </div>
           </div>
         </section>
 
-        <section aria-label="Why Choose Us"><WhyChooseUs /></section>
         <section id="packages-section" aria-label="Packages"><Packages /></section>
 
         {/* ── International Retreats Preview ────────────────────────────── */}
-        <section aria-label="International Retreats" className="bg-[#0a100d] py-28 lg:py-36">
+        <section aria-label="International Retreats" className="bg-[#0a100d] py-16">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
             {/* Header */}
@@ -181,6 +208,7 @@ export default function Home() {
           </div>
         </section>
 
+        <section aria-label="Why Choose Us"><WhyChooseUs /></section>
         <section aria-label="Testimonials"><Testimonials /></section>
         <section aria-label="Call to Action"><CTASection /></section>
       </main>

@@ -2,78 +2,98 @@
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
+const FLAG = {
+  in: <img src="https://flagcdn.com/24x18/in.png" alt="India"     className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  gb: <img src="https://flagcdn.com/24x18/gb.png" alt="UK"        className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  de: <img src="https://flagcdn.com/24x18/de.png" alt="Germany"   className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  fr: <img src="https://flagcdn.com/24x18/fr.png" alt="France"    className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  au: <img src="https://flagcdn.com/24x18/au.png" alt="Australia" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  ru: <img src="https://flagcdn.com/24x18/ru.png" alt="Russia"    className="inline-block w-6 h-4 rounded-sm align-middle" />,
+}
+
 const testimonials = [
+  // ── Slide 1: 1 Indian + 2 International ────────────────────────────
   {
     stars:  5,
-    quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. Himalayan Serenity arranged everything flawlessly — permits, accommodation, guides. A life-changing yatra.',
-    name:   <><img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Rajesh Sharma</>,
+    quote:  'Standing before Om Parvat and seeing the sacred ॐ symbol in snow with my own eyes was a moment I cannot describe in words. A life-changing yatra — every detail arranged flawlessly by Himalayan Serenity.',
+    name:   'Rajesh Sharma',
     info:   'New Delhi, India · Adi Kailash Expedition, May 2024',
     avatar: '/images/testimonials/rajesh-sharma.webp',
-    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
+    flag:   FLAG.in,
   },
   {
     stars:  5,
-    quote:  'As a solo woman traveler I had concerns, but the all-women group and our female guide made me feel completely safe and empowered. The Darma Valley is paradise on earth. Will do this again next year.',
-    name:   'Priya Nair',
-    info:   'Bangalore, India · Women-Only Expedition, April 2024',
-    avatar: '/images/testimonials/priya-nair.webp',
-    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
-  },
-  {
-    stars:  5,
-    quote:  'I have trekked in Nepal, Peru and Patagonia — but Panchachuli was something else entirely. Raw, untouched, spiritual. The team\'s attention to safety at altitude was exceptional. Highly recommended for serious trekkers.',
-    name:   'Thomas Bergmann',
-    info:   'Munich, Germany · Panchachuli Trekking Expedition, Sept 2024',
-    avatar: '/images/testimonials/thomas-bergmann.webp',
-    flag:   <img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm align-middle" />,
-  },
-  {
-    stars:  4,
-    quote:  'Maine pehle kai baar suna tha Adi Kailash ke baare mein, par is yatra ne meri aatma ko chhu liya. Guides bahut experienced the aur har zaroorat ka khayal rakha. Bas kuch aur din hote toh aur achha hota. Himalayan Serenity ko dil se dhanyavaad.',
-    name:   'Sunita Rawat',
-    info:   'Dehradun, India · Adi Kailash Yatra, June 2024',
-    avatar: '/images/testimonials/sunita-rawat.webp',
-    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
-  },
-  {
-    stars:  5,
-    quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. The Milam Trail is absolutely stunning and our guide Deepak\'s knowledge of local culture and flora was incredible. Worth every penny.',
-    name:   <><img src="https://flagcdn.com/24x18/gb.png" alt="UK" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Sarah T. — London, UK</>,
-    info:   'London, UK · Eastern Kumaon Wilderness, Oct 2024',
+    quote:  'I found Himalayan Serenity through a friend and it was the best travel decision I ever made. Our guide\'s knowledge of the ancient trade routes and local culture was extraordinary — worth every penny and more.',
+    name:   'Sarah Thompson',
+    info:   'London, UK · The Borderlands of the Himalaya, Oct 2024',
     avatar: '/images/testimonials/sarah-mitchell.webp',
-    flag:   <img src="https://flagcdn.com/24x18/gb.png" alt="UK" className="inline-block w-5 h-4 rounded-sm align-middle" />,
+    flag:   FLAG.gb,
   },
   {
     stars:  5,
-    quote:  'As a wildlife and landscape photographer, I needed guides who understood golden hour, patience, and remote access. This team delivered beyond expectations. Came back with 3000 shots, 50 of which are portfolio-worthy. Extraordinary.',
-    name:   <><img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm mr-1 align-middle" />Klaus W. — Munich, Germany</>,
-    info:   'Munich, Germany · Himalayan Photography Expedition, May 2024',
-    avatar: '/images/testimonials/amit-kulkarni.webp',
-    flag:   <img src="https://flagcdn.com/24x18/de.png" alt="Germany" className="inline-block w-5 h-4 rounded-sm align-middle" />,
+    quote:  'I came for the yoga and Ayurveda — I stayed for the mountains. Seven days of Sattvic meals, morning practice at Khaliya Top with the Panchachuli peaks in front of me, and Ayurvedic treatments that reset my body completely. Nothing in Europe comes close to this.',
+    name:   'Thomas Bergmann',
+    info:   'Munich, Germany · Panchachuli Wellness Retreat, Sept 2024',
+    avatar: '/images/testimonials/thomas-bergmann.webp',
+    flag:   FLAG.de,
   },
+  // ── Slide 2: 1 Indian + 2 International ────────────────────────────
+  {
+    stars:  5,
+    quote:  'As a solo woman traveler I had concerns, but the all-women group and our female guide made me feel completely safe and empowered. The Darma Valley is paradise on earth.',
+    name:   'Priya Nair',
+    info:   "Bangalore, India · Women's Himalaya Retreat, April 2024",
+    avatar: '/images/testimonials/priya-nair.webp',
+    flag:   FLAG.in,
+  },
+  {
+    stars:  5,
+    quote:  'I came to the Himalayas searching for stillness after a difficult year. The women\'s retreat gave me far more than I expected — Shakti yoga at sunrise, Ayurvedic meals, and the warmth of guides who felt like family. I left a different person.',
+    name:   'Emma Lescaut',
+    info:   "Lyon, France · Women's Himalaya Retreat, May 2024",
+    avatar: '/images/testimonials/yuki-tanaka.webp',
+    flag:   FLAG.fr,
+  },
+  {
+    stars:  5,
+    quote:  'I booked the Darma Valley Detox to disconnect from screens and reconnect with myself. Eleven days of trail yoga, tribal village stays and herbal medicine in the most remote valley I have ever visited. Completely life-changing.',
+    name:   'Daniel Hurst',
+    info:   'Melbourne, Australia · Darma Valley Detox, June 2024',
+    avatar: '/images/testimonials/amit-kulkarni.webp',
+    flag:   FLAG.au,
+  },
+  // ── Slide 3: 2 International + 1 Indian ────────────────────────────
   {
     stars:  4,
-    quote:  'I came searching for silence and found something much deeper — a connection to the mountains I did not know was possible. The meditation sessions at altitude were transformative. Would have loved one extra day at the retreat. I will carry this experience forever.',
-    name:   'Yuki Tanaka',
-    info:   'Tokyo, Japan · Himalayan Wellness & Meditation Retreat, March 2024',
-    avatar: '/images/testimonials/yuki-tanaka.webp',
-    flag:   '🇯🇵',
+    quote:  'Я приехала в Гималаи в поисках тишины и нашла нечто гораздо большее — связь с горами, которую невозможно описать словами. Медитации на высоте изменили меня изнутри. Himalayan Serenity — это не просто тур, это опыт на всю жизнь.',
+    name:   'Natasha Volkova',
+    info:   'Moscow, Russia · Panchachuli Retreat, March 2024',
+    avatar: '/images/testimonials/sunita-rawat.webp',
+    flag:   FLAG.ru,
   },
   {
     stars:  5,
-    quote:  'Turning 40 was the perfect excuse to do something bold. This trek was challenging but the team never let me feel like giving up was an option. Crossed the glacier on day 6 and cried happy tears at the top. Best birthday gift to myself.',
+    quote:  'As a wildlife and landscape photographer I needed guides who understood golden hour, patience and remote access. The Darma Valley delivered all three — came back with 50 portfolio-worthy shots.',
+    name:   'Klaus Weber',
+    info:   'Munich, Germany · Darma Valley Digital Detox, May 2024',
+    avatar: '/images/testimonials/amit-kulkarni.webp',
+    flag:   FLAG.de,
+  },
+  {
+    stars:  5,
+    quote:  'Turning 40 was the perfect excuse to do something bold. Challenging but the team never let me feel like giving up was an option. Crossed the glacier on day 6 and cried happy tears at the top.',
     name:   'Meera Joshi',
     info:   'Mumbai, India · Panchachuli Trek, August 2024',
     avatar: '/images/testimonials/meera-joshi.webp',
-    flag:   <img src="https://flagcdn.com/24x18/in.png" alt="India" className="inline-block w-5 h-4 rounded-sm align-middle" />,
+    flag:   FLAG.in,
   },
 ]
 
-// Group into slides of 3 (3 + 3 + 2)
+// Group into slides of 3 (3 + 3 + 3)
 const slides = [
   testimonials.slice(0, 3),
   testimonials.slice(3, 6),
-  testimonials.slice(6, 8),
+  testimonials.slice(6, 9),
 ]
 const SLIDE_COUNT = slides.length
 
@@ -159,8 +179,7 @@ export default function Testimonials() {
             className="font-sans mx-auto"
             style={{ fontSize: 15, color: '#777777', maxWidth: '32rem', lineHeight: 1.75 }}
           >
-            Each traveler who walks these ancient paths carries a story
-            only mountains can write.
+            From Indian pilgrims to international seekers — real stories from the mountains.
           </p>
         </motion.div>
 

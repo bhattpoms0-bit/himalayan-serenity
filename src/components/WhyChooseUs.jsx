@@ -100,26 +100,25 @@ export default function WhyChooseUs() {
   const headerInView = useInView(headerRef, { once: true, margin: '-80px' })
 
   return (
-    <section className="bg-brand-dark py-16 lg:py-32">
+    <section className="bg-brand-dark py-16">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Section Header */}
         <motion.div
           ref={headerRef}
-          className="max-w-xl mb-20"
+          className="max-w-xl mb-8"
           initial={{ opacity: 0, y: 24 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <p className="section-tag mb-5">The Foundation of Your Journey</p>
+          <p className="section-tag mb-5">Why Choose Us</p>
           <h2
             className="font-serif text-brand-cream leading-tight tracking-[-0.02em] mb-5 text-3xl sm:text-4xl lg:text-5xl"
           >
-            Why Explorers<br />Choose Us
+            What Sets Our Expeditions Apart
           </h2>
           <p className="font-sans text-brand-text-muted text-[14.5px] leading-[1.78]">
-            Beyond the peaks and the trails lies a commitment to safety, heritage, and
-            excellence that defines every ascent we lead.
+            From the Kumaon foothills to 20,000ft sacred summits — every detail handled, every traveller safe.
           </p>
         </motion.div>
 
