@@ -88,61 +88,83 @@ export default function Home() {
             </div>
 
             {/* Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
 
-              {/* Card 1 — Yoga & Ayurveda */}
-              <Link to="/international-retreats" className="no-underline group">
-                <div className="rounded-2xl border border-[#1D9E75]/20 bg-[#0d1510] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-[#1D9E75]/40 group-hover:-translate-y-1">
-                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-[#1D9E75] bg-[#1D9E75]/10 rounded-full px-3 py-1.5 mb-6">
-                    Yoga &amp; Ayurveda
-                  </span>
-                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
-                    Kumaon Wellness Immersion
-                  </h3>
-                  <p className="font-sans text-sm text-white/50 mb-5">
-                    Munsiyari · 7 nights · No permit required
-                  </p>
-                  <p className="font-sans text-sm font-medium text-[#1D9E75] mt-auto">
-                    From €1,400 per person
-                  </p>
+              {/* Card 1 — Panchachuli Wellness */}
+              <Link to="/retreats/panchachuli-wellness" className="no-underline group">
+                <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
+                  <img
+                    src="/images/retreats/kumaon-wellness-retreat-card.jfif"
+                    alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat"
+                    loading="lazy"
+                    className="w-full object-cover"
+                    style={{ height: 220, objectPosition: 'center' }}
+                  />
+                  <div className="flex flex-col flex-1 p-7">
+                    <span className="inline-block self-start text-xs rounded-full px-3 py-1 mb-4 bg-[#1D9E75]/20 text-[#5DCAA5]">
+                      Yoga &amp; Ayurveda
+                    </span>
+                    <h3 className="font-serif text-[#f0ece4] text-xl mb-2">
+                      Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
+                    </h3>
+                    <p className="text-[#f0ece4]/50 text-sm mb-3">Munsiyari · Khaliya Top · 7 nights</p>
+                    <p className="text-[#f0ece4]/60 text-sm mb-6">Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise</p>
+                    <p className="text-[#e07b2a] font-medium mt-auto">From €1,400 per person</p>
+                  </div>
                 </div>
               </Link>
 
-              {/* Card 2 — Wilderness Detox */}
-              <Link to="/international-retreats" className="no-underline group">
-                <div className="rounded-2xl border border-[#1D9E75]/20 bg-[#0d1510] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-[#1D9E75]/40 group-hover:-translate-y-1">
-                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-[#1D9E75] bg-[#1D9E75]/10 rounded-full px-3 py-1.5 mb-6">
-                    Wilderness Detox
-                  </span>
-                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
-                    Darma Valley Detox Trek
-                  </h3>
-                  <p className="font-sans text-sm text-white/50 mb-5">
-                    Darma Valley · 11 nights · No permit required
-                  </p>
-                  <p className="font-sans text-sm font-medium text-[#1D9E75] mt-auto">
-                    From €2,200 per person
-                  </p>
+              {/* Card 2 — Women's Sacred Himalaya */}
+              <Link to="/retreats/womens-retreat" className="no-underline group">
+                <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
+                  <img
+                    src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+                    alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
+                    loading="lazy"
+                    className="w-full object-cover"
+                    style={{ height: 220, objectPosition: 'center top' }}
+                  />
+                  <div className="flex flex-col flex-1 p-7">
+                    <span className="inline-block self-start text-xs rounded-full px-3 py-1 mb-4 bg-pink-900/30 text-pink-300">
+                      Women Only
+                    </span>
+                    <h3 className="font-serif text-[#f0ece4] text-xl mb-2">
+                      Women's Sacred Himalaya Retreat
+                    </h3>
+                    <p className="text-[#f0ece4]/50 text-sm mb-3">Munsiyari + Darma · 9 nights</p>
+                    <p className="text-[#f0ece4]/60 text-sm mb-6">Female guides · Shakti yoga · Cultural exchange · Moon meditation</p>
+                    <p className="text-[#e07b2a] font-medium mt-auto">From €2,000 per person</p>
+                  </div>
                 </div>
               </Link>
 
-              {/* Card 3 — Women Only */}
-              <Link to="/international-retreats" className="no-underline group">
-                <div className="rounded-2xl border border-pink-500/20 bg-[#110d0e] p-8 h-full flex flex-col transition-all duration-300 group-hover:border-pink-500/40 group-hover:-translate-y-1">
-                  <span className="inline-block self-start font-sans text-[10px] uppercase tracking-[0.15em] text-pink-400 bg-pink-500/10 rounded-full px-3 py-1.5 mb-6">
-                    Women Only
-                  </span>
-                  <h3 className="font-serif text-white text-xl leading-snug mb-3">
-                    Women's Sacred Himalaya Retreat
-                  </h3>
-                  <p className="font-sans text-sm text-white/50 mb-5">
-                    Munsiyari + Darma · 9 nights
-                  </p>
-                  <p className="font-sans text-sm font-medium text-pink-400 mt-auto">
-                    From €2,000 per person
-                  </p>
+              {/* Card 3 — Borderlands (centered on tablet) */}
+              <div className="md:col-span-2 lg:col-span-1">
+                <div className="md:w-1/2 md:mx-auto lg:w-full">
+                  <Link to="/retreats/borderlands-himalaya" className="no-underline group">
+                    <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
+                      <img
+                        src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png"
+                        alt="Kumaon Himalaya luxury retreat sunrise view, Borderlands of the Himalaya cultural journey"
+                        loading="lazy"
+                        className="w-full object-cover"
+                        style={{ height: 220, objectPosition: 'center' }}
+                      />
+                      <div className="flex flex-col flex-1 p-7">
+                        <span className="inline-block self-start text-xs rounded-full px-3 py-1 mb-4 bg-purple-900/30 text-purple-300">
+                          Ultra Premium
+                        </span>
+                        <h3 className="font-serif text-[#f0ece4] text-xl mb-2">
+                          The Borderlands of the Himalaya
+                        </h3>
+                        <p className="text-[#f0ece4]/50 text-sm mb-3">Johar Valley · Abbott Mount · Kasar Devi · Lohaghat</p>
+                        <p className="text-[#f0ece4]/60 text-sm mb-6">Myths · Mountains · Ancient Trade Routes · Signature experiences</p>
+                        <p className="text-[#e07b2a] font-medium mt-auto">From €1,800 per person</p>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </Link>
+              </div>
 
             </div>
 
