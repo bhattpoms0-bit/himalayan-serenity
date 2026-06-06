@@ -174,6 +174,7 @@ export default function WomensRetreat() {
   useSEO({
     title:       'Women of Kumaon — Women-Only Cultural Immersion Retreat | Himalayan Serenity',
     description: '9-day women-only cultural immersion journey through the Kumaon Himalaya. Women-led, max 8 guests. Weaving, sacred landscapes, mountain traditions, Panchachuli views.',
+    canonical:   'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
   })
 
   const [form, setForm] = useState({

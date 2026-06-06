@@ -158,6 +158,7 @@ export default function PanchachuliExpedition() {
   useSEO({
     title: 'Panchachuli Trek 2026 | Panchachuli Base Camp Tour from Delhi & Munsiyari',
     description: 'Book Panchachuli Base Camp trek 2026 from Delhi and Munsiyari. Panchachuli mountain tour with expert local guides from Pithoragarh. Small group Kumaon trekking package.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/panchachuli-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

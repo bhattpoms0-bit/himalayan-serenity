@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+Disallow: /contact?
+Disallow: /expeditions
+
 Sitemap: https://www.himalayanserenitytravel.com/sitemap.xml

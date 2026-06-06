@@ -217,6 +217,7 @@ export default function Panchakarma() {
   useSEO({
     title:       'The Borderlands of the Himalaya — Premium Cultural Journey | Himalayan Serenity',
     description: '10-day premium cultural journey through the Kumaon Himalayan borderlands. Ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests.',
+    canonical:   'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
   })
 
   const [form, setForm] = useState({

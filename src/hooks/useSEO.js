@@ -12,12 +12,31 @@ function setMeta(name, content, attr = 'name') {
   el.content = content
 }
 
-export function useSEO({ title, description }) {
+function setCanonical(href) {
+  let el = document.querySelector('link[rel="canonical"]')
+  if (!el) {
+    el = document.createElement('link')
+    el.setAttribute('rel', 'canonical')
+    document.head.appendChild(el)
+  }
+  el.setAttribute('href', href)
+}
+
+function removeCanonical() {
+  const el = document.querySelector('link[rel="canonical"]')
+  if (el) el.remove()
+}
+
+export function useSEO({ title, description, canonical }) {
   useEffect(() => {
     document.title = title
     setMeta('description', description)
     setMeta('og:title', title, 'property')
     setMeta('og:description', description, 'property')
-    return () => { document.title = DEFAULT_TITLE }
-  }, [title, description])
+    if (canonical) setCanonical(canonical)
+    return () => {
+      document.title = DEFAULT_TITLE
+      if (canonical) removeCanonical()
+    }
+  }, [title, description, canonical])
 }

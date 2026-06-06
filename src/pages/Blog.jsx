@@ -14,6 +14,7 @@ export default function Blog() {
   useSEO({
     title: 'Adi Kailash Yatra Guide 2026 | Kumaon Trek Blog | Om Parvat Travel Tips',
     description: 'Complete guide for Adi Kailash Yatra 2026, Om Parvat darshan, Adi Kailash opening date, Dharchula to Adi Kailash distance, altitude sickness tips and Kumaon trekking guides.',
+    canonical: 'https://www.himalayanserenitytravel.com/blog',
   })
   return (
     <div className="min-h-screen bg-brand-dark">

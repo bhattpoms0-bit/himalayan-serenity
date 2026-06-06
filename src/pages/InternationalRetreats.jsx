@@ -85,6 +85,7 @@ export default function InternationalRetreats() {
   useSEO({
     title:       'International Retreats — Yoga, Ayurveda & Detox in the Himalayas | Himalayan Serenity',
     description: 'Intimate yoga, Ayurveda and wellness retreats in the Kumaon Himalaya. No permits required for international travellers. Small groups. Prices in EUR, USD, GBP.',
+    canonical:   'https://www.himalayanserenitytravel.com/international-retreats',
   })
 
   const [form, setForm] = useState({
