@@ -1,4 +1,5 @@
-﻿import { motion } from 'framer-motion'
+﻿import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -106,9 +107,11 @@ export default function Sustainability() {
               Treading Gently Through Sacred Landscapes
             </h2>
             <p className="font-sans text-brand-text-muted text-lg leading-[1.9]">
-              The mountains that shelter us deserve our deepest respect. At Himalayan
-              Serenity, sustainability isn't a policy — it's a philosophy woven into every
-              journey we design. We believe that the most profound travel experiences come
+              The mountains that shelter us deserve our deepest respect. At{' '}
+              <Link to="/about" style={{ color: '#C8A44B', textDecoration: 'none' }}>Himalayan Serenity</Link>,
+              sustainability isn't a policy — it's a philosophy woven into{' '}
+              <Link to="/international-retreats" style={{ color: '#C8A44B', textDecoration: 'none' }}>every journey we design</Link>.
+              We believe that the most profound travel experiences come
               from treading gently, giving generously, and leaving landscapes exactly as
               nature intended them.
             </p>

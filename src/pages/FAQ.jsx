@@ -11,7 +11,7 @@ const EASE = [0.25, 0.46, 0.45, 0.94]
 const faqs = [
   {
     q: 'When is the most auspicious time to visit?',
-    a: 'The best time for Himalayan expeditions is May–June and September–October. These months offer stable weather, clear skies, and the most vibrant spiritual festivals. Our guides can also advise based on your specific pilgrimage goals.',
+    a: <>The best time for <Link to="/packages/adi-kailash-expedition" style={{ color: '#C9A84C', textDecoration: 'none' }}>Himalayan expeditions</Link> is May–June and September–October. These months offer stable weather, clear skies, and the most vibrant spiritual festivals. Our guides can also advise based on your specific pilgrimage goals.</>,
   },
   {
     q: 'How should I prepare for the spiritual ascent?',
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'Do you offer women-only departures?',
-    a: 'Yes. Our dedicated Women-Only Expeditions depart throughout the season, led entirely by female mountain experts and spiritual guides. These journeys foster a uniquely empowering and safe environment.',
+    a: <>Yes. Our dedicated <Link to="/retreats/womens-retreat" style={{ color: '#C9A84C', textDecoration: 'none' }}>Women's Sacred Himalaya Retreat</Link> departs throughout the season, led entirely by female mountain experts and spiritual guides. These journeys foster a uniquely empowering and safe environment.</>,
   },
 ]
 
@@ -189,6 +189,10 @@ export default function FAQPage() {
               Need help with Inner Line Permit for Adi Kailash or Om Parvat?{' '}
               <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: '#C9A84C', textDecoration: 'none' }}>
                 Read our complete ILP guide →
+              </Link>
+              {' · '}Ready to book?{' '}
+              <Link to="/contact" style={{ color: '#C9A84C', textDecoration: 'none' }}>
+                Contact our team →
               </Link>
             </p>
           </div>

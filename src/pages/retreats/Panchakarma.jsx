@@ -357,8 +357,9 @@ export default function Panchakarma() {
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
             This is not a conventional sightseeing tour. It is a story-led journey through myths,
             forgotten forts, high-alpine meadows, and communities that have preserved traditions for
-            centuries. Designed for discerning international travelers, every day features a signature
-            experience, seamless logistics, and genuine cultural connection.
+            centuries. Designed for{' '}
+            <Link to="/international-retreats" style={{ color: '#fbbf24', textDecoration: 'none' }}>discerning international travelers</Link>,
+            every day features a signature experience, seamless logistics, and genuine cultural connection.
           </p>
           <p className="font-serif italic text-amber-400 text-lg text-center mt-6">
             A rare, premium experience designed to leave you transformed.

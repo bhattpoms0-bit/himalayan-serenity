@@ -1,4 +1,5 @@
 ﻿import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
 
@@ -857,7 +858,9 @@ export default function AdiKailashExpedition() {
             Enquire Now
           </a>
           <div style={{ fontSize: 12, color: "#3a3028", letterSpacing: "0.08em" }}>
-            Limited seasonal departures · Inner Line Permit included · Max 8–10 travelers
+            Limited seasonal departures ·{' '}
+            <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#3a3028", textDecoration: 'underline' }}>Inner Line Permit included</Link>
+            {' '}· Max 8–10 travelers
           </div>
         </motion.section>
 
@@ -873,7 +876,8 @@ export default function AdiKailashExpedition() {
             Ready to Begin Your Sacred Himalayan Journey?
           </h2>
           <p style={{ fontSize: "1rem", color: muted, marginBottom: 36, lineHeight: 1.7 }}>
-            Join hundreds of pilgrims who have experienced the divine darshan of Adi Kailash &amp; Om Parvat
+            Join hundreds of pilgrims who have experienced the divine darshan of{' '}
+            <Link to="/blog/adi-kailash-vs-kailash-mansarovar" style={{ color: gold, textDecoration: 'none' }}>Adi Kailash &amp; Om Parvat</Link>
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 14, textAlign: "left" }}>
             <input

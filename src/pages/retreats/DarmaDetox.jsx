@@ -300,8 +300,9 @@ export default function DarmaDetox() {
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
             Hidden beyond the familiar routes of Himalayan tourism, Darma Valley remains one of
             India's last truly untouched mountain landscapes. Home to the indigenous Shauka community
-            and framed by the magnificent Panchachuli peaks, this remote valley offers something
-            increasingly rare in modern travel: genuine disconnection.
+            and framed by the{' '}
+            <Link to="/retreats/panchachuli-wellness" style={{ color: '#1D9E75', textDecoration: 'none' }}>magnificent Panchachuli peaks</Link>,
+            this remote valley offers something increasingly rare in modern travel: genuine disconnection.
           </p>
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
             For twelve transformative days, you will leave behind schedules, notifications, and

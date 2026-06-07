@@ -263,7 +263,11 @@ export default function AdiKailashILPGuide() {
             Let Us Handle Your ILP — Completely
           </h3>
           <p style={{ color: "rgba(255,255,255,0.65)", marginBottom: "1.5rem", fontSize: "0.95rem", fontFamily: "Georgia, serif", lineHeight: 1.8, maxWidth: "500px", margin: "0 auto 1.5rem" }}>
-            Himalayan Serenity Travel provides end-to-end ILP assistance for Adi Kailash, Om Parvat and Darma Valley. Documentation, verification, submission — all handled by our expert team. You just show up and experience the Himalayas.
+            Himalayan Serenity Travel provides end-to-end ILP assistance for{' '}
+            <Link to="/packages/adi-kailash-expedition" style={{ color: gold, textDecoration: "none" }}>Adi Kailash</Link>,
+            Om Parvat and Darma Valley. Documentation, verification, submission — all handled by our{' '}
+            <Link to="/contact" style={{ color: gold, textDecoration: "none" }}>expert team</Link>.
+            You just show up and experience the Himalayas.
           </p>
           <a
             href="https://wa.me/919084642557?text=Hello!%20I%20need%20ILP%20assistance%20for%20Adi%20Kailash%20expedition."

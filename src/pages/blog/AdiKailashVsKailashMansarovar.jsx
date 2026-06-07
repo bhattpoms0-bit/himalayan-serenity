@@ -1,4 +1,5 @@
-﻿import { useSEO } from '../../hooks/useSEO'
+﻿import { Link } from 'react-router-dom'
+import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
 
@@ -31,7 +32,7 @@ export default function AdiKailashVsKailashMansarovar() {
     },
     {
       q: "Is Inner Line Permit required for Adi Kailash?",
-      a: "Yes. Inner Line Permit (ILP) is mandatory for Adi Kailash Yatra as it falls in the restricted border zone of Pithoragarh, Uttarakhand. It can be obtained from the District Magistrate office in Pithoragarh or Dharchula. When you book with Himalayan Serenity, we handle your ILP process."
+      a: <>Yes. <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#c4a050", textDecoration: "none" }}>Inner Line Permit (ILP)</Link> is mandatory for Adi Kailash Yatra as it falls in the restricted border zone of Pithoragarh, Uttarakhand. It can be obtained from the District Magistrate office in Pithoragarh or Dharchula. When you book with Himalayan Serenity, we handle your ILP process.</>,
     },
     {
       q: "Can foreign nationals do Adi Kailash Yatra?",
@@ -149,7 +150,7 @@ export default function AdiKailashVsKailashMansarovar() {
               For millions of Shiva devotees, one pilgrimage stands above all others — the sacred journey to <strong style={{ color: "#c4a050" }}>Kailash</strong>, the divine abode of Lord Shiva. But which Kailash? And which route is right for you?
             </p>
             <p style={{ fontSize: "1.05rem", lineHeight: "1.9", color: "#a09080", marginBottom: "20px" }}>
-              In 2026, two sacred Kailash pilgrimages are available to devotees — the government-organized <strong style={{ color: "#c4a050" }}>Kailash Mansarovar Yatra</strong> via Tibet, and the Uttarakhand-based <strong style={{ color: "#c4a050" }}>Adi Kailash Yatra</strong> entirely within India. Both are open. Both are deeply sacred. The question is — which is right for you?
+              In 2026, two sacred Kailash pilgrimages are available to devotees — the government-organized <strong style={{ color: "#c4a050" }}>Kailash Mansarovar Yatra</strong> via Tibet, and the Uttarakhand-based <Link to="/packages/adi-kailash-expedition" style={{ color: "#c4a050", textDecoration: "none" }}>Adi Kailash Yatra</Link> entirely within India. Both are open. Both are deeply sacred. The question is — which is right for you?
             </p>
             <p style={{ fontSize: "1.05rem", lineHeight: "1.9", color: "#a09080" }}>
               In this guide, we have laid out the facts clearly and honestly — using only information verified from official government sources — so you can make the right decision for your sacred journey.

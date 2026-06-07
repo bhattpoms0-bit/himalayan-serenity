@@ -307,7 +307,9 @@ export default function KumaonWellness() {
         </h2>
         <div className="space-y-4">
           <p className="text-[#f0ece4]/70 text-sm leading-relaxed">
-            Designed for discerning international travelers, this immersive Himalayan retreat combines
+            Designed for{' '}
+            <Link to="/international-retreats" style={{ color: '#1D9E75', textDecoration: 'none' }}>discerning international travelers</Link>,
+            this immersive Himalayan retreat combines
             Ayurveda, yoga, meditation, authentic mountain culture, conscious travel, and meaningful
             human connection within one of India's most untouched Himalayan regions. Unlike commercial
             wellness destinations, Kumaon offers silence, authenticity, and a deep sense of place.

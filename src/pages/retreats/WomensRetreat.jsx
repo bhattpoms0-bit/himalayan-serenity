@@ -316,7 +316,7 @@ export default function WomensRetreat() {
           </p>
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
             From the tranquil lakes of Bhimtal and the cultural heart of Pithoragarh to the
-            majestic Panchachuli peaks of Munsiyari and the pine forests of Abbott Mount, every
+            majestic <Link to="/retreats/panchachuli-wellness" style={{ color: '#f9a8d4', textDecoration: 'none' }}>Panchachuli peaks of Munsiyari</Link> and the pine forests of Abbott Mount, every
             experience has been thoughtfully designed to foster connection, learning, and inspiration.
           </p>
           <p className="font-serif italic text-rose-400 text-lg text-center mt-6">
@@ -439,8 +439,9 @@ export default function WomensRetreat() {
           <h2 className="font-serif text-[#f0ece4] text-2xl mb-6">Travel that gives back</h2>
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed">
             This journey directly supports women artisans, family-run guesthouses, local farmers,
-            and community-based tourism initiatives throughout the Kumaon Himalaya. By traveling
-            in small groups and engaging directly with local communities, guests contribute to
+            and community-based tourism initiatives throughout the{' '}
+            <Link to="/international-retreats" style={{ color: '#f9a8d4', textDecoration: 'none' }}>Kumaon Himalaya</Link>.
+            By traveling in small groups and engaging directly with local communities, guests contribute to
             preserving traditional knowledge and creating sustainable economic opportunities for
             women in rural mountain regions.
           </p>
