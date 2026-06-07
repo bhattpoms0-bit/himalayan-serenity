@@ -76,7 +76,7 @@ const RETREAT_CARDS = [
     highlights: 'Myths · Mountains · Ancient Trade Routes · Signature experiences',
     price:      'From €1,800 per person',
     href:       '/retreats/borderlands-himalaya',
-    cardImg:    '/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png',
+    cardImg:    '/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp',
     cardImgAlt: 'Kumaon Himalaya luxury retreat sunrise view, Borderlands of the Himalaya cultural journey',
   },
 ]
@@ -131,7 +131,7 @@ export default function InternationalRetreats() {
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
         <img
-          src="/images/retreats/himalayan-yoga-meditation-retreat-hero.png"
+          src="/images/retreats/himalayan-yoga-meditation-retreat-hero.webp"
           alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
           loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-[center_top]"
@@ -216,7 +216,7 @@ export default function InternationalRetreats() {
                 {href === '/retreats/womens-retreat' && (
                   <div className="w-full rounded-t-xl overflow-hidden bg-[#150810]">
                     <img
-                      src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+                      src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
                       alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
                       loading="lazy"
                       className="w-full block"

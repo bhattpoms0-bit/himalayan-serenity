@@ -20,7 +20,7 @@ const DAYS = [
     sigExp: 'Welcome Kumaoni herbal tea ceremony followed by a Flavours of Kumaon hosted dinner with a local food expert — introducing regional ingredients, traditions, and stories.',
     exp:    ['Scenic drive from Delhi into Kumaon hills', 'Welcome herbal tea ceremony', 'Flavours of Kumaon hosted dinner', 'Introduction to regional ingredients and food traditions', 'Lakeside arrival and evening walk'],
     stay:   'Boutique Lakeside Retreat, Bhimtal',
-    img:    '/images/retreats/borderlands/bhimtal-lake-reflection-himalayan-foothills-uttarakhand.png',
+    img:    '/images/retreats/borderlands/bhimtal-lake-reflection-himalayan-foothills-uttarakhand.webp',
     imgAlt: 'Bhimtal lake mirroring the Himalayan foothills at dusk, arrival day on the Borderlands of the Himalaya retreat',
   },
   {
@@ -31,7 +31,7 @@ const DAYS = [
     sigExp: 'Guided hike to Vanasur Ka Kila — the legendary fort of the Demon King. Explore the atmospheric ruins while your guide shares local folklore as the sun sets across the ridges.',
     exp:    ['Drive through pine forests', 'Guided hike to Vanasur Ka Kila', 'Local folklore and mythology storytelling', 'Sunset over the Himalayan ridges', 'Colonial heritage exploration'],
     stay:   'Heritage Colonial Cottage, Abbott Mount',
-    img:    '/images/retreats/borderlands/vanasur-ka-kila-fort-ruins-sunset-kumaon-himalaya.png',
+    img:    '/images/retreats/borderlands/vanasur-ka-kila-fort-ruins-sunset-kumaon-himalaya.webp',
     imgAlt: 'Atmospheric ruins of Vanasur Ka Kila fort at sunset, Abbott Mount, Kumaon Himalaya',
   },
   {
@@ -42,7 +42,7 @@ const DAYS = [
     sigExp: 'Private evening with a Bhotiya family around the traditional hearth. Learn about the ancient trans-Himalayan trade routes between India and Tibet.',
     exp:    ['Stop at Birthi Falls', 'Hidden tea estate interaction', 'Shepherd community visit', 'Private Bhotiya family hearthside evening', 'Introduction to ancient Indo-Tibetan trade route history'],
     stay:   'Premium Mountain Lodge, Munsiyari (first of 4 nights)',
-    img:    '/images/retreats/borderlands/johar-valley-ancient-trade-route-munsiyari-uttarakhand.png',
+    img:    '/images/retreats/borderlands/johar-valley-ancient-trade-route-munsiyari-uttarakhand.webp',
     imgAlt: 'Ancient Indo-Tibetan trade route winding through Johar Valley toward Munsiyari, Uttarakhand',
   },
   {
@@ -53,7 +53,7 @@ const DAYS = [
     sigExp: 'Curated Himalayan Picnic Experience featuring local cheeses, mountain herbs, traditional breads, and seasonal foraged elements — served at altitude with five sacred peaks as the backdrop.',
     exp:    ['Full-day Khaliya Top excursion', 'Panchachuli and Nanda Devi panoramic views', 'Curated high-altitude Himalayan picnic', 'Mountain herb and foraged element tasting', 'Photography of the five sacred summits'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/borderlands/khaliya-top-trek-panoramic-himalayan-views-munsiyari.png',
+    img:    '/images/retreats/borderlands/khaliya-top-trek-panoramic-himalayan-views-munsiyari.webp',
     imgAlt: 'Panoramic Himalayan views from Khaliya Top alpine meadows above Munsiyari, Panchachuli and Nanda Devi peaks',
   },
   {
@@ -64,7 +64,7 @@ const DAYS = [
     sigExp: 'Private Hearthside Storykeepers Supper — an exclusive gathering with Bhotiya elders, folk musicians, artisans, and historians. Stories, songs, and traditions shared across the firelight.',
     exp:    ['Full day in the Johar Valley', "Women's artisan workshop", 'Traditional weaving demonstration', 'Private Hearthside Storykeepers Supper', 'Evening with Bhotiya elders, folk musicians, and historians'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/borderlands/shauka-tribal-women-johar-valley-bhotiya-culture-kumaon.png',
+    img:    '/images/retreats/borderlands/shauka-tribal-women-johar-valley-bhotiya-culture-kumaon.webp',
     imgAlt: 'Shauka tribal women of Johar Valley sharing traditional Bhotiya culture and artisan heritage, Kumaon Himalaya',
   },
   {
@@ -75,7 +75,7 @@ const DAYS = [
     sigExp: "Private guided exploration of Patal Bhuvaneshwar — one of India's most mystical underground cave temple systems, rich in Hindu mythology and natural limestone formations that have drawn pilgrims for centuries.",
     exp:    ['Departure from Munsiyari after 4 nights', 'Scenic mountain descent', 'Private guided Patal Bhuvaneshwar cave exploration', 'Hindu mythology and limestone formation interpretation', 'Evening at Gangolihat'],
     stay:   'Boutique Mountain Retreat, Gangolihat',
-    img:    '/images/retreats/borderlands/patal-bhuvaneshwar-cave-temple-shiva-shrine-uttarakhand.png',
+    img:    '/images/retreats/borderlands/patal-bhuvaneshwar-cave-temple-shiva-shrine-uttarakhand.webp',
     imgAlt: 'Mystical underground chambers of Patal Bhuvaneshwar cave temple, ancient Shiva shrine, Uttarakhand',
   },
   {
@@ -86,7 +86,7 @@ const DAYS = [
     sigExp: 'Exclusive twilight exploration of the Jageshwar Dham temple complex after the day visitors depart — an atmospheric and deeply spiritual moment in near-silence among 125 ancient stone temples.',
     exp:    ['Drive through ancient cedar forests', 'Arrival at sacred Jageshwar temple town', 'Exclusive post-sunset temple complex exploration', '125 ancient stone temples in twilight', 'Deep spiritual immersion in near-silence'],
     stay:   'Forest Heritage Retreat, Jageshwar',
-    img:    '/images/retreats/borderlands/jageshwar-dham-ancient-shiva-temples-deodar-forest-kumaon.png',
+    img:    '/images/retreats/borderlands/jageshwar-dham-ancient-shiva-temples-deodar-forest-kumaon.webp',
     imgAlt: 'Ancient Jageshwar Dham Shiva temples at twilight among deodar cedar forest, Kumaon Himalaya',
   },
   {
@@ -97,7 +97,7 @@ const DAYS = [
     sigExp: "Exploration of prehistoric Lakhudiyar rock art shelters — some of the oldest human markings in the Himalayan region, thousands of years old. In Kasar Devi: Private conversation with a local artist, writer, or cultural historian for deeper insight into the region's creative and spiritual legacy.",
     exp:    ['Lakhudiyar prehistoric rock art exploration', 'Expert archaeological interpretation', 'Drive to legendary Kasar Devi ridge', 'Private conversation with local creative or historian', "Crank's Ridge evening walk"],
     stay:   'Boutique Retreat, Kasar Devi',
-    img:    '/images/retreats/borderlands/kasar-devi-temple-lakhudiyar-rock-art-almora-uttarakhand.png',
+    img:    '/images/retreats/borderlands/kasar-devi-temple-lakhudiyar-rock-art-almora-uttarakhand.webp',
     imgAlt: 'Kasar Devi spiritual ridge and prehistoric Lakhudiyar rock art shelters, Almora, Uttarakhand',
   },
   {
@@ -108,7 +108,7 @@ const DAYS = [
     sigExp: 'Special cultural farewell dinner celebrating the stories and friendships formed across nine days in the Himalayan borderlands.',
     exp:    ['Final Kasar Devi morning walk', 'Gentle forest photography session', 'Local craft and market exploration', 'Special cultural farewell dinner', 'Reflection and integration time'],
     stay:   'Luxury Mountain Retreat, Shitlakhet',
-    img:    '/images/retreats/borderlands/kasar-devi-sunrise-meditation-himalayan-view-shitlakhet.png',
+    img:    '/images/retreats/borderlands/kasar-devi-sunrise-meditation-himalayan-view-shitlakhet.webp',
     imgAlt: 'Sunrise meditation at Kasar Devi ridge overlooking the Himalaya, farewell morning before Shitlakhet',
   },
   {
@@ -119,7 +119,7 @@ const DAYS = [
     sigExp: null,
     exp:    ['Final Himalayan sunrise contemplation', 'Farewell breakfast', 'Departure transfer to Kathgodam or Delhi'],
     stay:   'Departure day',
-    img:    '/images/retreats/borderlands/himalayan-journey-sunrise-kumaon-borderlands-retreat.png',
+    img:    '/images/retreats/borderlands/himalayan-journey-sunrise-kumaon-borderlands-retreat.webp',
     imgAlt: 'Final Himalayan sunrise over the Kumaon borderlands, departure day of the Borderlands of the Himalaya retreat',
   },
 ]
@@ -291,7 +291,7 @@ export default function Panchakarma() {
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#080a12] flex flex-col justify-start overflow-hidden">
         <img
-          src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png"
+          src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp"
           alt="Sunrise panorama over the Kumaon Himalaya, Borderlands of the Himalaya luxury cultural retreat"
           loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-center"

@@ -146,7 +146,7 @@ export default function Home() {
               <Link to="/retreats/womens-retreat" className="no-underline group">
                 <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
                   <img
-                    src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+                    src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
                     alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
                     loading="lazy"
                     className="w-full object-cover"
@@ -172,7 +172,7 @@ export default function Home() {
                   <Link to="/retreats/borderlands-himalaya" className="no-underline group">
                     <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
                       <img
-                        src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.png"
+                        src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp"
                         alt="Kumaon Himalaya luxury retreat sunrise view, Borderlands of the Himalaya cultural journey"
                         loading="lazy"
                         className="w-full object-cover"

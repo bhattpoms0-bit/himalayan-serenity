@@ -31,7 +31,7 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: null,
-    image: "/images/adi-kailash-expedition/pithoragarh-arrival-gateway-sacred-himalayas-day1.png",
+    image: "/images/adi-kailash-expedition/pithoragarh-arrival-gateway-sacred-himalayas-day1.webp",
     imageAlt: "Pithoragarh arrival gateway to the sacred Himalayas, day one of Adi Kailash expedition",
   },
   {
@@ -48,7 +48,7 @@ const itinerary = [
     stay: "Dharchula / Gunji Region",
     altitude: null,
     note: "Inner Line Permit (ILP) required. Complete assistance and documentation support provided.",
-    image: "/images/adi-kailash-expedition/dharchula-himalayan-frontier-gunji-day2.png",
+    image: "/images/adi-kailash-expedition/dharchula-himalayan-frontier-gunji-day2.webp",
     imageAlt: "Dharchula Himalayan frontier en route to Gunji, day two of Adi Kailash expedition",
   },
   {
@@ -73,7 +73,7 @@ const itinerary = [
     ],
     stay: "Gunji / Nabi Region",
     altitude: "3,600+ m",
-    image: "/images/adi-kailash-expedition/adi-kailash-darshan-expedition-parvati-sarovar-day3.png",
+    image: "/images/adi-kailash-expedition/adi-kailash-darshan-expedition-parvati-sarovar-day3.webp",
     imageAlt: "Adi Kailash darshan and Parvati Sarovar sacred lake, day three spiritual expedition",
   },
   {
@@ -90,7 +90,7 @@ const itinerary = [
     ],
     stay: "Pithoragarh",
     altitude: "3,600+ m",
-    image: "/images/adi-kailash-expedition/om-parvat-lipulekh-viewpoint-sacred-himalaya-day4.png",
+    image: "/images/adi-kailash-expedition/om-parvat-lipulekh-viewpoint-sacred-himalaya-day4.webp",
     imageAlt: "Om Parvat and Lipulekh viewpoint sacred Himalaya, day four of Adi Kailash expedition",
   },
   {
@@ -114,7 +114,7 @@ const itinerary = [
     ],
     stay: "Bhimtal / Haldwani",
     altitude: null,
-    image: "/images/adi-kailash-expedition/kumaon-spiritual-temple-circuit-jageshwar-kainchi-day5.png",
+    image: "/images/adi-kailash-expedition/kumaon-spiritual-temple-circuit-jageshwar-kainchi-day5.webp",
     imageAlt: "Kumaon spiritual temple circuit including Jageshwar and Kainchi Dham, day five",
   },
   {
@@ -559,7 +559,7 @@ export default function AdiKailashExpedition() {
           <div className="ak-route-map-wrap">
             <img
               className="ak-route-img"
-              src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.jpg"
+              src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.webp"
               alt="Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map"
               loading="eager"
             />
@@ -588,7 +588,7 @@ export default function AdiKailashExpedition() {
             </div>
             <div style={{ height: 400, borderRadius: 12, overflow: "hidden" }}>
               <img
-                src="/images/adi-kailash-expedition/om-parvat-sacred-shrine-himalayan-pilgrimage-kumaon.jpg"
+                src="/images/adi-kailash-expedition/om-parvat-sacred-shrine-himalayan-pilgrimage-kumaon.webp"
                 alt="Om Parvat sacred shrine with Himalayan peaks Kumaon pilgrimage"
                 loading="lazy"
                 style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: 12, display: "block" }}

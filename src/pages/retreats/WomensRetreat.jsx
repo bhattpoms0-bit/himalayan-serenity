@@ -18,7 +18,7 @@ const DAYS = [
     desc:   'Upon arrival in Delhi, guests begin their journey into the Kumaon foothills. The day is intentionally relaxed, allowing time to recover from international travel and settle into the slower rhythm of the mountains.',
     exp:    ['Private transfer from Delhi', 'Welcome herbal tea ceremony', 'Introduction to Kumaon and the journey ahead', 'Lakeside sunset walk', 'Farm-to-table Kumaoni dinner'],
     stay:   'Premium Lakeside Retreat, Bhimtal',
-    img:    '/images/retreats/womens-retreat/bhimtal-arrival-women-kumaon-retreat-day1.png',
+    img:    '/images/retreats/womens-retreat/bhimtal-arrival-women-kumaon-retreat-day1.webp',
     imgAlt: 'Bhimtal arrival on the Women of Kumaon retreat, day one beginning of the Himalayan journey',
   },
   {
@@ -27,7 +27,7 @@ const DAYS = [
     desc:   'Travel through scenic mountain roads, forests, and traditional villages toward Pithoragarh — often referred to as the cultural gateway to eastern Kumaon.',
     exp:    ['Scenic drive through the Kumaon Himalaya', 'Traditional Kumaoni lunch', 'Exploration of local markets', 'Evening storytelling session with local hosts', 'Introduction to Kumaoni customs and traditions'],
     stay:   'Boutique Heritage Hotel, Pithoragarh',
-    img:    '/images/retreats/womens-retreat/kainchi-dham-jageshwar-womens-cultural-journey-day2.png',
+    img:    '/images/retreats/womens-retreat/kainchi-dham-jageshwar-womens-cultural-journey-day2.webp',
     imgAlt: 'Kainchi Dham and Jageshwar temple cultural journey, day two women\'s Himalayan retreat',
   },
   {
@@ -36,7 +36,7 @@ const DAYS = [
     desc:   'The road gradually ascends into one of the most spectacular mountain regions in India. Along the way, guests experience dramatic landscapes and their first views of the Panchachuli mountain range — five sacred summits that will define the days ahead.',
     exp:    ['Visit to Birthi Waterfall', 'Scenic mountain viewpoints', 'Introduction to the history and mythology of Panchachuli', 'Sunset gathering overlooking the mountains'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/panchachuli-peaks-munsiyari-sacred-himalaya-day3.png',
+    img:    '/images/retreats/womens-retreat/panchachuli-peaks-munsiyari-sacred-himalaya-day3.webp',
     imgAlt: 'Panchachuli peaks above Munsiyari in the sacred Himalaya, day three women\'s retreat',
   },
   {
@@ -45,7 +45,7 @@ const DAYS = [
     desc:   'Spend the day learning from the women who sustain families, farms, and traditions in the high Himalaya. These are conversations and encounters that no guidebook can prepare you for — honest, warm, and quietly transformative.',
     exp:    ['Visit women-led farms and households', 'Learn about mountain agriculture and seasonal lifestyles', 'Traditional cooking experience', 'Shared lunch with local families', 'Conversations about life, resilience, and community in the Himalaya'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/women-mountain-farming-kumaoni-community-munsiyari-day4.png',
+    img:    '/images/retreats/womens-retreat/women-mountain-farming-kumaoni-community-munsiyari-day4.webp',
     imgAlt: 'Women mountain farming with Kumaoni community in Munsiyari, day four cultural immersion',
   },
   {
@@ -54,7 +54,7 @@ const DAYS = [
     desc:   'Discover the artistic traditions that have been passed down through generations of Kumaoni women. Under the guidance of master artisans, guests participate in the creative process — not as observers, but as makers.',
     exp:    ['Traditional weaving workshop', 'Natural dye demonstration', 'Wool preparation and textile techniques', 'Create a handmade keepsake under artisan guidance', 'Evening cultural interaction'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/traditional-weaving-craft-himalayan-artisan-munsiyari-day5.png',
+    img:    '/images/retreats/womens-retreat/traditional-weaving-craft-himalayan-artisan-munsiyari-day5.webp',
     imgAlt: 'Traditional weaving craft with Himalayan artisan in Munsiyari, day five creative workshop',
   },
   {
@@ -63,7 +63,7 @@ const DAYS = [
     desc:   'Explore the spiritual relationship between local communities and the mountains they call home. This is Kumaon as it has always been — unhurried, rooted, and quietly profound.',
     exp:    ['Sunrise mindfulness session', 'Heritage village walk', 'Visit sacred springs and community gathering places', 'Introduction to traditional Himalayan herbs and healing practices', 'Reflection circle at sunset'],
     stay:   'Premium Mountain Lodge, Munsiyari',
-    img:    '/images/retreats/womens-retreat/sacred-landscapes-himalayan-women-community-munsiyari-day6.png',
+    img:    '/images/retreats/womens-retreat/sacred-landscapes-himalayan-women-community-munsiyari-day6.webp',
     imgAlt: 'Sacred landscapes and Himalayan women community gathering in Munsiyari, day six',
   },
   {
@@ -72,7 +72,7 @@ const DAYS = [
     desc:   'A slower-paced day designed for reflection and integration of the experiences gained throughout the journey. The valleys look different on the return — familiar now, and full of memory.',
     exp:    ['Scenic drive through the Himalayan valleys', 'Personal journalling session', 'Free time for rest and reflection', 'Group sharing circle'],
     stay:   'Boutique Heritage Hotel, Pithoragarh',
-    img:    '/images/retreats/womens-retreat/women-journalling-reflection-himalayan-valley-pithoragarh-day7.png',
+    img:    '/images/retreats/womens-retreat/women-journalling-reflection-himalayan-valley-pithoragarh-day7.webp',
     imgAlt: 'Women journalling in reflection overlooking the Himalayan valley in Pithoragarh, day seven',
   },
   {
@@ -81,7 +81,7 @@ const DAYS = [
     desc:   'Travel to the peaceful hill region of Lohaghat and Abbott Mount, known for its pine forests, colonial heritage, and quiet atmosphere. A gentle, unhurried final full day.',
     exp:    ['Guided forest walk', 'Himalayan herbal tea experience', 'Personal reflection time', 'Closing ceremony', 'Farewell dinner with local specialties'],
     stay:   'Heritage Retreat, Abbott Mount',
-    img:    '/images/retreats/womens-retreat/abbott-mount-slow-living-lohaghat-himalayan-views-day8.png',
+    img:    '/images/retreats/womens-retreat/abbott-mount-slow-living-lohaghat-himalayan-views-day8.webp',
     imgAlt: 'Abbott Mount slow living in Lohaghat with Himalayan views, day eight peaceful retreat',
   },
   {
@@ -90,7 +90,7 @@ const DAYS = [
     desc:   'After breakfast, begin the journey back to Delhi with memories, friendships, and stories from the Kumaon Himalaya. The mountains do not leave you when you leave them.',
     exp:    ['Morning contemplation session', 'Closing blessing ceremony', 'Departure transfer'],
     stay:   'Departure day',
-    img:    '/images/retreats/womens-retreat/carrying-kumaon-home-lohaghat-delhi-departure-day9.png',
+    img:    '/images/retreats/womens-retreat/carrying-kumaon-home-lohaghat-delhi-departure-day9.webp',
     imgAlt: 'Carrying Kumaon home from Lohaghat to Delhi, day nine departure',
   },
 ]
@@ -248,7 +248,7 @@ export default function WomensRetreat() {
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0d0508] flex flex-col justify-start overflow-hidden">
         <img
-          src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.png"
+          src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
           alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
           loading="eager"
           className="absolute inset-0 w-full h-full object-cover object-[center_top]"
