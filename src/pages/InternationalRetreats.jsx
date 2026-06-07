@@ -84,7 +84,7 @@ const RETREAT_CARDS = [
 export default function InternationalRetreats() {
   useSEO({
     title:       'International Retreats — Yoga, Ayurveda & Detox in the Himalayas | Himalayan Serenity',
-    description: 'Intimate yoga, Ayurveda and wellness retreats in the Kumaon Himalaya. No permits required for international travellers. Small groups. Prices in EUR, USD, GBP.',
+    description: 'Luxury yoga retreat India for international travelers. Kumaon Himalaya wellness journeys — Ayurveda, cultural immersion, no permits needed. Small groups. Book 2026.',
     canonical:   'https://www.himalayanserenitytravel.com/international-retreats',
   })
 

@@ -241,7 +241,7 @@ const BORDERLANDS_SCHEMA = {
 export default function Panchakarma() {
   useSEO({
     title:       'The Borderlands of the Himalaya — Premium Cultural Journey | Himalayan Serenity',
-    description: '10-day premium cultural journey through the Kumaon Himalayan borderlands. Ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests.',
+    description: 'Himalayan cultural immersion tour in Kumaon, Uttarakhand. 10-day journey through Indo-Tibetan borderlands — Bhotiya culture, sacred caves & mountain kingdoms. Book now.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
     schema:      BORDERLANDS_SCHEMA,
   })

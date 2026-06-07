@@ -329,7 +329,7 @@ const ADI_KAILASH_SCHEMAS = [
 export default function AdiKailashExpedition() {
   useSEO({
     title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
-    description: 'Book Adi Kailash Yatra 2026 from Delhi. Adi Kailash temple darshan with Om Parvat tour. Dharchula to Adi Kailash package with Inner Line Permit included. Adi Kailash opening date 2026 — May to October. Small group departures from Delhi and Pithoragarh.',
+    description: 'Book Adi Kailash Yatra 2026 from Delhi. Om Parvat darshan, Inner Line Permit included. Expert local guides from Pithoragarh. Small group departures May–Oct.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
     schema: ADI_KAILASH_SCHEMAS,
   });

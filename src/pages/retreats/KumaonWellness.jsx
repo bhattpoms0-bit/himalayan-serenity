@@ -203,7 +203,7 @@ const KUMAON_WELLNESS_SCHEMA = {
 export default function KumaonWellness() {
   useSEO({
     title:       'Kumaon Wellness Immersion — Yoga, Ayurveda & Himalayan Culture Retreat | Himalayan Serenity',
-    description: '9-day Himalayan wellness retreat in Munsiyari. Daily yoga, Ayurvedic treatments, Panchachuli sunrise, Shauka cultural immersion. Small groups. No permit required.',
+    description: 'Luxury yoga & Ayurveda retreat in Kumaon, Uttarakhand. 9 days in Munsiyari — Panchachuli sunrise, Shauka cultural immersion & Ayurvedic massage. Book now.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/panchachuli-wellness',
     schema:      KUMAON_WELLNESS_SCHEMA,
   })

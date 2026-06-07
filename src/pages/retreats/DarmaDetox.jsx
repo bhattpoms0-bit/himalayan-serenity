@@ -191,7 +191,7 @@ const NOT_INCLUDED = [
 export default function DarmaDetox() {
   useSEO({
     title:       'Darma Valley Digital Detox & Panchachuli Immersion — 12-Day Retreat | Himalayan Serenity',
-    description: '12-day wilderness detox trek in Darma Valley with Panchachuli immersion, Shauka cultural experience, digital detox, and Ayurvedic reintegration. Max 6 guests.',
+    description: 'Detox retreat in Darma Valley, Uttarakhand. 12-day digital detox & Ayurvedic reintegration in remote Kumaon wilderness — Panchachuli & Shauka culture. Max 6 guests.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/darma-detox',
   })
 
