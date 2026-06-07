@@ -257,11 +257,81 @@ const pricingTiers = [
   },
 ];
 
+const ADI_KAILASH_SCHEMAS = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    name: 'Adi Kailash Expedition',
+    description: 'A sacred high-altitude expedition to Adi Kailash (6,191m) and Om Parvat in the Kumaon Himalaya, Uttarakhand — combining Himalayan pilgrimage, trekking, and cultural immersion from Delhi.',
+    provider: {
+      '@type': 'TravelAgency',
+      name: 'Himalayan Serenity Travel',
+      url: 'https://www.himalayanserenitytravel.com',
+    },
+    touristType: 'Pilgrim',
+    url: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
+    location: {
+      '@type': 'Place',
+      name: 'Adi Kailash, Pithoragarh, Uttarakhand',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Pithoragarh',
+        addressRegion: 'Uttarakhand',
+        addressCountry: 'IN',
+      },
+    },
+    offers: {
+      '@type': 'Offer',
+      url: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
+      availability: 'https://schema.org/InStock',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'What is the best time to do Adi Kailash Yatra?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'The best time for Adi Kailash Yatra is May to October, when the route is open. June to September offers the most stable weather, while May and October can experience unpredictable conditions. Adi Kailash remains closed during the winter months.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is Adi Kailash suitable for beginners?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Adi Kailash is a moderately challenging trek suitable for reasonably fit travelers. No prior trekking experience is required, but regular cardiovascular fitness and some physical preparation is recommended. Our guides provide full acclimatization support throughout the journey.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the difference between Adi Kailash and Kailash Mansarovar?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Adi Kailash (6,191m) is located in Pithoragarh, Uttarakhand, India, and is accessible with an Inner Line Permit. Kailash Mansarovar (6,638m) is in Tibet, China, requiring a Chinese visa and special permit. Adi Kailash is sometimes called Chhota Kailash due to its striking visual resemblance to Mount Kailash.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is an Inner Line Permit required for Adi Kailash?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes, an Inner Line Permit (ILP) issued by the District Magistrate of Pithoragarh is mandatory for the Adi Kailash Yatra. The permit is required for all Indian and foreign nationals. Himalayan Serenity Travel provides complete ILP processing assistance for all guests.',
+        },
+      },
+    ],
+  },
+]
+
 export default function AdiKailashExpedition() {
   useSEO({
     title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
     description: 'Book Adi Kailash Yatra 2026 from Delhi. Adi Kailash temple darshan with Om Parvat tour. Dharchula to Adi Kailash package with Inner Line Permit included. Adi Kailash opening date 2026 — May to October. Small group departures from Delhi and Pithoragarh.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
+    schema: ADI_KAILASH_SCHEMAS,
   });
   const [tab, setTab] = useState("inclusions");
   const [activeDay, setActiveDay] = useState(0);

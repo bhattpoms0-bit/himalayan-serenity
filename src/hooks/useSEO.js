@@ -27,16 +27,35 @@ function removeCanonical() {
   if (el) el.remove()
 }
 
-export function useSEO({ title, description, canonical }) {
+function injectSchemas(schemas) {
+  // Remove any previously injected schema scripts before re-injecting
+  document.querySelectorAll('script[data-useseo-schema]').forEach(el => el.remove())
+  const list = Array.isArray(schemas) ? schemas : [schemas]
+  list.forEach(data => {
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.setAttribute('data-useseo-schema', '')
+    script.textContent = JSON.stringify(data)
+    document.head.appendChild(script)
+  })
+}
+
+function removeSchemas() {
+  document.querySelectorAll('script[data-useseo-schema]').forEach(el => el.remove())
+}
+
+export function useSEO({ title, description, canonical, schema }) {
   useEffect(() => {
     document.title = title
     setMeta('description', description)
     setMeta('og:title', title, 'property')
     setMeta('og:description', description, 'property')
     if (canonical) setCanonical(canonical)
+    if (schema) injectSchemas(schema)
     return () => {
       document.title = DEFAULT_TITLE
       if (canonical) removeCanonical()
+      if (schema) removeSchemas()
     }
-  }, [title, description, canonical])
+  }, [title, description, canonical, schema])
 }

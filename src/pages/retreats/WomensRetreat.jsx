@@ -170,11 +170,37 @@ const IDEAL_FOR = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
+const WOMENS_RETREAT_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: "Women's Sacred Himalaya Retreat",
+  description: "A 9-day women-only cultural immersion journey through the Kumaon Himalaya with women guides, Shakti yoga, weaving, sacred landscapes, and Panchachuli views. Max 8 guests.",
+  organizer: {
+    '@type': 'Organization',
+    name: 'Himalayan Serenity Travel',
+    url: 'https://www.himalayanserenitytravel.com',
+  },
+  location: {
+    '@type': 'Place',
+    name: 'Munsiyari, Kumaon Himalayas, Uttarakhand',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Munsiyari',
+      addressRegion: 'Uttarakhand',
+      addressCountry: 'IN',
+    },
+  },
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
+}
+
 export default function WomensRetreat() {
   useSEO({
     title:       'Women of Kumaon — Women-Only Cultural Immersion Retreat | Himalayan Serenity',
     description: '9-day women-only cultural immersion journey through the Kumaon Himalaya. Women-led, max 8 guests. Weaving, sacred landscapes, mountain traditions, Panchachuli views.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
+    schema:      WOMENS_RETREAT_SCHEMA,
   })
 
   const [form, setForm] = useState({

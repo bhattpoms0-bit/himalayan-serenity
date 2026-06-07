@@ -175,11 +175,37 @@ const IDEAL_FOR = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
+const KUMAON_WELLNESS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Panchachuli Himalayan Wellness & Cultural Immersion Retreat',
+  description: 'A 9-day Himalayan wellness retreat combining daily yoga, Ayurvedic treatments, Panchachuli sunrise views, and Shauka cultural immersion in Munsiyari, Kumaon.',
+  organizer: {
+    '@type': 'Organization',
+    name: 'Himalayan Serenity Travel',
+    url: 'https://www.himalayanserenitytravel.com',
+  },
+  location: {
+    '@type': 'Place',
+    name: 'Munsiyari, Kumaon Himalayas, Uttarakhand',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Munsiyari',
+      addressRegion: 'Uttarakhand',
+      addressCountry: 'IN',
+    },
+  },
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  url: 'https://www.himalayanserenitytravel.com/retreats/panchachuli-wellness',
+}
+
 export default function KumaonWellness() {
   useSEO({
     title:       'Kumaon Wellness Immersion — Yoga, Ayurveda & Himalayan Culture Retreat | Himalayan Serenity',
     description: '9-day Himalayan wellness retreat in Munsiyari. Daily yoga, Ayurvedic treatments, Panchachuli sunrise, Shauka cultural immersion. Small groups. No permit required.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/panchachuli-wellness',
+    schema:      KUMAON_WELLNESS_SCHEMA,
   })
 
   const [form, setForm] = useState({

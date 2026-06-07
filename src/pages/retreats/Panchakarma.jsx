@@ -213,11 +213,37 @@ const IDEAL_FOR = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
+const BORDERLANDS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'The Borderlands of the Himalaya',
+  description: 'A 10-day premium cultural journey through the Kumaon Himalayan borderlands — ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests.',
+  organizer: {
+    '@type': 'Organization',
+    name: 'Himalayan Serenity Travel',
+    url: 'https://www.himalayanserenitytravel.com',
+  },
+  location: {
+    '@type': 'Place',
+    name: 'Johar Valley, Kumaon Himalayas, Uttarakhand',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Pithoragarh',
+      addressRegion: 'Uttarakhand',
+      addressCountry: 'IN',
+    },
+  },
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  url: 'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
+}
+
 export default function Panchakarma() {
   useSEO({
     title:       'The Borderlands of the Himalaya — Premium Cultural Journey | Himalayan Serenity',
     description: '10-day premium cultural journey through the Kumaon Himalayan borderlands. Ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests.',
     canonical:   'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
+    schema:      BORDERLANDS_SCHEMA,
   })
 
   const [form, setForm] = useState({
