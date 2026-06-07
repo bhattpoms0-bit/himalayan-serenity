@@ -253,8 +253,7 @@ export default function DarmaDetox() {
             Wilderness Detox · 12 Days
           </span>
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
-            Darma Valley Digital Detox<br />
-            &amp; Panchachuli Immersion
+            Darma Valley Detox Retreat — Digital Detox in Uttarakhand
           </h1>
           <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
             Wilderness · Culture · Silence · Self-Discovery

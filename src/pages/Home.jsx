@@ -26,7 +26,7 @@ export default function Home() {
       <main>
         {/* Visually hidden SEO h1 — Hero carries the visual heading (h2) */}
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-          Himalayan Wellness Retreats, Adi Kailash Yatra &amp; Om Parvat Tour from Delhi — Himalayan Serenity Travel
+          Himalayan Wellness Retreats &amp; Expeditions in India
         </h1>
         <section aria-label="Hero"><Hero /></section>
 

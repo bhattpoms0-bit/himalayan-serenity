@@ -300,7 +300,7 @@ export default function Panchakarma() {
         <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
         <div className="relative z-20 px-6 lg:px-16 pb-16">
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-3">
-            The Borderlands of the Himalaya
+            The Borderlands of the Himalaya — Cultural Immersion Retreat in Kumaon
           </h1>
           <p className="font-serif italic text-amber-400 text-xl mb-3">
             Myths · Mountains · Ancient Trade Routes

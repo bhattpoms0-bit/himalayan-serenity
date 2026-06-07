@@ -264,7 +264,7 @@ export default function KumaonWellness() {
             Yoga &amp; Ayurveda
           </span>
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-5xl leading-tight tracking-tight mb-4">
-            Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
+            Kumaon Wellness Retreat — Yoga, Ayurveda &amp; Himalayan Cultural Immersion
           </h1>
           <p className="font-serif italic text-[#1D9E75] text-xl mb-8">
             Yoga · Ayurveda · Himalayan Culture · Slow Travel · Personal Transformation

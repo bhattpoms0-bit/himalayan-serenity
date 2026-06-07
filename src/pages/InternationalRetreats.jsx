@@ -143,7 +143,7 @@ export default function InternationalRetreats() {
               International Retreats · No Permit Required
             </span>
             <h1 className="font-serif text-[#f0ece4] text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight tracking-tight mb-4">
-              Where the Himalayas become your healer
+              Where the Himalayas Become Your Healer — Luxury Retreats for International Travelers
             </h1>
             <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
               Yoga · Meditation · Ayurveda · Detox

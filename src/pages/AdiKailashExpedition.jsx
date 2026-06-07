@@ -496,10 +496,10 @@ export default function AdiKailashExpedition() {
                 </div>
               </div>
               <h1 style={{ fontSize: "clamp(1.8rem,7vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
-                Adi Kailash
+                Adi Kailash Yatra 2026
               </h1>
               <h2 style={{ fontSize: "clamp(1rem,4vw,3.2rem)", fontWeight: 300, fontStyle: "italic", color: gold, margin: "0 0 20px" }}>
-                Sacred Himalayan Expedition
+                Small Group Expedition from Delhi
               </h2>
               <p style={{ fontSize: "clamp(0.85rem,1.8vw,1.15rem)", color: accent, fontWeight: 300, margin: "0 0 28px", letterSpacing: "0.06em" }}>
                 Adi Kailash &nbsp;·&nbsp; Om Parvat &nbsp;·&nbsp; Parvati Sarovar &nbsp;·&nbsp; Narayan Ashram &nbsp;·&nbsp; Dharchula

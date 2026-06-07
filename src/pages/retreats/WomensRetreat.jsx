@@ -261,7 +261,7 @@ export default function WomensRetreat() {
             Women Only · 9 Days · Max 8 Guests
           </span>
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
-            Women of Kumaon
+            Women's Wellness Retreat in the Himalayas
           </h1>
           <p className="font-serif italic text-rose-400 text-xl mb-3">
             Mountain Wisdom · Living Traditions · Sacred Landscapes
