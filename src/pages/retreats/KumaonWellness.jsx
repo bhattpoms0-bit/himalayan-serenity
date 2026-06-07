@@ -254,7 +254,9 @@ export default function KumaonWellness() {
         <img
           src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
           alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />

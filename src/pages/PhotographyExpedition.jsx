@@ -277,7 +277,9 @@ export default function PhotographyExpedition() {
         <img
           src={BASE + "panchachuli-mountain-golden-sunrise-kumaon.webp"}
           alt="Panchachuli mountain golden sunrise Kumaon Himalayas"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", zIndex: 0 }}
         />
         {/* Dark gradient overlay */}

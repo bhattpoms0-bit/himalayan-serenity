@@ -250,7 +250,9 @@ export default function WomensRetreat() {
         <img
           src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
           alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-[center_top]"
           onError={(e) => { e.target.style.display = 'none' }}
         />

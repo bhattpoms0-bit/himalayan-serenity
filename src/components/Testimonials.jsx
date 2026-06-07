@@ -3,12 +3,12 @@ import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const FLAG = {
-  in: <img src="https://flagcdn.com/24x18/in.png" alt="India"     className="inline-block w-6 h-4 rounded-sm align-middle" />,
-  gb: <img src="https://flagcdn.com/24x18/gb.png" alt="UK"        className="inline-block w-6 h-4 rounded-sm align-middle" />,
-  de: <img src="https://flagcdn.com/24x18/de.png" alt="Germany"   className="inline-block w-6 h-4 rounded-sm align-middle" />,
-  fr: <img src="https://flagcdn.com/24x18/fr.png" alt="France"    className="inline-block w-6 h-4 rounded-sm align-middle" />,
-  au: <img src="https://flagcdn.com/24x18/au.png" alt="Australia" className="inline-block w-6 h-4 rounded-sm align-middle" />,
-  ru: <img src="https://flagcdn.com/24x18/ru.png" alt="Russia"    className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  in: <img src="https://flagcdn.com/24x18/in.png" alt="India"     loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  gb: <img src="https://flagcdn.com/24x18/gb.png" alt="UK"        loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  de: <img src="https://flagcdn.com/24x18/de.png" alt="Germany"   loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  fr: <img src="https://flagcdn.com/24x18/fr.png" alt="France"    loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  au: <img src="https://flagcdn.com/24x18/au.png" alt="Australia" loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
+  ru: <img src="https://flagcdn.com/24x18/ru.png" alt="Russia"    loading="lazy" className="inline-block w-6 h-4 rounded-sm align-middle" />,
 }
 
 const testimonials = [

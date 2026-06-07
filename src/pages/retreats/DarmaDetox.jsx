@@ -242,7 +242,9 @@ export default function DarmaDetox() {
         <img
           src="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero.jfif"
           alt="Panchachuli peaks at golden sunrise over Darma Valley, Uttarakhand"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: '50% 50%' }}
         />

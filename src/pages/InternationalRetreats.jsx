@@ -133,7 +133,9 @@ export default function InternationalRetreats() {
         <img
           src="/images/retreats/himalayan-yoga-meditation-retreat-hero.webp"
           alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-[center_top]"
         />
         <div className="absolute inset-0 bg-black/45" />

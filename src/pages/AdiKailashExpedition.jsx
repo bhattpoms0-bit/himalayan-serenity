@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
 import { motion } from "framer-motion";
@@ -334,6 +334,15 @@ export default function AdiKailashExpedition() {
     canonical: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
     schema: ADI_KAILASH_SCHEMAS,
   });
+  // Preload hero background-image (CSS background can't use fetchPriority directly)
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = '/images/packages/adi-kailash/adi-kailash-nandi.webp'
+    document.head.appendChild(link)
+    return () => { if (document.head.contains(link)) document.head.removeChild(link) }
+  }, []);
   const [tab, setTab] = useState("inclusions");
   const [activeDay, setActiveDay] = useState(0);
   const [waName, setWaName] = useState('');
@@ -561,7 +570,7 @@ export default function AdiKailashExpedition() {
               className="ak-route-img"
               src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.webp"
               alt="Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map"
-              loading="eager"
+              loading="lazy"
             />
           </div>
           <p style={{ fontSize: "0.8rem", color: "#5a4a30", fontStyle: "italic" }}>

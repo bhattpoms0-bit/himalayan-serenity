@@ -293,7 +293,9 @@ export default function Panchakarma() {
         <img
           src="/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp"
           alt="Sunrise panorama over the Kumaon Himalaya, Borderlands of the Himalaya luxury cultural retreat"
+          fetchPriority="high"
           loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
