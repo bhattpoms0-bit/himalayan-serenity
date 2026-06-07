@@ -26,7 +26,7 @@ export default function Home() {
       <main>
         {/* Visually hidden SEO h1 — Hero carries the visual heading (h2) */}
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-          Adi Kailash Yatra &amp; Om Parvat Tour from Delhi — Himalayan Serenity Travel
+          Himalayan Wellness Retreats, Adi Kailash Yatra &amp; Om Parvat Tour from Delhi — Himalayan Serenity Travel
         </h1>
         <section aria-label="Hero"><Hero /></section>
 
@@ -210,56 +210,6 @@ export default function Home() {
         </section>
 
         <section aria-label="Why Choose Us"><WhyChooseUs /></section>
-
-        {/* ── Brand Story ──────────────────────────────────────────────────── */}
-        <section aria-label="Brand Story" className="bg-brand-dark" style={{ paddingTop: '64px', paddingBottom: '80px' }}>
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-            <div className="flex flex-col md:flex-row" style={{ minHeight: 480 }}>
-
-              {/* Left column — image */}
-              <div className="w-full md:w-1/2 overflow-hidden rounded-[8px]" style={{ minHeight: 280 }}>
-                {/* TODO: replace with Trishul or Om Parvat image if a higher-res version is added */}
-                <img
-                  src="/images/om-parvat-shrine.webp"
-                  alt="Om Parvat sacred shrine, Himalayan pilgrimage Kumaon Uttarakhand"
-                  className="w-full h-[280px] md:h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Right column — text */}
-              <div
-                className="w-full md:w-1/2 flex flex-col justify-center px-6 py-10 md:px-12 md:py-16"
-              >
-                <span style={{ color: '#C8A44B', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.14em', display: 'block', marginBottom: 16 }}>
-                  OUR PHILOSOPHY
-                </span>
-
-                <h2 className="font-serif text-white" style={{ fontSize: 36, lineHeight: 1.2, marginBottom: 20 }}>
-                  Where the Sacred Meets the Summit
-                </h2>
-
-                <div style={{ width: 40, height: 2, background: '#C8A44B', display: 'block', marginBottom: 24 }} />
-
-                <p className="font-sans" style={{ fontSize: 15, color: 'rgba(255,255,255,0.62)', lineHeight: 1.75, marginBottom: 16 }}>
-                  In the shadow of the world's highest peaks, spirituality is not a practice — it is the very air one breathes. Our journeys are curated to facilitate an internal ascent as profound as the physical climb.
-                </p>
-
-                <p className="font-sans" style={{ fontSize: 15, color: 'rgba(255,255,255,0.62)', lineHeight: 1.75, marginBottom: 32 }}>
-                  We invite you to step into the sacred spaces where the veil between the earthly and the divine is at its thinnest.
-                </p>
-
-                <Link
-                  to="/about"
-                  style={{ color: '#C8A44B', fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 500, textDecoration: 'none' }}
-                >
-                  Discover our story →
-                </Link>
-              </div>
-
-            </div>
-          </div>
-        </section>
 
         <section aria-label="Testimonials"><Testimonials /></section>
         <section aria-label="Call to Action"><CTASection /></section>
