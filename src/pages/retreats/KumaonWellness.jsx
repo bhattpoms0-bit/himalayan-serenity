@@ -23,7 +23,7 @@ const DAYS = [
     imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
   },
   {
-    route:  'DAY 2 · BHIMTAL → MUNSIYARI',
+    route:  'DAY 2 · PITHORAGARH → MUNSIYARI',
     theme:  'Crossing Into Another World',
     desc:   'Travel deeper into Kumaon\'s mountain heartland through ancient river valleys, pine forests, and remote Himalayan landscapes.',
     exp:    ['Scenic mountain drive', 'Stop at Birthi Waterfall', 'Traditional mountain lunch', 'Storytelling about Himalayan culture and history', 'Arrival in Munsiyari beneath Panchachuli Peaks'],
