@@ -237,6 +237,18 @@ export default function Footer() {
           <p className="font-sans" style={{ fontSize: 12, color: '#444444' }}>
             © 2024 Himalayan Serenity. All Rights Reserved.
           </p>
+          <a
+            href="https://bookretreats.com/r/9-day-himalayan-wellness-womens-retreat-yoga-ayurveda-in-india"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-sans flex items-center gap-1.5 transition-colors duration-200"
+            style={{ fontSize: 12, color: '#555555', textDecoration: 'none' }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#C8A44B')}
+            onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+          >
+            <span style={{ color: '#C8A44B' }}>★</span>
+            Featured on BookRetreats
+          </a>
           <div className="flex items-center gap-6">
             {[{ label: 'Privacy Policy', href: '/privacy' }, { label: 'Terms of Service', href: '/terms' }].map(({ label, href }) => (
               <a

@@ -296,6 +296,14 @@ export default function KumaonWellness() {
             >
               Download full itinerary
             </a>
+            <a
+              href="https://bookretreats.com/r/9-day-himalayan-wellness-womens-retreat-yoga-ayurveda-in-india"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#C8A44B] text-[#0a0a0a] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#b8943b] transition-colors duration-200"
+            >
+              Book on BookRetreats
+            </a>
           </div>
         </div>
       </section>

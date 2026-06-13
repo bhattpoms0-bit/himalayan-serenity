@@ -247,6 +247,25 @@ export default function InternationalRetreats() {
         </div>
       </section>
 
+      {/* ── BOOKRETREATS BADGE ───────────────────────────────────────────── */}
+      <div className="bg-[#061008] py-5 px-6 border-y border-[#1D9E75]/10">
+        <a
+          href="https://bookretreats.com/r/9-day-himalayan-wellness-womens-retreat-yoga-ayurveda-in-india"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-3 no-underline group"
+          style={{ textDecoration: 'none' }}
+        >
+          <span className="text-[#C8A44B]" style={{ fontSize: 16 }}>★</span>
+          <p className="font-sans text-sm text-[#f0ece4]/60 group-hover:text-[#f0ece4]/90 transition-colors duration-200">
+            As featured on{' '}
+            <span className="text-[#1D9E75] font-medium">BookRetreats</span>
+            {' '}— World's #1 Retreat Site
+          </p>
+          <span className="text-[#C8A44B]" style={{ fontSize: 16 }}>★</span>
+        </a>
+      </div>
+
       {/* ── SECTION 4 — WHY KUMAON ───────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Why Kumaon, Not Rishikesh</p>
