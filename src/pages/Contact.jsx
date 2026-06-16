@@ -6,65 +6,83 @@ import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
 
 const WEB3FORMS_ACCESS_KEY = "a4bcce53-4a1d-4217-93b6-30b9d714bbdd"
 
+const INTERESTED_IN_OPTIONS = [
+  'Adi Kailash & Om Parvat Expedition',
+  'Panchachuli Wellness – Yoga & Ayurveda',
+  'Kumaon Wellness Retreat',
+  'The Borderlands of the Himalaya',
+  "Women's Wellness Retreat in the Himalaya",
+  'Darma Valley Digital Detox',
+  'Custom / Other',
+]
+
+const TRAVEL_PLAN_OPTIONS = [
+  'Within 3 months',
+  '3 to 6 months',
+  '6 to 12 months',
+  'Just exploring for now',
+]
+
+const INPUT_CLASS =
+  "w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
+
 export default function ContactPage() {
   useSEO({
     title: 'Book Adi Kailash Yatra 2026 | Om Parvat Tour | Contact Himalayan Serenity',
     description: 'Book Adi Kailash Yatra and Om Parvat tour 2026. Call or WhatsApp +91 90846 42557. Best Adi Kailash tour operator in Pithoragarh and Dharchula, Uttarakhand.',
     canonical: 'https://www.himalayanserenitytravel.com/contact',
   })
+
+  const [origin, setOrigin] = useState('')
   const [form, setForm] = useState(() => {
     const expedition = new URLSearchParams(window.location.search).get('expedition') || ''
-    return { name: '', email: '', phone: '', expedition, pilgrims: '', message: '' }
+    return { name: '', email: '', phone: '', expedition, travellers: '', travelPlan: '', message: '' }
   })
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [status, setStatus] = useState('idle')
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = async e => {
     e.preventDefault()
+    if (!origin) return
     setStatus('loading')
 
     try {
       const payload = {
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `New Expedition Inquiry — ${form.expedition || 'General'}`,
-        from_name: form.name,
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        expedition: form.expedition,
-        pilgrims: form.pilgrims,
-        message: form.message,
-        botcheck: '',
+        access_key:              WEB3FORMS_ACCESS_KEY,
+        subject:                 `New ${origin === 'india' ? 'Expedition' : 'Retreat'} Inquiry — ${form.expedition || 'General'}`,
+        from_name:               form.name,
+        name:                    form.name,
+        email:                   form.email,
+        travelling_from:         origin === 'india' ? 'India' : 'Outside India',
+        ...(origin === 'india'   ? { phone_whatsapp: form.phone }             : {}),
+        interested_in:           form.expedition,
+        ...(origin === 'outside' ? { when_planning_to_travel: form.travelPlan } : {}),
+        number_of_travellers:    form.travellers,
+        message:                 form.message,
+        botcheck:                '',
       }
 
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(payload),
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body:    JSON.stringify(payload),
       })
-
       const data = await res.json()
-      console.log('Web3Forms response:', res.status, data)
 
       if (res.ok && data.success) {
         setStatus('success')
         if (typeof window.gtag !== 'undefined') {
           window.gtag('event', 'form_submit', {
             event_category: 'Contact',
-            event_label: 'Expedition Inquiry',
-            value: 1
-          });
+            event_label:    'Expedition Inquiry',
+            value:          1,
+          })
         }
       } else {
-        console.error('Web3Forms error:', data)
         setStatus('error')
       }
-    } catch (err) {
-      console.error('Web3Forms fetch failed:', err)
+    } catch {
       setStatus('error')
     }
   }
@@ -99,14 +117,17 @@ export default function ContactPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {/* Contact Form */}
+
+            {/* ── Consultation Form ──────────────────────────────────────── */}
             <div id="consultation" className="card-dark">
               {status === 'success' ? (
                 <div className="text-center py-12">
                   <div className="text-4xl mb-4">🙏</div>
                   <h3 className="font-serif text-2xl text-brand-cream mb-3">Namaste!</h3>
                   <p className="font-sans text-brand-text-muted">
-                    Your inquiry has been received. Our concierge team will contact you within 24 hours.
+                    {origin === 'india'
+                      ? 'Thank you! We will WhatsApp you within 24 hours.'
+                      : 'Thank you! We will email you within 24 hours.'}
                   </p>
                 </div>
               ) : (
@@ -116,27 +137,95 @@ export default function ContactPage() {
                     Complete this form and we'll respond within 24 hours.
                   </p>
 
-                  {[
-                    { name: 'name',  label: 'Full Name',        type: 'text',  placeholder: 'Your name',       required: true  },
-                    { name: 'email', label: 'Email Address',     type: 'email', placeholder: 'your@email.com',  required: true  },
-                    { name: 'phone', label: 'Phone / WhatsApp',  type: 'tel',   placeholder: '+91 or +977...',  required: false },
-                  ].map(field => (
-                    <div key={field.name}>
-                      <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
-                        {field.label}
-                      </label>
-                      <input
-                        type={field.type}
-                        name={field.name}
-                        value={form[field.name]}
-                        onChange={handleChange}
-                        placeholder={field.placeholder}
-                        required={field.required}
-                        className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
-                      />
+                  {/* ── 1. Where are you travelling from? ── */}
+                  <div>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-3 uppercase tracking-wider">
+                      Where are you travelling from?
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setOrigin('india')}
+                        className="w-full py-3 px-4 rounded-lg text-sm font-sans font-medium border transition-all duration-200"
+                        style={{
+                          backgroundColor: origin === 'india' ? '#e07b2a'              : 'transparent',
+                          borderColor:     origin === 'india' ? '#e07b2a'              : 'rgba(255,255,255,0.1)',
+                          color:           origin === 'india' ? '#ffffff'              : '#888888',
+                        }}
+                      >
+                        🇮🇳 From India
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setOrigin('outside')}
+                        className="w-full py-3 px-4 rounded-lg text-sm font-sans font-medium border transition-all duration-200"
+                        style={{
+                          backgroundColor: origin === 'outside' ? '#1D9E75'            : 'transparent',
+                          borderColor:     origin === 'outside' ? '#1D9E75'            : 'rgba(255,255,255,0.1)',
+                          color:           origin === 'outside' ? '#ffffff'            : '#888888',
+                        }}
+                      >
+                        🌍 Outside India
+                      </button>
                     </div>
-                  ))}
+                  </div>
 
+                  {/* ── 2. Full Name ── */}
+                  <div>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Your name"
+                      required
+                      className={INPUT_CLASS}
+                    />
+                  </div>
+
+                  {/* ── 3. Email Address ── */}
+                  <div>
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      placeholder="your@email.com"
+                      required
+                      className={INPUT_CLASS}
+                    />
+                  </div>
+
+                  {/* ── 4. Phone / WhatsApp — India only ── */}
+                  <div
+                    style={{
+                      overflow:   'hidden',
+                      maxHeight:  origin === 'india' ? '120px' : '0px',
+                      opacity:    origin === 'india' ? 1 : 0,
+                      transition: 'max-height 0.3s ease, opacity 0.3s ease',
+                    }}
+                  >
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      Phone / WhatsApp
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="+91 XXXXX XXXXX"
+                      required={origin === 'india'}
+                      className={INPUT_CLASS}
+                    />
+                  </div>
+
+                  {/* ── 5. Interested In ── */}
                   <div>
                     <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
                       Interested In
@@ -145,43 +234,60 @@ export default function ContactPage() {
                       name="expedition"
                       value={form.expedition}
                       onChange={handleChange}
-                      className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm focus:outline-none focus:border-brand-orange/50 transition-colors"
+                      required
+                      className={INPUT_CLASS}
+                      style={{ backgroundColor: 'var(--color-brand-dark, #0d0d0d)' }}
                     >
-                      <option value="" disabled>Select an expedition or retreat...</option>
-                      <optgroup label="Himalayan Expeditions">
-                        <option>Adi Kailash Expedition</option>
-                        <option>Panchachuli Trekking Expedition</option>
-                        <option>Eastern Kumaon Cinematic Expedition</option>
-                        <option>Eastern Kumaon Wilderness Expedition</option>
-                        <option>Himalayan Wellness &amp; Meditation Retreat</option>
-                        <option>Himalayan Photography Expedition</option>
-                        <option>Winter Himalayan Wellness Retreat</option>
-                        <option>Women-Only Expedition (Darma Valley)</option>
-                      </optgroup>
-                      <optgroup label="International Retreats">
-                        <option>Panchachuli Himalayan Wellness Retreat</option>
-                        <option>Women's Sacred Himalaya Retreat</option>
-                        <option>The Borderlands of the Himalaya</option>
-                        <option>Darma Valley Digital Detox</option>
-                      </optgroup>
+                      <option value="" disabled>Select an expedition or retreat…</option>
+                      {INTERESTED_IN_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
                     </select>
                   </div>
 
+                  {/* ── 6. When are you planning to travel? — Outside India only ── */}
+                  <div
+                    style={{
+                      overflow:   'hidden',
+                      maxHeight:  origin === 'outside' ? '120px' : '0px',
+                      opacity:    origin === 'outside' ? 1 : 0,
+                      transition: 'max-height 0.3s ease, opacity 0.3s ease',
+                    }}
+                  >
+                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                      When are you planning to travel?
+                    </label>
+                    <select
+                      name="travelPlan"
+                      value={form.travelPlan}
+                      onChange={handleChange}
+                      className={INPUT_CLASS}
+                      style={{ backgroundColor: 'var(--color-brand-dark, #0d0d0d)' }}
+                    >
+                      <option value="">Select a timeframe…</option>
+                      {TRAVEL_PLAN_OPTIONS.map(opt => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* ── 7. Number of Travellers ── */}
                   <div>
                     <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
-                      Number of Pilgrims
+                      Number of Travellers
                     </label>
                     <input
                       type="number"
-                      name="pilgrims"
-                      value={form.pilgrims}
+                      name="travellers"
+                      value={form.travellers}
                       onChange={handleChange}
                       placeholder="e.g. 2"
                       min="1"
-                      className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
+                      className={INPUT_CLASS}
                     />
                   </div>
 
+                  {/* ── 8. Message ── */}
                   <div>
                     <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
                       Message
@@ -190,9 +296,9 @@ export default function ContactPage() {
                       name="message"
                       value={form.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your journey goals..."
+                      placeholder="Tell us about your journey goals…"
                       rows={4}
-                      className="w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors resize-none"
+                      className={`${INPUT_CLASS} resize-none`}
                     />
                   </div>
 
@@ -205,10 +311,10 @@ export default function ContactPage() {
                   <div className="flex flex-col sm:flex-row gap-3 pt-2">
                     <button
                       type="submit"
-                      disabled={status === 'loading'}
+                      disabled={status === 'loading' || !origin}
                       className="btn-primary flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {status === 'loading' ? 'Sending...' : 'Book Consultation'}
+                      {status === 'loading' ? 'Sending…' : 'Book Consultation'}
                     </button>
                     <a
                       href="https://wa.me/919084642557"
@@ -223,15 +329,15 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Info Column */}
+            {/* ── Info Column ───────────────────────────────────────────── */}
             <div className="space-y-8">
               <div>
                 <h3 className="font-serif text-2xl text-brand-cream mb-6">Connect With Us</h3>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail,    label: 'Email',            value: 'info@himalayanserenitytravel.com' },
-                    { icon: Phone,   label: 'Phone / WhatsApp', value: '+91 90846 42557'              },
-                    { icon: MapPin,  label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529' },
+                    { icon: Mail,   label: 'Email',            value: 'info@himalayanserenitytravel.com' },
+                    { icon: Phone,  label: 'Phone / WhatsApp', value: '+91 90846 42557'                  },
+                    { icon: MapPin, label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529'  },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-lg bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -246,17 +352,18 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Package Quick CTA */}
+              {/* Package Quick CTA — FIX 2 */}
               <div className="card-dark">
                 <p className="section-tag mb-3">Explore Packages</p>
                 <p className="font-sans text-brand-text-muted text-sm mb-5 leading-relaxed">
                   Browse our complete range of curated Himalayan expeditions.
                 </p>
-                <a href="/contact#consultation" className="btn-primary block text-center text-sm">
+                <a href="/international-retreats" className="btn-primary block text-center text-sm">
                   View All Packages
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </section>
