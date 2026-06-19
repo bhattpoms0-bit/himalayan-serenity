@@ -24,20 +24,29 @@ export default function Hero() {
     >
 
       {/* Mountain background — eager LCP image */}
-      <img
-        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
-        srcSet="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=768&q=75 768w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85 1920w"
-        sizes="100vw"
-        alt=""
-        aria-hidden="true"
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
-        width="1920"
-        height="1080"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ display: 'block' }}
-      />
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=768&q=75&fm=webp"
+          type="image/webp"
+        />
+        <source
+          srcSet="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85&fm=webp"
+          type="image/webp"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          width="1920"
+          height="1080"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ display: 'block' }}
+        />
+      </picture>
 
       {/* Left-to-right dark overlay — left readable, right shows mountain */}
       <div

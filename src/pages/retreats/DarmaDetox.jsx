@@ -239,15 +239,26 @@ export default function DarmaDetox() {
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
-        <img
-          src="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero.jfif"
-          alt="Panchachuli peaks at golden sunrise over Darma Valley, Uttarakhand"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: '50% 50%' }}
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/retreats/darma-detox/darma-valley-panchachuli-peaks-golden-sunrise-hero-desktop.webp"
+            alt="Panchachuli peaks at golden sunrise over Darma Valley, Uttarakhand"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: '50% 50%' }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80"></div>
         <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
         <div className="relative z-20 px-6 lg:px-16 pb-16">

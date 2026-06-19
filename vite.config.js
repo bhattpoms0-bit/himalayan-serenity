@@ -4,10 +4,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 200,
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash][extname]',
         manualChunks(id) {
           if (!id.includes('node_modules')) return
           if (id.includes('framer-motion'))  return 'vendor-framer'

@@ -45,7 +45,7 @@ const RETREAT_CARDS = [
     highlights:  'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
     price:       'From €1,400 per person',
     href:        '/retreats/panchachuli-wellness',
-    cardImg:     '/images/retreats/kumaon-wellness-retreat-card.jfif',
+    cardImg:     '/images/retreats/kumaon-wellness-retreat-card.webp',
     cardImgAlt:  'Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat',
   },
   {
@@ -56,7 +56,7 @@ const RETREAT_CARDS = [
     highlights:  'Digital detox · Tribal village stay · Trail yoga · Herbal medicine',
     price:       'From €2,200 per person',
     href:        '/retreats/darma-detox',
-    cardImg:     '/images/retreats/darma-valley-detox-trek-card.jfif',
+    cardImg:     '/images/retreats/darma-valley-detox-trek-card.webp',
     cardImgAlt:  'Trekker beside glacial stream with Panchachuli peaks, Darma Valley wilderness trek',
   },
   {
@@ -130,14 +130,25 @@ export default function InternationalRetreats() {
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
-        <img
-          src="/images/retreats/himalayan-yoga-meditation-retreat-hero.webp"
-          alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-[center_top]"
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/retreats/himalayan-yoga-meditation-retreat-hero-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/retreats/himalayan-yoga-meditation-retreat-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/retreats/himalayan-yoga-meditation-retreat-hero-desktop.webp"
+            alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+          />
+        </picture>
         <div className="absolute inset-0 bg-black/45" />
         <div className="relative z-10 pt-36 pb-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div className="max-w-2xl">

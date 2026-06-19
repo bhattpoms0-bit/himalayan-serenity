@@ -251,14 +251,25 @@ export default function KumaonWellness() {
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
-        <img
-          src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
-          alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero-desktop.webp"
+            alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/80" />
         <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
         <div className="relative z-20 px-6 lg:px-16 pb-16">

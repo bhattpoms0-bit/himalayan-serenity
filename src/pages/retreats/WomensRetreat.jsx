@@ -247,15 +247,26 @@ export default function WomensRetreat() {
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
       <section className="relative w-full min-h-screen bg-[#0d0508] flex flex-col justify-start overflow-hidden">
-        <img
-          src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
-          alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-[center_top]"
-          onError={(e) => { e.target.style.display = 'none' }}
-        />
+        <picture>
+          <source
+            media="(max-width: 768px)"
+            srcSet="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli-mobile.webp"
+            type="image/webp"
+          />
+          <source
+            srcSet="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli-desktop.webp"
+            type="image/webp"
+          />
+          <img
+            src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli-desktop.webp"
+            alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+            onError={(e) => { e.target.style.display = 'none' }}
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/80 z-10" />
         <Link to="/" className="relative z-30 block pt-24 pb-4 px-6 lg:px-16 text-sm text-white/50 hover:text-white/80 transition-colors">← Back to Home</Link>
         <div className="relative z-20 px-6 lg:px-16 pb-16">
