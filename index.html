@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Analytics — unchanged -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSWWR8H3WM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -42,25 +42,19 @@
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#0a0a0a" />
 
-    <!-- Preconnect — establish connections early for all external origins -->
+    <!-- Preconnect + DNS prefetch for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://images.unsplash.com" />
     <link rel="dns-prefetch" href="https://api.web3forms.com" />
     <link rel="dns-prefetch" href="https://www.clarity.ms" />
 
-    <!-- LCP preload: Homepage hero — two separate tags so each device preloads only its size -->
-    <link rel="preload" as="image" fetchpriority="high"
-      href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=768&q=75&fm=webp"
-      media="(max-width: 768px)" />
-    <link rel="preload" as="image" fetchpriority="high"
-      href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85&fm=webp"
-      media="(min-width: 769px)" />
+    <!-- LCP preload: Homepage hero (Unsplash mountain image, used in Hero.jsx) -->
+    <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85" />
 
-    <!-- Fonts — synchronous to prevent CLS from font-swap on desktop -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

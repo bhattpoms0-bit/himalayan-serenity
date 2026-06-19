@@ -336,14 +336,10 @@ export default function AdiKailashExpedition() {
   });
   // Preload hero background-image (CSS background can't use fetchPriority directly)
   useEffect(() => {
-    const isMobile = window.matchMedia('(max-width: 767px)').matches
-    const heroUrl = isMobile
-      ? '/images/packages/adi-kailash/adi-kailash-nandi-mobile.webp'
-      : '/images/packages/adi-kailash/adi-kailash-nandi-desktop.webp'
     const link = document.createElement('link')
     link.rel = 'preload'
     link.as = 'image'
-    link.href = heroUrl
+    link.href = '/images/packages/adi-kailash/adi-kailash-nandi.webp'
     document.head.appendChild(link)
     return () => { if (document.head.contains(link)) document.head.removeChild(link) }
   }, []);
@@ -370,7 +366,7 @@ export default function AdiKailashExpedition() {
       display: flex; flex-direction: column; justify-content: flex-end;
       padding: 0 0 80px;
       background: linear-gradient(to bottom,rgba(7,9,11,.2) 0%,rgba(7,9,11,.5) 55%,rgba(7,9,11,.97) 100%),
-        url('/images/packages/adi-kailash/adi-kailash-nandi-desktop.webp') center/cover no-repeat;
+        url('/images/packages/adi-kailash/adi-kailash-nandi.webp') center/cover no-repeat;
     }
     .ak-hero-inner   { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
     .ak-hero-layout  { display: flex; align-items: flex-end; gap: 48px; }
@@ -438,7 +434,7 @@ export default function AdiKailashExpedition() {
 
     /* ── Mobile ≤767px ───────────────────────────────────── */
     @media (max-width:767px) {
-      .ak-hero { min-height: auto; padding: 0 0 40px; background-image: linear-gradient(to bottom,rgba(7,9,11,.2) 0%,rgba(7,9,11,.5) 55%,rgba(7,9,11,.97) 100%), url('/images/packages/adi-kailash/adi-kailash-nandi-mobile.webp'); }
+      .ak-hero { min-height: auto; padding: 0 0 40px; }
       .ak-hero-inner { padding: 0 1rem; }
       .ak-hero-layout { flex-direction: column; gap: 24px; }
       .ak-stats-grid { grid-template-columns: repeat(2,1fr); padding: 1.5rem 1rem; gap: 16px; }

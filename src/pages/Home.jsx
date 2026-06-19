@@ -122,7 +122,7 @@ export default function Home() {
               <Link to="/retreats/panchachuli-wellness" className="no-underline group">
                 <div className="bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col overflow-hidden hover:border-[#1D9E75]/30 transition-colors duration-200">
                   <img
-                    src="/images/retreats/kumaon-wellness-retreat-card.webp"
+                    src="/images/retreats/kumaon-wellness-retreat-card.jfif"
                     alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat"
                     loading="lazy"
                     className="w-full object-cover"
