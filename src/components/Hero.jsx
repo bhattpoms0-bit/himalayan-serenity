@@ -26,6 +26,8 @@ export default function Hero() {
       {/* Mountain background — eager LCP image */}
       <img
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
+        srcSet="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=768&q=75 768w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85 1920w"
+        sizes="100vw"
         alt=""
         aria-hidden="true"
         fetchPriority="high"

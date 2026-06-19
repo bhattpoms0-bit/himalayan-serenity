@@ -51,11 +51,18 @@
     <link rel="dns-prefetch" href="https://api.web3forms.com" />
     <link rel="dns-prefetch" href="https://www.clarity.ms" />
 
-    <!-- LCP preload: Homepage hero (Unsplash mountain image, used in Hero.jsx) -->
-    <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85" />
+    <!-- LCP preload: Homepage hero — responsive (mobile gets 768px, desktop 1920px) -->
+    <link rel="preload" as="image" fetchpriority="high"
+      href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85"
+      imagesrcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=768&q=75 768w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85 1920w"
+      imagesizes="100vw" />
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Fonts — preloaded async to avoid render-blocking (font-display:swap already set) -->
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cinzel:wght@400;500;600;700&display=swap" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cinzel:wght@400;500;600;700&display=swap" />
+    </noscript>
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Himalayan Serenity | Adi Kailash Yatra &amp; Om Parvat Tour from Delhi</title>
