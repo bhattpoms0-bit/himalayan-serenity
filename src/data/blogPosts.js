@@ -1,5 +1,22 @@
 ﻿export const blogPosts = [
   {
+    id: 8,
+    slug: 'kumaon-himalayas-travel-guide-wellness-2026',
+    title: "Kumaon, Uttarakhand — India's Best Kept Himalayan Secret: A Complete Travel Guide 2026",
+    subtitle: 'Everything you need to know about Kumaon — Munsiyari, Khaliya Top, Adi Kailash, Kasar Devi and beyond',
+    category: 'Travel Guide',
+    date: 'June 24, 2026',
+    readTime: '16 min read',
+    author: 'Pramod Bhatt',
+    image: '/images/blog/kumaon-guide/01-panchachuli-peaks-sunrise-munsiyari.webp',
+    imageAlt: 'Panchachuli peaks at sunrise from Munsiyari, Kumaon Himalayas',
+    metaTitle: "Kumaon Travel Guide 2026 — Munsiyari, Khaliya Top, Adi Kailash | Himalayan Serenity",
+    metaDescription: 'A complete guide to Kumaon, Uttarakhand — Munsiyari, Khaliya Top, Adi Kailash, Kasar Devi, Bhotia culture, Kumaoni food and how to travel here in 2026. Written by a local from Pithoragarh.',
+    keywords: ['Kumaon travel guide 2026', 'Munsiyari', 'Khaliya Top', 'Adi Kailash Uttarakhand', 'Kasar Devi Almora', 'Kumaon Uttarakhand'],
+    excerpt: 'A complete 2026 guide to Kumaon, Uttarakhand — Munsiyari, Khaliya Top, Adi Kailash, Kasar Devi, Bhotia culture, Kumaoni food and everything you need to know about travelling here. Written by a local from Pithoragarh.',
+    content: '',
+  },
+  {
     id: 6,
     slug: "adi-kailash-vs-kailash-mansarovar",
     title: "Adi Kailash vs Kailash Mansarovar — Which Should You Choose in 2026?",
