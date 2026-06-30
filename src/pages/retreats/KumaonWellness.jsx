@@ -78,7 +78,7 @@ const DAYS = [
     theme:  'Silence, Nature & Reflection — Stillness',
     desc:   'A carefully curated digital detox day. No screens, no schedules — only forest, breath, and silence.',
     exp:    ['Guided forest bathing', 'Silent nature immersion', 'Meditation practices', 'Journalling session', 'Optional wellness coaching'],
-    stay:   'Munsiyari',
+    stay:   'Pithoragarh',
     img:         '/images/retreats/kumaon-wellness/forest-bathing-silence-pithoragarh-digital-detox-day7.webp',
     imgAlt:      'Forest bathing and silence practice in Pithoragarh, digital detox day seven',
     imgOverride: { width: '100%', height: 'auto', objectFit: 'contain' },
@@ -109,9 +109,10 @@ const INCLUDED = [
   {
     title: 'Accommodation',
     items: [
-      '1 Night Premium Lakeside Stay — Bhimtal',
-      '6 Nights Premium Mountain Lodge — Munsiyari',
-      '1 Night Boutique Heritage Stay — Kasar Devi',
+      '1 Night Heritage Stay — Pithoragarh (Day 1)',
+      '4 Nights Premium Mountain Lodge — Munsiyari (Days 2–5)',
+      '2 Nights Heritage Stay — Pithoragarh (Days 6–7)',
+      '1 Night Boutique Heritage Stay — Kasar Devi (Day 8)',
     ],
   },
   {
@@ -130,7 +131,7 @@ const INCLUDED = [
   {
     title: 'Cultural Experiences',
     items: [
-      'Shauka Community Immersion',
+      'Shauka Community Immersion (Village Tour)',
       'Artisan Interaction Sessions',
       'Kumaoni Culinary Experiences',
       'Himalayan Storytelling Evenings',
