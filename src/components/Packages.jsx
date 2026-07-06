@@ -12,7 +12,7 @@ const FEATURED = [
     days:          6,
     difficulty:    'Moderate',
     people:        12,
-    nextDeparture: 'Next departure: June 15, 2026',
+    nextDeparture: 'Next departure: Post Monsoon — 1 September',
     price:         'Starting from ₹34,999',
     image:         '/images/packages/adi-kailash-base.webp',
     link:          '/packages/adi-kailash-expedition',

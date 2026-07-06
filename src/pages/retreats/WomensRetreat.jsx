@@ -172,27 +172,24 @@ const IDEAL_FOR = [
 
 const WOMENS_RETREAT_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Event',
+  '@type': 'Product',
   name: "Women's Sacred Himalaya Retreat",
-  description: "A 9-day women-only cultural immersion journey through the Kumaon Himalaya with women guides, Shakti yoga, weaving, sacred landscapes, and Panchachuli views. Max 8 guests.",
-  organizer: {
+  description: "A 9-day women-only cultural immersion journey through the Kumaon Himalaya with women guides, Shakti yoga, weaving, sacred landscapes, and Panchachuli views. Max 8 guests. Available on your chosen dates.",
+  image: 'https://www.himalayanserenitytravel.com/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp',
+  brand: {
     '@type': 'Organization',
     name: 'Himalayan Serenity Travel',
     url: 'https://www.himalayanserenitytravel.com',
   },
-  location: {
-    '@type': 'Place',
-    name: 'Munsiyari, Kumaon Himalayas, Uttarakhand',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Munsiyari',
-      addressRegion: 'Uttarakhand',
-      addressCountry: 'IN',
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'Himalayan Serenity Travel',
     },
   },
-  eventStatus: 'https://schema.org/EventScheduled',
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
 }
 
 export default function WomensRetreat() {

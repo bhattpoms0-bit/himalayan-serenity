@@ -215,27 +215,24 @@ const IDEAL_FOR = [
 
 const BORDERLANDS_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Event',
+  '@type': 'Product',
   name: 'The Borderlands of the Himalaya',
-  description: 'A 10-day premium cultural journey through the Kumaon Himalayan borderlands — ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests.',
-  organizer: {
+  description: 'A 10-day premium cultural journey through the Kumaon Himalayan borderlands — ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests. Available on your chosen dates.',
+  image: 'https://www.himalayanserenitytravel.com/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp',
+  brand: {
     '@type': 'Organization',
     name: 'Himalayan Serenity Travel',
     url: 'https://www.himalayanserenitytravel.com',
   },
-  location: {
-    '@type': 'Place',
-    name: 'Johar Valley, Kumaon Himalayas, Uttarakhand',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Pithoragarh',
-      addressRegion: 'Uttarakhand',
-      addressCountry: 'IN',
+  offers: {
+    '@type': 'Offer',
+    url: 'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: 'Himalayan Serenity Travel',
     },
   },
-  eventStatus: 'https://schema.org/EventScheduled',
-  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-  url: 'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
 }
 
 export default function Panchakarma() {
