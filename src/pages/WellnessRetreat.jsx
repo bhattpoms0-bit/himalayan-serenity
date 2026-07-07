@@ -146,6 +146,7 @@ export default function WellnessRetreat() {
   useSEO({
     title: 'Himalayan Yoga Retreat 2026 | Wellness Tour Kumaon from Delhi & Pithoragarh',
     description: '7-day Himalayan yoga and wellness retreat from Delhi and Pithoragarh. Meditation, breathwork and forest healing in Kumaon near Munsiyari. Best Himalayan wellness tour 2026.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/wellness-retreat',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

@@ -257,6 +257,7 @@ export default function PhotographyExpedition() {
   useSEO({
     title: 'Himalayan Photography Tour 2026 | Om Parvat Photo Trip from Delhi & Pithoragarh',
     description: '9-day Himalayan photography tour from Delhi and Pithoragarh. Om Parvat, Panchachuli sunrise, Milky Way astrophotography, Darma Valley near Dharchula. Best Kumaon photo tour 2026.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/photography-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

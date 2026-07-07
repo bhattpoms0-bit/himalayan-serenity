@@ -7,6 +7,7 @@ export default function AdiKailashVsKailashMansarovar() {
   useSEO({
     title: 'Adi Kailash vs Kailash Mansarovar 2026 | Complete Verified Guide',
     description: 'Honest comparison of Adi Kailash Yatra and Kailash Mansarovar Yatra 2026. Official eligibility, selection process, Om Parvat darshan, and which sacred pilgrimage is right for you. KMY facts verified from kmy.gov.in.',
+    canonical: 'https://www.himalayanserenitytravel.com/blog/adi-kailash-vs-kailash-mansarovar',
   })
 
   const faqData = [

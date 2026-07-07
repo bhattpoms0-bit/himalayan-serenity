@@ -57,6 +57,7 @@ export default function Sustainability() {
   useSEO({
     title: 'Responsible Adi Kailash Yatra | Eco Tourism Kumaon | Himalayan Serenity',
     description: 'Responsible Adi Kailash Yatra and Kumaon eco tourism from Pithoragarh. Small groups, supporting local Dharchula communities, plastic-free Himalayan travel.',
+    canonical: 'https://www.himalayanserenitytravel.com/sustainability',
   })
   return (
     <div className="min-h-screen bg-brand-dark">

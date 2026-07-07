@@ -41,6 +41,7 @@ export default function FAQPage() {
   useSEO({
     title: 'Adi Kailash Yatra FAQ 2026 | Opening Date | Distance | Om Parvat Questions',
     description: 'Answers to Adi Kailash Yatra questions — Adi Kailash opening date 2026, Dharchula to Adi Kailash distance, Inner Line Permit, best time to visit, Om Parvat darshan details.',
+    canonical: 'https://www.himalayanserenitytravel.com/faq',
   })
   const [openIndex, setOpenIndex]       = useState(null)
   const [chatOpen, setChatOpen]         = useState(false)

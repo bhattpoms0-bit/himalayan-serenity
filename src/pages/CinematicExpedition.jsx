@@ -138,6 +138,7 @@ export default function CinematicExpedition() {
   useSEO({
     title: 'Kumaon Tour 2026 | Eastern Kumaon Cinematic Journey from Delhi & Pithoragarh',
     description: 'Eastern Kumaon cinematic tour from Delhi and Pithoragarh — Abbott Mount, Munsiyari, Darma Valley, Dharchula. Best Kumaon travel package for photographers and filmmakers 2026.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/cinematic-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

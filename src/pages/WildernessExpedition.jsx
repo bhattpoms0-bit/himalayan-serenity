@@ -167,6 +167,7 @@ export default function WildernessExpedition() {
   useSEO({
     title: 'Kumaon Wilderness Tour 2026 | Eastern Kumaon Travel Package from Delhi',
     description: 'Eastern Kumaon wilderness tour from Delhi and Pithoragarh. Remote Kumaon villages near Dharchula, ancient forests and Himalayan landscapes. Authentic slow travel package 2026.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/wilderness-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

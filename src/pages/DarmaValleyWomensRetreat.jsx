@@ -188,6 +188,7 @@ export default function DarmaValleyWomensRetreat() {
   useSEO({
     title: 'Darma Valley Tour 2026 | Women Himalaya Trip from Delhi via Dharchula',
     description: '12-day Darma Valley tour for women from Delhi via Dharchula and Pithoragarh. Women only Himalaya trip through hidden Kumaon villages near Adi Kailash route. Best women travel package Uttarakhand 2026.',
+    canonical: 'https://www.himalayanserenitytravel.com/packages/darma-valley-womens-retreat',
   });
   const [activeDay, setActiveDay] = useState(0);
   const [tab, setTab] = useState("inclusions");

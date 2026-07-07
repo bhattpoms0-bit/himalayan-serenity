@@ -62,7 +62,14 @@ export default function AdiKailashILPGuide() {
       ]
     });
     document.head.appendChild(schema);
-    return () => { document.head.removeChild(schema); };
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = 'https://www.himalayanserenitytravel.com/blog/adi-kailash-ilp-guide-2026';
+    document.head.appendChild(canonical);
+    return () => {
+      document.head.removeChild(schema);
+      if (canonical.parentNode) canonical.parentNode.removeChild(canonical);
+    };
   }, []);
 
   const sectionStyle = { maxWidth: "740px", margin: "0 auto", padding: "3rem 1.5rem" };
