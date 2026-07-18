@@ -376,10 +376,6 @@ export default function AboutPage() {
               </a>
               <div className="flex items-center gap-2 text-brand-text-muted font-sans text-sm">
                 <ShieldCheck size={16} className="text-brand-orange" strokeWidth={1.5} />
-                Listed on BookRetreats
-              </div>
-              <div className="flex items-center gap-2 text-brand-text-muted font-sans text-sm">
-                <ShieldCheck size={16} className="text-brand-orange" strokeWidth={1.5} />
                 TripAdvisor verified operator
               </div>
             </div>
