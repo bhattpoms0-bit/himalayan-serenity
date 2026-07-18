@@ -330,7 +330,7 @@ const ADI_KAILASH_SCHEMAS = [
 export default function AdiKailashExpedition() {
   useSEO({
     title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
-    description: 'Book Adi Kailash Yatra 2026 from Delhi. Om Parvat darshan, Inner Line Permit included. Expert local guides from Pithoragarh. Small group departures May–Oct.',
+    description: 'Adi Kailash Yatra group packages from ₹15,000 per person from Pithoragarh. Private packages from ₹34,999. Inner Line Permit handled. Based in Pithoragarh, Uttarakhand.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
     schema: ADI_KAILASH_SCHEMAS,
   });
@@ -757,10 +757,69 @@ export default function AdiKailashExpedition() {
           </motion.div>
         </motion.section>
 
+        {/* GROUP PRICING */}
+        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Group Package Prices</div>
+          <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>
+            Minimum 6 people · Transport, accommodation, permit assistance &amp; guide included · Meals not included
+          </p>
+          <div className="ak-pricing-grid">
+            {[
+              {
+                label: "From Pithoragarh",
+                price: "₹15,000",
+                items: ["Transport", "Accommodation", "Permit assistance"],
+              },
+              {
+                label: "From Kathgodam",
+                price: "₹20,000",
+                items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
+              },
+              {
+                label: "From Delhi",
+                price: "₹25,000",
+                items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
+              },
+            ].map((g) => (
+              <div key={g.label} style={{
+                background: card,
+                border: `1px solid #ffffff0d`,
+                borderTop: `3px solid ${gold}44`,
+                padding: "32px 28px",
+              }}>
+                <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 8 }}>{g.label}</div>
+                <div style={{ fontSize: "clamp(1.5rem,4vw,2.2rem)", fontWeight: 300, color: gold, marginBottom: 4, lineHeight: 1 }}>{g.price}</div>
+                <div style={{ fontSize: 11, color: muted, letterSpacing: "0.08em", marginBottom: 28 }}>per person</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
+                  {g.items.map(item => (
+                    <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                      <span style={{ color: gold, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
+                      <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <a href="https://wa.me/919084642557" target="_blank" rel="noopener noreferrer" className="ak-pricing-btn" style={{ background: "transparent", border: `1px solid ${gold}`, color: gold }}>
+                  Enquire on WhatsApp
+                </a>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 24, padding: "16px 20px", background: `${gold}08`, border: `1px solid ${gold}22`, borderLeft: `3px solid ${gold}` }}>
+            <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.7, margin: 0 }}>
+              Minimum 6 travellers per departure. Solo travellers and small groups are welcome to join available group departures.{" "}
+              <a href="https://wa.me/919084642557" target="_blank" rel="noopener noreferrer" style={{ color: gold, textDecoration: "none" }}>
+                Contact us on WhatsApp for next departure dates.
+              </a>
+            </p>
+          </div>
+        </motion.section>
+
         {/* PRICING */}
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
-          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Choose Your Expedition</div>
-          <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>All packages depart from Delhi</p>
+          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Private &amp; Premium Packages</div>
+          <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>
+            For individuals, couples and small groups wanting a fully inclusive private experience on your own dates.
+          </p>
           <div className="ak-pricing-grid">
             {pricingTiers.map((tier) => (
               <div key={tier.name} style={{
