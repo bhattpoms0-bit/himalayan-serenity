@@ -350,8 +350,14 @@ export default function AboutPage() {
           <motion.div {...fadeUp}>
             <p className="section-tag mb-4">Legitimacy</p>
             <h2 className="section-title text-3xl lg:text-4xl mb-6">Registered & Verified in Pithoragarh</h2>
-            <p className="font-sans text-brand-text-muted leading-relaxed mb-10 max-w-2xl mx-auto">
+            <p className="font-sans text-brand-text-muted leading-relaxed mb-3 max-w-2xl mx-auto">
               Himalayan Serenity Travel is a registered business operating from Pithoragarh, Uttarakhand — the gateway to Eastern Kumaon.
+            </p>
+            <p
+              className="font-sans mb-10"
+              style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}
+            >
+              A brand of Life &amp; Leisure
             </p>
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
               <div className="flex items-center gap-2 text-brand-text-muted font-sans text-sm">

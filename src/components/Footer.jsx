@@ -104,6 +104,13 @@ export default function Footer() {
               </h3>
             </Link>
 
+            <p
+              className="font-sans"
+              style={{ fontSize: 10, letterSpacing: '0.16em', color: 'rgba(224,123,42,0.45)', textTransform: 'uppercase', marginBottom: 18, marginTop: -8 }}
+            >
+              A brand of Life &amp; Leisure
+            </p>
+
             {/* Orange divider */}
             <div
               className="mb-5"
