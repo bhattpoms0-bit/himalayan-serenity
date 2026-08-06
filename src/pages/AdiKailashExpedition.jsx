@@ -772,12 +772,12 @@ export default function AdiKailashExpedition() {
               },
               {
                 label: "From Kathgodam",
-                price: "₹20,000",
+                price: "₹24,999",
                 items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
               },
               {
                 label: "From Delhi",
-                price: "₹25,000",
+                price: "₹29,999",
                 items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
               },
             ].map((g) => (
@@ -812,6 +812,12 @@ export default function AdiKailashExpedition() {
               </a>
             </p>
           </div>
+          <p style={{ marginTop: 20, fontSize: 11, color: muted, letterSpacing: "0.04em", lineHeight: 1.7 }}>
+            Travel agents and tour operators — please contact us for trade rates.{" "}
+            <a href="mailto:parmod@himalayanserenitytravel.com" style={{ color: `${gold}99`, textDecoration: "none" }}>
+              parmod@himalayanserenitytravel.com
+            </a>
+          </p>
         </motion.section>
 
         {/* PRICING */}
