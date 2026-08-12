@@ -172,10 +172,9 @@ const INCLUDED = [
   {
     title: 'Accommodation',
     items: [
-      'Heritage Stay — Pithoragarh (2 nights)',
-      'Mountain Stay — Dharchula (1 night)',
-      'Retreat Camp / Boutique Homestay — Darma Valley (2 nights)',
-      'Tea Garden Retreat — Chaukori (1 night)',
+      'Mountain hotel — Pithoragarh (2 nights: Days 1 & 5)',
+      'Dugtu village homestay — Darma Valley (3 nights: Days 2, 3 & 4)',
+      'Mountain property — Chaukori (1 night: Day 6)',
     ],
   },
   {
@@ -556,10 +555,10 @@ export default function DarmaValleyWomensRetreat() {
           The valley is waiting.
         </h2>
         <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mt-6 text-left">
-          This is not a group tour. It is a carefully curated women's journey into one of the
-          Himalaya's most hidden and beautiful valleys — where silence, sisterhood, and the
-          sacred mountains create something that is very difficult to describe, and impossible
-          to forget.
+          A deliberately small women's retreat, limited to 10 guests, designed to create
+          genuine connection without the feel of conventional group tourism — where silence,
+          sisterhood, and the sacred mountains create something that is very difficult to
+          describe, and impossible to forget.
         </p>
         <p className="font-serif italic text-amber-400 text-xl text-center mt-10">
           Safe. Slow. Deeply restorative.
