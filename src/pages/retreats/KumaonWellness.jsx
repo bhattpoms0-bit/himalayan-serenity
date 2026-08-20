@@ -156,6 +156,15 @@ const INCLUDED = [
   },
 ]
 
+const DEPARTURES = [
+  { month: 'September 2026', dates: '25 September — 3 October' },
+  { month: 'October 2026',   dates: '9 — 17 October'           },
+  { month: 'October 2026',   dates: '23 — 31 October'          },
+  { month: 'November 2026',  dates: '6 — 14 November'          },
+  { month: 'November 2026',  dates: '20 — 28 November'         },
+  { month: 'December 2026',  dates: '4 — 12 December'          },
+]
+
 const NOT_INCLUDED = [
   'International flights to Delhi',
   'Travel insurance (strongly recommended)',
@@ -321,7 +330,94 @@ export default function KumaonWellness() {
         </div>
       </section>
 
-      {/* ── SECTION 3 — ITINERARY ────────────────────────────────────────── */}
+      {/* ── SECTION 3 — UPCOMING DEPARTURES ─────────────────────────────── */}
+      <section className="bg-[#061008] py-20 px-6 border-t border-[#C9A84C]/8">
+        <div className="max-w-4xl mx-auto">
+
+          {/* Header */}
+          <p
+            className="font-sans uppercase tracking-widest mb-3"
+            style={{ fontSize: 10, letterSpacing: '0.22em', color: '#C9A84C' }}
+          >
+            2026 Season
+          </p>
+          <h2 className="font-serif text-[#f0ece4] text-3xl lg:text-4xl mb-3">
+            Upcoming Departures
+          </h2>
+          <p className="text-[#f0ece4]/40 text-sm mb-14">
+            All departures run September — December 2026 · Small groups of 6 to 8 guests
+          </p>
+
+          {/* Departure rows */}
+          <div>
+            {DEPARTURES.map((dep, i) => (
+              <div key={i}>
+                {i > 0 && (
+                  <div style={{ borderTop: '1px solid rgba(201,168,76,0.10)' }} />
+                )}
+                <div className="flex items-center justify-between gap-6 py-8 flex-wrap sm:flex-nowrap">
+
+                  {/* Left — month + date range */}
+                  <div className="flex-1 min-w-0">
+                    <p
+                      className="font-sans uppercase mb-2"
+                      style={{ fontSize: 10, letterSpacing: '0.22em', color: '#C9A84C' }}
+                    >
+                      {dep.month}
+                    </p>
+                    <p className="font-serif text-[#f0ece4] text-xl lg:text-2xl leading-tight">
+                      {dep.dates}
+                    </p>
+                  </div>
+
+                  {/* Right — availability dot + enquire button */}
+                  <div className="flex items-center gap-5 flex-shrink-0">
+                    <span className="flex items-center gap-2 font-sans text-[#f0ece4]/45"
+                      style={{ fontSize: 11 }}>
+                      <span
+                        className="rounded-full flex-shrink-0"
+                        style={{ width: 7, height: 7, backgroundColor: '#1D9E75' }}
+                      />
+                      Available
+                    </span>
+                    <Link
+                      to="/contact"
+                      className="font-sans transition-colors duration-200"
+                      style={{
+                        fontSize:        11,
+                        letterSpacing:   '0.14em',
+                        textTransform:   'uppercase',
+                        color:           '#C9A84C',
+                        border:          '1px solid rgba(201,168,76,0.35)',
+                        borderRadius:    999,
+                        padding:         '9px 22px',
+                        textDecoration:  'none',
+                        whiteSpace:      'nowrap',
+                      }}
+                      onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(201,168,76,0.08)')}
+                      onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
+                    >
+                      Enquire
+                    </Link>
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Footer note */}
+          <p
+            className="font-sans text-center mt-10"
+            style={{ fontSize: 11, color: 'rgba(240,236,228,0.25)', letterSpacing: '0.04em' }}
+          >
+            We recommend enquiring at least 8–12 weeks in advance · All dates subject to availability
+          </p>
+
+        </div>
+      </section>
+
+      {/* ── SECTION 4 — ITINERARY ────────────────────────────────────────── */}
       <section className="pb-0">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
           <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Itinerary</p>
@@ -401,7 +497,7 @@ export default function KumaonWellness() {
         />
       </div>
 
-      {/* ── SECTION 4 — WHAT'S INCLUDED ──────────────────────────────────── */}
+      {/* ── SECTION 5 — WHAT'S INCLUDED ──────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">What's Included</p>
         <h2 className="font-serif text-[#f0ece4] text-2xl mb-10">Everything taken care of</h2>
@@ -440,7 +536,7 @@ export default function KumaonWellness() {
         </div>
       </section>
 
-      {/* ── SECTION 5 — IDEAL FOR ────────────────────────────────────────── */}
+      {/* ── SECTION 6 — IDEAL FOR ────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Ideal For</p>
         <h2 className="font-serif text-[#f0ece4] text-2xl mb-8">Who comes on this retreat</h2>
@@ -456,7 +552,7 @@ export default function KumaonWellness() {
         </div>
       </section>
 
-      {/* ── SECTION 6 — SIGNATURE PROMISE ───────────────────────────────── */}
+      {/* ── SECTION 7 — SIGNATURE PROMISE ───────────────────────────────── */}
       <section className="bg-[#061008] py-16 px-6 text-center">
         <h2 className="font-serif text-[#f0ece4] text-3xl max-w-2xl mx-auto leading-snug">
           This is not a yoga holiday.
@@ -468,7 +564,7 @@ export default function KumaonWellness() {
         </p>
       </section>
 
-      {/* ── SECTION 7 — ENQUIRY FORM ─────────────────────────────────────── */}
+      {/* ── SECTION 8 — ENQUIRY FORM ─────────────────────────────────────── */}
       <section id="enquiry" className="bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
           <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Book your place on this retreat</h2>
