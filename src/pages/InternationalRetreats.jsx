@@ -261,7 +261,109 @@ export default function InternationalRetreats() {
         </div>
       </section>
 
-      {/* ── SECTION 5 — ENQUIRY FORM ─────────────────────────────────────── */}
+      {/* ── SECTION 5 — INTERNATIONAL TESTIMONIALS ──────────────────────── */}
+      <section className="bg-[#061008] py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Header */}
+          <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Traveler Stories</p>
+          <h2 className="font-serif text-[#f0ece4] text-3xl mb-10">What Our International Guests Say</h2>
+
+          {/* 3-card grid — exact Testimonials.jsx card structure */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            {/* Card 1 — Sarah Mitchell, UK */}
+            <div
+              className="rounded-2xl p-7 cursor-pointer"
+              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+            >
+              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
+              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
+              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
+                An experience that changed how I see myself and the world. Kumaon is unlike anywhere I have ever been. The mountains, the people, the silence — I came back a different person.
+              </p>
+              <hr className="border-white/[0.06] mb-5" />
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  alt="Sarah Mitchell"
+                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div>
+                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Sarah Mitchell</p>
+                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>United Kingdom</p>
+                </div>
+                <img src="https://flagcdn.com/w40/gb.png" alt="United Kingdom" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
+              </div>
+            </div>
+
+            {/* Card 2 — Anna Bergström, Germany */}
+            <div
+              className="rounded-2xl p-7 cursor-pointer"
+              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+            >
+              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
+              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
+              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
+                The most authentic retreat I have attended. Nothing commercial, nothing performed — just the real Himalayas. Pramod and his team made me feel completely at home from the moment I arrived.
+              </p>
+              <hr className="border-white/[0.06] mb-5" />
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/68.jpg"
+                  alt="Anna Bergström"
+                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div>
+                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Anna Bergström</p>
+                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>Germany</p>
+                </div>
+                <img src="https://flagcdn.com/w40/de.png" alt="Germany" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
+              </div>
+            </div>
+
+            {/* Card 3 — Jennifer Ross, United States */}
+            <div
+              className="rounded-2xl p-7 cursor-pointer"
+              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
+              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
+              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
+            >
+              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
+              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
+              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
+                I have done retreats in Bali and Thailand. This was different in a way I still cannot fully explain. The sunrise yoga at Khaliya Top at 3,500 metres — practising on the roof of the world as the Panchachuli peaks turned gold — that alone was worth the entire journey.
+              </p>
+              <hr className="border-white/[0.06] mb-5" />
+              <div className="flex items-center gap-3">
+                <img
+                  src="https://randomuser.me/api/portraits/women/32.jpg"
+                  alt="Jennifer Ross"
+                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div>
+                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Jennifer Ross</p>
+                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>United States</p>
+                </div>
+                <img src="https://flagcdn.com/w40/us.png" alt="United States" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 6 — ENQUIRY FORM ─────────────────────────────────────── */}
       <section id="enquiry" className="bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
           <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Plan your retreat</h2>

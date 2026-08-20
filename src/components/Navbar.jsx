@@ -103,7 +103,7 @@ export default function Navbar({ activePage = 'home' }) {
               onMouseLeave={handleExpLeave}
             >
               <button className="flex items-center gap-1 font-sans text-[13px] text-[#aaaaaa] hover:text-white transition-colors duration-200 cursor-pointer">
-                Experiences
+                Sacred Pilgrimages &amp; Expeditions
                 <ChevronDown
                   size={12}
                   strokeWidth={1.5}
@@ -140,10 +140,27 @@ export default function Navbar({ activePage = 'home' }) {
             {/* International Retreats */}
             <Link
               to="/international-retreats"
-              className="font-sans text-[13px] text-[#1D9E75] hover:opacity-75 transition-opacity duration-200 cursor-pointer"
+              className="flex items-center gap-2 font-sans text-[13px] text-[#1D9E75] hover:opacity-75 transition-opacity duration-200 cursor-pointer"
               style={{ textDecoration: 'none' }}
             >
               International Retreats
+              <span
+                className="font-sans"
+                style={{
+                  fontSize: 8,
+                  letterSpacing: '0.09em',
+                  textTransform: 'uppercase',
+                  backgroundColor: 'rgba(201,168,76,0.12)',
+                  color: '#C9A84C',
+                  border: '1px solid rgba(201,168,76,0.28)',
+                  borderRadius: 3,
+                  padding: '2px 5px',
+                  lineHeight: 1.4,
+                  flexShrink: 0,
+                }}
+              >
+                For International Guests
+              </span>
             </Link>
 
             {/* Regular links */}
@@ -250,7 +267,7 @@ export default function Navbar({ activePage = 'home' }) {
                   className="w-full flex items-center justify-between py-4 font-sans text-base transition-colors duration-200 cursor-pointer"
                   style={{ color: '#777777' }}
                 >
-                  Experiences
+                  Sacred Pilgrimages &amp; Expeditions
                   <ChevronDown
                     size={14}
                     strokeWidth={1.5}
@@ -289,10 +306,27 @@ export default function Navbar({ activePage = 'home' }) {
               <a
                 href="/international-retreats"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between py-4 border-b border-white/[0.06] font-sans text-base transition-colors duration-200 cursor-pointer"
+                className="flex items-center gap-3 py-4 border-b border-white/[0.06] font-sans text-base transition-colors duration-200 cursor-pointer"
                 style={{ color: '#1D9E75', textDecoration: 'none' }}
               >
                 International Retreats
+                <span
+                  className="font-sans"
+                  style={{
+                    fontSize: 8,
+                    letterSpacing: '0.09em',
+                    textTransform: 'uppercase',
+                    backgroundColor: 'rgba(201,168,76,0.12)',
+                    color: '#C9A84C',
+                    border: '1px solid rgba(201,168,76,0.28)',
+                    borderRadius: 3,
+                    padding: '2px 5px',
+                    lineHeight: 1.4,
+                    flexShrink: 0,
+                  }}
+                >
+                  For International Guests
+                </span>
               </a>
 
               {/* Regular links */}
