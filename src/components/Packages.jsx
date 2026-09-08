@@ -13,7 +13,7 @@ const FEATURED = [
     difficulty:    'Moderate',
     people:        12,
     nextDeparture: 'Next departure: Post Monsoon — 1 September',
-    price:         'Starting from ₹34,999',
+    price:         'Starting from ₹15,000',
     image:         '/images/packages/adi-kailash-base.webp',
     link:          '/packages/adi-kailash-expedition',
   },

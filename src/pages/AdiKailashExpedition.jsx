@@ -207,56 +207,6 @@ const routeStops = [
   "Kumaon Temple Circuit", "Bhimtal / Haldwani", "Delhi",
 ];
 
-const pricingTiers = [
-  {
-    name: "Standard Expedition",
-    price: "₹34,999",
-    badge: null,
-    items: [
-      "Standard hotels & guesthouses",
-      "Shared SUV transportation",
-      "Vegetarian meals during expedition",
-      "Permit assistance",
-      "Basic expedition support",
-      "Sightseeing as per itinerary",
-    ],
-    ideal: "Budget-conscious spiritual travelers",
-    cta: "Book Standard",
-  },
-  {
-    name: "Deluxe Expedition",
-    price: "₹44,999",
-    badge: null,
-    items: [
-      "Deluxe hotels & premium homestays",
-      "Comfortable SUV transportation",
-      "All meals included",
-      "Expedition coordinator support",
-      "Guided cultural experiences",
-      "Bonfire sessions (weather permitting)",
-      "Welcome kit",
-    ],
-    ideal: "Travelers seeking enhanced comfort and curated experiences",
-    cta: "Book Deluxe",
-  },
-  {
-    name: "Premium Expedition",
-    price: "₹54,999",
-    badge: "Most Popular",
-    items: [
-      "Premium boutique stays",
-      "Luxury SUV transportation",
-      "Dedicated expedition leader",
-      "Premium meals & hospitality",
-      "Photography assistance",
-      "Oxygen support & altitude care kit",
-      "Personalized travel assistance",
-      "VIP coordination support",
-    ],
-    ideal: "Premium travelers, photographers, international guests and spiritual explorers",
-    cta: "Book Premium",
-  },
-];
 
 const ADI_KAILASH_SCHEMAS = [
   {
@@ -330,7 +280,7 @@ const ADI_KAILASH_SCHEMAS = [
 export default function AdiKailashExpedition() {
   useSEO({
     title: 'Adi Kailash Yatra 2026 | Adi Kailash Temple Tour | Om Parvat Darshan from Delhi',
-    description: 'Adi Kailash Yatra group packages from ₹15,000 per person from Pithoragarh. Private packages from ₹34,999. Inner Line Permit handled. Based in Pithoragarh, Uttarakhand.',
+    description: 'Adi Kailash Yatra packages from ₹15,000 per person from Pithoragarh. Inner Line Permit handled. Based in Pithoragarh, Uttarakhand.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
     schema: ADI_KAILASH_SCHEMAS,
   });
@@ -523,7 +473,7 @@ export default function AdiKailashExpedition() {
               </div>
               <div>
                 <div style={{ display: "inline-block", padding: "6px 16px", background: `${gold}22`, border: `1px solid ${gold}`, borderRadius: 2, marginBottom: 28 }}>
-                  <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹34,999 per person</span>
+                  <span style={{ fontSize: 13, color: gold, letterSpacing: "0.1em" }}>From ₹15,000 per person</span>
                 </div>
               </div>
               <div>
@@ -549,7 +499,7 @@ export default function AdiKailashExpedition() {
             { label: "Group Size",      value: "Max 8–10 travelers"  },
             { label: "Fitness Level",   value: "Moderate"            },
             { label: "Permit Required", value: "Inner Line Permit"   },
-            { label: "Starting From",   value: "₹34,999 / person"   },
+            { label: "Starting From",   value: "₹15,000 / person"   },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: gold, marginBottom: 6 }}>{item.label}</div>
@@ -820,48 +770,6 @@ export default function AdiKailashExpedition() {
           </p>
         </motion.section>
 
-        {/* PRICING */}
-        <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
-          <div style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Private &amp; Premium Packages</div>
-          <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>
-            For individuals, couples and small groups wanting a fully inclusive private experience on your own dates.
-          </p>
-          <div className="ak-pricing-grid">
-            {pricingTiers.map((tier) => (
-              <div key={tier.name} style={{
-                background: card,
-                border: tier.badge ? `1px solid ${gold}` : `1px solid #ffffff0d`,
-                borderTop: `3px solid ${tier.badge ? gold : gold + "44"}`,
-                padding: "32px 28px", position: "relative",
-                boxShadow: tier.badge ? `0 0 40px ${gold}18` : "none",
-              }}>
-                {tier.badge && (
-                  <div style={{ position: "absolute", top: -1, right: 20, background: gold, color: bg, fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", padding: "4px 12px", fontFamily: "inherit" }}>
-                    {tier.badge}
-                  </div>
-                )}
-                <div style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: muted, marginBottom: 8 }}>{tier.name}</div>
-                <div style={{ fontSize: "clamp(1.5rem,4vw,2.2rem)", fontWeight: 300, color: gold, marginBottom: 4, lineHeight: 1 }}>{tier.price}</div>
-                <div style={{ fontSize: 11, color: muted, letterSpacing: "0.08em", marginBottom: 28 }}>per person</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 24 }}>
-                  {tier.items.map(item => (
-                    <div key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                      <span style={{ color: gold, fontSize: 13, marginTop: 1, flexShrink: 0 }}>✓</span>
-                      <span style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ padding: "10px 14px", background: `${gold}0a`, borderLeft: `2px solid ${gold}44`, marginBottom: 24 }}>
-                  <div style={{ fontSize: 10, color: muted, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 4 }}>Ideal For</div>
-                  <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: accent, lineHeight: 1.5 }}>{tier.ideal}</div>
-                </div>
-                <a href="/contact#consultation" className="ak-pricing-btn" style={{ background: tier.badge ? gold : "transparent", border: `1px solid ${gold}`, color: tier.badge ? bg : gold }}>
-                  {tier.cta}
-                </a>
-              </div>
-            ))}
-          </div>
-        </motion.section>
 
         {/* ALTITUDE PROFILE */}
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
@@ -923,7 +831,7 @@ export default function AdiKailashExpedition() {
             One of India's most exclusive Himalayan expeditions.
           </p>
           <div style={{ fontSize: "clamp(1.1rem,3vw,1.4rem)", color: gold, margin: "0 auto 8px", letterSpacing: "0.05em" }}>
-            From ₹34,999 per person
+            From ₹15,000 per person
           </div>
           <div style={{ fontSize: 12, color: muted, margin: "0 auto 36px", letterSpacing: "0.06em" }}>
             Standard · Deluxe · Premium
