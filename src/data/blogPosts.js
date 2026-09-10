@@ -1,5 +1,22 @@
 ﻿export const blogPosts = [
   {
+    id: 9,
+    slug: 'shalang-glacier-trek-2026-johar-valley-uttarakhand',
+    title: "The Shalang Glacier Trek — Trek of the Year 2026",
+    subtitle: 'A remote Himalayan expedition into the wild heart of Johar Valley, Pithoragarh, Uttarakhand — officially declared Trek of the Year 2026',
+    category: 'Travel Guide',
+    date: 'September 10, 2026',
+    readTime: '14 min read',
+    author: 'Pramod Bhatt',
+    image: '/images/blog/shalang-glacier-trek-route-map-2026.webp',
+    imageAlt: 'Shalang Glacier Trek route map Johar Valley Pithoragarh Uttarakhand 2026',
+    metaTitle: 'Shalang Glacier Trek 2026 | Johar Valley Adventure Trek in Uttarakhand',
+    metaDescription: "Discover the Shalang Glacier Trek in Johar Valley, Pithoragarh, Uttarakhand — officially declared Trek of the Year 2026 by Uttarakhand Tourism Development Board. A complete guide to one of Kumaon's most remote high-altitude Himalayan adventures.",
+    keywords: ['Shalang Glacier Trek', 'Trek of the Year 2026 Uttarakhand', 'Johar Valley', 'Shalang Dhura', 'Pithoragarh trekking', 'Munsiyari Himalaya trek', 'Kumaon Himalaya expedition'],
+    excerpt: "Officially declared Trek of the Year 2026 by Uttarakhand Tourism, the Shalang Glacier Trek is a remote high-altitude expedition into Johar Valley, Pithoragarh — one of the most untouched glacier landscapes in the Kumaon Himalaya.",
+    content: '',
+  },
+  {
     id: 8,
     slug: 'kumaon-himalayas-travel-guide-wellness-2026',
     title: "Kumaon, Uttarakhand — India's Best Kept Himalayan Secret: A Complete Travel Guide 2026",

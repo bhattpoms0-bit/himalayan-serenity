@@ -191,6 +191,53 @@ export default function InternationalRetreats() {
         </div>
       </div>
 
+      {/* ── FEATURED OFFER BANNER ────────────────────────────────────────── */}
+      <div style={{ background: '#051007', borderBottom: '1px solid rgba(29,158,117,0.12)' }}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10 sm:py-12">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+
+            {/* Text */}
+            <div>
+              <p
+                className="font-sans uppercase mb-3"
+                style={{ fontSize: 10, letterSpacing: '0.22em', color: '#1D9E75' }}
+              >
+                Featured Retreat · 2026 Season
+              </p>
+              <h2 className="font-serif text-[#f0ece4] text-2xl sm:text-[1.75rem] leading-snug mb-2">
+                9-Day Himalayan Wellness Retreat from <span style={{ color: '#1D9E75' }}>€1,400</span>
+              </h2>
+              <p className="font-sans text-[#f0ece4]/45 text-sm tracking-wide">
+                Small Groups &nbsp;·&nbsp; Authentic Kumaon, India &nbsp;·&nbsp; No permits required
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 sm:flex-shrink-0">
+              <Link
+                to="/retreats/panchachuli-wellness"
+                className="font-sans text-white text-sm font-medium rounded-full px-6 py-3 transition-colors duration-200 whitespace-nowrap"
+                style={{ backgroundColor: '#1D9E75', textDecoration: 'none' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#0F6E56')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1D9E75')}
+              >
+                View Dates &amp; Book
+              </Link>
+              <Link
+                to="/contact"
+                className="font-sans text-sm font-medium rounded-full px-6 py-3 transition-colors duration-200 whitespace-nowrap"
+                style={{ border: '1px solid rgba(29,158,117,0.5)', color: '#1D9E75', textDecoration: 'none', backgroundColor: 'transparent' }}
+                onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(29,158,117,0.08)')}
+                onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
+              >
+                Enquire Now
+              </Link>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       {/* ── SECTION 3 — RETREAT CARDS ────────────────────────────────────── */}
       <section id="retreats" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Our Retreats</p>

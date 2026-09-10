@@ -29,6 +29,7 @@ const Panchakarma                    = lazy(() => import('./pages/retreats/Panch
 const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailashVsKailashMansarovar'))
 const AdiKailashILPGuide             = lazy(() => import('./pages/blog/AdiKailashILPGuide'))
 const KumaonGuide2026                = lazy(() => import('./pages/blog/KumaonGuide2026'))
+const ShalangGlacierTrek2026         = lazy(() => import('./pages/blog/ShalangGlacierTrek2026'))
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
@@ -87,6 +88,7 @@ function AnimatedRoutes() {
           <Route path="/blog/adi-kailash-vs-kailash-mansarovar"              element={<PageTransition><AdiKailashVsKailashMansarovar /></PageTransition>} />
           <Route path="/blog/adi-kailash-ilp-guide-2026"                   element={<PageTransition><AdiKailashILPGuide /></PageTransition>} />
           <Route path="/blog/kumaon-himalayas-travel-guide-wellness-2026"   element={<PageTransition><KumaonGuide2026 /></PageTransition>} />
+          <Route path="/blog/shalang-glacier-trek-2026-johar-valley-uttarakhand" element={<PageTransition><ShalangGlacierTrek2026 /></PageTransition>} />
           <Route path="/blog/:slug"    element={<PageTransition><BlogPost /></PageTransition>} />
           <Route path="/packages/cinematic-expedition"              element={<PageTransition><CinematicExpedition /></PageTransition>} />
           <Route path="/packages/wilderness-expedition"             element={<PageTransition><WildernessExpedition /></PageTransition>} />
