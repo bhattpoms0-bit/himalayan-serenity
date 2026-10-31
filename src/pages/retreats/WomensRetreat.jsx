@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import EnquiryPrivacy from '../../components/EnquiryPrivacy'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import { RetreatAccommodation, RetreatOverview } from '../../components/RetreatDetails'
+import { WOMENS_SACRED_HIMALAYA, retreatDuration } from '../../data/retreats'
 
 const WEB3FORMS_ACCESS_KEY = 'a4bcce53-4a1d-4217-93b6-30b9d714bbdd'
 
 const INPUT_CLASS =
-  'bg-white/5 border border-rose-400/20 rounded-lg px-4 py-3 text-[#f0ece4] text-sm w-full focus:outline-none focus:border-rose-400/60 placeholder:text-white/20'
+  'bg-white/5 border border-rose-400/20 rounded-lg px-4 py-3 text-[#f0ece4] text-base sm:text-sm min-w-0 w-full focus:outline-none focus:border-rose-400/60 placeholder:text-white/20'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -24,7 +27,7 @@ const DAYS = [
   {
     route:  'DAY 2 · BHIMTAL → PITHORAGARH',
     theme:  'Into the Heart of Kumaon',
-    desc:   'Travel through scenic mountain roads, forests, and traditional villages toward Pithoragarh — often referred to as the cultural gateway to eastern Kumaon.',
+    desc:   'Travel through scenic mountain roads, forests, and traditional villages toward Pithoragarh — often referred to as the cultural gateway to eastern Kumaon. En route, visit Kainchi Dham and Jageshwar Temple.',
     exp:    ['Scenic drive through the Kumaon Himalaya', 'Traditional Kumaoni lunch', 'Exploration of local markets', 'Evening storytelling session with local hosts', 'Introduction to Kumaoni customs and traditions'],
     stay:   'Boutique Heritage Hotel, Pithoragarh',
     img:    '/images/retreats/womens-retreat/kainchi-dham-jageshwar-womens-cultural-journey-day2.webp',
@@ -76,7 +79,7 @@ const DAYS = [
     imgAlt: 'Women journalling in reflection overlooking the Himalayan valley in Pithoragarh, day seven',
   },
   {
-    route:  'DAY 8 · PITHORAGARH → LOHAGHAT',
+    route:  'DAY 8 · PITHORAGARH → ABBOTT MOUNT',
     theme:  'Abbott Mount & The Art of Slow Living',
     desc:   'Travel to the peaceful hill region of Lohaghat and Abbott Mount, known for its pine forests, colonial heritage, and quiet atmosphere. A gentle, unhurried final full day.',
     exp:    ['Guided forest walk', 'Himalayan herbal tea experience', 'Personal reflection time', 'Closing ceremony', 'Farewell dinner with local specialties'],
@@ -85,7 +88,7 @@ const DAYS = [
     imgAlt: 'Abbott Mount slow living in Lohaghat with Himalayan views, day eight peaceful retreat',
   },
   {
-    route:  'DAY 9 · LOHAGHAT → DELHI',
+    route:  'DAY 9 · ABBOTT MOUNT → DELHI',
     theme:  'Carrying Kumaon Home',
     desc:   'After breakfast, begin the journey back to Delhi with memories, friendships, and stories from the Kumaon Himalaya. The mountains do not leave you when you leave them.',
     exp:    ['Morning contemplation session', 'Closing blessing ceremony', 'Departure transfer'],
@@ -99,10 +102,7 @@ const INCLUDED = [
   {
     title: 'Accommodation',
     items: [
-      '1 Night Premium Lakeside Retreat — Bhimtal',
-      '2 Nights Boutique Heritage Hotel — Pithoragarh',
-      '4 Nights Premium Mountain Lodge — Munsiyari',
-      '1 Night Heritage Retreat — Abbott Mount',
+      ...WOMENS_SACRED_HIMALAYA.stays.map(stay => `${stay.nights} ${stay.nights === 1 ? 'night' : 'nights'} — ${stay.destination}`),
     ],
   },
   {
@@ -174,7 +174,7 @@ const WOMENS_RETREAT_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: "Women's Sacred Himalaya Retreat",
-  description: "A 9-day women-only cultural immersion journey through the Kumaon Himalaya with women guides, Shakti yoga, weaving, sacred landscapes, and Panchachuli views. Max 8 guests. Available on your chosen dates.",
+  description: "A 9-day / 8-night women-only cultural journey through Bhimtal, Pithoragarh, Munsiyari and Abbott Mount. Provisional starting price: €2,000 per person, subject to final supplier costing.",
   image: 'https://www.himalayanserenitytravel.com/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp',
   brand: {
     '@type': 'Organization',
@@ -184,7 +184,6 @@ const WOMENS_RETREAT_SCHEMA = {
   offers: {
     '@type': 'Offer',
     url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
-    availability: 'https://schema.org/InStock',
     seller: {
       '@type': 'Organization',
       name: 'Himalayan Serenity Travel',
@@ -194,8 +193,8 @@ const WOMENS_RETREAT_SCHEMA = {
 
 export default function WomensRetreat() {
   useSEO({
-    title:       'Women of Kumaon — Women-Only Cultural Immersion Retreat | Himalayan Serenity',
-    description: "Women's wellness retreat in the Himalayas 2026. 9-day women-only journey in Kumaon — female guides, Shakti yoga & sacred landscapes. Max 8 guests. Book now.",
+    title:       "Women's Sacred Himalaya Retreat | Himalayan Serenity Travel",
+    description: "Women's Sacred Himalaya Retreat: 9 days / 8 nights through Bhimtal, Pithoragarh, Munsiyari and Abbott Mount. From €2,000, subject to final supplier costing.",
     canonical:   'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
     schema:      WOMENS_RETREAT_SCHEMA,
   })
@@ -208,8 +207,12 @@ export default function WomensRetreat() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
     try {
       const payload = {
@@ -235,11 +238,13 @@ export default function WomensRetreat() {
       setStatus(res.ok && data.success ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
   return (
-    <div className="min-h-screen bg-[#0a100d]">
+    <div data-retreat-detail className="min-h-screen bg-[#0a100d] pb-[calc(5.5rem+env(safe-area-inset-bottom))] lg:pb-0">
       <Navbar activePage="womens-retreat" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
@@ -260,7 +265,7 @@ export default function WomensRetreat() {
             Women Only · 9 Days · Max 8 Guests
           </span>
           <h1 className="font-serif text-[#f0ece4] text-4xl lg:text-6xl font-normal leading-tight mb-4">
-            Women's Wellness Retreat in the Himalayas
+            {WOMENS_SACRED_HIMALAYA.name}
           </h1>
           <p className="font-serif italic text-rose-400 text-xl mb-3">
             Mountain Wisdom · Living Traditions · Sacred Landscapes
@@ -269,7 +274,7 @@ export default function WomensRetreat() {
             A premium women-led cultural immersion journey through the Kumaon Himalaya
           </p>
           <div className="mb-8">
-            {['9 Days / 8 Nights', 'Kumaon Himalaya', 'Max 8 Guests'].map(stat => (
+            {[retreatDuration(WOMENS_SACRED_HIMALAYA), 'Kumaon Himalaya', 'Max 8 Guests'].map(stat => (
               <span
                 key={stat}
                 className="border border-white/20 rounded-full px-4 py-2 text-sm text-[#f0ece4]/70 mr-3 mb-3 inline-block"
@@ -278,12 +283,13 @@ export default function WomensRetreat() {
               </span>
             ))}
           </div>
+          <RetreatOverview retreat={WOMENS_SACRED_HIMALAYA} />
           <div className="flex flex-wrap gap-3">
             <a
               href="#enquiry"
               className="bg-rose-700 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-rose-800 transition-colors duration-200"
             >
-              Enquire about this retreat
+              Enquire About This Retreat
             </a>
             <a
               href="https://wa.me/919084642557"
@@ -291,7 +297,7 @@ export default function WomensRetreat() {
               rel="noopener noreferrer"
               className="border border-white/40 text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-white/5 transition-colors duration-200"
             >
-              Download full itinerary
+              Speak With Our Team
             </a>
           </div>
         </div>
@@ -330,6 +336,9 @@ export default function WomensRetreat() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-12">
           <p className="text-rose-400 text-xs uppercase tracking-widest mb-4">Itinerary</p>
           <h2 className="font-serif text-[#f0ece4] text-2xl">Your journey day by day</h2>
+          <nav aria-label="Jump to itinerary day" className="flex flex-wrap gap-2 mt-6">
+            {DAYS.map((day, i) => <a key={day.route} href={`#day-${i + 1}`} className="inline-flex min-h-11 items-center border border-white/15 rounded-full px-4 py-2 text-sm text-[#f0ece4]/80 hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-300">Day {i + 1}</a>)}
+          </nav>
         </div>
 
         <div>
@@ -338,7 +347,8 @@ export default function WomensRetreat() {
             return (
               <div
                 key={i}
-                className={`grid grid-cols-1 lg:grid-cols-2 border-b border-rose-400/10 ${isEven ? 'bg-[#150810]' : 'bg-[#1a0a0e]'}`}
+                id={`day-${i + 1}`}
+                className={`scroll-mt-24 grid grid-cols-1 lg:grid-cols-2 border-b border-rose-400/10 ${isEven ? 'bg-[#150810]' : 'bg-[#1a0a0e]'}`}
               >
                 {/* Image column */}
                 <div className={`overflow-hidden ${isEven ? 'order-first lg:order-last' : ''}`}>
@@ -360,18 +370,18 @@ export default function WomensRetreat() {
                   <h3 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-4">
                     {day.theme}
                   </h3>
-                  <p className="text-[#f0ece4]/60 text-sm leading-relaxed mb-6">
+                  <p className="text-[#f0ece4]/75 text-base leading-7 mb-6">
                     {day.desc}
                   </p>
                   <ul className="space-y-2">
                     {day.exp.map(item => (
-                      <li key={item} className="flex items-start gap-2 text-[#f0ece4]/50 text-sm">
+                      <li key={item} className="flex items-start gap-2 text-[#f0ece4]/75 text-base leading-7">
                         <span className="w-1.5 h-1.5 rounded-full bg-rose-400 flex-shrink-0 mt-1.5"></span>
                         {item}
                       </li>
                     ))}
                   </ul>
-                  <p className="text-rose-400/60 text-xs italic mt-6 pt-4 border-t border-rose-400/10">
+                  <p className="text-rose-300 text-sm italic mt-6 pt-4 border-t border-rose-400/10">
                     Overnight: {day.stay}
                   </p>
                 </div>
@@ -391,10 +401,13 @@ export default function WomensRetreat() {
         />
       </div>
 
+      <RetreatAccommodation retreat={WOMENS_SACRED_HIMALAYA} women />
+
       {/* ── SECTION 5 — WHAT'S INCLUDED ──────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
         <p className="text-rose-400 text-xs uppercase tracking-widest mb-4">{"What's Included"}</p>
-        <h2 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-10">Everything taken care of</h2>
+        <h2 className="font-serif text-[#f0ece4] text-2xl lg:text-3xl mb-4">Inclusions &amp; exclusions</h2>
+        <p className="text-[#f0ece4]/70 text-sm leading-relaxed max-w-2xl mb-10">The details below reflect the current itinerary. Final arrangements and inclusions will be confirmed in your personalised quotation.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {INCLUDED.map(({ title, items }) => (
@@ -464,29 +477,42 @@ export default function WomensRetreat() {
       </section>
 
       {/* ── SECTION 8 — ENQUIRY FORM ─────────────────────────────────────── */}
-      <section id="enquiry" className="bg-[#0d0508] py-16 px-6">
+      <section id="enquiry" className="scroll-mt-24 bg-[#0d0508] py-16 px-6">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Join this journey</h2>
-          <p className="text-sm text-[#f0ece4]/50 mb-8">
-            Limited to 8 guests per departure. We respond within 24 hours.
+          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Enquire About This Retreat</h2>
+          <p className="text-sm text-[#f0ece4]/75 mb-4">
+            Limited to 8 guests per departure. Share your preferences and questions below.
+          </p>
+
+          <nav aria-label="Travel planning information" className="flex flex-wrap gap-x-5 gap-y-1 mb-4 text-sm text-[#f0ece4]/85">
+            <a href="#day-1" className="inline-flex min-h-11 items-center underline underline-offset-4">Arrival day</a>
+            <a href="#day-9" className="inline-flex min-h-11 items-center underline underline-offset-4">Departure day</a>
+            <a href="#accommodation-heading" className="inline-flex min-h-11 items-center underline underline-offset-4">Accommodation overview</a>
+          </nav>
+
+          <p className="text-sm text-[#f0ece4]/75 leading-relaxed mb-6">
+            <Link to="/contact#journey-planning" className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">How your enquiry works</Link>
           </p>
 
           {status === 'success' ? (
-            <div className="text-center py-12">
+            <div role="status" className="text-center py-12">
               <p className="text-rose-400 font-serif text-xl mb-2">Enquiry sent</p>
-              <p className="text-[#f0ece4]/50 text-sm">We will be in touch within 24 hours.</p>
+              <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+              <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
+              <input id="enquiry-name" autoComplete="name"
                 type="text" name="name" value={form.name} onChange={handleChange}
-                placeholder="Your name" required className={INPUT_CLASS}
+                placeholder="Your full name" required className={INPUT_CLASS}
               />
-              <input
+              <label htmlFor="enquiry-country" className="block text-sm text-[#f0ece4]/85">Country of residence</label>
+              <input id="enquiry-country" autoComplete="country-name"
                 type="text" name="country" value={form.country} onChange={handleChange}
                 placeholder="Your country" required className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
+              <select id="enquiry-retreat"
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#150810]`}
               >
@@ -497,11 +523,13 @@ export default function WomensRetreat() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
-              <input
+              <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
+              <input id="enquiry-dates"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
                 placeholder="e.g. April or October 2026" className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
+              <select id="enquiry-groupSize"
                 name="groupSize" value={form.groupSize} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#150810]`}
               >
@@ -512,7 +540,8 @@ export default function WomensRetreat() {
                 <option>5–6 women</option>
                 <option>Larger group</option>
               </select>
-              <select
+              <label htmlFor="enquiry-heardFrom" className="block text-sm text-[#f0ece4]/85">How did you hear about us? (optional)</label>
+              <select id="enquiry-heardFrom"
                 name="heardFrom" value={form.heardFrom} onChange={handleChange}
                 className={`${INPUT_CLASS} bg-[#150810]`}
               >
@@ -523,18 +552,21 @@ export default function WomensRetreat() {
                 <option>Travel blog</option>
                 <option>Other</option>
               </select>
-              <input
+              <label htmlFor="enquiry-email" className="block text-sm text-[#f0ece4]/85">Email address</label>
+              <input id="enquiry-email" autoComplete="email"
                 type="email" name="email" value={form.email} onChange={handleChange}
                 placeholder="Your email address" required className={INPUT_CLASS}
               />
-              <textarea
+              <label htmlFor="enquiry-message" className="block text-sm text-[#f0ece4]/85">Additional questions (optional)</label>
+              <p id="enquiry-message-hint" className="text-xs text-[#f0ece4]/75 leading-relaxed">You can share dietary or room preferences and questions about travel connections here.</p>
+              <textarea id="enquiry-message" aria-describedby="enquiry-message-hint"
                 name="message" value={form.message} onChange={handleChange}
                 placeholder="Tell us what draws you to this journey, or any questions you have"
                 rows={4} className={`${INPUT_CLASS} resize-none`}
               />
 
               {status === 'error' && (
-                <p className="text-red-400 text-xs">
+                <p role="alert" className="text-red-400 text-sm">
                   Something went wrong. Please try again or WhatsApp us directly.
                 </p>
               )}
@@ -543,11 +575,9 @@ export default function WomensRetreat() {
                 type="submit" disabled={status === 'loading'}
                 className="w-full bg-rose-700 hover:bg-rose-800 text-white rounded-lg py-3 text-sm font-medium transition-colors disabled:opacity-60"
               >
-                {status === 'loading' ? 'Sending…' : "Send enquiry — we'll reply within 24 hours"}
+                {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
               </button>
-              <p className="text-xs text-[#f0ece4]/30 text-center mt-3">
-                Or WhatsApp us directly · No commitment required · Your information is never shared
-              </p>
+              <EnquiryPrivacy />
             </form>
           )}
         </div>

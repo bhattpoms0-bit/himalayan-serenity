@@ -694,7 +694,7 @@ export default function WildernessExpedition() {
             Enquire Now
           </a>
           <div style={{ marginTop: 20, fontSize: 12, color: "#3a5040", letterSpacing: "0.08em" }}>
-            Travel insurance strongly recommended · Eco-certified travel · Local expert guides
+            Travel insurance strongly recommended · Responsible Himalayan travel · Local expert guides
           </div>
         </motion.section>
 

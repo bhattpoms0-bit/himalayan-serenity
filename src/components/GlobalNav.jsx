@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { ChevronLeft, ChevronUp } from 'lucide-react'
 import { blogPosts } from '../data/blogPosts'
 
@@ -41,6 +41,10 @@ const MUTED_STYLE = { fontSize: 11, color: '#444444', letterSpacing: '0.04em' }
 export default function GlobalNav() {
   const { pathname } = useLocation()
   const isHome       = pathname === '/'
+  const isExperiences = pathname === '/experiences'
+  const isInternationalRetreats = pathname === '/international-retreats'
+  const reducedMotion = useReducedMotion()
+  const isReviewedRetreat = pathname === '/retreats/panchachuli-wellness' || pathname === '/retreats/womens-retreat'
   const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
@@ -59,10 +63,10 @@ export default function GlobalNav() {
         {!isHome && !pathname.startsWith('/retreats/') && (
           <motion.div
             key={pathname}
-            initial={{ opacity: 0, y: -6 }}
+            initial={isInternationalRetreats && reducedMotion ? false : { opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            transition={{ duration: isInternationalRetreats && reducedMotion ? 0 : 0.3, ease: 'easeOut' }}
             className="fixed left-5 sm:left-8 z-40"
             style={{ top: 76 }}
           >
@@ -77,7 +81,7 @@ export default function GlobalNav() {
                     {crumb.href ? (
                       <Link
                         to={crumb.href}
-                        className="font-sans transition-colors duration-200"
+                        className="font-sans transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
                         style={LINK_STYLE}
                         onMouseEnter={e => (e.currentTarget.style.color = '#aaaaaa')}
                         onMouseLeave={e => (e.currentTarget.style.color = '#666666')}
@@ -99,10 +103,10 @@ export default function GlobalNav() {
               // ── Simple back link for all other pages ─────────────────
               <Link
                 to="/"
-                className="flex items-center gap-1 font-sans transition-colors duration-200"
-                style={LINK_STYLE}
-                onMouseEnter={e => (e.currentTarget.style.color = '#aaaaaa')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#666666')}
+                className="flex items-center gap-1 font-sans transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
+                style={isInternationalRetreats ? { ...LINK_STYLE, color: '#F0E8D8', fontSize: 13, background: '#101e2b', border: '1px solid #a68a50', borderRadius: 6, padding: '8px 10px', minHeight: 44 } : isExperiences ? { ...LINK_STYLE, color: '#F0E8D8', fontSize: 13, background: '#101010', border: '1px solid #444444', borderRadius: 6, padding: '10px 12px', minHeight: 44 } : LINK_STYLE}
+                onMouseEnter={e => (e.currentTarget.style.color = isExperiences || isInternationalRetreats ? '#F0E8D8' : '#aaaaaa')}
+                onMouseLeave={e => (e.currentTarget.style.color = isExperiences || isInternationalRetreats ? '#F0E8D8' : '#666666')}
               >
                 <ChevronLeft size={12} strokeWidth={1.5} />
                 Back to Home
@@ -116,6 +120,8 @@ export default function GlobalNav() {
       <AnimatePresence>
         {scrollY > 400 && (
           <motion.button
+            type="button"
+            data-scroll-top
             key="scroll-top"
             initial={{ opacity: 0, scale: 0.7 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -124,7 +130,7 @@ export default function GlobalNav() {
             whileHover={{ scale: 1.1, filter: 'brightness(1.15)' }}
             whileTap={{ scale: 0.93 }}
             onClick={scrollToTop}
-            className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full flex items-center justify-center"
+            className={`fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold ${isReviewedRetreat ? 'hidden lg:flex' : 'flex'} items-center justify-center`}
             style={{ backgroundColor: '#e07b2a', boxShadow: '0 4px 20px rgba(224,123,42,0.35)' }}
             aria-label="Scroll to top"
           >

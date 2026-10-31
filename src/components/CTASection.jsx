@@ -1,19 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { MessageCircle } from 'lucide-react'
 
 export default function CTASection() {
-  const [visible, setVisible] = useState(false)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.15 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
   return (
     <section
       className="py-16 relative overflow-hidden"
@@ -31,22 +19,18 @@ export default function CTASection() {
       </div>
 
       <div
-        ref={ref}
-        className={`relative max-w-2xl mx-auto px-5 sm:px-8 lg:px-10 text-center transition-all duration-700 ${
-          visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
+        className="relative max-w-2xl mx-auto px-5 sm:px-8 lg:px-10 text-center"
       >
-        <p className="section-tag mb-6">Begin Your Ascent</p>
+        <p className="section-tag mb-6">Your Himalayan journey</p>
         <h2 className="section-title text-[2.8rem] lg:text-[3.6rem] mb-5 leading-[1.05]">
-          Ready to experience<br />the extraordinary?
+          Plan a journey<br />that feels meaningful to you.
         </h2>
-        <p className="font-sans text-brand-text-muted text-[14.5px] leading-[1.75] mb-12 max-w-md mx-auto">
-          Every great journey begins with a single step. Let us guide yours through the
-          sacred corridors of the Himalayas.
+        <p className="font-sans text-brand-cream-muted text-[14.5px] leading-[1.75] mb-8 max-w-md mx-auto">
+          Tell us about your interests and travel plans. We can help you explore our Himalayan wellness retreats and sacred journeys.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <a href="/international-retreats" className="btn-primary">
-            Explore Packages
+          <a href="/contact" className="btn-primary !bg-brand-gold !text-brand-dark min-h-12">
+            Plan Your Journey
           </a>
           <a
             href="https://wa.me/919084642557"
@@ -55,7 +39,7 @@ export default function CTASection() {
             className="btn-secondary"
           >
             <MessageCircle size={13} strokeWidth={1.5} />
-            WhatsApp Concierge
+            Contact us on WhatsApp
           </a>
         </div>
       </div>

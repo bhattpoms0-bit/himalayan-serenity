@@ -17,7 +17,7 @@ const PILLARS = [
   {
     icon: '👥',
     title: 'Small Group Departures',
-    body: 'We deliberately keep groups under 10 travelers. Smaller groups mean less environmental impact and deeper community connections.',
+    body: 'We favour small, curated groups that allow time for personal attention and meaningful community connections.',
   },
   {
     icon: '🌿',
@@ -27,7 +27,7 @@ const PILLARS = [
   {
     icon: '🏡',
     title: 'Supporting Local Communities',
-    body: 'We hire local guides, porters, cooks, and homestay owners. Every rupee flows back into mountain communities.',
+    body: 'We value local guides, porters, cooks and homestay owners, and the communities that welcome our guests.',
   },
   {
     icon: '🚗',
@@ -47,10 +47,10 @@ const PILLARS = [
 ]
 
 const STATS = [
-  { value: '100%', label: 'Local guides and staff' },
-  { value: '0',    label: 'Single-use plastics on expeditions' },
-  { value: '10',   label: 'Maximum travelers per departure' },
-  { value: '8+',   label: 'Local village communities supported' },
+  { value: 'Local', label: 'Community Connections' },
+  { value: 'Mindful', label: 'Care for the Mountains' },
+  { value: 'Curated', label: 'Small Group Journeys' },
+  { value: 'Respectful', label: 'Travel with Purpose' },
 ]
 
 export default function Sustainability() {

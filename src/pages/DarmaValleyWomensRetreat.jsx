@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import EnquiryPrivacy from '../components/EnquiryPrivacy'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import Footer from '../components/Footer'
@@ -239,7 +240,6 @@ const DARMA_WOMENS_SCHEMA = {
   offers: {
     '@type': 'Offer',
     url: 'https://www.himalayanserenitytravel.com/packages/darma-valley-womens-retreat',
-    availability: 'https://schema.org/InStock',
     seller: {
       '@type': 'Organization',
       name: 'Himalayan Serenity Travel',
@@ -265,8 +265,12 @@ export default function DarmaValleyWomensRetreat() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
     try {
       const payload = {
@@ -292,6 +296,8 @@ export default function DarmaValleyWomensRetreat() {
       setStatus(res.ok && data.success ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
@@ -579,17 +585,17 @@ export default function DarmaValleyWomensRetreat() {
               <p className="text-[#f0ece4]/50 text-sm">We will be in touch within 24 hours.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
               <input
-                type="text" name="name" value={form.name} onChange={handleChange}
+                type="text" aria-label="Your name" name="name" value={form.name} onChange={handleChange}
                 placeholder="Your name" required className={INPUT_CLASS}
               />
               <input
-                type="text" name="country" value={form.country} onChange={handleChange}
+                type="text" aria-label="Your country" name="country" value={form.country} onChange={handleChange}
                 placeholder="Your country" required className={INPUT_CLASS}
               />
               <select
-                name="retreat" value={form.retreat} onChange={handleChange}
+                aria-label="Preferred retreat" name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#14100a]`}
               >
                 <option value="" disabled>Which retreat?</option>
@@ -600,11 +606,11 @@ export default function DarmaValleyWomensRetreat() {
                 <option>Not sure yet — help me choose</option>
               </select>
               <input
-                type="text" name="dates" value={form.dates} onChange={handleChange}
+                type="text" aria-label="Preferred travel dates" name="dates" value={form.dates} onChange={handleChange}
                 placeholder="e.g. May or October 2026" className={INPUT_CLASS}
               />
               <select
-                name="groupSize" value={form.groupSize} onChange={handleChange}
+                aria-label="Group size" name="groupSize" value={form.groupSize} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#14100a]`}
               >
                 <option value="" disabled>Group size</option>
@@ -615,7 +621,7 @@ export default function DarmaValleyWomensRetreat() {
                 <option>Larger group</option>
               </select>
               <select
-                name="heardFrom" value={form.heardFrom} onChange={handleChange}
+                aria-label="How did you hear about us?" name="heardFrom" value={form.heardFrom} onChange={handleChange}
                 className={`${INPUT_CLASS} bg-[#14100a]`}
               >
                 <option value="" disabled>How did you hear about us?</option>
@@ -626,11 +632,11 @@ export default function DarmaValleyWomensRetreat() {
                 <option>Other</option>
               </select>
               <input
-                type="email" name="email" value={form.email} onChange={handleChange}
+                type="email" aria-label="Email address" name="email" value={form.email} onChange={handleChange}
                 placeholder="Your email address" required className={INPUT_CLASS}
               />
               <textarea
-                name="message" value={form.message} onChange={handleChange}
+                aria-label="Your message" name="message" value={form.message} onChange={handleChange}
                 placeholder="Tell us what draws you to this retreat, or any questions you have"
                 rows={4} className={`${INPUT_CLASS} resize-none`}
               />
@@ -647,9 +653,7 @@ export default function DarmaValleyWomensRetreat() {
               >
                 {status === 'loading' ? 'Sending…' : "Send enquiry — we'll reply within 24 hours"}
               </button>
-              <p className="text-xs text-[#f0ece4]/30 text-center mt-3">
-                Or WhatsApp us directly · No commitment required · Your information is never shared
-              </p>
+              <EnquiryPrivacy />
             </form>
           )}
         </div>

@@ -240,7 +240,7 @@ export default function KumaonGuide2026() {
         {/* Inline CTA — left-bordered callout */}
         <div className="kg-cta-inline">
           <p style={{ color: 'rgba(255,255,255,0.75)', margin: '0 0 0.6rem', fontSize: '0.93rem', fontFamily: 'Georgia, serif', lineHeight: 1.85, fontStyle: 'italic' }}>
-            If you are planning a wellness retreat or expedition in Kumaon, Himalayan Serenity Travel has been guiding international travellers through this region for 15+ years.
+            If you are planning a wellness retreat or expedition in Kumaon, Himalayan Serenity Travel offers thoughtfully planned journeys through the region.
           </p>
           <Link to="/retreats/panchachuli-wellness" style={{ color: GOLD, fontFamily: 'sans-serif', fontSize: '0.87rem', textDecoration: 'none' }}>
             Explore retreat and expedition programs →

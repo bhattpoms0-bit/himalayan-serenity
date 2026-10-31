@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import EnquiryPrivacy from '../../components/EnquiryPrivacy'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
@@ -195,7 +196,7 @@ const INCLUDED = [
 
 const NOT_INCLUDED = [
   'International and domestic flights',
-  'Travel insurance (mandatory)',
+  'Travel insurance is strongly recommended, especially for remote or high-altitude journeys. Please check that your policy covers the planned destinations and activities.',
   'Visa fees',
   'Personal expenses and alcoholic beverages',
   'Tips and gratuities',
@@ -217,7 +218,7 @@ const BORDERLANDS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'The Borderlands of the Himalaya',
-  description: 'A 10-day premium cultural journey through the Kumaon Himalayan borderlands — ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests. Available on your chosen dates.',
+  description: 'A 10-day premium cultural journey through the Kumaon Himalayan borderlands — ancient Indo-Tibetan trade routes, Bhotiya culture, sacred caves, and mountain kingdoms. Max 10 guests. Enquire about availability for your preferred dates.',
   image: 'https://www.himalayanserenitytravel.com/images/retreats/borderlands/kumaon-himalaya-luxury-retreat-sunrise-view.webp',
   brand: {
     '@type': 'Organization',
@@ -227,7 +228,6 @@ const BORDERLANDS_SCHEMA = {
   offers: {
     '@type': 'Offer',
     url: 'https://www.himalayanserenitytravel.com/retreats/borderlands-himalaya',
-    availability: 'https://schema.org/InStock',
     seller: {
       '@type': 'Organization',
       name: 'Himalayan Serenity Travel',
@@ -251,8 +251,12 @@ export default function Panchakarma() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
     try {
       const payload = {
@@ -278,6 +282,8 @@ export default function Panchakarma() {
       setStatus(res.ok && data.success ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
@@ -324,7 +330,7 @@ export default function Panchakarma() {
               href="#enquiry"
               className="bg-amber-700 text-white rounded-full px-6 py-3 mr-3 text-sm font-medium hover:bg-amber-800 transition-colors duration-200"
             >
-              Enquire about this journey
+              Enquire About This Journey
             </a>
             <a
               href="https://wa.me/919084642557"
@@ -540,29 +546,36 @@ export default function Panchakarma() {
       </section>
 
       {/* ── SECTION 10 — ENQUIRY FORM ────────────────────────────────────── */}
-      <section id="enquiry" className="bg-[#080a12] py-16 px-6">
+      <section id="enquiry" className="scroll-mt-24 bg-[#080a12] py-16 px-6">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Join this journey</h2>
-          <p className="text-sm text-[#f0ece4]/50 mb-8">
-            Maximum 10 guests per departure. We respond within 24 hours.
+          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Enquire About This Journey</h2>
+          <p className="text-sm text-[#f0ece4]/75 mb-4">
+            Maximum 10 guests per departure. Share your preferences and questions below.
+          </p>
+
+          <p className="text-sm text-[#f0ece4]/75 leading-relaxed mb-6">
+            <Link to="/contact#journey-planning" className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">How your enquiry works</Link>
           </p>
 
           {status === 'success' ? (
-            <div className="text-center py-12">
+            <div role="status" className="text-center py-12">
               <p className="text-amber-400 font-serif text-xl mb-2">Enquiry sent</p>
-              <p className="text-[#f0ece4]/50 text-sm">We will be in touch within 24 hours.</p>
+              <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+              <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
+              <input id="enquiry-name" autoComplete="name"
                 type="text" name="name" value={form.name} onChange={handleChange}
-                placeholder="Your name" required className={INPUT_CLASS}
+                placeholder="Your full name" required className={INPUT_CLASS}
               />
-              <input
+              <label htmlFor="enquiry-country" className="block text-sm text-[#f0ece4]/85">Country of residence</label>
+              <input id="enquiry-country" autoComplete="country-name"
                 type="text" name="country" value={form.country} onChange={handleChange}
                 placeholder="Your country" required className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
+              <select id="enquiry-retreat"
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#14100a]`}
               >
@@ -573,11 +586,13 @@ export default function Panchakarma() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
-              <input
+              <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
+              <input id="enquiry-dates"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
                 placeholder="e.g. October or November 2026" className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
+              <select id="enquiry-groupSize"
                 name="groupSize" value={form.groupSize} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#14100a]`}
               >
@@ -588,7 +603,8 @@ export default function Panchakarma() {
                 <option>5–6 people</option>
                 <option>Larger group</option>
               </select>
-              <select
+              <label htmlFor="enquiry-heardFrom" className="block text-sm text-[#f0ece4]/85">How did you hear about us? (optional)</label>
+              <select id="enquiry-heardFrom"
                 name="heardFrom" value={form.heardFrom} onChange={handleChange}
                 className={`${INPUT_CLASS} bg-[#14100a]`}
               >
@@ -599,18 +615,21 @@ export default function Panchakarma() {
                 <option>Travel blog</option>
                 <option>Other</option>
               </select>
-              <input
+              <label htmlFor="enquiry-email" className="block text-sm text-[#f0ece4]/85">Email address</label>
+              <input id="enquiry-email" autoComplete="email"
                 type="email" name="email" value={form.email} onChange={handleChange}
                 placeholder="Your email address" required className={INPUT_CLASS}
               />
-              <textarea
+              <label htmlFor="enquiry-message" className="block text-sm text-[#f0ece4]/85">Additional questions (optional)</label>
+              <p id="enquiry-message-hint" className="text-xs text-[#f0ece4]/75 leading-relaxed">You can share dietary or room preferences and questions about travel connections here.</p>
+              <textarea id="enquiry-message" aria-describedby="enquiry-message-hint"
                 name="message" value={form.message} onChange={handleChange}
                 placeholder="Tell us what draws you to this journey, or any questions you have"
                 rows={4} className={`${INPUT_CLASS} resize-none`}
               />
 
               {status === 'error' && (
-                <p className="text-red-400 text-xs">
+                <p role="alert" className="text-red-400 text-sm">
                   Something went wrong. Please try again or WhatsApp us directly.
                 </p>
               )}
@@ -619,11 +638,9 @@ export default function Panchakarma() {
                 type="submit" disabled={status === 'loading'}
                 className="w-full bg-amber-700 hover:bg-amber-800 text-white rounded-lg py-3 text-sm font-medium transition-colors disabled:opacity-60"
               >
-                {status === 'loading' ? 'Sending…' : "Send enquiry — we'll reply within 24 hours"}
+                {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
               </button>
-              <p className="text-xs text-[#f0ece4]/30 text-center mt-3">
-                Or WhatsApp us directly · No commitment required · Your information is never shared
-              </p>
+              <EnquiryPrivacy />
             </form>
           )}
         </div>

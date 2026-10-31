@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import EnquiryPrivacy from '../../components/EnquiryPrivacy'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../../hooks/useSEO'
 import Navbar from '../../components/Navbar'
@@ -180,7 +181,7 @@ const INCLUDED = [
 
 const NOT_INCLUDED = [
   'International or domestic flights',
-  'Travel insurance (mandatory)',
+  'Travel insurance is strongly recommended, especially for remote or high-altitude journeys. Please check that your policy covers the planned destinations and activities.',
   'Personal trekking equipment (kit list on booking)',
   'Alcoholic beverages',
   'Personal expenses and gratuities',
@@ -203,8 +204,12 @@ export default function DarmaDetox() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
     try {
       const payload = {
@@ -230,6 +235,8 @@ export default function DarmaDetox() {
       setStatus(res.ok && data.success ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
@@ -275,7 +282,7 @@ export default function DarmaDetox() {
               href="#enquiry"
               className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
             >
-              Enquire about this retreat
+              Enquire About This Retreat
             </a>
             <a
               href="https://wa.me/919084642557"
@@ -449,29 +456,36 @@ export default function DarmaDetox() {
       </section>
 
       {/* ── SECTION 7 — ENQUIRY FORM ─────────────────────────────────────── */}
-      <section id="enquiry" className="bg-[#061008] py-16 px-6">
+      <section id="enquiry" className="scroll-mt-24 bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Book your place on this retreat</h2>
-          <p className="text-sm text-[#f0ece4]/50 mb-8">
-            Maximum 6 guests per departure. We respond within 24 hours.
+          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Enquire About This Retreat</h2>
+          <p className="text-sm text-[#f0ece4]/75 mb-4">
+            Maximum 6 guests per departure. Share your preferences and questions below.
+          </p>
+
+          <p className="text-sm text-[#f0ece4]/75 leading-relaxed mb-6">
+            <Link to="/contact#journey-planning" className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">How your enquiry works</Link>
           </p>
 
           {status === 'success' ? (
-            <div className="text-center py-12">
+            <div role="status" className="text-center py-12">
               <p className="text-[#1D9E75] font-serif text-xl mb-2">Enquiry sent</p>
-              <p className="text-[#f0ece4]/50 text-sm">We will be in touch within 24 hours.</p>
+              <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+              <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
+              <input id="enquiry-name" autoComplete="name"
                 type="text" name="name" value={form.name} onChange={handleChange}
-                placeholder="Your name" required className={INPUT_CLASS}
+                placeholder="Your full name" required className={INPUT_CLASS}
               />
-              <input
+              <label htmlFor="enquiry-country" className="block text-sm text-[#f0ece4]/85">Country of residence</label>
+              <input id="enquiry-country" autoComplete="country-name"
                 type="text" name="country" value={form.country} onChange={handleChange}
                 placeholder="Your country" required className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
+              <select id="enquiry-retreat"
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
@@ -482,11 +496,13 @@ export default function DarmaDetox() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
-              <input
+              <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
+              <input id="enquiry-dates"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
                 placeholder="e.g. September 2026" className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
+              <select id="enquiry-groupSize"
                 name="groupSize" value={form.groupSize} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
@@ -496,8 +512,9 @@ export default function DarmaDetox() {
                 <option>3–4 people</option>
                 <option>5–6 people</option>
               </select>
-              <select
-                name="fitnessLevel" value={form.fitnessLevel} onChange={handleChange}
+              <label htmlFor="enquiry-fitnessLevel" className="block text-sm text-[#f0ece4]/85">Your fitness level</label>
+              <select id="enquiry-fitnessLevel"
+                aria-label="Your fitness level" name="fitnessLevel" value={form.fitnessLevel} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
                 <option value="" disabled>Fitness level</option>
@@ -505,18 +522,21 @@ export default function DarmaDetox() {
                 <option>Good</option>
                 <option>Excellent — I trek regularly</option>
               </select>
-              <input
+              <label htmlFor="enquiry-email" className="block text-sm text-[#f0ece4]/85">Email address</label>
+              <input id="enquiry-email" autoComplete="email"
                 type="email" name="email" value={form.email} onChange={handleChange}
                 placeholder="Your email address" required className={INPUT_CLASS}
               />
-              <textarea
+              <label htmlFor="enquiry-message" className="block text-sm text-[#f0ece4]/85">Additional questions (optional)</label>
+              <p id="enquiry-message-hint" className="text-xs text-[#f0ece4]/75 leading-relaxed">You can share dietary or room preferences and questions about travel connections here.</p>
+              <textarea id="enquiry-message" aria-describedby="enquiry-message-hint"
                 name="message" value={form.message} onChange={handleChange}
                 placeholder="Any questions, health considerations, or special requirements?"
                 rows={4} className={`${INPUT_CLASS} resize-none`}
               />
 
               {status === 'error' && (
-                <p className="text-red-400 text-xs">
+                <p role="alert" className="text-red-400 text-sm">
                   Something went wrong. Please try again or WhatsApp us directly.
                 </p>
               )}
@@ -525,11 +545,9 @@ export default function DarmaDetox() {
                 type="submit" disabled={status === 'loading'}
                 className="w-full bg-[#1D9E75] hover:bg-[#0F6E56] text-white rounded-lg py-3 text-sm font-medium transition-colors disabled:opacity-60"
               >
-                {status === 'loading' ? 'Sending…' : "Send enquiry — we'll reply within 24 hours"}
+                {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
               </button>
-              <p className="text-xs text-[#f0ece4]/30 text-center mt-3">
-                Or WhatsApp us directly · No commitment required · Your information is never shared
-              </p>
+              <EnquiryPrivacy />
             </form>
           )}
         </div>

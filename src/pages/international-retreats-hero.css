@@ -1,0 +1,38 @@
+.international-hero {
+  position: relative;
+  width: 100%;
+  min-height: min(840px, calc(100svh - var(--privacy-dock-height, 0px)));
+  overflow: hidden;
+  background: #0b121a;
+  color: #f0e8d8;
+}
+.international-hero-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% top; }
+.international-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8,16,24,.94) 0%, rgba(8,16,24,.87) 38%, rgba(8,16,24,.32) 65%, rgba(8,16,24,.08) 100%), linear-gradient(0deg, rgba(8,16,24,.45), transparent 60%);
+}
+.international-hero-content { position: relative; z-index: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: 164px 40px 72px; }
+.international-hero-copy { max-width: 520px; }
+.international-hero-eyebrow { color: #e2c58c; font: 500 11px/1.7 'DM Sans', sans-serif; letter-spacing: .15em; margin-bottom: 20px; }
+.international-hero h1 { color: #f0e8d8; font-size: clamp(2.25rem, 3.4vw, 3rem); font-weight: 400; line-height: 1.14; letter-spacing: -.02em; text-wrap: balance; margin-bottom: 22px; }
+.international-hero-description { max-width: 450px; color: #f0e8d8; font: 400 16px/1.75 'DM Sans', sans-serif; margin-bottom: 28px; }
+.international-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.international-hero-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1px solid #c8a44b; font: 500 14px/1.5 'DM Sans', sans-serif; text-align: center; }
+.international-hero-primary { background: #c8a44b; color: #0b121a; }
+.international-hero-primary:hover { background: #dcc083; }
+.international-hero-secondary { background: #101e2b; color: #f0e8d8; }
+.international-hero-secondary:hover { background: #192e40; }
+.international-hero-actions a:focus-visible { outline: 3px solid #f0e8d8; outline-offset: 4px; }
+@media (max-width: 1023px) {
+  .international-hero-content { padding: clamp(300px, 42svh, 380px) 32px 64px; }
+  .international-hero-image { object-position: 62% top; }
+  .international-hero-shade { background: linear-gradient(0deg, #0b121a 0%, rgba(8,16,24,.94) 38%, rgba(8,16,24,.82) 55%, rgba(8,16,24,.12) 85%, rgba(8,16,24,.25) 100%); }
+}
+@media (max-width: 480px) {
+  .international-hero-content { padding-inline: 20px; padding-bottom: 48px; }
+  .international-hero-eyebrow { font-size: 10px; letter-spacing: .12em; margin-bottom: 16px; }
+  .international-hero h1 { margin-bottom: 18px; }
+  .international-hero-description { margin-bottom: 24px; }
+  .international-hero-actions { flex-direction: column; align-items: stretch; }
+}

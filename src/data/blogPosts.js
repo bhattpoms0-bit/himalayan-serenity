@@ -167,7 +167,7 @@ Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expediti
     metaDescription: "Expert guide to preventing altitude sickness on Adi Kailash and Om Parvat trek. Tips from our medical team on acclimatization, medication and safety measures.",
     keywords: ["altitude sickness prevention", "AMS Himalayan trek", "high altitude safety", "Himalayan trekking health", "acclimatization tips"],
     schema: "MedicalWebPage",
-    excerpt: "Altitude sickness is the biggest challenge for Himalayan pilgrims. Our medical team shares proven strategies to acclimatize safely and enjoy your spiritual journey without health complications.",
+    excerpt: "Learn about altitude-related risks and questions to discuss with a qualified medical professional before your Himalayan journey.",
     content: `
 Altitude sickness, or Acute Mountain Sickness (AMS), affects many travelers venturing above 3,000 meters. On the Adi Kailash and Om Parvat routes, you will reach elevations between 4,000 and 5,000 meters.
 
@@ -195,12 +195,7 @@ Acetazolamide (Diamox) can help prevent altitude sickness when taken 24 hours be
 
 ## Our Safety Measures
 
-Every Himalayan Serenity expedition carries:
-- Medical-grade oxygen cylinders
-- Portable Altitude Chambers (PAC)
-- Pulse oximeters for every participant
-- Satellite phone for emergencies
-- Trained medical personnel
+Equipment, medical support and emergency arrangements depend on the specific journey. Confirm the included support, communications options and evacuation arrangements before booking. Do not assume medical personnel, oxygen or satellite communications are included on every expedition. Remote conditions may limit access to assistance.
     `
   },
   {

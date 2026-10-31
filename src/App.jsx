@@ -4,6 +4,7 @@ import { motion, AnimatePresence, useScroll, useReducedMotion } from 'framer-mot
 import WhatsAppButton from './components/WhatsAppButton'
 import GlobalNav from './components/GlobalNav'
 import MobileCTA from './components/MobileCTA'
+import CookieConsent from './components/CookieConsent'
 
 // Lazy-load every page so only the current route's JS chunk is downloaded
 const Home                           = lazy(() => import('./pages/Home'))
@@ -30,6 +31,10 @@ const AdiKailashVsKailashMansarovar  = lazy(() => import('./pages/blog/AdiKailas
 const AdiKailashILPGuide             = lazy(() => import('./pages/blog/AdiKailashILPGuide'))
 const KumaonGuide2026                = lazy(() => import('./pages/blog/KumaonGuide2026'))
 const ShalangGlacierTrek2026         = lazy(() => import('./pages/blog/ShalangGlacierTrek2026'))
+
+const Privacy = lazy(() => import('./pages/Privacy'))
+const Terms = lazy(() => import('./pages/Terms'))
+const Experiences = lazy(() => import('./pages/Experiences'))
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
@@ -81,6 +86,9 @@ function AnimatedRoutes() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/"           element={<PageTransition><Home /></PageTransition>} />
+          <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />
+          <Route path="/terms" element={<PageTransition><Terms /></PageTransition>} />
+          <Route path="/experiences" element={<PageTransition><Experiences /></PageTransition>} />
           <Route path="/about"      element={<PageTransition><About /></PageTransition>} />
           <Route path="/faq"        element={<PageTransition><FAQ /></PageTransition>} />
           <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
@@ -138,6 +146,7 @@ export default function App() {
       {/* Persistent across all pages */}
       <WhatsAppButton />
       <MobileCTA />
+      <CookieConsent />
     </BrowserRouter>
   )
 }

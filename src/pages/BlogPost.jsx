@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useSEO } from '../hooks/useSEO'
 import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
@@ -36,34 +36,7 @@ export default function BlogPost() {
   const { slug } = useParams()
   const post = blogPosts.find(p => p.slug === slug)
 
-  useEffect(() => {
-    if (post) {
-      document.title = post.metaTitle || post.title
-
-      let metaDesc = document.querySelector('meta[name="description"]')
-      if (!metaDesc) {
-        metaDesc = document.createElement('meta')
-        metaDesc.name = 'description'
-        document.head.appendChild(metaDesc)
-      }
-      metaDesc.content = post.metaDescription || post.excerpt
-
-      const setOG = (property, content) => {
-        let el = document.querySelector(`meta[property="${property}"]`)
-        if (!el) {
-          el = document.createElement('meta')
-          el.setAttribute('property', property)
-          document.head.appendChild(el)
-        }
-        el.content = content
-      }
-
-      setOG('og:title', post.metaTitle || post.title)
-      setOG('og:description', post.metaDescription || post.excerpt)
-      setOG('og:image', post.image)
-      setOG('og:type', 'article')
-
-      const schema = {
+  const schema = post ? {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post.title,
@@ -78,31 +51,25 @@ export default function BlogPost() {
           "name": "Himalayan Serenity",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://himalayan-serenity.vercel.app/favicon.svg"
+            "url": "https://www.himalayanserenitytravel.com/favicon.svg"
           }
         },
         "datePublished": post.date,
         "keywords": post.keywords?.join(', '),
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://himalayan-serenity.vercel.app/blog/${post.slug}`
+          "@id": `https://www.himalayanserenitytravel.com/blog/${post.slug}`
         }
-      }
+      } : undefined
 
-      let schemaScript = document.getElementById('blog-schema')
-      if (!schemaScript) {
-        schemaScript = document.createElement('script')
-        schemaScript.id = 'blog-schema'
-        schemaScript.type = 'application/ld+json'
-        document.head.appendChild(schemaScript)
-      }
-      schemaScript.textContent = JSON.stringify(schema)
-    }
-
-    return () => {
-      document.title = 'Himalayan Serenity | Sacred Mountain Journeys'
-    }
-  }, [post])
+  useSEO({
+    title: post ? (post.metaTitle || post.title) : undefined,
+    description: post ? (post.metaDescription || post.excerpt) : undefined,
+    canonical: post ? `https://www.himalayanserenitytravel.com/blog/${post.slug}` : undefined,
+    image: post?.image,
+    type: post ? 'article' : 'website',
+    schema,
+  })
 
   if (!post) {
     return (
@@ -257,7 +224,7 @@ export default function BlogPost() {
             Begin Your Sacred Journey
           </h3>
           <p className="font-sans text-brand-text-muted text-sm mb-6">
-            Join thousands of spiritual seekers who have transformed their lives
+            Explore meaningful Himalayan journeys
             through our Himalayan expeditions.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">

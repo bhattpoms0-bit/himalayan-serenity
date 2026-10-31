@@ -1,44 +1,22 @@
 import { useEffect } from "react";
+import { useSEO } from "../../hooks/useSEO";
 import { Link } from "react-router-dom";
 
 export default function AdiKailashILPGuide() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Complete 2026 Guide to Adi Kailash ILP (Inner Line Permit) | Himalayan Serenity Travel";
   }, []);
 
   const metaDescription = "Complete 2026 guide to Inner Line Permit (ILP) for Adi Kailash, Om Parvat and Darma Valley. SDM Dharchula and SDM Pithoragarh process, documents, fees and expert tips from Himalayan Serenity Travel, Pithoragarh.";
   const metaKeywords = "Adi Kailash ILP, Om Parvat permit, inner line permit Uttarakhand, Darma Valley ILP, Pithoragarh ILP, SDM Dharchula permit, ILP 2026, how to get inner line permit for Adi Kailash 2026, is ILP mandatory for Om Parvat darshan, SDM Pithoragarh ILP border valley, documents required Adi Kailash permit, Adi Kailash yatra ILP online apply, Darma Valley inner line permit required 2026, who issues ILP Adi Kailash Pithoragarh, Adi Kailash ILP fee 2026, Pithoragarh Uttarakhand India, Dharchula Pithoragarh district, Gunji village Uttarakhand, Jolingkong Adi Kailash, Darma Valley Kumaon Himalaya, Lipulekh pass Uttarakhand, Navidhang Om Parvat, Delhi to Adi Kailash route, Kumaon Himalaya India";
 
-  useEffect(() => {
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", metaDescription);
-    else {
-      const m = document.createElement("meta");
-      m.name = "description"; m.content = metaDescription;
-      document.head.appendChild(m);
-    }
-    const metaKw = document.querySelector('meta[name="keywords"]');
-    if (metaKw) metaKw.setAttribute("content", metaKeywords);
-    else {
-      const m = document.createElement("meta");
-      m.name = "keywords"; m.content = metaKeywords;
-      document.head.appendChild(m);
-    }
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", "Complete 2026 Guide to Adi Kailash ILP | Himalayan Serenity Travel");
-    const geoRegion = document.createElement("meta");
-    geoRegion.name = "geo.region"; geoRegion.content = "IN-UT";
-    document.head.appendChild(geoRegion);
-    const geoPlace = document.createElement("meta");
-    geoPlace.name = "geo.placename"; geoPlace.content = "Pithoragarh, Uttarakhand";
-    document.head.appendChild(geoPlace);
-    const geoPos = document.createElement("meta");
-    geoPos.name = "geo.position"; geoPos.content = "29.5829;80.2183";
-    document.head.appendChild(geoPos);
-    const schema = document.createElement("script");
-    schema.type = "application/ld+json";
-    schema.text = JSON.stringify({
+  useSEO({
+    title: "Complete 2026 Guide to Adi Kailash ILP (Inner Line Permit) | Himalayan Serenity Travel",
+    description: metaDescription,
+    canonical: 'https://www.himalayanserenitytravel.com/blog/adi-kailash-ilp-guide-2026',
+    socialTitle: "Complete 2026 Guide to Adi Kailash ILP | Himalayan Serenity Travel",
+    type: 'article',
+    schema: {
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": "Complete 2026 Guide to Adi Kailash ILP (Inner Line Permit)",
@@ -60,17 +38,38 @@ export default function AdiKailashILPGuide() {
         { "@type": "Question", "name": "Can I get Adi Kailash ILP from Delhi?", "acceptedAnswer": { "@type": "Answer", "text": "No. ILP is issued only by SDM Dharchula or SDM Pithoragarh. Online applications via pass.pithoragarh.online are processed by these offices — you cannot collect it from Delhi." } },
         { "@type": "Question", "name": "How many days does Adi Kailash ILP take to process?", "acceptedAnswer": { "@type": "Answer", "text": "Online applications typically take 3–7 working days. During peak yatra season (May–June) allow 10–14 days." } }
       ]
+    },
+  });
+
+  useEffect(() => {
+    const previousKeywords = document.querySelector('meta[name="keywords"]');
+    const previousContent = previousKeywords?.content;
+    const keywords = previousKeywords || document.createElement('meta');
+    keywords.name = 'keywords';
+    keywords.content = metaKeywords;
+    if (!previousKeywords) document.head.appendChild(keywords);
+    const geoTags = Object.entries({
+      'geo.region': 'IN-UT',
+      'geo.placename': 'Pithoragarh, Uttarakhand',
+      'geo.position': '29.5829;80.2183',
+    }).map(([name, content]) => {
+      const existing = document.querySelector(`meta[name="${name}"]`);
+      const previous = existing?.content;
+      const tag = existing || document.createElement('meta');
+      tag.name = name;
+      tag.content = content;
+      if (!existing) document.head.appendChild(tag);
+      return () => {
+        if (existing) tag.content = previous;
+        else tag.remove();
+      };
     });
-    document.head.appendChild(schema);
-    const canonical = document.createElement('link');
-    canonical.rel = 'canonical';
-    canonical.href = 'https://www.himalayanserenitytravel.com/blog/adi-kailash-ilp-guide-2026';
-    document.head.appendChild(canonical);
     return () => {
-      document.head.removeChild(schema);
-      if (canonical.parentNode) canonical.parentNode.removeChild(canonical);
+      if (previousKeywords) keywords.content = previousContent;
+      else keywords.remove();
+      geoTags.forEach(restore => restore());
     };
-  }, []);
+  }, [metaKeywords]);
 
   const sectionStyle = { maxWidth: "740px", margin: "0 auto", padding: "3rem 1.5rem" };
   const gold = "#C9A84C";
