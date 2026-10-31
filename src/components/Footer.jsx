@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { openPrivacySettings } from '../utils/consent'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Globe, Mail, Share2, ArrowRight } from 'lucide-react'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const EXPLORATIONS = [
@@ -27,14 +27,13 @@ const INTERNATIONAL_RETREATS = [
   { label: 'Darma Valley Digital Detox',             href: '/retreats/darma-detox'            },
 ]
 
-const SOCIAL = [Globe, Mail, Share2]
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 function ColLabel({ children }) {
   return (
     <p
       className="mb-5 uppercase"
-      style={{ fontFamily: '"Cinzel", serif', fontSize: 10, letterSpacing: '0.2em', color: '#e07b2a' }}
+      style={{ fontFamily: '"Cinzel", serif', fontSize: 10, letterSpacing: '0.2em', color: '#C8A44B' }}
     >
       {children}
     </p>
@@ -49,16 +48,18 @@ function FooterLink({ href, children }) {
         to={href}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="flex items-center gap-1.5 font-sans text-[13px] transition-all duration-200"
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
+        className="min-h-11 items-center gap-1.5 font-sans text-[13px] transition-all duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
         style={{
-          color:     hovered ? '#cccccc' : '#666666',
+          color:     hovered ? '#F0E8D8' : '#C8BFAE',
           transform: hovered ? 'translateX(4px)' : 'translateX(0)',
           display:   'inline-flex',
           textDecoration: 'none',
         }}
       >
         <span
-          className="transition-all duration-200"
+          aria-hidden="true" className="transition-all duration-200"
           style={{ opacity: hovered ? 1 : 0, fontSize: 11 }}
         >
           →
@@ -71,10 +72,9 @@ function FooterLink({ href, children }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function Footer() {
-  const [inputFocused, setInputFocused] = useState(false)
 
   return (
-    <footer style={{ backgroundColor: '#0d0d0d', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+    <footer style={{ backgroundColor: '#0b121a', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
 
       {/* ── Main content ──────────────────────────────────────────────────── */}
       <motion.div
@@ -90,13 +90,14 @@ export default function Footer() {
           <div>
             <Link
               to="/"
+              className="inline-block rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
               style={{ textDecoration: 'none' }}
             >
               <h3
                 className="italic mb-4 leading-tight text-2xl lg:text-[2.2rem] hover:opacity-80 transition-opacity duration-300"
                 style={{
                   fontFamily: '"Playfair Display", Georgia, serif',
-                  color:      '#e07b2a',
+                  color:      '#C8A44B',
                   fontWeight: 400,
                 }}
               >
@@ -106,7 +107,7 @@ export default function Footer() {
 
             <p
               className="font-sans"
-              style={{ fontSize: 10, letterSpacing: '0.16em', color: 'rgba(224,123,42,0.45)', textTransform: 'uppercase', marginBottom: 18, marginTop: -8 }}
+              style={{ fontSize: 10, letterSpacing: '0.16em', color: '#C8BFAE', textTransform: 'uppercase', marginBottom: 18, marginTop: -8 }}
             >
               A brand of Life &amp; Leisure
             </p>
@@ -117,14 +118,14 @@ export default function Footer() {
               style={{
                 width:           40,
                 height:          1,
-                backgroundColor: '#e07b2a',
+                backgroundColor: '#C8A44B',
                 opacity:         0.3,
               }}
             />
 
             <p
               className="font-sans leading-[1.8]"
-              style={{ fontSize: 13, color: '#666666', maxWidth: 220 }}
+              style={{ fontSize: 13, color: '#C8BFAE', maxWidth: 220 }}
             >
               Preserving the sanctity of the mountains through sustainable, luxury exploration.
             </p>
@@ -163,70 +164,22 @@ export default function Footer() {
           <div>
             <ColLabel>Connect</ColLabel>
 
-            <p className="font-sans mb-4 leading-[1.75]" style={{ fontSize: 13, color: '#666666' }}>
-              Join our monthly journal for spiritual insights and expedition updates.
-            </p>
-
-            {/* Email input row */}
-            <div className="flex gap-2 mb-6">
-              <input
-                type="email"
-                placeholder="Your email"
-                onFocus={() => setInputFocused(true)}
-                onBlur={() => setInputFocused(false)}
-                className="flex-1 font-sans text-sm rounded-xl px-4 py-2.5 text-white/80 placeholder-white/20 outline-none transition-all duration-200"
-                style={{
-                  backgroundColor: '#111111',
-                  border:          inputFocused
-                    ? '1px solid rgba(224,123,42,0.4)'
-                    : '1px solid rgba(255,255,255,0.08)',
-                  boxShadow: inputFocused
-                    ? '0 0 0 3px rgba(224,123,42,0.1)'
-                    : 'none',
-                }}
-              />
-              <motion.button
-                whileHover={{ filter: 'brightness(1.1)' }}
-                whileTap={{ scale: 0.96 }}
-                className="flex-shrink-0 flex items-center justify-center rounded-xl px-4 py-2.5"
-                style={{ backgroundColor: '#e07b2a' }}
-              >
-                <ArrowRight size={15} strokeWidth={2} className="text-white" />
-              </motion.button>
-            </div>
+            {/* Newsletter hidden: subscription backend is not implemented. */}
 
             {/* Contact info */}
-            <div className="space-y-1.5 mb-6 font-sans" style={{ fontSize: 12, color: '#555555' }}>
-              <p>info@himalayanserenitytravel.com</p>
-              <p>+91 90846 42557</p>
-              <p>Pithoragarh, Uttarakhand 262529</p>
+            <div className="space-y-2 mb-6 font-sans" style={{ fontSize: 13, color: '#C8BFAE' }}>
+              <p><a href="mailto:info@himalayanserenitytravel.com" className="inline-flex min-h-11 items-center break-all hover:text-brand-cream rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">info@himalayanserenitytravel.com</a></p>
+              <p><a href="tel:+919084642557" className="inline-flex min-h-11 items-center hover:text-brand-cream rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">+91 90846 42557</a></p>
+              <p className="pt-3 text-brand-cream-muted">Pithoragarh Contact Office</p>
+              <address className="not-italic leading-relaxed">Plaza Hotel, Hydel Tiraha,<br />Tanakpur Road, Aincholi,<br />Pithoragarh, Uttarakhand – 262501,<br />India.</address>
+              <p className="pt-3 text-brand-cream-muted">Registered Operating Company</p>
+              <p>LIFE &amp; LEISURE INDIA PRIVATE LIMITED</p>
+              <p className="pt-3 text-brand-cream-muted">Delhi Registered Office</p>
+              <address className="not-italic leading-relaxed">107–108, 1st Floor,<br />Roots Tower,<br />District Centre, Laxmi Nagar,<br />Delhi – 110092,<br />India.</address>
+              <p><a href="https://lifeandleisure.travel/" className="inline-flex min-h-11 items-center hover:text-brand-cream rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Company website</a></p>
             </div>
 
-            {/* Social icons */}
-            <div className="flex gap-2.5">
-              {SOCIAL.map((Icon, i) => (
-                <motion.button
-                  key={i}
-                  whileHover={{
-                    y: -2,
-                    borderColor: 'rgba(255,255,255,0.2)',
-                  }}
-                  transition={{ duration: 0.2 }}
-                  className="flex items-center justify-center rounded-lg transition-colors duration-200"
-                  style={{
-                    width:           36,
-                    height:          36,
-                    border:          '1px solid rgba(255,255,255,0.08)',
-                    color:           '#555555',
-                    backgroundColor: 'transparent',
-                  }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#aaaaaa')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
-                >
-                  <Icon size={13} strokeWidth={1.5} />
-                </motion.button>
-              ))}
-            </div>
+
           </div>
 
         </div>
@@ -236,23 +189,24 @@ export default function Footer() {
       <div
         className="py-6"
         style={{
-          backgroundColor: '#090909',
+          backgroundColor: '#090d12',
           borderTop:       '1px solid rgba(255,255,255,0.05)',
         }}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-sans" style={{ fontSize: 12, color: '#444444' }}>
+          <p className="font-sans" style={{ fontSize: 12, color: '#C8BFAE' }}>
             © 2024 Himalayan Serenity. All Rights Reserved.
           </p>
-          <div className="flex items-center gap-6">
-            {[{ label: 'Privacy Policy', href: '/privacy' }, { label: 'Terms of Service', href: '/terms' }].map(({ label, href }) => (
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <button type="button" onClick={openPrivacySettings} className="min-h-11 font-sans text-xs underline underline-offset-4 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold" style={{ color: '#C8BFAE' }}>Privacy Settings</button>
+            {[{ label: 'Privacy Policy', href: '/privacy' }, { label: 'Terms & Conditions', href: '/terms' }].map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
-                className="font-sans transition-colors duration-200"
-                style={{ fontSize: 12, color: '#555555' }}
-                onMouseEnter={e => (e.currentTarget.style.color = '#aaaaaa')}
-                onMouseLeave={e => (e.currentTarget.style.color = '#555555')}
+                className="inline-flex min-h-11 items-center font-sans underline underline-offset-4 transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
+                style={{ fontSize: 12, color: '#C8BFAE' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#F0E8D8')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#C8BFAE')}
               >
                 {label}
               </a>

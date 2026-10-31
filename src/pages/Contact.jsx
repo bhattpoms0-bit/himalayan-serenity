@@ -1,20 +1,27 @@
-import React, { useState } from 'react'
+import { trackEnquiry } from '../utils/consent'
+import React, { useState, useRef } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import EnquiryPrivacy from '../components/EnquiryPrivacy'
 import { MessageCircle, Mail, Phone, MapPin } from 'lucide-react'
 
 const WEB3FORMS_ACCESS_KEY = "a4bcce53-4a1d-4217-93b6-30b9d714bbdd"
 
 const INTERESTED_IN_OPTIONS = [
-  'Adi Kailash & Om Parvat Expedition',
-  'Panchachuli Wellness – Yoga & Ayurveda',
-  'Kumaon Wellness Retreat',
-  'The Borderlands of the Himalaya',
-  "Women's Wellness Retreat in the Himalaya",
-  'Darma Valley Digital Detox',
-  'Custom / Other',
+  { value: 'Adi Kailash & Om Parvat Expedition', label: 'Adi Kailash & Om Parvat Expedition' },
+  { value: 'Panchachuli Wellness – Yoga & Ayurveda', label: 'Panchachuli Wellness Retreat — Yoga & Ayurveda' },
+  { value: 'The Borderlands of the Himalaya', label: 'The Borderlands of the Himalaya' },
+  { value: "Women's Wellness Retreat in the Himalaya", label: "Women's Sacred Himalaya Retreat" },
+  { value: 'Darma Valley Digital Detox', label: 'Darma Valley Digital Detox' },
+  { value: 'Custom / Other', label: 'Custom / Other' },
 ]
+
+// Older names map only to the same confirmed product.
+const ENQUIRY_ALIASES = new Map([
+  ['Kumaon Wellness Retreat', 'Panchachuli Wellness – Yoga & Ayurveda'],
+  ['Adi Kailash Expedition', 'Adi Kailash & Om Parvat Expedition'],
+])
 
 const TRAVEL_PLAN_OPTIONS = [
   'Within 3 months',
@@ -24,27 +31,35 @@ const TRAVEL_PLAN_OPTIONS = [
 ]
 
 const INPUT_CLASS =
-  "w-full bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
+  "w-full min-w-0 bg-brand-dark border border-brand-dark-border rounded-lg px-4 py-3 text-brand-cream text-base sm:text-sm placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 transition-colors"
 
 export default function ContactPage() {
   useSEO({
-    title: 'Book Adi Kailash Yatra 2026 | Om Parvat Tour | Contact Himalayan Serenity',
-    description: 'Book Adi Kailash Yatra and Om Parvat tour 2026. Call or WhatsApp +91 90846 42557. Best Adi Kailash tour operator in Pithoragarh and Dharchula, Uttarakhand.',
+    title: 'Plan Your Himalayan Journey | Contact Himalayan Serenity Travel',
+    description: 'Enquire about Himalayan wellness retreats, sacred journeys and cultural expeditions in Kumaon, India. Discuss your preferences with the Himalayan Serenity Travel team.',
     canonical: 'https://www.himalayanserenitytravel.com/contact',
   })
 
   const [origin, setOrigin] = useState('')
   const [form, setForm] = useState(() => {
-    const expedition = new URLSearchParams(window.location.search).get('expedition') || ''
-    return { name: '', email: '', phone: '', expedition, travellers: '', travelPlan: '', message: '' }
+    const requested = new URLSearchParams(window.location.search).get('expedition') || ''
+    const mapped = ENQUIRY_ALIASES.get(requested) || requested
+    const matched = INTERESTED_IN_OPTIONS.find(option => option.value === mapped || option.label === mapped)
+    const expedition = matched?.value || (requested ? 'Custom / Other' : '')
+    const message = requested && !matched ? `Journey of interest: ${requested}\n\n` : ''
+    return { name: '', email: '', phone: '', expedition, travellers: '', travelPlan: '', message }
   })
   const [status, setStatus] = useState('idle')
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
     if (!origin) return
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
 
     try {
@@ -72,18 +87,14 @@ export default function ContactPage() {
 
       if (res.ok && data.success) {
         setStatus('success')
-        if (typeof window.gtag !== 'undefined') {
-          window.gtag('event', 'form_submit', {
-            event_category: 'Contact',
-            event_label:    'Expedition Inquiry',
-            value:          1,
-          })
-        }
+        trackEnquiry('Contact')
       } else {
         setStatus('error')
       }
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
@@ -116,66 +127,90 @@ export default function ContactPage() {
             </p>
           </div>
 
+          <section id="journey-planning" aria-labelledby="journey-planning-heading" className="scroll-mt-28 max-w-5xl mx-auto mb-12 rounded-2xl border border-brand-gold/20 bg-[#0b121a] p-6 sm:p-8">
+            <h2 id="journey-planning-heading" className="font-serif text-brand-cream text-3xl sm:text-4xl leading-tight mb-5">Your Journey, Thoughtfully Planned</h2>
+            <div className="max-w-3xl text-brand-cream/80 text-base leading-relaxed space-y-4">
+              <p>Every Himalayan Serenity journey begins with a conversation. We take time to understand your interests, travel preferences and expectations before sharing a detailed itinerary and proposal.</p>
+              <p>Before confirming your booking, you'll receive information about your proposed accommodation, retreat facilitators, inclusions and applicable booking terms.</p>
+            </div>
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+              {[
+                ['Send Your Enquiry', 'Tell us which retreat interests you.'],
+                ['Speak With Our Team', 'Discuss the journey and your preferences.'],
+                ['Review Your Proposal', 'Receive the detailed itinerary, accommodation and facilitator information.'],
+                ['Confirm Your Journey', 'Proceed under the agreed booking terms.'],
+              ].map(([title, description], index) => (
+                <li key={title} className="min-w-0">
+                  <span aria-hidden="true" className="text-brand-gold text-sm">0{index + 1}</span>
+                  <h3 className="font-serif text-brand-cream text-xl mt-2 mb-2">{title}</h3>
+                  <p className="text-brand-cream/75 text-sm leading-relaxed">{description}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="text-brand-cream/75 text-sm leading-relaxed mt-6 max-w-3xl">Before payment, review the full itinerary, proposed accommodation and facilitator information, confirmed inclusions and exclusions, and applicable price and payment terms with our team.</p>
+            <a href="/terms" className="inline-flex min-h-11 items-center mt-5 text-brand-cream/85 text-sm underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Review our booking terms</a>
+          </section>
+
           <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
 
             {/* ── Consultation Form ──────────────────────────────────────── */}
-            <div id="consultation" className="card-dark">
+            <div id="consultation" data-floating-avoid className="card-dark min-w-0 scroll-mt-28">
               {status === 'success' ? (
-                <div className="text-center py-12">
+                <div role="status" className="text-center py-12">
                   <div className="text-4xl mb-4">🙏</div>
                   <h3 className="font-serif text-2xl text-brand-cream mb-3">Namaste!</h3>
                   <p className="font-sans text-brand-text-muted">
-                    {origin === 'india'
-                      ? 'Thank you! We will WhatsApp you within 24 hours.'
-                      : 'Thank you! We will email you within 24 hours.'}
+                    Your enquiry has been submitted. Our team will contact you to discuss the next steps.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <h3 className="font-serif text-xl text-brand-cream mb-2">Book a Consultation</h3>
-                  <p className="font-sans text-xs mb-6 pb-4 border-b border-white/[0.06]" style={{ color: '#e07b2a' }}>
-                    Complete this form and we'll respond within 24 hours.
+                <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-5">
+                  <h3 className="font-serif text-xl text-brand-cream mb-2">Send Your Enquiry</h3>
+                  <p className="font-sans text-sm text-brand-cream/75 mb-6 pb-4 border-b border-white/[0.06]">
+                    Share your interests and questions to start a personal conversation about your journey.
                   </p>
 
                   {/* ── 1. Where are you travelling from? ── */}
-                  <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-3 uppercase tracking-wider">
+                  <fieldset>
+                    <legend className="block font-sans text-xs text-brand-cream/75 mb-3 uppercase tracking-wider">
                       Where are you travelling from?
-                    </label>
+                    </legend>
                     <div className="grid grid-cols-2 gap-3">
                       <button
                         type="button"
+                        aria-pressed={origin === 'india'}
                         onClick={() => setOrigin('india')}
                         className="w-full py-3 px-4 rounded-lg text-sm font-sans font-medium border transition-all duration-200"
                         style={{
-                          backgroundColor: origin === 'india' ? '#e07b2a'              : 'transparent',
-                          borderColor:     origin === 'india' ? '#e07b2a'              : 'rgba(255,255,255,0.1)',
-                          color:           origin === 'india' ? '#ffffff'              : '#888888',
+                          backgroundColor: origin === 'india' ? '#C8A44B'              : 'transparent',
+                          borderColor:     origin === 'india' ? '#C8A44B'              : 'rgba(255,255,255,0.1)',
+                          color:           origin === 'india' ? '#090909'              : '#C8BFAE',
                         }}
                       >
                         🇮🇳 From India
                       </button>
                       <button
                         type="button"
+                        aria-pressed={origin === 'outside'}
                         onClick={() => setOrigin('outside')}
                         className="w-full py-3 px-4 rounded-lg text-sm font-sans font-medium border transition-all duration-200"
                         style={{
-                          backgroundColor: origin === 'outside' ? '#1D9E75'            : 'transparent',
-                          borderColor:     origin === 'outside' ? '#1D9E75'            : 'rgba(255,255,255,0.1)',
-                          color:           origin === 'outside' ? '#ffffff'            : '#888888',
+                          backgroundColor: origin === 'outside' ? '#C8A44B'            : 'transparent',
+                          borderColor:     origin === 'outside' ? '#C8A44B'            : 'rgba(255,255,255,0.1)',
+                          color:           origin === 'outside' ? '#090909'            : '#C8BFAE',
                         }}
                       >
                         🌍 Outside India
                       </button>
                     </div>
-                  </div>
+                  </fieldset>
 
                   {/* ── 2. Full Name ── */}
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-name" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Full Name
                     </label>
-                    <input
+                    <input id="contact-name" autoComplete="name"
                       type="text"
                       name="name"
                       value={form.name}
@@ -188,10 +223,10 @@ export default function ContactPage() {
 
                   {/* ── 3. Email Address ── */}
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-email" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Email Address
                     </label>
-                    <input
+                    <input id="contact-email" autoComplete="email"
                       type="email"
                       name="email"
                       value={form.email}
@@ -204,6 +239,7 @@ export default function ContactPage() {
 
                   {/* ── 4. Phone / WhatsApp — India only ── */}
                   <div
+                    hidden={origin !== 'india'}
                     style={{
                       overflow:   'hidden',
                       maxHeight:  origin === 'india' ? '120px' : '0px',
@@ -211,10 +247,10 @@ export default function ContactPage() {
                       transition: 'max-height 0.3s ease, opacity 0.3s ease',
                     }}
                   >
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-phone" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Phone / WhatsApp
                     </label>
-                    <input
+                    <input id="contact-phone" autoComplete="tel"
                       type="tel"
                       name="phone"
                       value={form.phone}
@@ -227,10 +263,10 @@ export default function ContactPage() {
 
                   {/* ── 5. Interested In ── */}
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-expedition" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Interested In
                     </label>
-                    <select
+                    <select id="contact-expedition"
                       name="expedition"
                       value={form.expedition}
                       onChange={handleChange}
@@ -240,13 +276,14 @@ export default function ContactPage() {
                     >
                       <option value="" disabled>Select an expedition or retreat…</option>
                       {INTERESTED_IN_OPTIONS.map(opt => (
-                        <option key={opt} value={opt}>{opt}</option>
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
                       ))}
                     </select>
                   </div>
 
                   {/* ── 6. When are you planning to travel? — Outside India only ── */}
                   <div
+                    hidden={origin !== 'outside'}
                     style={{
                       overflow:   'hidden',
                       maxHeight:  origin === 'outside' ? '120px' : '0px',
@@ -254,10 +291,10 @@ export default function ContactPage() {
                       transition: 'max-height 0.3s ease, opacity 0.3s ease',
                     }}
                   >
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-travelPlan" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       When are you planning to travel?
                     </label>
-                    <select
+                    <select id="contact-travelPlan"
                       name="travelPlan"
                       value={form.travelPlan}
                       onChange={handleChange}
@@ -273,10 +310,10 @@ export default function ContactPage() {
 
                   {/* ── 7. Number of Travellers ── */}
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-travellers" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Number of Travellers
                     </label>
-                    <input
+                    <input id="contact-travellers"
                       type="number"
                       name="travellers"
                       value={form.travellers}
@@ -289,13 +326,15 @@ export default function ContactPage() {
 
                   {/* ── 8. Message ── */}
                   <div>
-                    <label className="block font-sans text-xs text-brand-text-muted mb-2 uppercase tracking-wider">
+                    <label htmlFor="contact-message" className="block font-sans text-xs text-brand-cream/75 mb-2 uppercase tracking-wider">
                       Message
                     </label>
-                    <textarea
+                    <p id="contact-message-hint" className="text-xs text-brand-cream/75 leading-relaxed mb-2">You can include your country of residence, preferred dates, dietary or room preferences and questions about travel connections.</p>
+                    <textarea id="contact-message"
                       name="message"
                       value={form.message}
                       onChange={handleChange}
+                      aria-describedby="contact-message-hint"
                       placeholder="Tell us about your journey goals…"
                       rows={4}
                       className={`${INPUT_CLASS} resize-none`}
@@ -303,7 +342,7 @@ export default function ContactPage() {
                   </div>
 
                   {status === 'error' && (
-                    <p className="font-sans text-sm text-red-400">
+                    <p role="alert" className="font-sans text-sm text-red-400">
                       Something went wrong. Please try again or contact us via WhatsApp.
                     </p>
                   )}
@@ -314,7 +353,7 @@ export default function ContactPage() {
                       disabled={status === 'loading' || !origin}
                       className="btn-primary flex-1 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {status === 'loading' ? 'Sending…' : 'Book Consultation'}
+                      {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
                     </button>
                     <a
                       href="https://wa.me/919084642557"
@@ -322,9 +361,10 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="flex-1 flex items-center justify-center gap-2 border border-green-700/40 text-green-400 text-sm font-sans px-5 py-3 rounded-full hover:bg-green-900/20 transition-all"
                     >
-                      <MessageCircle size={14} /> WhatsApp Expert
+                      <MessageCircle size={14} /> Speak With Our Team
                     </a>
                   </div>
+                  <EnquiryPrivacy />
                 </form>
               )}
             </div>
@@ -335,20 +375,22 @@ export default function ContactPage() {
                 <h3 className="font-serif text-2xl text-brand-cream mb-6">Connect With Us</h3>
                 <div className="space-y-5">
                   {[
-                    { icon: Mail,   label: 'Email',            value: 'info@himalayanserenitytravel.com' },
-                    { icon: Phone,  label: 'Phone / WhatsApp', value: '+91 90846 42557'                  },
-                    { icon: MapPin, label: 'Address',          value: 'Pithoragarh, Uttarakhand 262529'  },
+                    { icon: Mail, label: 'Bookings, privacy requests & customer support', value: 'info@himalayanserenitytravel.com', href: 'mailto:info@himalayanserenitytravel.com' },
+                    { icon: Phone, label: 'Phone', value: '+91 90846 42557', href: 'tel:+919084642557' },
+                    { icon: MapPin, label: 'Pithoragarh Contact Office', value: <>Plaza Hotel, Hydel Tiraha,<br />Tanakpur Road, Aincholi,<br />Pithoragarh, Uttarakhand – 262501,<br />India.</> },
+                    { icon: MapPin, label: 'Delhi Registered Office', value: <>LIFE &amp; LEISURE INDIA PRIVATE LIMITED<br />107–108, 1st Floor,<br />Roots Tower,<br />District Centre, Laxmi Nagar,<br />Delhi – 110092,<br />India.</> },
                   ].map(item => (
                     <div key={item.label} className="flex items-start gap-4">
                       <div className="w-9 h-9 rounded-lg bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <item.icon size={15} className="text-brand-orange" />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="font-sans text-xs text-brand-text-muted uppercase tracking-wider mb-1">{item.label}</p>
-                        <p className="font-sans text-brand-cream text-sm">{item.value}</p>
+                        <div className="font-sans text-brand-cream text-sm leading-relaxed break-words">{item.href ? <a href={item.href} className="hover:text-brand-orange">{item.value}</a> : <address className="not-italic">{item.value}</address>}</div>
                       </div>
                     </div>
                   ))}
+                  <p className="font-sans text-brand-text-muted text-sm leading-relaxed">Himalayan Serenity Travel is a brand of LIFE &amp; LEISURE INDIA PRIVATE LIMITED. <a href="https://lifeandleisure.travel/" className="text-brand-orange hover:text-brand-orange-light">Company website</a></p>
                 </div>
               </div>
 
@@ -375,12 +417,12 @@ export default function ContactPage() {
           <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
             Get in Touch
           </h2>
-          <p className="font-sans mb-4 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
+          <p className="font-sans mb-4 leading-relaxed" style={{ color: '#C8BFAE', fontSize: 15 }}>
             Himalayan Serenity Travel is a Pithoragarh-based expedition company specializing in sacred Himalayan
             journeys to Adi Kailash, Om Parvat, Panchachuli and Darma Valley. Our team of experienced local guides
             and permit specialists ensure a seamless, safe and spiritually enriching experience for every traveler.
           </p>
-          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
+          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#C8BFAE', fontSize: 15 }}>
             We typically respond to all inquiries within 2–4 hours on WhatsApp and within 24 hours via email.
             For urgent Inner Line Permit or booking queries, WhatsApp is the fastest way to reach us.
           </p>
@@ -388,7 +430,7 @@ export default function ContactPage() {
           <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
             Why Reach Out to Us?
           </h2>
-          <ul className="font-sans mb-10 space-y-3" style={{ color: '#888888', fontSize: 15 }}>
+          <ul className="font-sans mb-10 space-y-3" style={{ color: '#C8BFAE', fontSize: 15 }}>
             <li>• Complete ILP and Inner Line Permit assistance for Adi Kailash Yatra and Darma Valley expeditions</li>
             <li>• Custom itinerary planning for groups, families and solo Himalayan pilgrimage travelers</li>
             <li>• On-ground local support from Pithoragarh and Dharchula — real people, real expertise</li>
@@ -398,8 +440,8 @@ export default function ContactPage() {
           <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
             Our Location
           </h2>
-          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#888888', fontSize: 15 }}>
-            Himalayan Serenity Travel is headquartered in Pithoragarh, Uttarakhand — the gateway district to
+          <p className="font-sans mb-10 leading-relaxed" style={{ color: '#C8BFAE', fontSize: 15 }}>
+            Himalayan Serenity Travel has a contact office in Pithoragarh, Uttarakhand — the gateway district to
             Adi Kailash, Om Parvat, Darma Valley and Panchachuli Base Camp. Our local presence means faster
             Inner Line Permit processing, real-time route updates and genuine on-ground support throughout your
             Himalayan pilgrimage journey.
@@ -408,7 +450,7 @@ export default function ContactPage() {
           <h2 className="font-serif text-brand-cream mb-5" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.6rem)' }}>
             Common Questions
           </h2>
-          <div className="space-y-5" style={{ color: '#888888', fontSize: 15 }}>
+          <div className="space-y-5" style={{ color: '#C8BFAE', fontSize: 15 }}>
             <div>
               <p className="font-sans font-semibold mb-1" style={{ color: '#bbbbbb' }}>Do you arrange Inner Line Permits (ILP) for Adi Kailash?</p>
               <p className="font-sans leading-relaxed">

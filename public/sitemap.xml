@@ -143,4 +143,25 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.himalayanserenitytravel.com/privacy</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.himalayanserenitytravel.com/terms</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.himalayanserenitytravel.com/experiences</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.himalayanserenitytravel.com/blog/shalang-glacier-trek-2026-johar-valley-uttarakhand</loc>
+  </url>
 </urlset>

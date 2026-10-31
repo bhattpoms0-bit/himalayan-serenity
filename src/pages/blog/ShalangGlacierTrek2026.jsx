@@ -496,7 +496,7 @@ export default function ShalangGlacierTrek2026() {
               Trek with Himalayan Serenity Travel
             </h3>
             <p style={{ color: 'rgba(255,255,255,0.72)', marginBottom: '1.5rem', fontSize: '0.93rem', fontFamily: 'Georgia, serif', lineHeight: 1.8 }}>
-              Himalayan Serenity Travel is a Pithoragarh-based boutique expedition company with 15+ years of experience in the Johar Valley and the wider Kumaon Himalaya. We lead professionally planned expeditions with experienced local guides who know the Shalang region intimately.
+              Himalayan Serenity Travel is a boutique Himalayan travel brand with a contact office in Pithoragarh. We lead professionally planned expeditions with experienced local guides who know the Shalang region intimately.
             </p>
             <div style={{ display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link

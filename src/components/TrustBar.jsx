@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
 const STATS = [
-  { value: '500+',  label: 'Pilgrims Guided'    },
-  { value: '15+',   label: 'Years Experience'   },
-  { value: '100%',  label: 'Safe Expeditions'   },
-  { value: '★ 4.9', label: 'Expert Local Guides' },
+  { value: 'Local', label: 'Himalayan Knowledge' },
+  { value: 'Personal', label: 'Guest Experiences' },
+  { value: 'Considered', label: 'Safety-Conscious Planning' },
+  { value: 'Responsible', label: 'Himalayan Travel' },
 ]
 
 export default function TrustBar() {
@@ -32,7 +32,7 @@ export default function TrustBar() {
               </span>
               <span
                 className="font-sans uppercase"
-                style={{ fontSize: 10, letterSpacing: '0.14em', color: '#555555' }}
+                style={{ fontSize: 11, letterSpacing: '0.14em', color: '#C8BFAE' }}
               >
                 {label}
               </span>

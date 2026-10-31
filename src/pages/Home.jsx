@@ -3,103 +3,43 @@ import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import WhyChooseUs from '../components/WhyChooseUs'
-import Testimonials from '../components/Testimonials'
+import BrandPromise from '../components/BrandPromise'
 import Packages from '../components/Packages'
 import CTASection from '../components/CTASection'
 import Footer from '../components/Footer'
+import { RetreatPrice } from '../components/RetreatDetails'
+import { PANCHACHULI_WELLNESS, WOMENS_SACRED_HIMALAYA, retreatCardMeta } from '../data/retreats'
 
 export default function Home() {
-  // Respect system preference — animations skip/reduce for motion-sensitive users
-  const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
   useSEO({
-    title: 'Himalayan Serenity | Adi Kailash Yatra & Om Parvat Tour from Delhi',
-    description: 'Luxury Himalayan wellness retreats India 2026. Adi Kailash Yatra, Om Parvat & Kumaon cultural journeys from Delhi. Book with local experts in Uttarakhand.',
+    title: 'Himalayan Wellness Retreats in Kumaon, India | Himalayan Serenity Travel',
+    description: 'Intimate yoga retreats, mindful mountain experiences and authentic Himalayan culture in Kumaon, Uttarakhand, India. Explore Himalayan Serenity wellness retreats and sacred journeys.',
     canonical: 'https://www.himalayanserenitytravel.com/',
   })
   return (
-    <div className="min-h-screen bg-brand-dark">
+    <div className="min-h-screen bg-brand-dark pb-24 lg:pb-0">
       <Navbar activePage="home" />
       <main>
-        {/* Visually hidden SEO h1 — Hero carries the visual heading (h2) */}
-        <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>
-          Himalayan Wellness Retreats &amp; Expeditions in India
-        </h1>
-        <section aria-label="Hero"><Hero /></section>
+        <Hero />
 
-        {/* ── Audience Split ────────────────────────────────────────────── */}
-        <section aria-label="Who we serve" className="bg-[#0d0d0d] py-10">
-          <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-            <div className="flex flex-col md:flex-row gap-4">
-
-              {/* Card 1 — Indian Pilgrims */}
-              <Link to="/experiences" className="flex-1 no-underline group">
-                <div className="relative h-[300px] rounded-[10px] overflow-hidden">
-                  <img
-                    src="/images/packages/adi-kailash/om-parvat-1.webp"
-                    alt="Om Parvat sacred mountain, Adi Kailash yatra Kumaon Himalaya"
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)' }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="font-sans" style={{ color: '#e07b2a', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 0 }}>
-                      Indian Pilgrims &amp; Trekkers
-                    </p>
-                    <h3 className="font-serif text-white" style={{ fontSize: 22, fontWeight: 400, margin: '6px 0' }}>
-                      Adi Kailash, Om Parvat &amp; Panchachuli Yatras
-                    </h3>
-                    <p className="font-sans" style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: 10 }}>
-                      Sacred high-altitude pilgrimages from Pithoragarh into the divine Kumaon Himalaya.
-                    </p>
-                    <span className="font-sans" style={{ color: '#e07b2a', fontSize: 13, fontWeight: 500 }}>
-                      Explore expeditions →
-                    </span>
-                  </div>
+        <section aria-label="Choose your Himalayan journey" className="bg-[#0d0d0d] py-10 sm:py-14">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              { title: 'Himalayan Wellness Retreats', description: 'Curated yoga, mindfulness and cultural experiences in the Kumaon Himalaya.', cta: 'Explore Retreats', href: '/international-retreats', image: '/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp', alt: 'Yoga in the Kumaon Himalaya' },
+              { title: 'Sacred Himalayan Journeys', description: 'Thoughtfully planned pilgrimages and cultural journeys through the sacred landscapes of Kumaon.', cta: 'Discover Journeys', href: '/experiences', image: '/images/packages/adi-kailash/om-parvat-1.webp', alt: 'Om Parvat in the Kumaon Himalaya' },
+            ].map(pathway => (
+              <Link key={pathway.href} to={pathway.href} className="group relative flex items-end min-h-[340px] sm:min-h-[360px] rounded-xl overflow-hidden border border-white/10">
+                <img src={pathway.image} alt={pathway.alt} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10" />
+                <div className="relative p-6 sm:p-8">
+                  <h2 className="font-serif text-brand-cream text-2xl sm:text-3xl leading-tight mb-4">{pathway.title}</h2>
+                  <p className="text-brand-cream-muted text-sm leading-relaxed max-w-md mb-5">{pathway.description}</p>
+                  <span data-floating-avoid className="inline-flex items-center min-h-11 font-sans text-brand-gold text-sm group-hover:underline underline-offset-4">{pathway.cta} →</span>
                 </div>
               </Link>
-
-              {/* Card 2 — International Travellers */}
-              <Link to="/international-retreats" className="flex-1 no-underline group">
-                <div className="relative h-[300px] rounded-[10px] overflow-hidden">
-                  <img
-                    src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
-                    alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon wellness retreat"
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)' }}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="font-sans" style={{ color: '#1D9E75', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 0 }}>
-                      International Travellers
-                    </p>
-                    <h3 className="font-serif text-white" style={{ fontSize: 22, fontWeight: 400, margin: '6px 0' }}>
-                      Yoga, Ayurveda &amp; Himalayan Wellness Retreats
-                    </h3>
-                    <p className="font-sans" style={{ fontSize: 13, color: 'rgba(255,255,255,0.65)', fontWeight: 300, marginBottom: 10 }}>
-                      Transformative retreats designed for global seekers — no permits required.
-                    </p>
-                    <span className="font-sans" style={{ color: '#1D9E75', fontSize: 13, fontWeight: 500 }}>
-                      Discover retreats →
-                    </span>
-                  </div>
-                </div>
-              </Link>
-
-            </div>
+            ))}
           </div>
         </section>
-
-        <section id="packages-section" aria-label="Packages"><Packages /></section>
 
         {/* ── International Retreats Preview ────────────────────────────── */}
         <section aria-label="International Retreats" className="bg-[#0a100d] pt-16 pb-16">
@@ -111,7 +51,7 @@ export default function Home() {
                 International Retreats
               </span>
               <h2 className="font-serif text-brand-cream text-3xl sm:text-4xl lg:text-5xl leading-tight tracking-[-0.02em]">
-                Heal in the world's most sacred mountains
+                Signature Himalayan Retreats
               </h2>
             </div>
 
@@ -133,11 +73,11 @@ export default function Home() {
                       Yoga &amp; Ayurveda
                     </span>
                     <h3 className="font-serif text-[#f0ece4] text-xl mb-2">
-                      Panchachuli Himalayan Wellness &amp; Cultural Immersion Retreat
+                      {PANCHACHULI_WELLNESS.listingName}
                     </h3>
-                    <p className="text-[#f0ece4]/50 text-sm mb-3">Munsiyari · Khaliya Top · 7 nights</p>
-                    <p className="text-[#f0ece4]/60 text-sm mb-6">Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise</p>
-                    <p className="text-[#e07b2a] font-medium mt-auto">From €1,400 per person</p>
+                    <p className="text-[#f0ece4]/70 text-sm leading-relaxed mb-3">{retreatCardMeta(PANCHACHULI_WELLNESS)}</p>
+                    <p className="text-[#f0ece4]/60 text-sm mb-6">{PANCHACHULI_WELLNESS.highlights}</p>
+                    <div className="mt-auto"><RetreatPrice retreat={PANCHACHULI_WELLNESS} compact /></div>
                   </div>
                 </div>
               </Link>
@@ -157,11 +97,11 @@ export default function Home() {
                       Women Only
                     </span>
                     <h3 className="font-serif text-[#f0ece4] text-xl mb-2">
-                      Women's Sacred Himalaya Retreat
+                      {WOMENS_SACRED_HIMALAYA.listingName}
                     </h3>
-                    <p className="text-[#f0ece4]/50 text-sm mb-3">Munsiyari + Darma · 9 nights</p>
-                    <p className="text-[#f0ece4]/60 text-sm mb-6">Female guides · Shakti yoga · Cultural exchange · Moon meditation</p>
-                    <p className="text-[#e07b2a] font-medium mt-auto">From €2,000 per person</p>
+                    <p className="text-[#f0ece4]/70 text-sm leading-relaxed mb-3">{retreatCardMeta(WOMENS_SACRED_HIMALAYA)}</p>
+                    <p className="text-[#f0ece4]/60 text-sm mb-6">{WOMENS_SACRED_HIMALAYA.highlights}</p>
+                    <div className="mt-auto"><RetreatPrice retreat={WOMENS_SACRED_HIMALAYA} compact /></div>
                   </div>
                 </div>
               </Link>
@@ -202,16 +142,37 @@ export default function Home() {
                 to="/international-retreats"
                 className="font-sans text-sm text-[#1D9E75] no-underline hover:opacity-75 transition-opacity duration-200"
               >
-                Explore all international retreats →
+                Explore all wellness retreats →
               </Link>
             </div>
 
           </div>
         </section>
 
-        <section aria-label="Why Choose Us"><WhyChooseUs /></section>
+        <BrandPromise showThemes />
 
-        <section aria-label="Testimonials"><Testimonials /></section>
+        <section id="packages-section" aria-label="Sacred Himalayan journeys"><Packages /></section>
+
+        <section aria-labelledby="home-responsibility-title" className="bg-[#0b121a] py-16 sm:py-20 px-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="text-brand-gold text-xs uppercase tracking-luxury mb-4">Responsible Himalayan Travel</p>
+            <h2 id="home-responsibility-title" className="font-serif text-brand-cream text-3xl sm:text-4xl leading-tight mb-6">Leave No Trace. Respect Every Life. Honour the Mountains.</h2>
+            <p className="text-brand-cream-muted leading-relaxed mb-6">Respect local customs, sacred places and the communities that welcome us. Travel with care for the landscapes, wildlife and water sources along the way.</p>
+            <Link to="/sustainability" className="inline-flex min-h-11 items-center text-brand-gold underline underline-offset-4">Our responsible-travel approach →</Link>
+          </div>
+        </section>
+
+        <section aria-labelledby="home-company-title" className="border-y border-white/10 bg-brand-dark-2 px-6 py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto">
+            <h2 id="home-company-title" className="font-serif text-brand-cream text-2xl sm:text-3xl mb-5">A personal connection to your Himalayan journey</h2>
+            <p className="text-brand-cream-muted text-sm leading-relaxed mb-6">Himalayan Serenity Travel is a brand of LIFE &amp; LEISURE INDIA PRIVATE LIMITED, with a contact office in Pithoragarh and its registered office in Delhi.</p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-3 text-sm">
+              <a href="mailto:info@himalayanserenitytravel.com" className="min-h-11 inline-flex items-center break-all text-brand-gold underline underline-offset-4">info@himalayanserenitytravel.com</a>
+              <a href="tel:+919084642557" className="min-h-11 inline-flex items-center text-brand-cream">+91 90846 42557</a>
+              <Link to="/contact" className="min-h-11 inline-flex items-center text-brand-gold underline underline-offset-4">Our offices &amp; contact details →</Link>
+            </div>
+          </div>
+        </section>
         <section aria-label="Call to Action"><CTASection /></section>
       </main>
 

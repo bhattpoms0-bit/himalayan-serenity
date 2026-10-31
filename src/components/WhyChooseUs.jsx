@@ -7,33 +7,33 @@ const EASE = [0.25, 0.46, 0.45, 0.94]
 const features = [
   {
     icon:  Shield,
-    title: 'Government Registered',
-    desc:  'Fully licensed and accredited by the Ministry of Tourism, ensuring your journey meets the highest legal and ethical standards.',
+    title: 'Local Himalayan Knowledge',
+    desc:  'Discover the landscapes, living traditions and sacred heritage of the Kumaon Himalaya through a locally rooted approach.',
   },
   {
     icon:  Users,
-    title: 'Thousands of Travelers',
-    desc:  'A global community of high-altitude seekers who have trusted us to guide their spiritual and physical ascents across the range.',
+    title: 'Small, Curated Groups',
+    desc:  'An intimate approach that leaves room for personal attention, connection and a considered pace.',
   },
   {
     icon:  Star,
-    title: 'Expert Local Guides',
-    desc:  'Our Sherpas and guides are born of the mountains, combining ancestral wisdom with modern safety certifications.',
+    title: 'Thoughtfully Planned Journeys',
+    desc:  'Explore the route, participation requirements and practical arrangements with us before choosing your journey.',
   },
   {
     icon:  Heart,
-    title: 'Oxygen & Safety Support',
-    desc:  'Equipped with medical-grade oxygen, PAC chambers, and 24/7 satellite link support for total high-altitude peace of mind.',
+    title: 'Personalised Guest Experiences',
+    desc:  'Tell us about your interests and needs so we can discuss a journey that feels meaningful to you.',
   },
   {
     icon:  Globe,
-    title: 'Women-Friendly Departures',
-    desc:  'Dedicated all-women expeditions led by female mountain experts, fostering a safe and empowering environment for all.',
+    title: 'Responsible Himalayan Travel',
+    desc:  'Travel slowly and respectfully, with care for the landscapes and places that welcome us.',
   },
   {
     icon:  Headphones,
-    title: 'International Support',
-    desc:  'Multi-language concierge services and seamless logistics for global travelers arriving from every corner of the world.',
+    title: 'Respect for Local Communities',
+    desc:  'Approach local customs, sacred places and everyday life with curiosity, courtesy and respect.',
   },
 ]
 
@@ -86,7 +86,7 @@ function FeatureCard({ feature, index }) {
         >
           {feature.title}
         </h3>
-        <p className="font-sans leading-[1.85]" style={{ fontSize: 14, color: '#777777' }}>
+        <p className="font-sans leading-[1.85]" style={{ fontSize: 14, color: '#B8B8B8' }}>
           {feature.desc}
         </p>
       </motion.div>
@@ -117,10 +117,10 @@ export default function WhyChooseUs() {
           <h2
             className="font-serif text-brand-cream leading-tight tracking-[-0.02em] mb-5 text-3xl sm:text-4xl lg:text-5xl"
           >
-            What Sets Our Expeditions Apart
+            A Considered Approach to Himalayan Travel
           </h2>
           <p className="font-sans text-brand-text-muted text-[14.5px] leading-[1.78]">
-            From the Kumaon foothills to 20,000ft sacred summits — every detail handled, every traveller safe.
+            Thoughtfully planned. Safety-conscious. Personal journeys shaped by care for our guests, local communities and the mountains.
           </p>
         </motion.div>
 

@@ -1,10 +1,11 @@
-﻿import { useState } from 'react'
+﻿import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Send, X } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { FAQ_HELP_TOPICS, getFaqHelpReply } from '../data/faqHelp'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
@@ -19,15 +20,15 @@ const faqs = [
   },
   {
     q: 'What essential gear is provided?',
-    a: 'We provide sleeping bags rated to -20°C, trekking poles, first aid kits, oxygen cylinders for high-altitude sections, PAC chambers, and satellite communication devices. You will need personal clothing, boots, and layering — our detailed packing list is sent upon booking.',
+    a: 'Equipment and support depend on the itinerary. Ask us to confirm what is included, what you should bring and any altitude-related support arrangements before booking. Do not assume oxygen, medical personnel or satellite communications are included in every journey.',
   },
   {
     q: 'Is the journey suitable for senior travelers?',
-    a: 'Absolutely. We offer specially designed Senior-Friendly itineraries with slower ascent profiles, extra rest days, comfort-grade accommodation, and dedicated medical personnel. Many of our most profound experiences come from travelers in their 60s and 70s.',
+    a: 'Suitability depends on the itinerary, altitude, health and fitness. Discuss the pace and participation requirements with us before booking, and seek medical advice where appropriate. Medical personnel are not guaranteed on every journey.',
   },
   {
     q: 'What safety measures are in place?',
-    a: 'Every expedition includes 24/7 satellite monitoring, oxygen-equipped vehicles, trained medical staff, helicopter evacuation insurance, and guides certified in wilderness first aid. Safety is our non-negotiable foundation.',
+    a: 'We take a safety-conscious approach to planning. Ask us to confirm route-specific support and emergency arrangements before booking. Remote terrain, weather and communications can affect access to assistance; no particular rescue service, response time or evacuation outcome is guaranteed.',
   },
   {
     q: 'Do you offer women-only departures?',
@@ -35,7 +36,7 @@ const faqs = [
   },
 ]
 
-const suggestTags = ['Package Cost', 'Best Time', 'Safety', 'Senior Citizens', 'Visa Help', 'Weather']
+const suggestTags = FAQ_HELP_TOPICS
 
 export default function FAQPage() {
   useSEO({
@@ -46,17 +47,25 @@ export default function FAQPage() {
   const [openIndex, setOpenIndex]       = useState(null)
   const [chatOpen, setChatOpen]         = useState(false)
   const [query, setQuery]               = useState('')
-  const [inputFocused, setInputFocused] = useState(false)
+  const inputRef = useRef(null)
+  const triggerRef = useRef(null)
+  const wasOpen = useRef(false)
   const [messages, setMessages]         = useState([
-    { from: 'bot', text: 'Namaste. I am your Serenity Concierge. I can help you with logistics, weather updates, or choosing the right expedition.' },
+    { from: 'bot', text: 'Namaste. Choose a topic or ask a general journey question. This informational helper does not send your question to our team or provide live updates.' },
   ])
 
-  const handleSend = () => {
-    if (!query.trim()) return
-    setMessages(prev => [...prev, { from: 'user', text: query }])
-    setTimeout(() => {
-      setMessages(prev => [...prev, { from: 'bot', text: 'Thank you for your inquiry. Our team will follow up within 24 hours. For urgent queries, please use WhatsApp.' }])
-    }, 800)
+  useEffect(() => {
+    if (chatOpen) inputRef.current?.focus()
+    else if (wasOpen.current) triggerRef.current?.focus()
+    wasOpen.current = chatOpen
+  }, [chatOpen])
+
+  const handleSend = (question = query) => {
+    if (!question.trim()) return
+    setMessages(previous => [...previous,
+      { from: 'user', text: question.trim() },
+      { from: 'bot', text: getFaqHelpReply(question) },
+    ])
     setQuery('')
   }
 
@@ -137,6 +146,8 @@ export default function FAQPage() {
               <button
                 className="w-full flex justify-between items-center py-6 text-left"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                aria-expanded={openIndex === i}
+                aria-controls={`faq-answer-${i}`}
               >
                 <span
                   className="font-serif pr-4 transition-colors duration-200"
@@ -162,6 +173,7 @@ export default function FAQPage() {
               <AnimatePresence initial={false}>
                 {openIndex === i && (
                   <motion.div
+                    id={`faq-answer-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -200,186 +212,60 @@ export default function FAQPage() {
         </div>
       </section>
 
-      {/* ── Floating Chat Panel ───────────────────────────────────────────── */}
+      <section className="bg-brand-dark-2 px-6 py-12 border-t border-white/10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-brand-cream text-2xl mb-4">Need personal assistance?</h2>
+          <p className="text-brand-cream-muted leading-relaxed mb-5">Our team can help you plan your journey. Contact us through WhatsApp or send an enquiry.</p>
+          <div className="flex flex-wrap gap-4">
+            <a href="https://wa.me/919084642557" target="_blank" rel="noopener noreferrer" className="btn-secondary min-h-11">WhatsApp our team</a>
+            <Link to="/contact#consultation" className="btn-primary !text-brand-dark min-h-11">Send an enquiry</Link>
+          </div>
+        </div>
+      </section>
+
       <AnimatePresence>
         {chatOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: EASE }}
-            className="fixed bottom-0 left-0 right-0 sm:bottom-6 sm:left-auto sm:right-6 sm:w-[380px] z-50"
-            style={{ maxWidth: 'calc(100vw - 48px)', margin: '0 auto' }}
+          <motion.section
+            id="faq-helper" data-clarity-mask="true" aria-labelledby="faq-helper-title" aria-describedby="faq-helper-description"
+            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }}
+            onKeyDown={event => { if (event.key === 'Escape') { event.stopPropagation(); setChatOpen(false) } }}
+            className="fixed bottom-40 left-4 right-4 sm:bottom-24 sm:left-auto sm:right-6 sm:w-[380px] z-50 max-h-[calc(100dvh-200px)] overflow-y-auto rounded-2xl border border-white/15 bg-[#141414] shadow-2xl"
           >
-            <div
-              className="rounded-t-2xl sm:rounded-2xl overflow-hidden"
-              style={{
-                backgroundColor: '#141414',
-                border:          '1px solid rgba(255,255,255,0.08)',
-                boxShadow:       '0 24px 60px rgba(0,0,0,0.6)',
-              }}
-            >
-              {/* Header */}
-              <div
-                className="flex items-center justify-between px-5 py-4"
-                style={{ background: 'linear-gradient(to bottom, #1a1a1a, #141414)' }}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className="flex items-center justify-center flex-shrink-0"
-                    style={{
-                      width:           36,
-                      height:          36,
-                      borderRadius:    '50%',
-                      backgroundColor: 'rgba(224,123,42,0.15)',
-                      border:          '1px solid rgba(224,123,42,0.3)',
-                    }}
-                  >
-                    <span className="text-brand-orange" style={{ fontSize: 13 }}>✦</span>
-                  </div>
-                  <div>
-                    <p
-                      className="text-white"
-                      style={{ fontFamily: '"Cinzel", serif', fontSize: 11, letterSpacing: '0.12em' }}
-                    >
-                      Serenity Concierge
-                    </p>
-                    <p className="flex items-center gap-1 text-green-400 font-sans" style={{ fontSize: 11 }}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block flex-shrink-0" />
-                      AI Concierge · Online
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => setChatOpen(false)}
-                  className="text-white/60 hover:text-white p-1 transition-colors"
-                >
-                  <X size={15} />
-                </button>
+            <div className="flex items-start justify-between gap-3 px-5 py-4 border-b border-white/10">
+              <div>
+                <h2 id="faq-helper-title" className="font-serif text-brand-cream text-xl">Journey information</h2>
+                <p id="faq-helper-description" className="font-sans text-brand-cream-muted text-xs leading-relaxed mt-2">General guidance, not a live-agent chat. Questions entered here are not sent to our team.</p>
               </div>
-
-              {/* Messages */}
-              <div className="max-h-48 overflow-y-auto p-4 space-y-3">
-                {messages.map((msg, i) => (
-                  <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    <div
-                      className={`max-w-[85%] p-4 font-sans ${
-                        msg.from === 'user' ? 'rounded-2xl rounded-tr-sm' : 'rounded-2xl rounded-tl-sm'
-                      }`}
-                      style={
-                        msg.from === 'user'
-                          ? {
-                              backgroundColor: 'rgba(224,123,42,0.12)',
-                              border:          '1px solid rgba(224,123,42,0.15)',
-                              fontSize:        13,
-                              color:           '#e5e5e5',
-                              lineHeight:      1.7,
-                            }
-                          : {
-                              backgroundColor: '#1e1e1e',
-                              fontSize:        13,
-                              color:           '#bbbbbb',
-                              lineHeight:      1.7,
-                            }
-                      }
-                    >
-                      {msg.text}
-                    </div>
-                  </div>
-                ))}
+              <button type="button" onClick={() => setChatOpen(false)} aria-label="Close journey information" className="min-w-11 min-h-11 flex items-center justify-center text-brand-cream hover:text-brand-gold"><X size={18} /></button>
+            </div>
+            <div role="log" aria-label="Journey information conversation" aria-live="polite" aria-relevant="additions" className="max-h-48 overflow-y-auto px-4 py-4 space-y-3">
+              {messages.map((message, index) => (
+                <p key={index} className={`rounded-xl p-3 text-sm leading-relaxed break-words ${message.from === 'user' ? 'bg-brand-orange/15 text-brand-cream ml-5' : 'bg-white/5 text-brand-cream-muted mr-3'}`}>
+                  <span className="sr-only">{message.from === 'user' ? 'You: ' : 'Information: '}</span>{message.text}
+                </p>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-2 px-4 pb-4" aria-label="General information topics">
+              {suggestTags.map(topic => <button type="button" key={topic} onClick={() => handleSend(topic)} className="min-h-11 rounded-full border border-white/20 text-brand-cream-muted px-3 text-xs hover:text-brand-cream hover:border-brand-gold">{topic}</button>)}
+            </div>
+            <form data-clarity-mask="true" onSubmit={event => { event.preventDefault(); handleSend() }} className="px-4 pb-4">
+              <label htmlFor="faq-question" className="block text-brand-cream-muted text-xs mb-2">Ask a general journey question</label>
+              <div className="flex items-center gap-2">
+                <input ref={inputRef} id="faq-question" value={query} onChange={event => setQuery(event.target.value)} className="min-w-0 flex-1 min-h-11 rounded-xl border border-white/25 bg-brand-dark text-brand-cream px-3 text-base" />
+                <button type="submit" aria-label="Show journey information" className="min-h-11 min-w-11 rounded-xl bg-brand-orange text-brand-dark flex items-center justify-center"><Send size={17} /></button>
               </div>
-
-              {/* Quick tags */}
-              <div className="flex flex-wrap gap-2 px-4 pb-3">
-                {suggestTags.map(tag => (
-                  <button
-                    key={tag}
-                    onClick={() => setQuery(tag)}
-                    className="font-sans rounded-full px-3 py-1 transition-all duration-200"
-                    style={{
-                      fontSize:        11,
-                      color:           '#777777',
-                      border:          '1px solid rgba(255,255,255,0.08)',
-                      backgroundColor: 'transparent',
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.borderColor = 'rgba(224,123,42,0.3)'
-                      e.currentTarget.style.backgroundColor = 'rgba(224,123,42,0.05)'
-                      e.currentTarget.style.color = '#e07b2a'
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                      e.currentTarget.style.color = '#777777'
-                    }}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-
-              {/* Input row */}
-              <div className="px-4 pb-4 flex gap-2">
-                <input
-                  type="text"
-                  value={query}
-                  onChange={e => setQuery(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && handleSend()}
-                  onFocus={() => setInputFocused(true)}
-                  onBlur={() => setInputFocused(false)}
-                  placeholder="Type your inquiry..."
-                  className="flex-1 font-sans text-white rounded-xl px-4 py-2.5 outline-none transition-all duration-200 placeholder-[#444444]"
-                  style={{
-                    fontSize:        13,
-                    backgroundColor: '#0d0d0d',
-                    border:          inputFocused
-                      ? '1px solid rgba(224,123,42,0.4)'
-                      : '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: inputFocused
-                      ? '0 0 0 3px rgba(224,123,42,0.08)'
-                      : 'none',
-                  }}
-                />
-                <motion.button
-                  onClick={handleSend}
-                  whileTap={{ scale: 0.95 }}
-                  whileHover={{ filter: 'brightness(1.1)' }}
-                  className="flex-shrink-0 flex items-center justify-center rounded-xl p-2.5"
-                  style={{ backgroundColor: '#e07b2a' }}
-                >
-                  <Send size={14} className="text-white" />
-                </motion.button>
+            </form>
+            <div className="px-4 pb-5 text-sm text-brand-cream-muted leading-relaxed border-t border-white/10 pt-4">
+              <p className="mb-2">Need personal assistance? Contact our team directly:</p>
+              <div className="flex flex-wrap gap-x-5 gap-y-1">
+                <a href="https://wa.me/919084642557" target="_blank" rel="noopener noreferrer" className="min-h-11 inline-flex items-center text-brand-gold underline underline-offset-4">WhatsApp</a>
+                <Link to="/contact#consultation" className="min-h-11 inline-flex items-center text-brand-gold underline underline-offset-4">Send an enquiry</Link>
               </div>
             </div>
-          </motion.div>
+          </motion.section>
         )}
       </AnimatePresence>
-
-      {/* ── Floating Chat Button ──────────────────────────────────────────── */}
-      <AnimatePresence>
-        {!chatOpen && (
-          <motion.button
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ delay: 1, type: 'spring' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setChatOpen(true)}
-            className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full px-5 py-3 text-white"
-            style={{
-              backgroundColor: '#e07b2a',
-              boxShadow:       '0 8px 30px rgba(224,123,42,0.4)',
-              fontFamily:      '"Cinzel", serif',
-              fontSize:        11,
-              letterSpacing:   '0.12em',
-            }}
-          >
-            ✦ Ask Concierge
-          </motion.button>
-        )}
-      </AnimatePresence>
+      <button ref={triggerRef} hidden={chatOpen} type="button" aria-expanded={chatOpen} aria-controls="faq-helper" onClick={() => setChatOpen(true)} className="fixed bottom-24 right-4 sm:bottom-6 sm:right-20 z-50 min-h-11 rounded-full px-4 py-3 bg-brand-orange text-brand-dark text-sm shadow-xl">Journey information</button>
 
       <Footer />
     </div>

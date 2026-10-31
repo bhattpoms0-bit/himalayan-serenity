@@ -1,4 +1,6 @@
-import { useState, useId } from "react";
+import { openWhatsApp } from '../utils/whatsapp';
+import { trackEnquiry } from '../utils/consent';
+import { useState, useRef, useId } from "react";
 
 const WEB3FORMS_KEY = "a4bcce53-4a1d-4217-93b6-30b9d714bbdd";
 
@@ -32,7 +34,6 @@ const inputStyle = {
   color: "#e8e0d4",
   fontSize: "0.9rem",
   fontFamily: "'Cormorant Garamond',Georgia,serif",
-  outline: "none",
   boxSizing: "border-box",
   transition: "border-color 0.2s",
 };
@@ -42,21 +43,26 @@ const labelStyle = {
   fontSize: "0.68rem",
   letterSpacing: "0.14em",
   textTransform: "uppercase",
-  color: "#7a7068",
+  color: "#c0b8a8",
   marginBottom: 6,
   fontFamily: "'Cormorant Garamond',Georgia,serif",
 };
 
 export default function ExpeditionForm({ defaultPackage = "" }) {
+  const [whatsApp, setWhatsApp] = useState(null);
   const uid = useId(); // unique per instance — avoids duplicate IDs when 2 forms on same page
   const [form, setForm]     = useState({ name: "", whatsapp: "", pkg: defaultPackage, month: "" });
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
   const set = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault();
     if (!form.name || !form.whatsapp || !form.pkg || !form.month) return;
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus("loading");
 
     try {
@@ -78,39 +84,43 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
 
       if (res.ok && data.success) {
         setStatus("success");
-        if (typeof window.gtag !== "undefined") {
-          window.gtag("event", "form_submit", { event_category: "Expedition Inquiry", value: 1 });
-        }
+        trackEnquiry('Expedition Inquiry');
         // Open WhatsApp with pre-filled message
         const msg = `Hello! I am ${form.name}. My WhatsApp is ${form.whatsapp}. I am interested in the ${form.pkg} package. I am planning to travel in ${form.month}. Please send me the itinerary.`;
-        window.open(`https://wa.me/919084642557?text=${encodeURIComponent(msg)}`, "_blank");
+        const url = `https://wa.me/919084642557?text=${encodeURIComponent(msg)}`;
+        setWhatsApp({ url, opened: openWhatsApp(url) });
       } else {
         setStatus("error");
       }
     } catch {
       setStatus("error");
+    } finally {
+      submissionInFlight.current = false
     }
   };
 
   if (status === "success") {
     return (
-      <div style={{ textAlign: "center", padding: "2rem 1rem" }}>
+      <div role="status" style={{ textAlign: "center", padding: "2rem 1rem" }}>
         <div style={{ fontSize: "2rem", marginBottom: 12 }}>🙏</div>
         <div style={{ fontSize: "1.1rem", color: gold, marginBottom: 8, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>Namaste!</div>
         <div style={{ fontSize: "0.9rem", color: "#b5a898", lineHeight: 1.7, fontFamily: "'Cormorant Garamond',Georgia,serif" }}>
-          WhatsApp is opening with your details.<br />We will send your itinerary shortly!
+          Your enquiry has been submitted.<br />
+          {whatsApp?.opened ? 'Review your details in WhatsApp and send the message when ready.' : 'WhatsApp could not be opened automatically. Use the link below to review and send your message.'}
+          <br />
+          <a href={whatsApp?.url} target="_blank" rel="noopener noreferrer" style={{ color: gold, textDecoration: "underline" }}>Open WhatsApp</a>
         </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+    <form data-clarity-mask="true" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
       {/* Name */}
       <div>
         <label htmlFor={`${uid}-name`} style={labelStyle}>Your Name</label>
         <input
-          id={`${uid}-name`}
+          id={`${uid}-name`} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
           type="text" name="name" value={form.name} onChange={set}
           placeholder="Your Name" required style={inputStyle}
         />
@@ -120,7 +130,7 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
       <div>
         <label htmlFor={`${uid}-whatsapp`} style={labelStyle}>WhatsApp Number</label>
         <input
-          id={`${uid}-whatsapp`}
+          id={`${uid}-whatsapp`} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
           type="tel" name="whatsapp" value={form.whatsapp} onChange={set}
           placeholder="WhatsApp Number" required style={inputStyle}
         />
@@ -130,7 +140,7 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
       <div>
         <label htmlFor={`${uid}-pkg`} style={labelStyle}>Preferred Travel Package</label>
         <select
-          id={`${uid}-pkg`}
+          id={`${uid}-pkg`} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
           name="pkg" value={form.pkg} onChange={set}
           required
           style={{ ...inputStyle, cursor: "pointer", appearance: "none", WebkitAppearance: "none" }}
@@ -144,7 +154,7 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
       <div>
         <label htmlFor={`${uid}-month`} style={labelStyle}>Preferred Travel Month</label>
         <select
-          id={`${uid}-month`}
+          id={`${uid}-month`} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
           name="month" value={form.month} onChange={set}
           required
           style={{ ...inputStyle, cursor: "pointer", appearance: "none", WebkitAppearance: "none" }}
@@ -155,7 +165,7 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
       </div>
 
       {status === "error" && (
-        <p style={{ fontSize: "0.8rem", color: "#f87171", margin: 0, fontFamily: "inherit" }}>
+        <p role="alert" style={{ fontSize: "0.8rem", color: "#f87171", margin: 0, fontFamily: "inherit" }}>
           Something went wrong. Please try WhatsApp directly.
         </p>
       )}

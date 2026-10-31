@@ -36,7 +36,7 @@ const FEATURED = [
     days:     8,
     difficulty: 'Moderate',
     people:   10,
-    spots:    6,
+
     price:    'On Request',
     image:    '/images/packages/johar-valley.webp',
     link:     '/packages/cinematic-expedition',
@@ -48,7 +48,7 @@ const FEATURED = [
     days:     9,
     difficulty: 'Moderate',
     people:   10,
-    spots:    5,
+
     price:    'On Request',
     image:    '/images/packages/panchachuli-sunrise.webp',
     link:     '/packages/wilderness-expedition',
@@ -61,7 +61,7 @@ const MORE = [
     title:  'Himalayan Wellness & Meditation Retreat',
     days:   7,
     people: 15,
-    spots:  7,
+
     price:  'On Request',
     image:  '/images/wellness/forest-meditation.webp',
     link:   '/packages/wellness-retreat',
@@ -70,9 +70,10 @@ const MORE = [
     tag:      'Women Only',
     title:    'Women-Only Expedition (Darma Valley)',
     subtitle: 'Dharchula · Darma Valley · Hidden Himalayan Villages',
-    days:     12,
+    days:     7,
+    nights:   6,
     people:   6,
-    spots:    3,
+
     price:    'On Request',
     image:    '/images/darma-valley-womens-retreat/woman-traveler-himalayan-mountain-sunset.webp',
     alt:      'Women-Only Expedition Darma Valley Himalaya',
@@ -82,8 +83,10 @@ const MORE = [
     tag:    'Comfort Plus',
     title:  'Himalayan Photography Expedition',
     days:   8,
+    nights: 7,
+    durationNote: '8 programme days / 7 accommodation nights, plus an overnight return to Delhi arriving on Day 9.',
     people: 10,
-    spots:  5,
+
     price:  'On Request',
     image:  '/images/himalayan-photography-expedition/camera-tripod-golden-hour-himalayan-mountains.webp',
     alt:    'Himalayan Photography Expedition camera tripod golden hour',
@@ -95,7 +98,7 @@ const MORE = [
     subtitle: 'Pithoragarh · Munsiyari · Abbott Mount · Jageshwar · Kasar Devi',
     days:     9,
     people:   10,
-    spots:    6,
+
     price:    'On Request',
     image:    '/images/wellness/above-clouds.webp',
     link:     '/packages/winter-himalayan-wellness-retreat',
@@ -124,7 +127,7 @@ function PackageCard({ pkg, large = false, index = 0 }) {
   const navigate = useNavigate()
 
   const meta = [
-    pkg.days       && { Icon: Clock,      label: `${pkg.days} Days`  },
+    pkg.days       && { Icon: Clock,      label: pkg.nights ? `${pkg.days} Days / ${pkg.nights} Nights` : `${pkg.days} Days`  },
     pkg.difficulty && { Icon: TrendingUp, label: pkg.difficulty       },
     pkg.people     && { Icon: Users,      label: `${pkg.people} pax` },
   ].filter(Boolean)
@@ -186,23 +189,7 @@ function PackageCard({ pkg, large = false, index = 0 }) {
             </span>
           )}
 
-          {/* Spots badge */}
-          {pkg.spots && (
-            <span
-              className="absolute bottom-3 right-3 text-white font-sans"
-              style={{
-                fontSize:        10,
-                letterSpacing:   '0.05em',
-                backgroundColor: pkg.spots <= 4 ? 'rgba(220,38,38,0.85)' : 'rgba(0,0,0,0.65)',
-                backdropFilter:  'blur(4px)',
-                borderRadius:    9999,
-                padding:         '3px 10px',
-                border:          '1px solid rgba(255,255,255,0.12)',
-              }}
-            >
-              Only {pkg.spots} spots left
-            </span>
-          )}
+
         </div>
 
         {/* ── Card body ──────────────────────────────────────────────────── */}
@@ -246,6 +233,8 @@ function PackageCard({ pkg, large = false, index = 0 }) {
               </span>
             ))}
           </div>
+
+          {pkg.durationNote && <p className="text-brand-cream-muted text-xs leading-relaxed mb-5">{pkg.durationNote}</p>}
 
           {/* Price row */}
           <div className="flex items-center justify-between mb-5">
@@ -341,7 +330,7 @@ export default function Packages() {
             className="font-sans leading-[1.75]"
             style={{ fontSize: 16, color: '#888888', maxWidth: '560px', textAlign: 'left' }}
           >
-            Hand-crafted sacred journeys into the high Kumaon Himalaya — fully permitted, safety-assured, culturally immersive.
+            Sacred journeys and cultural expeditions through the Kumaon Himalaya, planned with care and respect for local communities.
           </p>
         </motion.div>
 

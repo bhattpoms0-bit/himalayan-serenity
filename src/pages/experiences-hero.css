@@ -1,0 +1,34 @@
+.experiences-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(720px, calc(100svh - var(--privacy-dock-height, 0px)));
+  margin-bottom: 48px;
+  background: #0b121a;
+}
+.experiences-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+.experiences-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8,16,24,.76) 0%, rgba(8,16,24,.65) 46%, rgba(8,16,24,.12) 100%), linear-gradient(0deg, rgba(8,16,24,.6) 0%, transparent 65%);
+}
+.experiences-hero-content { position: relative; z-index: 1; }
+.experiences-hero .section-tag, .experiences-hero-content > a { color: #e2c58c; }
+.experiences-hero-content > p:not(.section-tag) { color: #f0e8d8; }
+.experiences-hero-content > a:focus-visible { outline: 3px solid #f0e8d8; outline-offset: 4px; border-radius: 3px; }
+@media (max-width: 1023px) {
+  .experiences-hero-image { object-position: 54% 50%; }
+  .experiences-hero-shade { background: linear-gradient(0deg, rgba(8,16,24,.85) 0%, rgba(8,16,24,.66) 48%, rgba(8,16,24,.25) 100%); }
+}
+@media (max-width: 480px) {
+  .experiences-hero h1 { font-size: 2rem; }
+  .experiences-hero { margin-bottom: 32px; }
+  .experiences-hero-image { object-position: 55% 50%; }
+}

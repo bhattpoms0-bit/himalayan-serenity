@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { MapPin, Mail, Globe, CheckCircle2, MessageCircle, ShieldCheck } from 'lucide-react'
+import { MapPin, Mail, Globe, CheckCircle2, MessageCircle } from 'lucide-react'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import BrandPromise from '../components/BrandPromise'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
@@ -15,17 +16,16 @@ const fadeUp = {
 }
 
 const STATS = [
-  { value: '30+',        label: 'Groups led into Eastern Kumaon' },
-  { value: 'Multiple',   label: 'Visits to Adi Kailash & Om Parvat personally' },
-  { value: '100%',       label: 'Inner Line Permits processed successfully' },
-  { value: '0',          label: 'Safety incidents across all expeditions' },
-  { value: 'Pithoragarh', label: 'Our headquarters — not Delhi, not Dehradun' },
+  { value: 'Local', label: 'Himalayan Knowledge' },
+  { value: 'Personal', label: 'Guest Experiences' },
+  { value: 'Considered', label: 'Safety-Conscious Planning' },
+  { value: 'Responsible', label: 'Himalayan Travel' },
 ]
 
 const SPECIALITIES = [
   {
     title: 'Adi Kailash Yatra & Om Parvat',
-    body:  "India's most sacred high-altitude pilgrimage. Inner Line Permits handled end-to-end. Over 30 groups led.",
+    body:  "India's most sacred high-altitude pilgrimage. Inner Line Permits handled end-to-end.",
     href:  '/packages/adi-kailash-expedition',
   },
   {
@@ -35,7 +35,7 @@ const SPECIALITIES = [
   },
   {
     title: 'Panchachuli Base Camp',
-    body:  'Five sacred peaks. Via Munsiyari. Accessible for all fitness levels.',
+    body:  'Five sacred peaks. Via Munsiyari. Review the route, altitude and participation requirements before booking.',
     href:  '/packages/panchachuli-expedition',
   },
   {
@@ -62,7 +62,7 @@ const PROMISES = [
   },
   {
     title: 'Safety first — not as a marketing line.',
-    body:  'Oxygen support, an altitude medical kit, a satellite phone and emergency protocols are standard on every expedition. Not optional extras.',
+    body:  'Thoughtfully planned. Safety-conscious. Discuss the route, altitude and any support you may need before booking; equipment and emergency arrangements must be confirmed for your specific journey.',
   },
   {
     title: 'Honest communication.',
@@ -75,24 +75,6 @@ const PROMISES = [
   {
     title: 'Local stays, local guides.',
     body:  'We use Pithoragarh and Kumaon-based guides, homestays and local services wherever possible. Your money stays in the community that hosts you.',
-  },
-]
-
-const TESTIMONIALS = [
-  {
-    quote: 'I had tried to do the Adi Kailash Yatra twice before with other operators and both times it fell apart — once due to permit issues, once because the group was too large and chaotic. With Himalayan Serenity, everything worked. The permit was ready before we even left Delhi. The group was just 8 people. I finally got my darshan.',
-    name:  'Suresh Nair',
-    info:  'Bangalore · Adi Kailash Yatra, September 2024',
-  },
-  {
-    quote: "What I did not expect was how much these people actually know the place. Our guide pointed out things on the route — plants, old village paths, stories about the Bhotiya communities — that I could not have found in any guidebook. It felt like being shown someone's home, not taken on a tour.",
-    name:  'Anita Sharma',
-    info:  'Delhi · Darma Valley Expedition, June 2024',
-  },
-  {
-    quote: 'The women-only expedition was exactly what I needed. Safe, well-paced, never rushed. The team understood that some of us were doing a high-altitude trek for the first time. I would go back without hesitation.',
-    name:  'Priya Menon',
-    info:  "Mumbai · Women's Himalayan Expedition, October 2024",
   },
 ]
 
@@ -115,7 +97,7 @@ const SCHEMA = {
 export default function AboutPage() {
   useSEO({
     title: 'About Us | Adi Kailash Yatra Specialists in Pithoragarh',
-    description: 'Himalayan Serenity is a Pithoragarh-based Adi Kailash Yatra operator. Inner Line Permits, local guides and Eastern Kumaon expertise. 30+ groups led.',
+    description: 'Himalayan Serenity is a Pithoragarh-based Adi Kailash Yatra operator. Inner Line Permits, local guides and Eastern Kumaon expertise.',
     canonical: 'https://www.himalayanserenitytravel.com/about',
     schema: SCHEMA,
   })
@@ -178,8 +160,8 @@ export default function AboutPage() {
       <section className="py-20 bg-brand-dark overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div {...fadeUp} className="text-center mb-10">
-            <p className="section-tag mb-4">By The Numbers</p>
-            <h2 className="section-title text-3xl lg:text-4xl">Our Eastern Kumaon Track Record</h2>
+            <p className="section-tag mb-4">Our Approach</p>
+            <h2 className="section-title text-3xl lg:text-4xl">Thoughtfully Planned Journeys</h2>
           </motion.div>
           <div className="flex flex-wrap gap-4 lg:gap-6">
             {STATS.map((stat, i) => (
@@ -199,14 +181,13 @@ export default function AboutPage() {
                     color:        '#e07b2a',
                     lineHeight:   1.15,
                     marginBottom: '10px',
-                    whiteSpace:   'nowrap',
-                    overflow:     'hidden',
-                    textOverflow: 'ellipsis',
+                    whiteSpace:   'normal',
+                    overflowWrap: 'anywhere',
                   }}
                 >
                   {stat.value}
                 </div>
-                <p className="font-sans text-brand-text-muted text-sm leading-snug">{stat.label}</p>
+                <p className="font-sans text-brand-cream-muted text-sm leading-snug">{stat.label}</p>
               </motion.div>
             ))}
           </div>
@@ -305,71 +286,42 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <p className="section-tag mb-4">Traveller Stories</p>
-            <h2 className="section-title text-3xl lg:text-4xl">What our travellers say</h2>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {TESTIMONIALS.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: EASE, delay: i * 0.08 }}
-                className="card-dark"
-              >
-                <span
-                  style={{
-                    fontFamily:   '"Playfair Display", Georgia, serif',
-                    fontSize:     '3.5rem',
-                    color:        'rgba(224,123,42,0.15)',
-                    lineHeight:   1,
-                    display:      'block',
-                    marginBottom: '-12px',
-                  }}
-                >
-                  "
-                </span>
-                <p className="font-serif italic text-brand-text-muted text-sm leading-[1.8] mb-6">{t.quote}</p>
-                <hr className="border-white/[0.06] mb-4" />
-                <p className="font-sans text-brand-cream text-sm font-medium">{t.name}</p>
-                <p className="font-sans text-brand-text-muted text-xs mt-0.5">{t.info}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BrandPromise />
 
-      {/* Registered & Verified */}
+      {/* Company and contact offices */}
       <section className="py-20 bg-brand-dark-2">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div {...fadeUp}>
             <p className="section-tag mb-4">Legitimacy</p>
-            <h2 className="section-title text-3xl lg:text-4xl mb-6">Registered & Verified in Pithoragarh</h2>
+            <h2 className="section-title text-3xl lg:text-4xl mb-6">Our Company & Contact Office</h2>
             <p className="font-sans text-brand-text-muted leading-relaxed mb-3 max-w-2xl mx-auto">
-              Himalayan Serenity Travel is a registered business operating from Pithoragarh, Uttarakhand — the gateway to Eastern Kumaon.
+              Himalayan Serenity Travel is a brand of LIFE &amp; LEISURE INDIA PRIVATE LIMITED, with a contact office in Pithoragarh and its registered office in Delhi.
             </p>
             <p
               className="font-sans mb-10"
               style={{ fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(201,168,76,0.5)' }}
             >
-              A brand of Life &amp; Leisure
+              A brand of LIFE &amp; LEISURE INDIA PRIVATE LIMITED
             </p>
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
               <div className="flex items-center gap-2 text-brand-text-muted font-sans text-sm">
                 <MapPin size={16} className="text-brand-orange" strokeWidth={1.5} />
-                Pithoragarh, Uttarakhand 262501
+                <div className="text-left leading-relaxed">
+                  <p className="text-brand-cream mb-2">Pithoragarh Contact Office</p>
+                  <address className="not-italic">Plaza Hotel, Hydel Tiraha,<br />Tanakpur Road, Aincholi,<br />Pithoragarh, Uttarakhand – 262501,<br />India.</address>
+                </div>
+              </div>
+              <div className="text-left text-brand-text-muted font-sans text-sm leading-relaxed">
+                <p className="text-brand-cream mb-2">Delhi Registered Office</p>
+                <address className="not-italic">107–108, 1st Floor,<br />Roots Tower,<br />District Centre, Laxmi Nagar,<br />Delhi – 110092,<br />India.</address>
+                <a href="https://lifeandleisure.travel/" className="hover:text-brand-orange">Company website</a>
               </div>
               <a
-                href="mailto:parmod@himalayanserenitytravel.com"
+                href="mailto:info@himalayanserenitytravel.com"
                 className="flex items-center gap-2 text-brand-text-muted hover:text-brand-orange font-sans text-sm transition-colors"
               >
                 <Mail size={16} className="text-brand-orange" strokeWidth={1.5} />
-                parmod@himalayanserenitytravel.com
+                info@himalayanserenitytravel.com
               </a>
               <a
                 href="https://himalayanserenitytravel.com"
@@ -380,10 +332,7 @@ export default function AboutPage() {
                 <Globe size={16} className="text-brand-orange" strokeWidth={1.5} />
                 himalayanserenitytravel.com
               </a>
-              <div className="flex items-center gap-2 text-brand-text-muted font-sans text-sm">
-                <ShieldCheck size={16} className="text-brand-orange" strokeWidth={1.5} />
-                TripAdvisor verified operator
-              </div>
+
             </div>
           </motion.div>
         </div>
@@ -411,10 +360,10 @@ export default function AboutPage() {
             — we respond within a few hours, usually faster.
           </p>
           <p className="font-sans text-brand-text-muted text-[14.5px] leading-[1.75] mb-10 max-w-md mx-auto">
-            <a href="mailto:parmod@himalayanserenitytravel.com" className="text-brand-orange hover:text-brand-orange-light">
+            <a href="mailto:info@himalayanserenitytravel.com" className="text-brand-orange hover:text-brand-orange-light">
               Email us
             </a>{' '}
-            — parmod@himalayanserenitytravel.com
+            — info@himalayanserenitytravel.com
           </p>
           <p className="font-sans text-brand-text-muted text-[14.5px] leading-[1.75] mb-10 max-w-md mx-auto">
             We will listen to what you want, tell you honestly whether it is possible, and if it is, build the expedition around your dates, your group and your budget.

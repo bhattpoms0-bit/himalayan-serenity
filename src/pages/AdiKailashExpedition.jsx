@@ -1,3 +1,4 @@
+import { openWhatsApp } from '../utils/whatsapp';
 ﻿import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
@@ -234,7 +235,6 @@ const ADI_KAILASH_SCHEMAS = [
     offers: {
       '@type': 'Offer',
       url: 'https://www.himalayanserenitytravel.com/packages/adi-kailash-expedition',
-      availability: 'https://schema.org/InStock',
     },
   },
   {
@@ -295,6 +295,7 @@ export default function AdiKailashExpedition() {
   }, []);
   const [tab, setTab] = useState("inclusions");
   const [activeDay, setActiveDay] = useState(0);
+  const [waFallback, setWaFallback] = useState('');
   const [waName, setWaName] = useState('');
   const [waPhone, setWaPhone] = useState('');
 
@@ -764,8 +765,8 @@ export default function AdiKailashExpedition() {
           </div>
           <p style={{ marginTop: 20, fontSize: 11, color: muted, letterSpacing: "0.04em", lineHeight: 1.7 }}>
             Travel agents and tour operators — please contact us for trade rates.{" "}
-            <a href="mailto:parmod@himalayanserenitytravel.com" style={{ color: `${gold}99`, textDecoration: "none" }}>
-              parmod@himalayanserenitytravel.com
+            <a href="mailto:info@himalayanserenitytravel.com" style={{ color: `${gold}99`, textDecoration: "none" }}>
+              info@himalayanserenitytravel.com
             </a>
           </p>
         </motion.section>
@@ -862,29 +863,36 @@ export default function AdiKailashExpedition() {
             <Link to="/blog/adi-kailash-vs-kailash-mansarovar" style={{ color: gold, textDecoration: 'none' }}>Adi Kailash &amp; Om Parvat</Link>
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 14, textAlign: "left" }}>
-            <input
+            <label htmlFor="adi-enquiry-name" style={{ color: '#c0b8a8', fontSize: 14 }}>Your name</label>
+            <input id="adi-enquiry-name" autoComplete="name" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
               type="text"
               placeholder="Your name"
               value={waName}
               onChange={e => setWaName(e.target.value)}
-              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit", outline: "none" }}
+              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit" }}
             />
-            <input
+            <label htmlFor="adi-enquiry-phone" style={{ color: '#c0b8a8', fontSize: 14 }}>WhatsApp number (with country code)</label>
+            <input id="adi-enquiry-phone" autoComplete="tel" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
               type="tel"
               placeholder="WhatsApp number (with country code)"
               value={waPhone}
               onChange={e => setWaPhone(e.target.value)}
-              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit", outline: "none" }}
+              style={{ background: "#111", border: "1px solid rgba(201,169,110,0.2)", borderRadius: 4, padding: "14px 18px", color: text, fontSize: 14, fontFamily: "inherit" }}
             />
             <button
               onClick={() => {
                 const msg = encodeURIComponent(`Hi, I'm ${waName || 'interested in'} the Adi Kailash & Om Parvat Expedition. My WhatsApp: ${waPhone}`);
-                window.open(`https://wa.me/919084642557?text=${msg}`, '_blank');
+                const url = `https://wa.me/919084642557?text=${msg}`;
+                setWaFallback(openWhatsApp(url) ? '' : url);
               }}
               style={{ background: gold, color: bg, border: "none", borderRadius: 4, padding: "18px", fontSize: 13, letterSpacing: "0.18em", textTransform: "uppercase", fontFamily: "inherit", cursor: "pointer", width: "100%" }}
             >
               Start Planning on WhatsApp
             </button>
+            {waFallback && <p role="status" style={{ color: text }}>
+              WhatsApp could not be opened automatically.{' '}
+              <a href={waFallback} target="_blank" rel="noopener noreferrer" style={{ color: gold, textDecoration: 'underline' }}>Open WhatsApp to review and send your message</a>
+            </p>}
           </div>
         </div>
       </section>

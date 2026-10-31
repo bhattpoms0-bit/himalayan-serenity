@@ -120,7 +120,7 @@ const itinerary = [
   },
   {
     day: "Day 8",
-    title: "Farewell to the Himalaya",
+    title: "Departure to Delhi",
     subtitle: "Final Shots & Departure",
     description: "A final lakeside photography stop, farewell brunch, and closing storytelling session before departure according to the selected arrival experience.",
     experiences: ["Lakeside photography stop", "Farewell brunch", "Final storytelling session", "Flexible departure options"],
@@ -256,7 +256,7 @@ function DayImages({ day }) {
 export default function PhotographyExpedition() {
   useSEO({
     title: 'Himalayan Photography Tour 2026 | Om Parvat Photo Trip from Delhi & Pithoragarh',
-    description: '9-day Himalayan photography tour from Delhi and Pithoragarh. Om Parvat, Panchachuli sunrise, Milky Way astrophotography, Darma Valley near Dharchula. Best Kumaon photo tour 2026.',
+    description: '8-day Himalayan photography programme with 7 accommodation nights, followed by an overnight return to Delhi arriving on Day 9. Om Parvat, Panchachuli sunrise, Milky Way astrophotography, Darma Valley near Dharchula. Best Kumaon photo tour 2026.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/photography-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
@@ -291,9 +291,12 @@ export default function PhotographyExpedition() {
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
               <div style={{ height: 1, width: 40, background: amber }} />
               <div style={{ fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: amber }}>
-                Premium Photography Expedition · 8 Nights / 9 Days
+                Premium Photography Expedition · 8 Days / 7 Nights
               </div>
             </div>
+            <p style={{ fontSize: 14, color: accent, lineHeight: 1.6, margin: "0 0 24px" }}>
+              Eight programme days and seven accommodation nights, plus an overnight return to Delhi. Depart on Day 8 and arrive in Delhi on Day 9.
+            </p>
             <h1 style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
               Himalayan
             </h1>
@@ -321,7 +324,7 @@ export default function PhotographyExpedition() {
       <div style={{ borderTop: "1px solid #ffffff0f", borderBottom: "1px solid #ffffff0f", background: card }}>
         <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 24 }}>
           {[
-            { label: "Duration", value: "8 Nights / 9 Days" },
+            { label: "Duration", value: "8 Days / 7 Nights + Overnight Return" },
             { label: "Max Altitude", value: "2,200+ m" },
             { label: "Group Size", value: "Max 6 photographers" },
             { label: "Pace", value: "Cinematic & Slow" },

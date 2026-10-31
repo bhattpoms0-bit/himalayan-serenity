@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import EnquiryPrivacy from '../components/EnquiryPrivacy'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import BrandPromise from '../components/BrandPromise'
+import { RetreatPrice } from '../components/RetreatDetails'
+import { PANCHACHULI_WELLNESS, WOMENS_SACRED_HIMALAYA, retreatCardMeta } from '../data/retreats'
+import './international-retreats-hero.css'
 
 const WEB3FORMS_ACCESS_KEY = 'a4bcce53-4a1d-4217-93b6-30b9d714bbdd'
 
@@ -23,8 +28,8 @@ const WHY_CARDS = [
     text:  'Kumaon forest herbs, kafal berries, local ghee — ingredients no Kerala resort can source.',
   },
   {
-    title: 'No permits needed',
-    text:  'Darma Valley and Munsiyari are fully open to international travellers.',
+    title: 'Permit guidance',
+    text:  'Permit requirements vary by destination, nationality and current local regulations. Our team will advise you on applicable requirements before booking.',
   },
   {
     title: 'Born from the land',
@@ -32,7 +37,7 @@ const WHY_CARDS = [
   },
   {
     title: 'Tiny groups only',
-    text:  'Maximum 6 to 8 guests per retreat. Never a crowd.',
+    text:  'Thoughtfully curated small-group experiences.',
   },
 ]
 
@@ -40,10 +45,10 @@ const RETREAT_CARDS = [
   {
     badge:       'Yoga & Ayurveda',
     badgeClass:  'bg-[#1D9E75]/20 text-[#5DCAA5]',
-    title:       'Panchachuli Himalayan Wellness & Cultural Immersion Retreat',
-    meta:        'Munsiyari · Khaliya Top · 7 nights',
-    highlights:  'Daily yoga · Sattvic diet · Ayurvedic massage · Panchachuli sunrise',
-    price:       'From €1,400 per person',
+    title:       PANCHACHULI_WELLNESS.listingName,
+    meta:        retreatCardMeta(PANCHACHULI_WELLNESS),
+    highlights:  PANCHACHULI_WELLNESS.highlights,
+    retreat:     PANCHACHULI_WELLNESS,
     href:        '/retreats/panchachuli-wellness',
     cardImg:     '/images/retreats/kumaon-wellness-retreat-card.jfif',
     cardImgAlt:  'Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Wellness Retreat',
@@ -62,10 +67,10 @@ const RETREAT_CARDS = [
   {
     badge:      'Women Only',
     badgeClass: 'bg-pink-900/30 text-pink-300',
-    title:      "Women's Sacred Himalaya Retreat",
-    meta:       'Munsiyari + Darma · 9 nights',
-    highlights: 'Female guides · Shakti yoga · Cultural exchange · Moon meditation',
-    price:      'From €2,000 per person',
+    title:      WOMENS_SACRED_HIMALAYA.listingName,
+    meta:       retreatCardMeta(WOMENS_SACRED_HIMALAYA),
+    highlights: WOMENS_SACRED_HIMALAYA.highlights,
+    retreat:    WOMENS_SACRED_HIMALAYA,
     href:       '/retreats/womens-retreat',
   },
   {
@@ -84,7 +89,7 @@ const RETREAT_CARDS = [
 export default function InternationalRetreats() {
   useSEO({
     title:       'International Retreats — Yoga, Ayurveda & Detox in the Himalayas | Himalayan Serenity',
-    description: 'Luxury yoga retreat India for international travelers. Kumaon Himalaya wellness journeys — Ayurveda, cultural immersion, no permits needed. Small groups. Book 2026.',
+    description: 'Luxury yoga retreat India for international travelers. Kumaon Himalaya wellness journeys — Ayurveda and cultural immersion. Permit requirements vary by journey and nationality. Small groups. Book 2026.',
     canonical:   'https://www.himalayanserenitytravel.com/international-retreats',
   })
 
@@ -95,8 +100,12 @@ export default function InternationalRetreats() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
+  const submissionInFlight = useRef(false)
+
   const handleSubmit = async e => {
     e.preventDefault()
+    if (submissionInFlight.current) return
+    submissionInFlight.current = true
     setStatus('loading')
     try {
       const payload = {
@@ -121,6 +130,8 @@ export default function InternationalRetreats() {
       setStatus(res.ok && data.success ? 'success' : 'error')
     } catch {
       setStatus('error')
+    } finally {
+      submissionInFlight.current = false
     }
   }
 
@@ -129,35 +140,31 @@ export default function InternationalRetreats() {
       <Navbar activePage="international-retreats" />
 
       {/* ── SECTION 1 — HERO ─────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
+      <section aria-labelledby="international-hero-title" className="international-hero">
         <img
           src="/images/retreats/himalayan-yoga-meditation-retreat-hero.webp"
           alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
           fetchPriority="high"
           loading="eager"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover object-[center_top]"
+          className="international-hero-image"
         />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="relative z-10 pt-36 pb-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-          <div className="max-w-2xl">
-            <span className="inline-block border border-[#1D9E75] text-[#1D9E75] uppercase text-xs rounded-full px-3 py-1 mb-6">
-              International Retreats · No Permit Required
-            </span>
-            <h1 className="font-serif text-[#f0ece4] text-4xl sm:text-5xl lg:text-[3.5rem] leading-tight tracking-tight mb-4">
-              Where the Himalayas Become Your Healer — Luxury Retreats for International Travelers
+        <div aria-hidden="true" className="international-hero-shade" />
+        <div className="international-hero-content">
+          <div className="international-hero-copy" data-floating-avoid>
+            <p className="international-hero-eyebrow">
+              HIMALAYAN WELLNESS · KUMAON, INDIA
+            </p>
+            <h1 id="international-hero-title" className="font-serif">
+              Find Your Stillness in the Himalayas
             </h1>
-            <p className="font-serif italic text-[#1D9E75] text-xl mb-6">
-              Yoga · Meditation · Ayurveda · Detox
+            <p className="international-hero-description">
+              Yoga, mindfulness and authentic mountain experiences, thoughtfully curated for international travellers.
             </p>
-            <p className="text-sm text-[#f0ece4]/60 max-w-lg leading-relaxed mb-8">
-              Intimate small-group retreats in the Kumaon Himalaya — the India that Rishikesh has
-              forgotten. No crowds. No permits. Just the mountains and your practice.
-            </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="international-hero-actions">
               <a
                 href="#retreats"
-                className="bg-[#1D9E75] text-white rounded-full px-6 py-3 text-sm font-medium hover:bg-[#0F6E56] transition-colors duration-200"
+                className="international-hero-primary"
               >
                 See all retreats
               </a>
@@ -165,9 +172,9 @@ export default function InternationalRetreats() {
                 href="https://wa.me/919084642557"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
+                className="international-hero-secondary"
               >
-                Download retreat guide
+                Speak With Our Team
               </a>
             </div>
           </div>
@@ -178,10 +185,10 @@ export default function InternationalRetreats() {
       <div className="bg-[#061008] py-4 px-6">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
           {[
-            'No Inner Line Permit required for international travellers',
-            'Small groups — maximum 6 to 8 guests',
+            'Permit requirements vary by destination and nationality',
+            'Thoughtfully curated small-group experiences',
             'Prices in EUR · USD · GBP',
-            'Certified Ayurvedic practitioners',
+            'Yoga, Ayurveda and local culture',
           ].map((item, i) => (
             <React.Fragment key={item}>
               {i > 0 && <span className="text-[#f0ece4]/20 hidden sm:inline">·</span>}
@@ -205,10 +212,11 @@ export default function InternationalRetreats() {
                 Featured Retreat · 2026 Season
               </p>
               <h2 className="font-serif text-[#f0ece4] text-2xl sm:text-[1.75rem] leading-snug mb-2">
-                9-Day Himalayan Wellness Retreat from <span style={{ color: '#1D9E75' }}>€1,400</span>
+                {PANCHACHULI_WELLNESS.name} · 9 days / 8 nights
               </h2>
+              <div className="mb-4 max-w-xl"><RetreatPrice retreat={PANCHACHULI_WELLNESS} compact /></div>
               <p className="font-sans text-[#f0ece4]/45 text-sm tracking-wide">
-                Small Groups &nbsp;·&nbsp; Authentic Kumaon, India &nbsp;·&nbsp; No permits required
+                Small Groups &nbsp;·&nbsp; Authentic Kumaon, India &nbsp;·&nbsp; Permit guidance before booking
               </p>
             </div>
 
@@ -230,7 +238,7 @@ export default function InternationalRetreats() {
                 onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(29,158,117,0.08)')}
                 onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
               >
-                Enquire Now
+                Enquire About This Retreat
               </Link>
             </div>
 
@@ -243,7 +251,7 @@ export default function InternationalRetreats() {
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Our Retreats</p>
         <h2 className="font-serif text-[#f0ece4] text-3xl mb-8">Four ways to find stillness</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, href, cardImg, cardImgAlt }) => (
+          {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, retreat, href, cardImg, cardImgAlt }) => (
             <Link key={href} to={href} className="no-underline group">
               <div className={`bg-[#0a1a0a] border border-[#1D9E75]/10 rounded-2xl h-full flex flex-col hover:border-[#1D9E75]/30 transition-colors duration-200 ${cardImg || href === '/retreats/womens-retreat' ? 'overflow-hidden' : 'p-7'}`}>
                 {cardImg && (
@@ -286,7 +294,7 @@ export default function InternationalRetreats() {
                   <h3 className="font-serif text-[#f0ece4] text-xl mb-2">{title}</h3>
                   <p className="text-[#f0ece4]/50 text-sm mb-3">{meta}</p>
                   <p className="text-[#f0ece4]/60 text-sm mb-6">{highlights}</p>
-                  <p className="text-[#1D9E75] font-medium mt-auto">{price}</p>
+                  {retreat ? <div className="mt-auto"><RetreatPrice retreat={retreat} compact /></div> : <p className="text-[#1D9E75] font-medium mt-auto">{price}</p>}
                 </div>
               </div>
             </Link>
@@ -308,133 +316,39 @@ export default function InternationalRetreats() {
         </div>
       </section>
 
-      {/* ── SECTION 5 — INTERNATIONAL TESTIMONIALS ──────────────────────── */}
-      <section className="bg-[#061008] py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-
-          {/* Header */}
-          <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-4">Traveler Stories</p>
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-10">What Our International Guests Say</h2>
-
-          {/* 3-card grid — exact Testimonials.jsx card structure */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-            {/* Card 1 — Sarah Mitchell, UK */}
-            <div
-              className="rounded-2xl p-7 cursor-pointer"
-              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-            >
-              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
-              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
-              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
-                An experience that changed how I see myself and the world. Kumaon is unlike anywhere I have ever been. The mountains, the people, the silence — I came back a different person.
-              </p>
-              <hr className="border-white/[0.06] mb-5" />
-              <div className="flex items-center gap-3">
-                <img
-                  src="https://randomuser.me/api/portraits/women/44.jpg"
-                  alt="Sarah Mitchell"
-                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div>
-                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Sarah Mitchell</p>
-                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>United Kingdom</p>
-                </div>
-                <img src="https://flagcdn.com/w40/gb.png" alt="United Kingdom" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
-              </div>
-            </div>
-
-            {/* Card 2 — Anna Bergström, Germany */}
-            <div
-              className="rounded-2xl p-7 cursor-pointer"
-              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-            >
-              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
-              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
-              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
-                The most authentic retreat I have attended. Nothing commercial, nothing performed — just the real Himalayas. Pramod and his team made me feel completely at home from the moment I arrived.
-              </p>
-              <hr className="border-white/[0.06] mb-5" />
-              <div className="flex items-center gap-3">
-                <img
-                  src="https://randomuser.me/api/portraits/women/68.jpg"
-                  alt="Anna Bergström"
-                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div>
-                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Anna Bergström</p>
-                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>Germany</p>
-                </div>
-                <img src="https://flagcdn.com/w40/de.png" alt="Germany" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
-              </div>
-            </div>
-
-            {/* Card 3 — Jennifer Ross, United States */}
-            <div
-              className="rounded-2xl p-7 cursor-pointer"
-              style={{ backgroundColor: '#1a1a1a', border: '1px solid rgba(255,255,255,0.08)', transition: 'border-color 300ms ease' }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.15)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)')}
-            >
-              <div className="text-brand-orange text-sm mb-4">★★★★★</div>
-              <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontSize: '4rem', color: 'rgba(224,123,42,0.15)', lineHeight: 1, display: 'block', marginBottom: '-16px' }}>"</span>
-              <p className="font-serif italic mb-6" style={{ fontSize: 16, color: '#bbbbbb', lineHeight: 1.8 }}>
-                I have done retreats in Bali and Thailand. This was different in a way I still cannot fully explain. The sunrise yoga at Khaliya Top at 3,500 metres — practising on the roof of the world as the Panchachuli peaks turned gold — that alone was worth the entire journey.
-              </p>
-              <hr className="border-white/[0.06] mb-5" />
-              <div className="flex items-center gap-3">
-                <img
-                  src="https://randomuser.me/api/portraits/women/32.jpg"
-                  alt="Jennifer Ross"
-                  className="w-10 h-10 rounded-full object-cover border border-white/10 flex-shrink-0"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div>
-                  <p className="font-sans font-medium" style={{ fontSize: 13, color: '#e5e5e5' }}>Jennifer Ross</p>
-                  <p className="font-sans" style={{ fontSize: 11, color: '#555555' }}>United States</p>
-                </div>
-                <img src="https://flagcdn.com/w40/us.png" alt="United States" loading="lazy" className="ml-auto w-6 h-4 rounded-sm object-cover flex-shrink-0" />
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <BrandPromise className="bg-[#061008]" />
 
       {/* ── SECTION 6 — ENQUIRY FORM ─────────────────────────────────────── */}
-      <section id="enquiry" className="bg-[#061008] py-16 px-6">
+      <section id="enquiry" className="scroll-mt-24 bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
           <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Plan your retreat</h2>
-          <p className="text-sm text-[#f0ece4]/50 mb-8">
-            Tell us what you are looking for — we respond within 24 hours.
+          <p className="text-sm text-[#f0ece4]/75 mb-4">
+            Share your preferences and questions below.
+          </p>
+
+          <p className="text-sm text-[#f0ece4]/75 leading-relaxed mb-6">
+            <Link to="/contact#journey-planning" className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">How your enquiry works</Link>
           </p>
 
           {status === 'success' ? (
-            <div className="text-center py-12">
+            <div role="status" className="text-center py-12">
               <p className="text-[#1D9E75] font-serif text-xl mb-2">Enquiry sent</p>
-              <p className="text-[#f0ece4]/50 text-sm">We will be in touch within 24 hours.</p>
+              <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+              <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
+              <input id="enquiry-name" autoComplete="name"
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Your name"
+                placeholder="Your full name"
                 required
                 className={INPUT_CLASS}
               />
-              <input
+              <label htmlFor="enquiry-country" className="block text-sm text-[#f0ece4]/85">Country of residence</label>
+              <input id="enquiry-country" autoComplete="country-name"
                 type="text"
                 name="country"
                 value={form.country}
@@ -443,7 +357,8 @@ export default function InternationalRetreats() {
                 required
                 className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
+              <select id="enquiry-retreat"
                 name="retreat"
                 value={form.retreat}
                 onChange={handleChange}
@@ -457,15 +372,17 @@ export default function InternationalRetreats() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
-              <input
+              <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
+              <input id="enquiry-dates"
                 type="text"
                 name="dates"
                 value={form.dates}
                 onChange={handleChange}
-                placeholder="e.g. October 2025"
+                placeholder="Your preferred month or departure date"
                 className={INPUT_CLASS}
               />
-              <select
+              <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
+              <select id="enquiry-groupSize"
                 name="groupSize"
                 value={form.groupSize}
                 onChange={handleChange}
@@ -479,7 +396,8 @@ export default function InternationalRetreats() {
                 <option>5–6 people</option>
                 <option>Larger group</option>
               </select>
-              <input
+              <label htmlFor="enquiry-email" className="block text-sm text-[#f0ece4]/85">Email address</label>
+              <input id="enquiry-email" autoComplete="email"
                 type="email"
                 name="email"
                 value={form.email}
@@ -488,7 +406,9 @@ export default function InternationalRetreats() {
                 required
                 className={INPUT_CLASS}
               />
-              <textarea
+              <label htmlFor="enquiry-message" className="block text-sm text-[#f0ece4]/85">Additional questions (optional)</label>
+              <p id="enquiry-message-hint" className="text-xs text-[#f0ece4]/75 leading-relaxed">You can share dietary or room preferences and questions about travel connections here.</p>
+              <textarea id="enquiry-message" aria-describedby="enquiry-message-hint"
                 name="message"
                 value={form.message}
                 onChange={handleChange}
@@ -498,7 +418,7 @@ export default function InternationalRetreats() {
               />
 
               {status === 'error' && (
-                <p className="text-red-400 text-xs">Something went wrong. Please try again or WhatsApp us directly.</p>
+                <p role="alert" className="text-red-400 text-sm">Something went wrong. Please try again or WhatsApp us directly.</p>
               )}
 
               <button
@@ -506,11 +426,9 @@ export default function InternationalRetreats() {
                 disabled={status === 'loading'}
                 className="w-full bg-[#1D9E75] hover:bg-[#0F6E56] text-white rounded-lg py-3 text-sm font-medium transition-colors disabled:opacity-60"
               >
-                {status === 'loading' ? 'Sending…' : "Send enquiry — we'll reply within 24 hours"}
+                {status === 'loading' ? 'Sending…' : 'Send Enquiry'}
               </button>
-              <p className="text-xs text-[#f0ece4]/30 text-center mt-3">
-                Or WhatsApp us directly · No commitment required · Your information is never shared
-              </p>
+              <EnquiryPrivacy />
             </form>
           )}
         </div>

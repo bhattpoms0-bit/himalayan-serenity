@@ -1,9 +1,15 @@
 import { useEffect } from 'react'
 
-const DEFAULT_TITLE = 'Himalayan Serenity | Adi Kailash Yatra & Om Parvat Tour from Delhi'
+const SITE_URL = 'https://www.himalayanserenitytravel.com/'
+const DEFAULT_TITLE = 'Himalayan Wellness Retreats in Kumaon, India | Himalayan Serenity Travel'
+const DEFAULT_DESCRIPTION = 'Intimate yoga retreats, mindful mountain experiences and authentic Himalayan culture in Kumaon, Uttarakhand, India. Explore Himalayan Serenity wellness retreats and sacred journeys.'
+// Preserve the existing sharing asset until route-specific images are approved.
+const DEFAULT_IMAGE = `${SITE_URL}images/packages/adi-kailash-base.jpg`
 
 function setMeta(name, content, attr = 'name') {
-  let el = document.querySelector(`meta[${attr}="${name}"]`)
+  const matches = [...document.querySelectorAll(`meta[${attr}="${name}"]`)]
+  let el = matches.shift()
+  matches.forEach(duplicate => duplicate.remove())
   if (!el) {
     el = document.createElement('meta')
     el.setAttribute(attr, name)
@@ -13,7 +19,9 @@ function setMeta(name, content, attr = 'name') {
 }
 
 function setCanonical(href) {
-  let el = document.querySelector('link[rel="canonical"]')
+  const matches = [...document.querySelectorAll('link[rel="canonical"]')]
+  let el = matches.shift()
+  matches.forEach(duplicate => duplicate.remove())
   if (!el) {
     el = document.createElement('link')
     el.setAttribute('rel', 'canonical')
@@ -22,9 +30,20 @@ function setCanonical(href) {
   el.setAttribute('href', href)
 }
 
-function removeCanonical() {
-  const el = document.querySelector('link[rel="canonical"]')
-  if (el) el.remove()
+function setPageMetadata({ title = DEFAULT_TITLE, description = DEFAULT_DESCRIPTION, canonical = SITE_URL, image = DEFAULT_IMAGE, type = 'website', socialTitle = title } = {}) {
+  document.title = title
+  setMeta('description', description)
+  setCanonical(canonical)
+  setMeta('og:title', socialTitle, 'property')
+  setMeta('og:description', description, 'property')
+  setMeta('og:url', canonical, 'property')
+  setMeta('og:image', new URL(image, SITE_URL).href, 'property')
+  setMeta('og:type', type, 'property')
+  setMeta('twitter:card', 'summary_large_image')
+  setMeta('twitter:title', title)
+  setMeta('twitter:description', description)
+  setMeta('twitter:image', new URL(image, SITE_URL).href)
+  setMeta('twitter:url', canonical)
 }
 
 function injectSchemas(schemas) {
@@ -44,18 +63,14 @@ function removeSchemas() {
   document.querySelectorAll('script[data-useseo-schema]').forEach(el => el.remove())
 }
 
-export function useSEO({ title, description, canonical, schema }) {
+export function useSEO({ title, description, canonical, schema, image, type, socialTitle }) {
   useEffect(() => {
-    document.title = title
-    setMeta('description', description)
-    setMeta('og:title', title, 'property')
-    setMeta('og:description', description, 'property')
-    if (canonical) setCanonical(canonical)
+    const pageUrl = canonical || new URL(window.location.pathname, SITE_URL).href
+    setPageMetadata({ title, description, canonical: pageUrl, image, type, socialTitle })
     if (schema) injectSchemas(schema)
     return () => {
-      document.title = DEFAULT_TITLE
-      if (canonical) removeCanonical()
       if (schema) removeSchemas()
+      setPageMetadata()
     }
-  }, [title, description, canonical, schema])
+  }, [title, description, canonical, schema, image, type, socialTitle])
 }
