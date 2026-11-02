@@ -35,6 +35,13 @@ const ShalangGlacierTrek2026         = lazy(() => import('./pages/blog/ShalangGl
 const Privacy = lazy(() => import('./pages/Privacy'))
 const Terms = lazy(() => import('./pages/Terms'))
 const Experiences = lazy(() => import('./pages/Experiences'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+// Also handle in-app navigation without losing enquiry/tracking parameters or fragments.
+function LegacyRedirect({ to }) {
+  const { search, hash } = useLocation()
+  return <Navigate to={`${to}${search}${hash}`} replace />
+}
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
@@ -89,6 +96,9 @@ function AnimatedRoutes() {
           <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />
           <Route path="/terms" element={<PageTransition><Terms /></PageTransition>} />
           <Route path="/experiences" element={<PageTransition><Experiences /></PageTransition>} />
+          <Route path="/expeditions" element={<LegacyRedirect to="/experiences" />} />
+          <Route path="/packages" element={<LegacyRedirect to="/experiences" />} />
+          <Route path="/index.html" element={<LegacyRedirect to="/" />} />
           <Route path="/about"      element={<PageTransition><About /></PageTransition>} />
           <Route path="/faq"        element={<PageTransition><FAQ /></PageTransition>} />
           <Route path="/contact"    element={<PageTransition><Contact /></PageTransition>} />
@@ -109,11 +119,12 @@ function AnimatedRoutes() {
           <Route path="/sustainability"          element={<PageTransition><Sustainability /></PageTransition>} />
           <Route path="/international-retreats"    element={<PageTransition><InternationalRetreats /></PageTransition>} />
           <Route path="/retreats/panchachuli-wellness" element={<PageTransition><KumaonWellness /></PageTransition>} />
-          <Route path="/retreats/kumaon-wellness"     element={<Navigate to="/retreats/panchachuli-wellness" replace />} />
+          <Route path="/retreats/kumaon-wellness"     element={<LegacyRedirect to="/retreats/panchachuli-wellness" />} />
           <Route path="/retreats/darma-detox"         element={<PageTransition><DarmaDetox /></PageTransition>} />
           <Route path="/retreats/womens-retreat"      element={<PageTransition><WomensRetreat /></PageTransition>} />
           <Route path="/retreats/borderlands-himalaya" element={<PageTransition><Panchakarma /></PageTransition>} />
-          <Route path="/retreats/panchakarma"          element={<Navigate to="/retreats/borderlands-himalaya" replace />} />
+          <Route path="/retreats/panchakarma"          element={<LegacyRedirect to="/retreats/borderlands-himalaya" />} />
+          <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
         </Routes>
       </AnimatePresence>
     </Suspense>
