@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useParams, Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import NotFound from './NotFound'
 import { blogPosts } from '../data/blogPosts'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
@@ -72,15 +73,7 @@ export default function BlogPost() {
   })
 
   if (!post) {
-    return (
-      <div className="min-h-screen bg-brand-dark flex items-center justify-center">
-        <Navbar />
-        <div className="text-center">
-          <p className="font-sans text-brand-text-muted mb-4">Post not found.</p>
-          <Link to="/blog" className="text-brand-orange font-sans text-sm">← Back to Blog</Link>
-        </div>
-      </div>
-    )
+    return <NotFound />
   }
 
   const related = blogPosts.filter(p => p.id !== post.id).slice(0, 2)

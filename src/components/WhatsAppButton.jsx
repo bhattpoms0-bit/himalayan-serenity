@@ -14,21 +14,81 @@ export default function WhatsAppButton({ inline = false }) {
   const buttonRef = useRef(null)
   const [obscuresContent, setObscuresContent] = useState(false)
   const [homePlacement, setHomePlacement] = useState(null)
+  const [isNotFound, setIsNotFound] = useState(false)
   const isHome = pathname === '/'
   const isContact = pathname === '/contact'
   const [mobileViewport, setMobileViewport] = useState(() => window.matchMedia('(max-width: 767px)').matches)
+  const [compactViewport, setCompactViewport] = useState(() => window.matchMedia('(max-width: 1023px)').matches)
+  const [dockOffset, setDockOffset] = useState(0)
   const isMobileExperiences = pathname === '/experiences' && mobileViewport
-  const usesMeasuredPlacement = isHome || isContact || isMobileExperiences
+  const usesMobileDock = compactViewport && (pathname === '/experiences' || isNotFound)
+  const usesMeasuredPlacement = !usesMobileDock && (isHome || isContact || isMobileExperiences || isNotFound)
   const currentPlacement = homePlacement?.pathname === pathname ? homePlacement : null
   const isReviewedRetreat = [PANCHACHULI_WELLNESS.href, WOMENS_SACRED_HIMALAYA.href].includes(pathname)
 
+  // Detect the rendered fallback, including unknown blog slugs and lazy route changes.
+  useEffect(() => {
+    if (inline) return
+    const update = () => setIsNotFound(Boolean(document.querySelector('[data-not-found]')))
+    const observer = new MutationObserver(update)
+    observer.observe(document.body, { childList: true, subtree: true })
+    update()
+    return () => observer.disconnect()
+  }, [inline, pathname])
+
   useEffect(() => {
     const query = window.matchMedia('(max-width: 767px)')
-    const update = () => setMobileViewport(query.matches)
+    const compactQuery = window.matchMedia('(max-width: 1023px)')
+    const update = () => {
+      setMobileViewport(query.matches)
+      setCompactViewport(compactQuery.matches)
+    }
     query.addEventListener('change', update)
+    compactQuery.addEventListener('change', update)
     update()
-    return () => query.removeEventListener('change', update)
+    return () => {
+      query.removeEventListener('change', update)
+      compactQuery.removeEventListener('change', update)
+    }
   }, [])
+
+  // Read the existing consent/action docks without changing their state or behavior.
+  useLayoutEffect(() => {
+    if (inline || !usesMobileDock) return
+    let frame = 0
+    const observed = new Set()
+    const measure = () => {
+      const docks = [...document.querySelectorAll('.privacy-dock, [data-mobile-actions]')]
+      const current = new Set(docks)
+      for (const element of observed) {
+        if (!current.has(element)) { resize.unobserve(element); observed.delete(element) }
+      }
+      for (const element of docks) {
+        if (!observed.has(element)) { resize.observe(element); observed.add(element) }
+      }
+      // Use layout coordinates, so entrance animations cannot move WhatsApp onto a dock.
+      const offset = Math.max(0, ...docks.map(element => element.offsetWidth > 0
+        ? element.offsetHeight + (parseFloat(window.getComputedStyle(element).bottom) || 0)
+        : 0))
+      setDockOffset(offset)
+    }
+    const schedule = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(measure)
+    }
+    const resize = new ResizeObserver(schedule)
+    const mutations = new MutationObserver(schedule)
+    mutations.observe(document.body, { childList: true, subtree: true })
+    mutations.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'style'] })
+    window.addEventListener('resize', schedule)
+    measure()
+    return () => {
+      cancelAnimationFrame(frame)
+      resize.disconnect()
+      mutations.disconnect()
+      window.removeEventListener('resize', schedule)
+    }
+  }, [inline, usesMobileDock, pathname])
 
   // Do not reuse coordinates from a previous visit or a different viewport.
   useLayoutEffect(() => {
@@ -75,7 +135,7 @@ export default function WhatsAppButton({ inline = false }) {
     let targetsDirty = true
     let elements = []
     const observed = new Set()
-    const selector = isMobileExperiences
+    const selector = isMobileExperiences || isNotFound
       ? 'main h1, main h2, main h3, main p, main li, a:not(.wa-float), button, form, input, select, textarea, footer, [data-floating-avoid], [data-mobile-actions], [data-scroll-top], [aria-label="Main navigation"], #mobile-navigation'
       : 'main .btn-primary, main .btn-secondary, [data-floating-avoid], [data-mobile-actions], [data-scroll-top], [aria-label="Main navigation"], #mobile-navigation'
     const measure = () => {
@@ -135,7 +195,7 @@ export default function WhatsAppButton({ inline = false }) {
       window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
     }
-  }, [inline, usesMeasuredPlacement, isMobileExperiences, pathname])
+  }, [inline, usesMeasuredPlacement, isMobileExperiences, isNotFound, mobileViewport, pathname])
 
   if (inline) return (
     <a
@@ -180,6 +240,16 @@ export default function WhatsAppButton({ inline = false }) {
         .wa-float.wa-home, .wa-float.wa-contact, .wa-float.wa-experiences-mobile { width: 48px; height: 48px; min-height: 48px; padding: 0; justify-content: center; border-radius: 50%; }
         .wa-home .wa-label, .wa-contact .wa-label, .wa-experiences-mobile .wa-label { display: none; }
 
+        .wa-float.wa-mobile-docked { width: 48px; height: 48px; min-height: 48px; padding: 0; justify-content: center; border-radius: 50%; }
+        .wa-mobile-docked .wa-label { display: none; }
+
+        @media (max-width: 1023px) {
+          /* Keep readable page content outside the 16px + 48px floating-button lane.
+             Existing page padding provides at least another 20px of clearance. */
+          body:has(.wa-mobile-docked) main,
+          body:has(.wa-mobile-docked) footer { margin-left: calc(40px + max(16px, env(safe-area-inset-left, 0px))); min-width: 0; overflow-wrap: anywhere; }
+        }
+
         @media (max-width: 1023px) {
           .wa-float.wa-retreat { display: none; }
         }
@@ -194,6 +264,15 @@ export default function WhatsAppButton({ inline = false }) {
           }
           .wa-label { display: none; }
         }
+
+        @media (max-width: 480px) {
+          /* Consent owns this space until Accept, Reject, or closing saved settings.
+             Keep geometry intact so existing placement resumes without a layout jump. */
+          .privacy-dock-visible .wa-float {
+            visibility: hidden;
+            pointer-events: none !important;
+          }
+        }
       `}</style>
 
       <motion.a
@@ -201,13 +280,14 @@ export default function WhatsAppButton({ inline = false }) {
         href={`https://wa.me/919084642557?text=${WA_MSG}`}
         target="_blank"
         rel="noopener noreferrer"
-        className={`wa-float ${isReviewedRetreat ? 'wa-retreat' : ''} ${isHome ? 'wa-home' : ''} ${isContact ? 'wa-contact' : ''} ${isMobileExperiences ? 'wa-experiences-mobile' : ''}`}
+        className={`wa-float ${isReviewedRetreat ? 'wa-retreat' : ''} ${isHome ? 'wa-home' : ''} ${isContact ? 'wa-contact' : ''} ${usesMobileDock ? 'wa-mobile-docked' : ''} ${isMobileExperiences || (isNotFound && mobileViewport) ? 'wa-experiences-mobile' : ''}`}
         aria-label="Chat on WhatsApp"
         aria-hidden={isReviewedRetreat && obscuresContent ? true : undefined}
         tabIndex={isReviewedRetreat && obscuresContent ? -1 : undefined}
         style={{
           pointerEvents: isReviewedRetreat && obscuresContent ? 'none' : 'auto',
-          ...(usesMeasuredPlacement ? currentPlacement ? { left: currentPlacement.left, top: currentPlacement.top, right: 'auto', bottom: 'auto' } : { position: 'relative', left: 'auto', right: 'auto', bottom: 'auto', margin: '16px 24px' } : {}),
+          ...(usesMobileDock ? { position: 'fixed', left: 'max(16px, env(safe-area-inset-left, 0px))', top: 'auto', right: 'auto', bottom: `calc(${dockOffset}px + max(16px, env(safe-area-inset-bottom, 0px)))` }
+            : usesMeasuredPlacement ? currentPlacement ? { left: currentPlacement.left, top: currentPlacement.top, right: 'auto', bottom: 'auto' } : { position: 'relative', left: 'auto', right: 'auto', bottom: 'auto', margin: '16px 24px' } : {}),
         }}
         initial={usesMeasuredPlacement ? false : { scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: isReviewedRetreat && obscuresContent ? 0 : 1 }}
