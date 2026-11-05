@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import NotFound from './NotFound'
 import { blogPosts } from '../data/blogPosts'
+import { articleDate } from '../utils/articleDate'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
@@ -55,7 +56,7 @@ export default function BlogPost() {
             "url": "https://www.himalayanserenitytravel.com/favicon.svg"
           }
         },
-        "datePublished": post.date,
+        "datePublished": articleDate(post.date),
         "keywords": post.keywords?.join(', '),
         "mainEntityOfPage": {
           "@type": "WebPage",

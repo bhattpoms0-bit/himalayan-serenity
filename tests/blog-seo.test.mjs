@@ -2,8 +2,10 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { blogPosts } from '../src/data/blogPosts.js'
+import { articleDate } from '../src/utils/articleDate.js'
 
-const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8')
+// Git may check out CRLF on Windows; source extraction must accept either format.
+const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8').replace(/\r\n/g, '\n')
 // Execute the production hook/effects against an isolated minimal head DOM.
 // This verifies metadata lifecycle logic, not browser rendering or crawler behavior.
 function runtime() {
@@ -38,7 +40,7 @@ function runtime() {
       window.location.pathname = '/blog/' + slug
       const source = read('src/pages/BlogPost.jsx')
       const body = source.slice(source.indexOf('  const { slug }'), source.indexOf('  if (!post)'))
-      new Function('useParams', 'blogPosts', 'useSEO', body)(() => ({ slug }), blogPosts, useSEO)
+      new Function('useParams', 'blogPosts', 'useSEO', 'articleDate', body)(() => ({ slug }), blogPosts, useSEO, articleDate)
     },
     mountILP() {
       const source = read('src/pages/blog/AdiKailashILPGuide.jsx')

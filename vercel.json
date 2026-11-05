@@ -1,4 +1,7 @@
 {
+  "framework": null,
+  "buildCommand": "npm run build:vercel-preview",
+  "outputDirectory": "dist-prototype",
   "redirects": [
     { "source": "/expeditions", "destination": "/experiences", "permanent": true },
     { "source": "/packages", "destination": "/experiences", "permanent": true },
@@ -6,10 +9,13 @@
     { "source": "/retreats/panchakarma", "destination": "/retreats/borderlands-himalaya", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
     {
       "source": "/images/(.*)",
       "headers": [

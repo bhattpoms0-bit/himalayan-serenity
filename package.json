@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:prototype": "node scripts/build-prototype.mjs",
+    "build:vercel-preview": "node scripts/build-vercel-preview.mjs",
+    "preview:prototype": "node scripts/serve-prototype.mjs",
+    "test:prototype": "node --test tests/prototype-seo.check.mjs tests/full-site-seo.check.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

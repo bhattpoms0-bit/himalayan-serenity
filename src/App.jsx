@@ -1,10 +1,11 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence, useScroll, useReducedMotion } from 'framer-motion'
 import WhatsAppButton from './components/WhatsAppButton'
 import GlobalNav from './components/GlobalNav'
 import MobileCTA from './components/MobileCTA'
 import CookieConsent from './components/CookieConsent'
+import { finishPrerender } from './prerender/handoff'
 
 // Lazy-load every page so only the current route's JS chunk is downloaded
 const Home                           = lazy(() => import('./pages/Home'))
@@ -45,6 +46,9 @@ function LegacyRedirect({ to }) {
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
+  // Suspense commits this effect only after the actual lazy page is ready.
+  // Keep the static document visible through loading; never hydrate a snapshot.
+  useLayoutEffect(() => { finishPrerender(document) }, [])
   return (
     <motion.div
       initial={{ opacity: prefersReducedMotion ? 1 : 0 }}
@@ -84,13 +88,13 @@ function PageLoader() {
   )
 }
 
-function AnimatedRoutes() {
+function AnimatedRoutes({ prerendered = false }) {
   const location = useLocation()
   return (
     <>
     <GlobalNav />
     <Suspense fallback={<PageLoader />}>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={prerendered ? false : undefined}>
         <Routes location={location} key={location.pathname}>
           <Route path="/"           element={<PageTransition><Home /></PageTransition>} />
           <Route path="/privacy" element={<PageTransition><Privacy /></PageTransition>} />
@@ -132,7 +136,7 @@ function AnimatedRoutes() {
   )
 }
 
-export default function App() {
+export default function App({ prerendered = false }) {
   const { scrollYProgress } = useScroll()
 
   return (
@@ -152,7 +156,7 @@ export default function App() {
         }}
       />
 
-      <AnimatedRoutes />
+      <AnimatedRoutes prerendered={prerendered} />
 
       {/* Persistent across all pages */}
       <WhatsAppButton />

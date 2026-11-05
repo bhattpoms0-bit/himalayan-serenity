@@ -20,9 +20,11 @@ export default function WhatsAppButton({ inline = false }) {
   const [mobileViewport, setMobileViewport] = useState(() => window.matchMedia('(max-width: 767px)').matches)
   const [compactViewport, setCompactViewport] = useState(() => window.matchMedia('(max-width: 1023px)').matches)
   const [dockOffset, setDockOffset] = useState(0)
-  const isMobileExperiences = pathname === '/experiences' && mobileViewport
-  const usesMobileDock = compactViewport && (pathname === '/experiences' || isNotFound)
-  const usesMeasuredPlacement = !usesMobileDock && (isHome || isContact || isMobileExperiences || isNotFound)
+  // Experiences must not reserve a page-wide side lane: it moves the hero at
+  // React handoff. Reuse collision avoidance at both compact breakpoints.
+  const isCompactExperiences = pathname === '/experiences' && compactViewport
+  const usesMobileDock = compactViewport && isNotFound
+  const usesMeasuredPlacement = !usesMobileDock && (isHome || isContact || isCompactExperiences || isNotFound)
   const currentPlacement = homePlacement?.pathname === pathname ? homePlacement : null
   const isReviewedRetreat = [PANCHACHULI_WELLNESS.href, WOMENS_SACRED_HIMALAYA.href].includes(pathname)
 
@@ -92,8 +94,8 @@ export default function WhatsAppButton({ inline = false }) {
 
   // Do not reuse coordinates from a previous visit or a different viewport.
   useLayoutEffect(() => {
-    if (isMobileExperiences) setHomePlacement(null)
-  }, [pathname, isMobileExperiences])
+    if (isCompactExperiences) setHomePlacement(null)
+  }, [pathname, isCompactExperiences])
 
   useEffect(() => {
     if (inline || !isReviewedRetreat) return
@@ -135,7 +137,7 @@ export default function WhatsAppButton({ inline = false }) {
     let targetsDirty = true
     let elements = []
     const observed = new Set()
-    const selector = isMobileExperiences || isNotFound
+    const selector = isCompactExperiences || isNotFound
       ? 'main h1, main h2, main h3, main p, main li, a:not(.wa-float), button, form, input, select, textarea, footer, [data-floating-avoid], [data-mobile-actions], [data-scroll-top], [aria-label="Main navigation"], #mobile-navigation'
       : 'main .btn-primary, main .btn-secondary, [data-floating-avoid], [data-mobile-actions], [data-scroll-top], [aria-label="Main navigation"], #mobile-navigation'
     const measure = () => {
@@ -195,7 +197,7 @@ export default function WhatsAppButton({ inline = false }) {
       window.removeEventListener('scroll', schedule)
       window.removeEventListener('resize', schedule)
     }
-  }, [inline, usesMeasuredPlacement, isMobileExperiences, isNotFound, mobileViewport, pathname])
+  }, [inline, usesMeasuredPlacement, isCompactExperiences, isNotFound, mobileViewport, pathname])
 
   if (inline) return (
     <a
@@ -280,7 +282,7 @@ export default function WhatsAppButton({ inline = false }) {
         href={`https://wa.me/919084642557?text=${WA_MSG}`}
         target="_blank"
         rel="noopener noreferrer"
-        className={`wa-float ${isReviewedRetreat ? 'wa-retreat' : ''} ${isHome ? 'wa-home' : ''} ${isContact ? 'wa-contact' : ''} ${usesMobileDock ? 'wa-mobile-docked' : ''} ${isMobileExperiences || (isNotFound && mobileViewport) ? 'wa-experiences-mobile' : ''}`}
+        className={`wa-float ${isReviewedRetreat ? 'wa-retreat' : ''} ${isHome ? 'wa-home' : ''} ${isContact ? 'wa-contact' : ''} ${usesMobileDock ? 'wa-mobile-docked' : ''} ${isCompactExperiences || (isNotFound && mobileViewport) ? 'wa-experiences-mobile' : ''}`}
         aria-label="Chat on WhatsApp"
         aria-hidden={isReviewedRetreat && obscuresContent ? true : undefined}
         tabIndex={isReviewedRetreat && obscuresContent ? -1 : undefined}
