@@ -49,7 +49,7 @@ test('only the five approved permanent redirects; destinations resolve without c
     const node = routeNodes.find(r => routePath(r) === source)
     assert.match(app.slice(node.start, node.end), new RegExp(`LegacyRedirect to="${destination}"`))
   }
-  assert.deepEqual(config.rewrites, [{ source: '/(.*)', destination: '/index.html' }])
+  assert.equal(config.rewrites, undefined, 'static deployment must not rewrite missing URLs to the SPA')
 })
 
 const legacyNode = ast.program.body.find(n => n.type === 'FunctionDeclaration' && n.id.name === 'LegacyRedirect')
@@ -145,6 +145,7 @@ test('unknown blog slug renders the same Not Found page', () => {
     '../components/Footer': { default: () => null },
     './NotFound': { default: NotFound },
     '../data/blogPosts': { blogPosts },
+    '../utils/articleDate': { articleDate() { throw Error('Unknown articles must not serialize dates') } },
   })
   assert.equal(BlogPost().type, NotFound)
 })

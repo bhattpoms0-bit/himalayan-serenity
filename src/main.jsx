@@ -2,9 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { preparePrerender } from './prerender/handoff'
+
+const prerendered = preparePrerender(document)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <App prerendered={prerendered} />
   </React.StrictMode>,
 )

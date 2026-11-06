@@ -1,13 +1,13 @@
 {
+  "framework": null,
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": "dist-vercel",
   "redirects": [
     { "source": "/expeditions", "destination": "/experiences", "permanent": true },
     { "source": "/packages", "destination": "/experiences", "permanent": true },
     { "source": "/retreats/kumaon-wellness", "destination": "/retreats/panchachuli-wellness", "permanent": true },
     { "source": "/retreats/panchakarma", "destination": "/retreats/borderlands-himalaya", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {

@@ -108,6 +108,10 @@ function mount({ pathname, width, inline = false }) {
       for (const callback of listeners.get('resize') || []) callback()
       return flush()
     },
+    navigate(nextPath) {
+      pathname = nextPath; dirty = true
+      return flush()
+    },
   }
 }
 
@@ -131,7 +135,7 @@ function docked(props, offset) {
   assert.equal(props.style.bottom, `calc(${offset}px + max(16px, env(safe-area-inset-bottom, 0px)))`)
 }
 
-for (const pathname of ['/experiences', '/seo-test-unknown-page']) {
+for (const pathname of ['/seo-test-unknown-page']) {
   for (const width of [390, 768]) {
     test(`${pathname}, ${width}px: remains fixed through banner open, Reject, Accept and reopened settings`, () => {
       const app = mount({ pathname, width })
@@ -150,6 +154,41 @@ for (const pathname of ['/experiences', '/seo-test-unknown-page']) {
       docked(app.resize(width), 68)
     })
   }
+}
+
+for (const width of [390, 768]) {
+  test(`/experiences, ${width}px: avoid consent and controls without activating the page-wide margin`, () => {
+    const app = mount({ pathname: '/experiences', width })
+    function clearOf(props, height) {
+      accessibleLink(props)
+      assert.match(props.className, /wa-experiences-mobile/)
+      assert.doesNotMatch(props.className, /wa-mobile-docked/)
+      assert.equal(props.style.bottom, 'auto')
+      assert.ok(props.style.left >= 16 && props.style.left + 48 <= width - 16)
+      assert.ok(props.style.top >= 96)
+      assert.ok(props.style.top + 48 <= 844 - height - 12)
+    }
+    clearOf(app.render(), 0)
+    clearOf(app.docks([{ height: 146 }]), 146)
+    clearOf(app.docks([]), 0) // Reject
+    clearOf(app.docks([{ height: 146 }]), 146)
+    clearOf(app.docks([]), 0) // Accept
+    clearOf(app.docks([{ height: 430 }]), 430) // Reopened settings
+    clearOf(app.docks([{ height: 430 }, { height: 68, bottom: 430 }]), 498)
+    const crowded = app.docks([{ height: 844 }])
+    accessibleLink(crowded)
+    assert.equal(crowded.style.position, 'relative', 'crowded menu retains an accessible normal-flow link')
+    clearOf(app.docks([]), 0)
+    const desktop = app.resize(1440)
+    accessibleLink(desktop)
+    assert.doesNotMatch(desktop.className, /wa-experiences-mobile|wa-mobile-docked/)
+    clearOf(app.resize(width), 0)
+    const international = app.navigate('/international-retreats')
+    accessibleLink(international)
+    assert.doesNotMatch(international.className, /wa-experiences-mobile|wa-mobile-docked/)
+    assert.deepEqual(international.style, { pointerEvents: 'auto' })
+    clearOf(app.navigate('/experiences'), 0)
+  })
 }
 
 for (const width of [390, 768, 1440]) {

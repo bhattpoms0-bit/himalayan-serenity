@@ -99,25 +99,32 @@ export default function CookieConsent() {
   return <>
     <span className="sr-only" role="status">{notice}</span>
     {visible && <section ref={panel} tabIndex={-1} role="region" aria-label="Privacy choices"
-      data-floating-avoid className="privacy-dock"
+      data-floating-avoid className={`privacy-dock${settings ? ' privacy-dock-expanded' : ''}`}
       onKeyDown={event => { if (event.key === 'Escape' && settings) close() }}>
       {settings && <div id="privacy-preferences" className="privacy-preferences">
-        <h2>Privacy Settings</h2>
-        <p>Choose which optional analytics you allow. New preferences start off.</p>
+        <div className="privacy-settings-heading">
+          <h2>Privacy Settings</h2>
+          <p>Optional services stay off until you allow them.</p>
+        </div>
         <div className="privacy-options">
           <label><input type="checkbox" checked={draft.analytics} onChange={e => setDraft({ ...draft, analytics: e.target.checked })} /> Google Analytics: visit statistics</label>
           <label><input type="checkbox" checked={draft.recording} onChange={e => setDraft({ ...draft, recording: e.target.checked })} /> Microsoft Clarity: recordings and heatmaps</label>
         </div>
-        <p>Your choice is remembered for 180 days. Turning off an active service reloads the page; save unfinished enquiries first. Advertising stays off. Withdrawal stops future collection and does not erase earlier provider records.</p>
+        <p className="privacy-retention">Preferences last 180 days. Turning off a service reloads this page; save unfinished enquiries first. Withdrawal stops future collection; earlier provider records remain. Advertising stays off.</p>
       </div>}
       <div className="privacy-bar">
-        <p>We use optional analytics to improve your experience.</p>
+        {!settings && <p>We use optional analytics to improve your experience.</p>}
         <Link className="privacy-policy-link" to="/privacy">Privacy Policy</Link>
         <div className="privacy-actions">
-          <button type="button" onClick={() => save({ analytics: true, recording: true })}>Accept</button>
-          <button type="button" onClick={() => save({ analytics: false, recording: false })}>Reject</button>
-          {settings ? <><button type="button" onClick={() => save(draft)}>Save</button><button type="button" onClick={close}>Close settings</button></> :
-            <button ref={settingsButton} type="button" aria-expanded={false} aria-controls="privacy-preferences" onClick={() => { returnFocus.current = document.activeElement; setDraft(choice || { analytics: false, recording: false }); setSettings(true) }}>Settings</button>}
+          {settings ? <>
+            <button type="button" onClick={() => save(draft)}>Save Preferences</button>
+            <button type="button" onClick={() => save({ analytics: false, recording: false })}>Reject All</button>
+            <button type="button" onClick={close}>Close Settings</button>
+          </> : <>
+            <button type="button" onClick={() => save({ analytics: true, recording: true })}>Accept</button>
+            <button type="button" onClick={() => save({ analytics: false, recording: false })}>Reject</button>
+            <button ref={settingsButton} type="button" aria-expanded={false} aria-controls="privacy-preferences" onClick={() => { returnFocus.current = document.activeElement; setDraft(choice || { analytics: false, recording: false }); setSettings(true) }}>Settings</button>
+          </>}
         </div>
       </div>
     </section>}
