@@ -1,6 +1,8 @@
 node_modules
 dist
 dist-prototype
+dist-preview
+dist-vercel
 .vercel
 .env
 .env.local

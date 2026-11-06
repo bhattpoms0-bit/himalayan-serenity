@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/build-prerender.mjs production",
+    "build:production": "node scripts/build-prerender.mjs production",
+    "build:preview": "node scripts/build-prerender.mjs preview",
+    "build:vercel": "node scripts/build-prerender.mjs vercel",
     "preview": "vite preview",
     "build:prototype": "node scripts/build-prototype.mjs",
     "build:vercel-preview": "node scripts/build-vercel-preview.mjs",

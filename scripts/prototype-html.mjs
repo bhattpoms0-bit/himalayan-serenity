@@ -7,7 +7,25 @@ export function escapeHTML(value) {
 }
 const meta = (key, value, attribute = 'name') => `<meta ${attribute}="${key}" content="${escapeHTML(value)}" />`
 
-export function makePrototypeHTML(shell, { markup, metadata }, styles = [], notFound = false) {
+export function robotsForTarget(target, authored = 'index, follow') {
+  if (!['production', 'preview'].includes(target)) throw Error('Unknown indexing target')
+  if (typeof authored !== 'string' || !authored.trim()) throw Error('Invalid authored robots directives')
+  if (target === 'production') return authored
+  const extra = authored.split(',').map(value => value.trim().toLowerCase()).filter(value => value && !['index', 'follow', 'noindex', 'nofollow'].includes(value))
+  return [...new Set(['noindex', 'nofollow', ...extra])].join(', ')
+}
+
+export function setDocumentRobots(html, target) {
+  const matches = [...html.matchAll(/<meta\b[^>]*name="robots"[^>]*>/gi)]
+  const directives = matches.map(match => /content="([^"]*)"/i.exec(match[0])?.[1]).filter(Boolean)
+  // Preserve an intentional exclusion if the input document already has one.
+  const authored = directives.find(value => /\bnoindex\b/i.test(value)) || directives[0] || 'index, follow'
+  const stripped = html.replace(/<meta\b[^>]*name="robots"[^>]*>(?:\r?\n)?/gi, '')
+  if (!stripped.includes('</head>')) throw Error('Document has no head')
+  return stripped.replace('</head>', meta('robots', robotsForTarget(target, authored)) + '\n</head>')
+}
+
+export function makePrototypeHTML(shell, { markup, metadata }, styles = [], notFound = false, target = 'production') {
   if (!notFound && (!metadata?.title || !metadata?.description || !metadata?.canonical)) {
     throw Error('Approved route metadata was not captured')
   }
@@ -23,6 +41,7 @@ export function makePrototypeHTML(shell, { markup, metadata }, styles = [], notF
   const head = [
     `<title>${escapeHTML(title)}</title>`,
     meta('description', description),
+    meta('robots', robotsForTarget(target, metadata?.robots || (notFound ? 'noindex, nofollow' : 'index, follow'))),
     meta('og:type', metadata?.type || 'website', 'property'),
     meta('og:title', metadata?.socialTitle || title, 'property'),
     meta('og:description', description, 'property'),
@@ -34,7 +53,7 @@ export function makePrototypeHTML(shell, { markup, metadata }, styles = [], notF
   ]
   if (!notFound) {
     head.push(`<link rel="canonical" href="${escapeHTML(metadata.canonical)}" />`,
-      meta('robots', 'index, follow'), meta('og:url', metadata.canonical, 'property'),
+      meta('og:url', metadata.canonical, 'property'),
       meta('twitter:url', metadata.canonical))
   }
   if (metadata?.schema) {
