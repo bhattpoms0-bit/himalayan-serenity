@@ -84,7 +84,10 @@ export default function ExpeditionForm({ defaultPackage = "" }) {
 
       if (res.ok && data.success) {
         setStatus("success");
-        trackEnquiry('Expedition Inquiry');
+        // Analytics must not change an accepted enquiry's outcome or delay WhatsApp.
+        try {
+          Promise.resolve(trackEnquiry('Expedition Inquiry')).catch(() => {});
+        } catch { /* Analytics is best-effort. */ }
         // Open WhatsApp with pre-filled message
         const msg = `Hello! I am ${form.name}. My WhatsApp is ${form.whatsapp}. I am interested in the ${form.pkg} package. I am planning to travel in ${form.month}. Please send me the itinerary.`;
         const url = `https://wa.me/919084642557?text=${encodeURIComponent(msg)}`;

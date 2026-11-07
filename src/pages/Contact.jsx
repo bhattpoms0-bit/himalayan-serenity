@@ -87,7 +87,10 @@ export default function ContactPage() {
 
       if (res.ok && data.success) {
         setStatus('success')
-        trackEnquiry('Contact')
+        // Analytics must not change an accepted enquiry's outcome or delay it.
+        try {
+          Promise.resolve(trackEnquiry('Contact')).catch(() => {})
+        } catch { /* Analytics is best-effort. */ }
       } else {
         setStatus('error')
       }
