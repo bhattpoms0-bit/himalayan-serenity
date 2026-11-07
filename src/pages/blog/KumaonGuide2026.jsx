@@ -486,6 +486,12 @@ export default function KumaonGuide2026() {
           </div>
         ))}
 
+        <p style={p}>
+          <Link to="/international-retreats" className="inline-flex min-h-11 max-w-full items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" style={{ color: GOLD, textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+            Compare small-group Himalayan retreats in Kumaon.
+          </Link>
+        </p>
+
         {/* Section 15 FAQ */}
         <h2 style={h2}>15. Frequently Asked Questions</h2>
         <div style={{ margin: '1.5rem 0' }}>

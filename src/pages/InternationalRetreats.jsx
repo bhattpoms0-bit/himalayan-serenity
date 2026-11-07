@@ -88,8 +88,8 @@ const RETREAT_CARDS = [
 
 export default function InternationalRetreats() {
   useSEO({
-    title:       'International Retreats — Yoga, Ayurveda & Detox in the Himalayas | Himalayan Serenity',
-    description: 'Luxury yoga retreat India for international travelers. Kumaon Himalaya wellness journeys — Ayurveda and cultural immersion. Permit requirements vary by journey and nationality. Small groups. Book 2026.',
+    title:       'Himalayan Wellness Retreats in Kumaon | Himalayan Serenity',
+    description: 'Discover small-group retreats in Kumaon, India: yoga and Ayurveda, digital detox and women-led cultural journeys. Enquire with our local team.',
     canonical:   'https://www.himalayanserenitytravel.com/international-retreats',
   })
 
@@ -159,7 +159,7 @@ export default function InternationalRetreats() {
               Find Your Stillness in the Himalayas
             </h1>
             <p className="international-hero-description">
-              Yoga, mindfulness and authentic mountain experiences, thoughtfully curated for international travellers.
+              Choose a small-group journey in Kumaon, India: yoga and Ayurveda, digital detox, or women-led cultural travel.
             </p>
             <div className="international-hero-actions">
               <a
@@ -300,6 +300,11 @@ export default function InternationalRetreats() {
             </Link>
           ))}
         </div>
+        <p className="mt-6 text-sm text-[#f0ece4]/75 leading-relaxed">
+          <Link to="/blog/kumaon-himalayas-travel-guide-wellness-2026" className="inline-flex min-h-11 max-w-full items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
+            Read our local Kumaon planning guide.
+          </Link>
+        </p>
       </section>
 
       {/* ── SECTION 4 — WHY KUMAON ───────────────────────────────────────── */}
