@@ -1,5 +1,5 @@
 ﻿import { useRef } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Clock, TrendingUp, Users } from 'lucide-react'
 
@@ -124,7 +124,6 @@ const HOVER_EASE = [0.34, 1.56, 0.64, 1]
 function PackageCard({ pkg, large = false, index = 0 }) {
   const ref      = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const navigate = useNavigate()
 
   const meta = [
     pkg.days       && { Icon: Clock,      label: pkg.nights ? `${pkg.days} Days / ${pkg.nights} Nights` : `${pkg.days} Days`  },
@@ -148,8 +147,7 @@ function PackageCard({ pkg, large = false, index = 0 }) {
           boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(224,123,42,0.25)',
         }}
         transition={{ duration: 0.45, ease: HOVER_EASE }}
-        onClick={() => pkg.link && navigate(pkg.link)}
-        className="group cursor-pointer rounded-2xl overflow-hidden"
+        className="relative group cursor-pointer rounded-2xl overflow-hidden"
         style={{
           backgroundColor: '#1a1a1a',
           border:          '1px solid rgba(255,255,255,0.08)',
@@ -199,7 +197,13 @@ function PackageCard({ pkg, large = false, index = 0 }) {
             className={`font-serif text-white leading-snug tracking-[-0.01em] ${pkg.subtitle ? 'mb-2' : 'mb-5'}`}
             style={{ fontSize: large ? '1.25rem' : '1.05rem' }}
           >
-            {pkg.title}
+            <Link
+              to={pkg.link}
+              aria-label={`Explore ${pkg.title}`}
+              className="text-inherit no-underline after:absolute after:inset-0 after:rounded-2xl focus-visible:outline-none focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-brand-gold focus-visible:after:outline-offset-[-3px]"
+            >
+              {pkg.title}
+            </Link>
           </h3>
 
           {pkg.subtitle && (
@@ -263,11 +267,10 @@ function PackageCard({ pkg, large = false, index = 0 }) {
             </div>
           </div>
 
-          {/* Book CTA — stops card-click propagation so it routes to /contact */}
+          {/* Separate booking link stays above the stretched detail link. */}
           <Link
             to={bookUrl}
-            onClick={e => e.stopPropagation()}
-            className="block w-full text-center font-sans font-semibold rounded-xl py-3 transition-all duration-200"
+            className="relative z-10 block w-full text-center font-sans font-semibold rounded-xl py-3 transition-all duration-200"
             style={{
               fontSize:        13,
               letterSpacing:   '0.04em',
