@@ -43,12 +43,14 @@ export default function Experiences() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {EXPERIENCES.map(experience => (
               <article key={experience.href} className="overflow-hidden rounded-2xl bg-brand-dark-card border border-brand-dark-border flex flex-col">
+                <Link to={experience.href} aria-label={`Explore ${experience.name}`} className="flex flex-col flex-1 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-brand-gold">
                 <img src={experience.image} alt={experience.name} loading="lazy" decoding="async" width="640" height="420" className="w-full aspect-[3/2] object-cover" />
                 <div className="p-6 sm:p-7 flex flex-col flex-1">
                   <h2 className="font-serif text-2xl leading-snug mb-4">{experience.name}</h2>
                   <p className="font-sans text-brand-cream-muted text-sm leading-relaxed mb-6">{experience.route}</p>
-                  <Link to={experience.href} className="mt-auto min-h-11 inline-flex items-center text-brand-gold text-sm underline underline-offset-4" aria-label={`Explore ${experience.name}`}>Explore journey →</Link>
+                  <span className="mt-auto min-h-11 inline-flex items-center text-brand-gold text-sm underline underline-offset-4">Explore journey →</span>
                 </div>
+                </Link>
               </article>
             ))}
           </div>

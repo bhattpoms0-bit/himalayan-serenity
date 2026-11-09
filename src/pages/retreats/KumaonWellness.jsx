@@ -305,7 +305,7 @@ export default function KumaonWellness() {
               href="https://wa.me/919084642557"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#1D9E75] text-[#1D9E75] rounded-full px-6 py-3 text-sm font-medium hover:bg-[#1D9E75]/10 transition-colors duration-200"
+              className="border border-brand-gold text-brand-cream bg-brand-dark rounded-full px-6 py-3 text-sm font-medium hover:bg-brand-dark-2 hover:text-brand-gold-light active:bg-brand-dark-3 active:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold transition-colors duration-200"
             >
               Speak With Our Team
             </a>
