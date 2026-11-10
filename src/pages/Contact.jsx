@@ -154,7 +154,7 @@ export default function ContactPage() {
             <a href="/terms" className="inline-flex min-h-11 items-center mt-5 text-brand-cream/85 text-sm underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Review our booking terms</a>
           </section>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
 
             {/* ── Consultation Form ──────────────────────────────────────── */}
             <div id="consultation" data-floating-avoid className="card-dark min-w-0 scroll-mt-28">
@@ -167,7 +167,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               ) : (
-                <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-5">
+                <form data-clarity-mask="true" onSubmit={handleSubmit} className="enquiry-form space-y-5">
                   <h3 className="font-serif text-xl text-brand-cream mb-2">Send Your Enquiry</h3>
                   <p className="font-sans text-sm text-brand-cream/75 mb-6 pb-4 border-b border-white/[0.06]">
                     Share your interests and questions to start a personal conversation about your journey.

@@ -60,10 +60,11 @@ html.privacy-dock-visible { scroll-padding-bottom: calc(var(--privacy-dock-heigh
   .privacy-dock-expanded .privacy-actions { flex-basis: auto; }
 }
 @media (max-width: 480px) {
-  .privacy-bar { gap: 6px 10px; padding: 8px 12px; }
-  .privacy-bar p { flex-basis: 100%; }
-  .privacy-actions { flex: 1; min-width: 0; }
-  .privacy-actions button { min-width: 0; padding-inline: 8px; }
+  .privacy-bar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px 12px; }
+  .privacy-bar p { min-width: 0; overflow-wrap: anywhere; }
+  .privacy-policy-link { width: fit-content; max-width: 100%; }
+  .privacy-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; min-width: 0; }
+  .privacy-actions button { min-width: 0; padding-inline: 8px; white-space: normal; overflow-wrap: anywhere; }
   .privacy-preferences { padding-inline: 12px; }
   .privacy-dock-expanded .privacy-actions { flex-basis: 100%; }
   .privacy-dock-expanded .privacy-actions button { flex: 1 1 auto; min-width: min(100%, 100px); overflow-wrap: anywhere; }
