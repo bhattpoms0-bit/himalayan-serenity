@@ -101,6 +101,17 @@ export default function InternationalRetreats() {
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
   const submissionInFlight = useRef(false)
+  const enquirySection = useRef(null)
+  const enquiryHeading = useRef(null)
+
+  const selectFeaturedRetreat = () => {
+    if (submissionInFlight.current || status === 'loading') return
+    if (status !== 'success') {
+      setForm(previous => ({ ...previous, retreat: PANCHACHULI_WELLNESS.listingName }))
+    }
+    enquirySection.current?.scrollIntoView({ behavior: 'instant', block: 'start' })
+    enquiryHeading.current?.focus({ preventScroll: true })
+  }
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -231,15 +242,17 @@ export default function InternationalRetreats() {
               >
                 View Dates &amp; Book
               </Link>
-              <Link
-                to="/contact"
-                className="font-sans text-sm font-medium rounded-full px-6 py-3 transition-colors duration-200 whitespace-nowrap"
+              <button
+                type="button"
+                onClick={selectFeaturedRetreat}
+                disabled={status === 'loading'}
+                className="font-sans text-sm font-medium rounded-full px-6 py-3 transition-colors duration-200 whitespace-nowrap focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold disabled:opacity-50 disabled:cursor-wait"
                 style={{ border: '1px solid rgba(29,158,117,0.5)', color: '#1D9E75', textDecoration: 'none', backgroundColor: 'transparent' }}
                 onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(29,158,117,0.08)')}
                 onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
               >
                 Enquire About This Retreat
-              </Link>
+              </button>
             </div>
 
           </div>
@@ -324,9 +337,9 @@ export default function InternationalRetreats() {
       <BrandPromise className="bg-[#061008]" />
 
       {/* ── SECTION 6 — ENQUIRY FORM ─────────────────────────────────────── */}
-      <section id="enquiry" className="scroll-mt-24 bg-[#061008] py-16 px-6">
+      <section ref={enquirySection} id="enquiry" aria-labelledby="enquiry-heading" className="scroll-mt-24 bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Plan your retreat</h2>
+          <h2 ref={enquiryHeading} id="enquiry-heading" tabIndex={-1} className="font-serif text-[#f0ece4] text-3xl mb-2">Plan your retreat</h2>
           <p className="text-sm text-[#f0ece4]/75 mb-4">
             Share your preferences and questions below.
           </p>
@@ -341,7 +354,7 @@ export default function InternationalRetreats() {
               <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="enquiry-form space-y-4">
               <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
               <input id="enquiry-name" autoComplete="name"
                 type="text"
@@ -363,7 +376,7 @@ export default function InternationalRetreats() {
                 className={INPUT_CLASS}
               />
               <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
-              <select id="enquiry-retreat"
+              <select id="enquiry-retreat" aria-describedby="enquiry-retreat-value"
                 name="retreat"
                 value={form.retreat}
                 onChange={handleChange}
@@ -377,8 +390,9 @@ export default function InternationalRetreats() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
+              <p id="enquiry-retreat-value" className="text-sm text-[#f0ece4]/85">{form.retreat}</p>
               <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
-              <input id="enquiry-dates"
+              <input id="enquiry-dates" aria-describedby="enquiry-dates-value"
                 type="text"
                 name="dates"
                 value={form.dates}
@@ -386,6 +400,7 @@ export default function InternationalRetreats() {
                 placeholder="Your preferred month or departure date"
                 className={INPUT_CLASS}
               />
+              <p id="enquiry-dates-value" className="text-sm text-[#f0ece4]/85">{form.dates}</p>
               <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
               <select id="enquiry-groupSize"
                 name="groupSize"

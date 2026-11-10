@@ -54,6 +54,30 @@
 
 @layer components {
 
+  /* Constrain native controls without clipping their focus rings or helper copy. */
+  .enquiry-form {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .enquiry-form > *, .enquiry-form :where(input, select, textarea) {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .enquiry-form :where(input, select, textarea) {
+    display: block;
+    width: 100%;
+  }
+  .enquiry-form :where(label, p) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .enquiry-form :where(input, select, textarea):focus-visible {
+    outline: 2px solid #e07b2a;
+    outline-offset: 2px;
+  }
+
   /* ─── Buttons ─────────────────────────────────────────────── */
   .btn-primary {
     @apply bg-brand-orange text-white font-sans font-semibold

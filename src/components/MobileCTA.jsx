@@ -21,9 +21,9 @@ const MobileCTA = () => {
   // Dedicated slots keep WhatsApp clear of the retreat enquiry action on small screens.
   if (isReviewedRetreat) return (
     <div data-mobile-actions className="fixed bottom-0 left-0 right-0 z-40 lg:hidden border-t border-white/10 bg-[#0a100d]" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
-      <div className="flex items-center gap-4 px-5 py-3">
+      <div className="grid grid-cols-[44px_minmax(0,1fr)] items-center gap-3 px-4 py-3">
         <WhatsAppButton inline />
-        <a href="#enquiry" className={`flex-1 min-w-0 min-h-11 flex items-center justify-center rounded-full px-4 py-3 text-sm font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${pathname === WOMENS_SACRED_HIMALAYA.href ? 'bg-rose-700' : 'bg-[#1D9E75]'}`}>
+        <a href="#enquiry" className={`min-w-0 min-h-11 flex items-center justify-center whitespace-normal break-words text-center leading-5 rounded-full px-4 py-3 text-sm font-medium text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${pathname === WOMENS_SACRED_HIMALAYA.href ? 'bg-rose-700' : 'bg-[#1D9E75]'}`}>
           Enquire About This Retreat
         </a>
       </div>

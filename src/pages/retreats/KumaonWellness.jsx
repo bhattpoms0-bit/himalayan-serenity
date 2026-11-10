@@ -223,6 +223,17 @@ export default function KumaonWellness() {
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value })
 
   const submissionInFlight = useRef(false)
+  const enquirySection = useRef(null)
+  const enquiryHeading = useRef(null)
+
+  const selectDeparture = dates => {
+    if (submissionInFlight.current || status === 'loading') return
+    if (status !== 'success') {
+      setForm(previous => ({ ...previous, retreat: PANCHACHULI_WELLNESS.listingName, dates }))
+    }
+    enquirySection.current?.scrollIntoView({ behavior: 'instant', block: 'start' })
+    enquiryHeading.current?.focus({ preventScroll: true })
+  }
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -361,23 +372,23 @@ export default function KumaonWellness() {
                 {i > 0 && (
                   <div style={{ borderTop: '1px solid rgba(201,168,76,0.10)' }} />
                 )}
-                <div className="flex items-center justify-between gap-6 py-8 flex-wrap sm:flex-nowrap">
+                <div className="flex flex-col items-stretch gap-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:flex-nowrap">
 
                   {/* Left — month + date range */}
-                  <div className="flex-1 min-w-0">
+                  <div className="w-full min-w-0 sm:w-auto sm:flex-1">
                     <p
                       className="font-sans uppercase mb-2"
                       style={{ fontSize: 10, letterSpacing: '0.22em', color: '#C9A84C' }}
                     >
                       {dep.month}
                     </p>
-                    <p className="font-serif text-[#f0ece4] text-xl lg:text-2xl leading-tight">
+                    <p className="font-serif text-[#f0ece4] text-xl lg:text-2xl leading-tight break-words">
                       {dep.dates}
                     </p>
                   </div>
 
                   {/* Right — availability dot + enquire button */}
-                  <div className="flex items-center gap-5 flex-shrink-0">
+                  <div className="flex w-full min-w-0 max-w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-5">
                     <span className="flex items-center gap-2 font-sans text-[#f0ece4]/45"
                       style={{ fontSize: 11 }}>
                       <span
@@ -386,9 +397,12 @@ export default function KumaonWellness() {
                       />
                       Enquire About Availability
                     </span>
-                    <Link
-                      to="/contact"
-                      className="font-sans transition-colors duration-200"
+                    <button
+                      type="button"
+                      onClick={() => selectDeparture(dep.dates)}
+                      disabled={status === 'loading'}
+                      aria-label={`Enquire about ${PANCHACHULI_WELLNESS.name}: ${dep.dates}`}
+                      className="w-full min-h-11 sm:w-auto sm:min-h-0 font-sans transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold disabled:opacity-50 disabled:cursor-wait"
                       style={{
                         fontSize:        11,
                         letterSpacing:   '0.14em',
@@ -404,7 +418,7 @@ export default function KumaonWellness() {
                       onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'transparent')}
                     >
                       Enquire
-                    </Link>
+                    </button>
                   </div>
 
                 </div>
@@ -570,9 +584,9 @@ export default function KumaonWellness() {
       </section>
 
       {/* ── SECTION 8 — ENQUIRY FORM ─────────────────────────────────────── */}
-      <section id="enquiry" className="scroll-mt-24 bg-[#061008] py-16 px-6">
+      <section ref={enquirySection} id="enquiry" aria-labelledby="enquiry-heading" className="scroll-mt-24 bg-[#061008] py-16 px-6">
         <div className="max-w-xl mx-auto">
-          <h2 className="font-serif text-[#f0ece4] text-3xl mb-2">Enquire About This Retreat</h2>
+          <h2 ref={enquiryHeading} id="enquiry-heading" tabIndex={-1} className="font-serif text-[#f0ece4] text-3xl mb-2">Enquire About This Retreat</h2>
           <p className="text-sm text-[#f0ece4]/75 mb-4">
             Share your preferences and questions below.
           </p>
@@ -593,7 +607,7 @@ export default function KumaonWellness() {
               <p className="text-[#f0ece4]/75 text-sm">Your enquiry has been submitted. Our team will contact you to discuss the next steps.</p>
             </div>
           ) : (
-            <form data-clarity-mask="true" onSubmit={handleSubmit} className="space-y-4">
+            <form data-clarity-mask="true" onSubmit={handleSubmit} className="enquiry-form space-y-4">
               <label htmlFor="enquiry-name" className="block text-sm text-[#f0ece4]/85">Full name</label>
               <input id="enquiry-name" autoComplete="name"
                 type="text" name="name" value={form.name} onChange={handleChange}
@@ -605,7 +619,7 @@ export default function KumaonWellness() {
                 placeholder="Your country" required className={INPUT_CLASS}
               />
               <label htmlFor="enquiry-retreat" className="block text-sm text-[#f0ece4]/85">Retreat or journey of interest</label>
-              <select id="enquiry-retreat"
+              <select id="enquiry-retreat" aria-describedby="enquiry-retreat-value"
                 name="retreat" value={form.retreat} onChange={handleChange}
                 required className={`${INPUT_CLASS} bg-[#0d1a0d]`}
               >
@@ -616,11 +630,13 @@ export default function KumaonWellness() {
                 <option>Darma Valley Digital Detox</option>
                 <option>Not sure yet — help me choose</option>
               </select>
+              <p id="enquiry-retreat-value" className="text-sm text-[#f0ece4]/85">{form.retreat}</p>
               <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
-              <input id="enquiry-dates"
+              <input id="enquiry-dates" aria-describedby="enquiry-dates-value"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
                 placeholder="e.g. November 2026" className={INPUT_CLASS}
               />
+              <p id="enquiry-dates-value" className="text-sm text-[#f0ece4]/85">{form.dates}</p>
               <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
               <select id="enquiry-groupSize"
                 name="groupSize" value={form.groupSize} onChange={handleChange}
