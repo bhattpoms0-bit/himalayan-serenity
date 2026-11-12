@@ -571,6 +571,18 @@ export default function KumaonWellness() {
         </div>
       </section>
 
+      <section aria-labelledby="practical-planning-heading" className="max-w-3xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
+        <div className="border-t border-brand-gold/20 pt-8">
+          <h2 id="practical-planning-heading" className="font-serif text-[#f0ece4] text-2xl sm:text-3xl leading-snug mb-6">Planning Your Panchachuli Wellness Journey</h2>
+          <div className="space-y-4 text-[#f0ece4]/75 text-base leading-7">
+            <p>This 9-day / 8-night retreat follows a route through Pithoragarh, Munsiyari and Kasar Devi. Its published programme brings together yoga, meditation and Kumaon culture, with artisan encounters, regional food and time for reflection.</p>
+            <p>Review the <a href="#day-1" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">arrival day</a>, <a href="#day-9" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">departure day</a> and <a href="#accommodation-heading" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">accommodation overview</a> before arranging onward travel. Ask about road journeys, early starts and the walking involved in the listed Khaliya Top excursion.</p>
+            <p>Before payment, confirm who will lead the planned sessions, which wellness activities are included for your departure, and the accommodation, room and transfer arrangements. Discuss any participation requirements with our team; final arrangements should be set out in your written proposal.</p>
+            <p>Still exploring? <Link to="/international-retreats" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Compare our four Himalayan journeys in Kumaon.</Link></p>
+          </div>
+        </div>
+      </section>
+
       {/* ── SECTION 7 — SIGNATURE PROMISE ───────────────────────────────── */}
       <section className="bg-[#061008] py-16 px-6 text-center">
         <h2 className="font-serif text-[#f0ece4] text-3xl max-w-2xl mx-auto leading-snug">

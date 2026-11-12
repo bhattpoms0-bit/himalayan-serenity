@@ -262,7 +262,10 @@ export default function InternationalRetreats() {
       {/* ── SECTION 3 — RETREAT CARDS ────────────────────────────────────── */}
       <section id="retreats" className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-20">
         <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Our Retreats</p>
-        <h2 className="font-serif text-[#f0ece4] text-3xl mb-8">Four ways to find stillness</h2>
+        <h2 className="font-serif text-[#f0ece4] text-3xl leading-snug mb-4">Four Himalayan Journeys. Find the One for You.</h2>
+        <p className="max-w-3xl text-[#f0ece4]/75 text-base leading-7 mb-8">
+          Compare our wellness, women-focused cultural, digital detox and Himalayan heritage experiences across Kumaon.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {RETREAT_CARDS.map(({ badge, badgeClass, title, meta, highlights, price, retreat, href, cardImg, cardImgAlt }) => (
             <Link key={href} to={href} className="no-underline group">
@@ -312,6 +315,45 @@ export default function InternationalRetreats() {
               </div>
             </Link>
           ))}
+        </div>
+        <div className="mt-12 border-t border-brand-gold/20 pt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-8">
+            <div className="min-w-0">
+              <h3 className="font-serif text-xl leading-snug mb-3">
+                <Link to="/retreats/panchachuli-wellness" className="inline-block max-w-full text-brand-gold-light underline underline-offset-4 decoration-brand-gold/50 hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">
+                  Panchachuli Wellness Retreat
+                </Link>
+              </h3>
+              <p className="text-[#f0ece4]/75 text-base leading-7">For travellers drawn to yoga, mindfulness and Himalayan culture. This journey connects Pithoragarh, Munsiyari and Kasar Devi, combining destination stays with road journeys and time for reflection.</p>
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-serif text-xl leading-snug mb-3">
+                <Link to="/retreats/womens-retreat" className="inline-block max-w-full text-brand-gold-light underline underline-offset-4 decoration-brand-gold/50 hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">
+                  Women's Sacred Himalaya Retreat
+                </Link>
+              </h3>
+              <p className="text-[#f0ece4]/75 text-base leading-7">For solo women and friends drawn to crafts, culture and local connections. The published programme brings together community encounters, textile traditions and mindfulness across Bhimtal, Pithoragarh, Munsiyari and Abbott Mount.</p>
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-serif text-xl leading-snug mb-3">
+                <Link to="/retreats/darma-detox" className="inline-block max-w-full text-brand-gold-light underline underline-offset-4 decoration-brand-gold/50 hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">
+                  Darma Valley Digital Detox
+                </Link>
+              </h3>
+              <p className="text-[#f0ece4]/75 text-base leading-7">For travellers drawn to time away from screens and a walking-based mountain journey. The itinerary combines trail days, village experiences, meditation and time for quiet reflection.</p>
+            </div>
+            <div className="min-w-0">
+              <h3 className="font-serif text-xl leading-snug mb-3">
+                <Link to="/retreats/borderlands-himalaya" className="inline-block max-w-full text-brand-gold-light underline underline-offset-4 decoration-brand-gold/50 hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">
+                  The Borderlands of the Himalaya
+                </Link>
+              </h3>
+              <p className="text-[#f0ece4]/75 text-base leading-7">For travellers drawn to Himalayan heritage and storytelling. Road journeys, walks and excursions connect Bhotiya culture, ancient trade-route history and sacred sites across Kumaon.</p>
+            </div>
+          </div>
+          <p className="max-w-3xl mt-8 text-[#f0ece4]/75 text-base leading-7">
+            Review each itinerary, then ask our team about walking requirements, travel connections and arrangements for your preferred departure.
+          </p>
         </div>
         <p className="mt-6 text-sm text-[#f0ece4]/75 leading-relaxed">
           <Link to="/blog/kumaon-himalayas-travel-guide-wellness-2026" className="inline-flex min-h-11 max-w-full items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
