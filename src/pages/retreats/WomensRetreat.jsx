@@ -321,8 +321,11 @@ export default function WomensRetreat() {
           </p>
           <p className="text-[#f0ece4]/60 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
             From the tranquil lakes of Bhimtal and the cultural heart of Pithoragarh to the
-            majestic <Link to="/retreats/panchachuli-wellness" style={{ color: '#f9a8d4', textDecoration: 'none' }}>Panchachuli peaks of Munsiyari</Link> and the pine forests of Abbott Mount, every
+            majestic Panchachuli peaks of Munsiyari and the pine forests of Abbott Mount, every
             experience has been thoughtfully designed to foster connection, learning, and inspiration.
+          </p>
+          <p className="text-[#f0ece4]/75 text-sm leading-relaxed max-w-2xl mx-auto mb-4 text-left">
+            For a journey centred on yoga and meditation, explore the <Link to="/retreats/panchachuli-wellness" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Panchachuli Wellness Retreat.</Link>
           </p>
           <p className="font-serif italic text-rose-400 text-lg text-center mt-6">
             Led by women. Limited to eight guests.<br />
@@ -473,6 +476,18 @@ export default function WomensRetreat() {
               {label}
             </span>
           ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="practical-planning-heading" className="max-w-3xl mx-auto px-5 sm:px-8 pb-16 sm:pb-20">
+        <div className="border-t border-brand-gold/20 pt-8">
+          <h2 id="practical-planning-heading" className="font-serif text-[#f0ece4] text-2xl sm:text-3xl leading-snug mb-6">Planning Your Women's Sacred Himalaya Journey</h2>
+          <div className="space-y-4 text-[#f0ece4]/75 text-base leading-7">
+            <p>This 9-day / 8-night cultural retreat connects Bhimtal, Pithoragarh, Munsiyari and Abbott Mount. The published programme centres on women-focused cultural encounters, with weaving, natural-dye demonstrations and cooking experiences alongside mindfulness, journalling and reflection.</p>
+            <p>Solo women and friends can explore the journey through its <a href="#day-1" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">day-by-day itinerary</a>. It combines mountain-road travel, village visits and walks, with several days based in Munsiyari.</p>
+            <p>Before payment, confirm the departure leader, planned artisan and community activities, walking requirements and transfer arrangements. If travelling solo, ask about room-sharing options, single-room availability and any supplement. Relevant final arrangements should be set out in your written proposal.</p>
+            <p><Link to="/international-retreats" className="underline underline-offset-4 decoration-brand-gold/50 text-brand-gold-light hover:text-brand-cream focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Compare our four Himalayan journeys in Kumaon.</Link></p>
+          </div>
         </div>
       </section>
 
