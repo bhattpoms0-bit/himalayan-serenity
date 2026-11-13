@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react'
+﻿import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -11,29 +11,150 @@ const EASE = [0.25, 0.46, 0.45, 0.94]
 
 const faqs = [
   {
-    q: 'When is the most auspicious time to visit?',
-    a: <>The best time for <Link to="/packages/adi-kailash-expedition" style={{ color: '#C9A84C', textDecoration: 'none' }}>Himalayan expeditions</Link> is May–June and September–October. These months offer stable weather, clear skies, and the most vibrant spiritual festivals. Our guides can also advise based on your specific pilgrimage goals.</>,
+    "group": "Himalayan Wellness, Yoga & Ayurveda",
+    "q": "What can I expect from a Himalayan yoga and Ayurveda wellness retreat?",
+    "paragraphs": [
+      "Our Himalayan wellness retreats offer an opportunity to slow down, reconnect with nature and experience the living traditions of Kumaon in Uttarakhand, India.",
+      "Depending on your chosen programme, the journey may include guided yoga, pranayama (breathing practices), meditation, mindful walks, cultural encounters and time for personal reflection. Selected retreats also include Ayurveda consultations or therapies, subject to the confirmed programme and practitioner arrangements.",
+      "Rather than remaining at a single resort, some of our retreats travel through Himalayan destinations such as Pithoragarh, Munsiyari and Kasar Devi, combining wellness activities with mountain landscapes and local culture.",
+      "Each journey has its own pace, activities and inclusions. We recommend reviewing the itinerary and confirming the wellness services available for your preferred departure before booking."
+    ],
+    "links": [
+      {
+        "label": "Explore our Himalayan wellness retreats",
+        "to": "/international-retreats"
+      }
+    ]
   },
   {
-    q: 'How should I prepare for the spiritual ascent?',
-    a: 'We recommend 2–3 months of moderate physical training, including daily walking and breathing exercises. Spiritually, practicing mindfulness and meditation helps open you to the transformative nature of the journey. Our pre-departure kit includes a full preparation guide.',
+    "q": "Do I need previous yoga experience to join your Himalayan wellness retreats?",
+    "paragraphs": [
+      "Previous yoga experience is not necessarily required to enquire about our retreats. However, participation requirements depend on the specific programme, the planned sessions and the physical demands of the journey.",
+      "Our retreats combine wellness experiences with Himalayan travel, which can include winding mountain roads, walking, early starts and changes in altitude.",
+      "Before booking, please tell our team about your yoga experience, preferred activity level and any participation requirements you would like to discuss. We can explain the proposed programme and help you determine whether it aligns with your expectations.",
+      "Yoga sessions and possible adjustments should be confirmed for your particular retreat. We do not assume that every activity is suitable for every traveller."
+    ]
   },
   {
-    q: 'What essential gear is provided?',
-    a: 'Equipment and support depend on the itinerary. Ask us to confirm what is included, what you should bring and any altitude-related support arrangements before booking. Do not assume oxygen, medical personnel or satellite communications are included in every journey.',
+    "q": "What makes Himalayan Serenity Travel's Kumaon wellness retreats different?",
+    "paragraphs": [
+      "Himalayan Serenity Travel focuses on thoughtfully curated, small-group wellness and cultural journeys in the Kumaon Himalaya, a region known for its mountain landscapes, villages and distinctive traditions.",
+      "Our approach brings together three elements:",
+      "Mindful experiences: Opportunities for yoga, meditation, reflection and time in nature, according to the selected itinerary.",
+      "Authentic Kumaoni culture: Experiences that introduce travellers to regional traditions, local food, crafts and community life.",
+      "Personalised planning: Direct conversations about the journey, accommodation, travel connections and practical arrangements before booking.",
+      "With a local presence in Pithoragarh, we aim to offer travellers a more personal introduction to Kumaon, beyond a conventional resort-based holiday.",
+      "Our journeys are designed around meaningful experiences rather than promises of guaranteed healing or transformation."
+    ],
+    "links": [
+      {
+        "label": "Discover our retreat experiences",
+        "to": "/international-retreats"
+      }
+    ]
   },
   {
-    q: 'Is the journey suitable for senior travelers?',
-    a: 'Suitability depends on the itinerary, altitude, health and fitness. Discuss the pace and participation requirements with us before booking, and seek medical advice where appropriate. Medical personnel are not guaranteed on every journey.',
+    "q": "Do you offer women-only Himalayan wellness retreats?",
+    "paragraphs": [
+      "Yes. Our Women's Sacred Himalaya Retreat is designed as a women-only journey combining mindful travel, Himalayan culture and meaningful local experiences.",
+      "The published 9-day / 8-night route connects Bhimtal, Pithoragarh, Munsiyari and Abbott Mount. Its programme includes cultural activities such as traditional crafts, local cooking experiences, mindfulness, journalling and time for reflection.",
+      "Women travelling independently or with friends are welcome to enquire.",
+      "Departure dates, the assigned tour leader, local facilitators, accommodation arrangements and individual activity inclusions are confirmed before booking. Solo travellers can also ask about room-sharing options, single-room availability and any applicable supplement."
+    ],
+    "links": [
+      {
+        "label": "Explore the Women's Sacred Himalaya Retreat",
+        "to": "/retreats/womens-retreat"
+      }
+    ]
   },
   {
-    q: 'What safety measures are in place?',
-    a: 'We take a safety-conscious approach to planning. Ask us to confirm route-specific support and emergency arrangements before booking. Remote terrain, weather and communications can affect access to assistance; no particular rescue service, response time or evacuation outcome is guaranteed.',
+    "group": "International Travel & Retreat Planning",
+    "q": "Can international travellers join your Himalayan yoga and wellness retreats in India?",
+    "paragraphs": [
+      "Yes. Himalayan Serenity Travel welcomes enquiries from international travellers interested in yoga, mindfulness, Ayurveda-related experiences and cultural journeys through the Kumaon Himalaya of Uttarakhand, India.",
+      "Our team can discuss your preferred retreat, itinerary, meeting point, accommodation options and available ground-transport arrangements.",
+      "Travellers arriving from overseas should allow time for international and domestic travel connections, particularly when continuing into mountain regions where journey times and weather conditions can affect plans.",
+      "Passport, visa and entry requirements depend on nationality and individual circumstances. Please verify these with the relevant Indian authorities before arranging travel.",
+      "We recommend contacting our team before booking flights so that your proposed arrival and departure plans can be reviewed alongside the retreat itinerary."
+    ],
+    "links": [
+      {
+        "label": "Explore retreats for international travellers",
+        "to": "/international-retreats"
+      }
+    ]
   },
   {
-    q: 'Do you offer women-only departures?',
-    a: <>Yes. Our dedicated <Link to="/retreats/womens-retreat" style={{ color: '#C9A84C', textDecoration: 'none' }}>Women's Sacred Himalaya Retreat</Link> departs throughout the season, led entirely by female mountain experts and spiritual guides. These journeys foster a uniquely empowering and safe environment.</>,
+    "q": "What is included in your Himalayan wellness retreats, and how is accommodation arranged?",
+    "paragraphs": [
+      "Inclusions vary according to the retreat you choose.",
+      "A published programme may include selected accommodation, meals, scheduled yoga or meditation sessions, cultural experiences, ground transportation and specified wellness activities. Ayurveda consultations or treatments are included only where confirmed in the particular programme.",
+      "We follow a personally curated accommodation approach. Rather than promising a particular hotel at the initial enquiry stage, we discuss the proposed stays and room arrangements with travellers before payment.",
+      "Your written proposal should confirm the applicable accommodation, meals, transfers, programme activities, inclusions, exclusions and any additional charges.",
+      "If you are travelling solo or have specific room preferences, please discuss sharing arrangements, single-room availability and supplements before confirming your booking."
+    ],
+    "links": [
+      {
+        "label": "Compare our Himalayan retreat programmes",
+        "to": "/international-retreats"
+      }
+    ]
   },
+  {
+    "q": "How can I choose a retreat, check available dates and make a booking?",
+    "paragraphs": [
+      "Start by exploring our Himalayan retreat programmes and choosing the experience that best matches your interests, travel dates and preferred activity level.",
+      "Our wellness journeys differ in focus: some emphasise yoga, meditation and Ayurveda-related activities, while others centre on women's cultural experiences, digital detox or Himalayan heritage.",
+      "Once you have selected a journey, use the retreat's enquiry form to share your preferred dates, number of travellers and any questions about the itinerary.",
+      "Our team can then discuss availability, accommodation, travel arrangements, confirmed services and the applicable price.",
+      "Before making a payment, review the written proposal and booking terms carefully, including the payment schedule, cancellation conditions and any costs not included in the quoted package.",
+      "Submitting an enquiry does not itself confirm a booking or guarantee availability."
+    ],
+    "links": [
+      {
+        "label": "Find your Himalayan retreat",
+        "to": "/international-retreats"
+      },
+      {
+        "label": "Contact our team",
+        "to": "/contact"
+      }
+    ]
+  },
+  {
+    "group": "Sacred Himalayan Journeys & Pilgrimages",
+    "q": "When is the best time to visit Adi Kailash and Om Parvat in Uttarakhand?",
+    "paragraphs": [
+      "Adi Kailash and Om Parvat journeys take place in a remote, high-altitude Himalayan region where seasonal access depends on weather, road conditions, local regulations and operational arrangements.",
+      "May–June and September–October are commonly considered travel periods for these journeys, but suitable dates and accessibility must be checked for the particular season and route.",
+      "Conditions can change quickly in the mountains. Snow, rain, cloud cover, landslides or local restrictions may affect road access, the itinerary and mountain visibility.",
+      "Views of sacred peaks, clear skies and completion of every planned excursion cannot be guaranteed.",
+      "Before booking, please confirm current travel dates, access conditions, permit requirements and contingency arrangements for your chosen journey."
+    ],
+    "links": [
+      {
+        "label": "Discover our Sacred Himalayan Journeys",
+        "to": "/experiences"
+      }
+    ]
+  },
+  {
+    "q": "What permits, physical preparation and local support are needed for Adi Kailash and other sacred Himalayan journeys?",
+    "paragraphs": [
+      "Preparation depends on the route, altitude, season and personal circumstances.",
+      "Journeys to restricted areas around Adi Kailash and Om Parvat generally require an Inner Line Permit or other applicable permissions, subject to current government rules and traveller eligibility. Our team can discuss the permit-assistance arrangements available for the chosen itinerary, but approval remains subject to the relevant authorities.",
+      "High-altitude travel may involve long road journeys, walking, changing weather and limited access to services. Travellers should review the physical demands of the programme, discuss relevant health concerns with a qualified medical professional and plan appropriate clothing and equipment.",
+      "Transport, guides, communication facilities, medical support and emergency arrangements vary by itinerary. Please confirm exactly what is included before booking.",
+      "Himalayan travel involves inherent risks, and no particular weather outcome, rescue response or uninterrupted route access can be guaranteed."
+    ],
+    "links": [
+      {
+        "label": "Explore Adi Kailash and other Himalayan journeys",
+        "to": "/experiences"
+      }
+    ]
+  }
 ]
 
 const suggestTags = FAQ_HELP_TOPICS
@@ -133,64 +254,84 @@ export default function FAQPage() {
       {/* ── FAQ Accordion ─────────────────────────────────────────────────── */}
       <section style={{ backgroundColor: '#090909' }} className="py-20">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-10">
+          <p className="font-sans text-brand-cream-muted text-base leading-relaxed mb-12">
+            Planning a Himalayan wellness retreat or sacred journey? Explore answers to common questions about yoga, Ayurveda, cultural experiences, international travel and preparing for the Kumaon Himalaya.
+          </p>
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              style={{
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-                borderLeft:   openIndex === i ? '2px solid #e07b2a' : '2px solid transparent',
-                paddingLeft:  '20px',
-                transition:   'border-color 0.3s ease',
-              }}
-            >
-              <button
-                id={`faq-question-${i}`}
-                type="button"
-                className="w-full flex justify-between items-center py-6 text-left"
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                aria-expanded={openIndex === i}
-                aria-controls={`faq-answer-${i}`}
+            <Fragment key={i}>
+              {faq.group && (
+                <h2 className="font-serif text-brand-cream text-2xl leading-relaxed mb-4" style={{ marginTop: i === 0 ? 0 : 48 }}>
+                  {faq.group}
+                </h2>
+              )}
+              <div
+                style={{
+                  borderBottom: '1px solid rgba(255,255,255,0.06)',
+                  borderLeft:   openIndex === i ? '2px solid #e07b2a' : '2px solid transparent',
+                  paddingLeft:  '20px',
+                  transition:   'border-color 0.3s ease',
+                }}
               >
-                <span
-                  className="font-serif pr-4 transition-colors duration-200"
-                  style={{ fontSize: 19, color: openIndex === i ? '#ffffff' : '#cccccc' }}
+                <button
+                  id={`faq-question-${i}`}
+                  type="button"
+                  className="w-full flex justify-between items-center py-6 text-left"
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  aria-expanded={openIndex === i}
+                  aria-controls={`faq-answer-${i}`}
                 >
-                  {faq.q}
-                </span>
+                  <span
+                    className="font-serif pr-4 transition-colors duration-200"
+                    style={{ fontSize: 19, color: openIndex === i ? '#ffffff' : '#cccccc' }}
+                  >
+                    {faq.q}
+                  </span>
 
-                <motion.span
-                  animate={{ rotate: openIndex === i ? 45 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{
-                    color:      openIndex === i ? '#e07b2a' : '#555555',
-                    display:    'inline-block',
-                    fontSize:   14,
-                    flexShrink: 0,
-                  }}
-                >
-                  ✦
-                </motion.span>
-              </button>
+                  <motion.span
+                    animate={{ rotate: openIndex === i ? 45 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                      color:      openIndex === i ? '#e07b2a' : '#555555',
+                      display:    'inline-block',
+                      fontSize:   14,
+                      flexShrink: 0,
+                    }}
+                  >
+                    ✦
+                  </motion.span>
+                </button>
 
-              <motion.div
-                id={`faq-answer-${i}`}
-                role="region"
-                aria-labelledby={`faq-question-${i}`}
-                aria-hidden={openIndex !== i}
-                inert={openIndex === i ? undefined : ''}
-                initial={false}
-                animate={{ height: openIndex === i ? 'auto' : 0, opacity: openIndex === i ? 1 : 0 }}
-                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                style={{ overflow: 'hidden' }}
-              >
-                <p
-                  className="font-sans pb-6"
-                  style={{ fontSize: 14, color: '#777777', lineHeight: 1.9 }}
+                <motion.div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  aria-hidden={openIndex !== i}
+                  inert={openIndex === i ? undefined : ''}
+                  initial={false}
+                  animate={{ height: openIndex === i ? 'auto' : 0, opacity: openIndex === i ? 1 : 0 }}
+                  transition={{ duration: 0.35, ease: 'easeInOut' }}
+                  style={{ overflow: 'hidden' }}
                 >
-                  {faq.a}
-                </p>
-              </motion.div>
-            </div>
+                  <div
+                    className="font-sans pb-6"
+                    style={{ fontSize: 14, color: '#777777', lineHeight: 1.9 }}
+                  >
+                    {faq.paragraphs.map((paragraph, paragraphIndex) => (
+                      <p key={paragraphIndex} className="mb-4 last:mb-0">{paragraph}</p>
+                    ))}
+                    {faq.links && (
+                      <div className="flex flex-wrap gap-x-6 gap-y-2 mt-4">
+                        {faq.links.map(link => (
+                          <Link key={link.to} to={link.to} className="inline-flex items-center min-h-11 py-2 text-brand-gold underline underline-offset-4">
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              </div>
+            </Fragment>
           ))}
         </div>
       </section>
