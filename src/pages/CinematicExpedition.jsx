@@ -137,7 +137,7 @@ const altitudes = [
 export default function CinematicExpedition() {
   useSEO({
     title: 'Kumaon Tour 2026 | Eastern Kumaon Cinematic Journey from Delhi & Pithoragarh',
-    description: 'Eastern Kumaon cinematic tour from Delhi and Pithoragarh — Abbott Mount, Munsiyari, Darma Valley, Dharchula. Best Kumaon travel package for photographers and filmmakers 2026.',
+    description: 'Explore Eastern Kumaon on a cinematic road journey from Delhi, with Abbott Mount, the Kali River valley, mountain towns and local cultural encounters.',
     canonical: 'https://www.himalayanserenitytravel.com/packages/cinematic-expedition',
   });
   const [activeDay, setActiveDay] = useState(0);
@@ -371,6 +371,7 @@ export default function CinematicExpedition() {
 
         {/* ITINERARY */}
         <motion.section
+          id="itinerary"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -387,6 +388,10 @@ export default function CinematicExpedition() {
               {itinerary.map((item, i) => (
                 <button
                   key={i}
+                  type="button"
+                  id={`cinematic-day-${i}-button`}
+                  aria-controls={`cinematic-day-${i}-panel`}
+                  aria-expanded={activeDay === i}
                   onClick={() => setActiveDay(i)}
                   style={{
                     background: "none",
@@ -409,53 +414,62 @@ export default function CinematicExpedition() {
 
             {/* Day detail */}
             <div style={{ flex: 1, minWidth: 280 }}>
-              <motion.div
-                key={activeDay}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.4 }}
-                style={{
-                  background: "#0d1610",
-                  border: "1px solid #ffffff0d",
-                  padding: "36px",
-                  borderRadius: 2,
-                }}
-              >
-                <div style={{ fontSize: 11, letterSpacing: "0.2em", color: "#c9a96e", textTransform: "uppercase", marginBottom: 8 }}>
-                  {itinerary[activeDay].day}
-                </div>
-                <h3 style={{ fontSize: "1.6rem", fontWeight: 300, margin: "0 0 4px", color: "#e8e0d4" }}>
-                  {itinerary[activeDay].title}
-                </h3>
-                <div style={{ fontSize: 13, color: "#7a7068", letterSpacing: "0.08em", marginBottom: 20 }}>
-                  {itinerary[activeDay].subtitle}
-                </div>
-                <p style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "#b5a898", marginBottom: 24, fontWeight: 300 }}>
-                  {itinerary[activeDay].description}
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-                  {itinerary[activeDay].experiences.map((exp) => (
-                    <div
-                      key={exp}
-                      style={{
-                        padding: "5px 12px",
-                        border: "1px solid #c9a96e33",
-                        borderRadius: 2,
-                        fontSize: 12,
-                        color: "#b5a898",
-                        letterSpacing: "0.05em",
-                      }}
-                    >
-                      {exp}
-                    </div>
-                  ))}
-                </div>
-                {itinerary[activeDay].stay && (
-                  <div style={{ marginTop: 20, fontSize: 12, color: "#c9a96e", letterSpacing: "0.1em" }}>
-                    🏨 Overnight: {itinerary[activeDay].stay}
+              {itinerary.map((item, i) => (
+                <motion.div
+                  key={item.day}
+                  id={`cinematic-day-${i}-panel`}
+                  role="region"
+                  aria-labelledby={`cinematic-day-${i}-button`}
+                  aria-hidden={activeDay !== i}
+                  hidden={activeDay !== i}
+                  inert={activeDay === i ? undefined : ""}
+                  initial={{ opacity: 0, x: 16 }}
+                  animate={{ opacity: activeDay === i ? 1 : 0, x: activeDay === i ? 0 : 16 }}
+                  transition={{ duration: 0.4 }}
+                  style={{
+                    display: activeDay === i ? undefined : "none",
+                    background: "#0d1610",
+                    border: "1px solid #ffffff0d",
+                    padding: "36px",
+                    borderRadius: 2,
+                  }}
+                >
+                  <div style={{ fontSize: 11, letterSpacing: "0.2em", color: "#c9a96e", textTransform: "uppercase", marginBottom: 8 }}>
+                    {item.day}
                   </div>
-                )}
-              </motion.div>
+                  <h3 style={{ fontSize: "1.6rem", fontWeight: 300, margin: "0 0 4px", color: "#e8e0d4" }}>
+                    {item.title}
+                  </h3>
+                  <div style={{ fontSize: 13, color: "#7a7068", letterSpacing: "0.08em", marginBottom: 20 }}>
+                    {item.subtitle}
+                  </div>
+                  <p style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "#b5a898", marginBottom: 24, fontWeight: 300 }}>
+                    {item.description}
+                  </p>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {item.experiences.map((exp) => (
+                      <div
+                        key={exp}
+                        style={{
+                          padding: "5px 12px",
+                          border: "1px solid #c9a96e33",
+                          borderRadius: 2,
+                          fontSize: 12,
+                          color: "#b5a898",
+                          letterSpacing: "0.05em",
+                        }}
+                      >
+                        {exp}
+                      </div>
+                    ))}
+                  </div>
+                  {item.stay && (
+                    <div style={{ marginTop: 20, fontSize: 12, color: "#c9a96e", letterSpacing: "0.1em" }}>
+                      🏨 Overnight: {item.stay}
+                    </div>
+                  )}
+                </motion.div>
+              ))}
             </div>
           </div>
         </motion.section>
