@@ -144,6 +144,8 @@ export default function FAQPage() {
               }}
             >
               <button
+                id={`faq-question-${i}`}
+                type="button"
                 className="w-full flex justify-between items-center py-6 text-left"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 aria-expanded={openIndex === i}
@@ -170,25 +172,24 @@ export default function FAQPage() {
                 </motion.span>
               </button>
 
-              <AnimatePresence initial={false}>
-                {openIndex === i && (
-                  <motion.div
-                    id={`faq-answer-${i}`}
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: 'easeInOut' }}
-                    style={{ overflow: 'hidden' }}
-                  >
-                    <p
-                      className="font-sans pb-6"
-                      style={{ fontSize: 14, color: '#777777', lineHeight: 1.9 }}
-                    >
-                      {faq.a}
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <motion.div
+                id={`faq-answer-${i}`}
+                role="region"
+                aria-labelledby={`faq-question-${i}`}
+                aria-hidden={openIndex !== i}
+                inert={openIndex === i ? undefined : ''}
+                initial={false}
+                animate={{ height: openIndex === i ? 'auto' : 0, opacity: openIndex === i ? 1 : 0 }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                style={{ overflow: 'hidden' }}
+              >
+                <p
+                  className="font-sans pb-6"
+                  style={{ fontSize: 14, color: '#777777', lineHeight: 1.9 }}
+                >
+                  {faq.a}
+                </p>
+              </motion.div>
             </div>
           ))}
         </div>
