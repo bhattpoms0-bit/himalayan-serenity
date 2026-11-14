@@ -17,15 +17,15 @@ const INPUT_CLASS =
 const WHY_CARDS = [
   {
     title: 'Genuinely remote',
-    text:  'No tourist infrastructure. Panchachuli peaks as your meditation backdrop at 3,500m.',
+    text:  'Pine forests, mountain villages and Panchachuli views give Kumaon a distinctive setting for mindful travel.',
   },
   {
     title: 'Tribal culture',
-    text:  'Stay with the Shauka people of Darma Valley — a living Himalayan tradition unchanged for centuries.',
+    text:  'Discover Kumaon\'s living cultural traditions through local stories, crafts and community encounters, according to your chosen itinerary.',
   },
   {
     title: 'Local Ayurveda',
-    text:  'Kumaon forest herbs, kafal berries, local ghee — ingredients no Kerala resort can source.',
+    text:  'Explore Kumaoni food traditions and, where included in your chosen retreat, Ayurveda-related experiences.',
   },
   {
     title: 'Permit guidance',
@@ -33,7 +33,7 @@ const WHY_CARDS = [
   },
   {
     title: 'Born from the land',
-    text:  'Our guides are from Pithoragarh and Dharchula. This is their home, not a tour route.',
+    text:  'Personal guidance shaped by local knowledge of Kumaon.',
   },
   {
     title: 'Tiny groups only',
@@ -240,7 +240,7 @@ export default function InternationalRetreats() {
                 onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#0F6E56')}
                 onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1D9E75')}
               >
-                View Dates &amp; Book
+                View Retreat &amp; Dates
               </Link>
               <button
                 type="button"
@@ -364,7 +364,7 @@ export default function InternationalRetreats() {
 
       {/* ── SECTION 4 — WHY KUMAON ───────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-20">
-        <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Why Kumaon, Not Rishikesh</p>
+        <p className="text-[#1D9E75] text-xs uppercase tracking-widest mb-2">Why Choose Kumaon</p>
         <h2 className="font-serif text-[#f0ece4] text-3xl mb-10">The India that asks something of you</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {WHY_CARDS.map(({ title, text }) => (
