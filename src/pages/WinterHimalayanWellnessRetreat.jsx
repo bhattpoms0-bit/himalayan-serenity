@@ -444,25 +444,47 @@ const WinterHimalayanWellnessRetreat = () => {
           <h2 style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", fontWeight: "400", marginBottom: "48px", color: "#f0ece4" }}>
             Detailed <span style={{ color: "#8ab4d4", fontStyle: "italic" }}>Itinerary</span>
           </h2>
+          <style>{`
+            .winter-itinerary-trigger:focus-visible {
+              outline: 2px solid #8ab4d4;
+              outline-offset: -4px;
+              border-radius: 15px;
+            }
+          `}</style>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             {itinerary.map((day) => (
               <div key={day.day} style={{ border: "1px solid rgba(100,140,200,0.15)", borderRadius: "16px", overflow: "hidden", backgroundColor: activeDay === day.day ? "rgba(100,140,200,0.08)" : "rgba(10,14,26,0.5)", transition: "all 0.3s ease" }}>
-                <div onClick={() => setActiveDay(activeDay === day.day ? null : day.day)} style={{ display: "flex", alignItems: "center", gap: "20px", padding: "24px 28px", cursor: "pointer" }}>
-                  <div style={{ minWidth: "48px", height: "48px", borderRadius: "50%", backgroundColor: "rgba(138,180,212,0.15)", border: "1px solid rgba(138,180,212,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", color: "#8ab4d4", fontWeight: "600" }}>
+                <h3 style={{ margin: 0, font: "inherit" }}>
+                <button
+                  type="button"
+                  className="winter-itinerary-trigger"
+                  id={`winter-day-${day.day}-button`}
+                  aria-controls={`winter-day-${day.day}-panel`}
+                  aria-expanded={activeDay === day.day}
+                  onClick={() => setActiveDay(activeDay === day.day ? null : day.day)} style={{ display: "flex", width: "100%", border: "none", background: "transparent", color: "inherit", font: "inherit", textAlign: "left", alignItems: "center", gap: "20px", padding: "24px 28px", cursor: "pointer" }}>
+                  <span style={{ minWidth: "48px", height: "48px", borderRadius: "50%", backgroundColor: "rgba(138,180,212,0.15)", border: "1px solid rgba(138,180,212,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", color: "#8ab4d4", fontWeight: "600" }}>
                     {String(day.day).padStart(2, "0")}
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <h3 style={{ fontSize: "1rem", color: "#f0ece4", marginBottom: "4px", fontWeight: "500" }}>{day.title}</h3>
-                    <p style={{ fontSize: "0.85rem", color: "#6a8aaa", fontStyle: "italic" }}>{day.subtitle}</p>
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  </span>
+                  <span style={{ flex: 1 }}>
+                    <span style={{ display: "block", fontSize: "1rem", color: "#f0ece4", marginBottom: "4px", fontWeight: "500" }}>{day.title}</span>
+                    <span style={{ display: "block", fontSize: "0.85rem", color: "#6a8aaa", fontStyle: "italic" }}>{day.subtitle}</span>
+                  </span>
+                  <span style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <span style={{ fontSize: "0.8rem", color: "#6a8aaa" }}>📍 {day.location}</span>
                     <span style={{ color: "#8ab4d4", fontSize: "1.2rem", transition: "transform 0.3s", transform: activeDay === day.day ? "rotate(180deg)" : "rotate(0deg)" }}>›</span>
-                  </div>
-                </div>
+                  </span>
+                </button>
+                </h3>
 
-                {activeDay === day.day && (
-                  <div style={{ padding: "0 28px 28px 28px", borderTop: "1px solid rgba(100,140,200,0.1)" }}>
+                <div
+                  id={`winter-day-${day.day}-panel`}
+                  role="region"
+                  aria-labelledby={`winter-day-${day.day}-button`}
+                  hidden={activeDay !== day.day}
+                  aria-hidden={activeDay !== day.day}
+                  inert={activeDay !== day.day ? "" : undefined}
+                  style={{ display: activeDay === day.day ? undefined : "none", padding: "0 28px 28px 28px", borderTop: "1px solid rgba(100,140,200,0.1)" }}
+                >
                     <div style={{ paddingTop: "24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "32px" }}>
                       <div>
                         <p style={{ fontSize: "11px", color: "#6a8aaa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px" }}>Experiences</p>
@@ -503,8 +525,7 @@ const WinterHimalayanWellnessRetreat = () => {
                         />
                       </div>
                     )}
-                  </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
