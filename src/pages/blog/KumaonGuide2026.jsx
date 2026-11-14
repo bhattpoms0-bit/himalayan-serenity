@@ -87,13 +87,13 @@ const h2p = { color: GOLD, fontSize: '1.4rem', margin: '0 0 1rem', lineHeight: 1
 const h3  = { color: '#f0ece4', fontSize: '1.05rem', margin: '1.8rem 0 0.6rem', fontWeight: 600, fontFamily: 'Georgia, serif' }
 
 const FAQS = [
-  { q: 'Is Kumaon safe for solo women travellers?', a: 'Pithoragarh and Munsiyari are among the safest and most hospitable destinations in Uttarakhand for solo travellers of all genders. The mountain communities of Kumaon have a strong cultural tradition of hospitality toward visitors. Standard precautions appropriate to any mountain travel apply.' },
+  { q: 'Is Kumaon safe for solo women travellers?', a: 'Solo travellers should consider the route, walking demands, transport, accommodation and available local support before travelling in Kumaon. Ask your operator about arrangements for your chosen journey and use precautions appropriate to mountain travel.' },
   { q: 'What language do people speak in Kumaon?', a: 'The local language is Kumaoni — a distinct Indo-Aryan language with four major dialect groups. Hindi is widely spoken and understood throughout the region. English is spoken in most accommodation and tourist-facing contexts in Pithoragarh.' },
   { q: 'What is the elevation of Munsiyari?', a: 'Approximately 2,298 metres (7,539 feet) above sea level, in Pithoragarh district, Uttarakhand.' },
   { q: 'What is the best trek near Munsiyari for beginners?', a: 'Khaliya Top — 5 to 6 kilometres one way from Eco Park in Munsiyari, reaching 3,500 metres. Suitable for beginners with reasonable fitness. Best done early morning for sunrise views of the Panchachuli range.' },
   { q: 'Do I need a permit to visit Munsiyari?', a: 'No permit is required to visit Munsiyari itself. Inner Line Permits are required for areas beyond Munsiyari — including the Milam Glacier trek and the Darma Valley — and for the Adi Kailash and Om Parvat routes from Pithoragarh.' },
-  { q: 'What is the Lichen Park in Munsiyari?', a: "India's first Lichen Park, located in Munsiyari, covers 1.5 acres of forest land and contains over 150 species of lichens. Lichens are extremely sensitive to air pollution and cannot survive in contaminated environments — their abundance here is a direct indicator of the purity of Munsiyari's air." },
-  { q: 'What is the Van Allen Belt connection to Kasar Devi?', a: 'Kasar Devi ridge near Almora sits within a geomagnetic anomaly where the inner Van Allen Radiation Belt dips closer to the surface than almost anywhere else on the planet. Two other such locations are Machu Picchu in Peru and Stonehenge in the UK. NASA confirmed this geomagnetic anomaly in 2013.' },
+  { q: 'What is the Lichen Park in Munsiyari?', a: "India's first Lichen Park, located in Munsiyari, covers 1.5 acres of forest land and contains over 150 species of lichens. Different lichen species respond differently to pollution; their presence alone does not certify pollution-free air." },
+  { q: 'Why is Kasar Devi associated with meditation?', a: 'Kasar Devi is associated with Swami Vivekananda and a tradition of spiritual reflection. Visitors can appreciate its temple, pine forests and Himalayan views without treating local spiritual beliefs as scientifically established effects.' },
   { q: 'What food is Kumaon famous for?', a: 'Kumaoni cuisine is built around locally grown mountain ingredients — maddua (finger millet), bhatt (black soybeans), locally grown vegetables and Himalayan herbs. Key dishes include Bhatt ki Churkani, Kafuli, Aloo ke Gutke and the famous Bal Mithai sweet of Almora. The cuisine is largely vegetarian, rooted in Ayurvedic principles and shaped by the nutritional requirements of high-altitude mountain living.' },
 ]
 
@@ -302,8 +302,8 @@ export default function KumaonGuide2026() {
         reverse
         heading="5. Forest Bathing in the Himalayan Oak Forests"
       >
-        <p style={{ ...p, color: 'rgba(255,255,255,0.72)' }}>The forests around Munsiyari are not merely scenery. They are ecosystems of extraordinary complexity and biodiversity — and spending deliberate, unhurried time within them has measurable effects on the human body.</p>
-        <p style={{ ...p, color: 'rgba(255,255,255,0.72)', marginBottom: 0 }}>The Japanese practice of Shinrin-yoku — forest bathing — involves slow, mindful immersion in forest environments. A systematic review published in <em>Environmental Health and Preventive Medicine</em> found consistent evidence that time in forest settings significantly reduces cortisol levels, lowers blood pressure and improves psychological wellbeing.</p>
+        <p style={{ ...p, color: 'rgba(255,255,255,0.72)' }}>The forests around Munsiyari invite slow exploration of the Himalayan landscape.</p>
+        <p style={{ ...p, color: 'rgba(255,255,255,0.72)', marginBottom: 0 }}>Forest bathing, or Shinrin-yoku, is a practice of spending unhurried time in a forest, noticing its sounds, textures and changing light. Here, it offers a way to experience the landscape through mindful walking and quiet observation.</p>
       </Split>
       <div className="kg-narrow" style={{ paddingTop: '1.8rem' }}>
         <p style={p}>The oak forests of Kumaon — <em>Quercus leucotrichophora</em>, or banj oak, growing between 1,500 and 2,200 metres — are among the most biodiverse temperate forest habitats in the western Himalayas. Research conducted across 42 sites in the Nainital and Almora districts of Kumaon recorded 136 species of birds in this forest type alone, of which 104 are likely breeding residents. Of these, 48 are Himalayan endemic species found nowhere else on earth.</p>
@@ -316,7 +316,7 @@ export default function KumaonGuide2026() {
         file="04-lichen-park-kumaon-closeup.webp"
         alt="Lichen Park close-up showing vivid yellow-green lichen on tree bark, Munsiyari, Kumaon"
         width={900} height={600}
-        caption="India's first Lichen Park, Munsiyari — home to over 150 species, some thousands of years old. Their presence here is a direct measure of the purity of the air."
+        caption="Textures and colours of lichens in Munsiyari's Himalayan forest landscape."
         heading="6. India's First Lichen Park"
       >
         <p style={{ ...p, color: 'rgba(255,255,255,0.72)' }}>Hidden within the forests of Munsiyari is something that almost no visitor knows exists — and that makes it, once discovered, one of the most unexpectedly moving places in the entire region.</p>
@@ -324,7 +324,7 @@ export default function KumaonGuide2026() {
       </Split>
       <div className="kg-narrow" style={{ paddingTop: '1.8rem' }}>
         <p style={p}>Lichens — symbiotic organisms formed from the partnership of fungi and algae — are among the oldest living things on earth. Some lichen colonies are thousands of years old. They grow on rock faces, tree bark and forest floors, in colours ranging from pale grey and silver to vivid orange, green and deep rust-red.</p>
-        <p style={p}>They are also extraordinarily sensitive to air quality — lichens cannot survive in polluted environments. Their presence in such diversity and abundance in the Munsiyari forests is, in itself, a statement about the purity of the air in this region.</p>
+        <p style={p}>Lichens respond differently to their environment, and some species are used in air-quality studies. Appreciating their variety is part of exploring Munsiyari's forest ecology.</p>
         <p style={p}>Standing in the Lichen Park — among organisms that have been growing on these rocks since before any living human being was born — has a quality that is difficult to describe. It is something like perspective. The ordinary sense of urgency that accompanies modern life becomes, briefly but genuinely, impossible to maintain.</p>
       </div>
 
@@ -343,6 +343,7 @@ export default function KumaonGuide2026() {
       <div className="kg-narrow" style={{ paddingTop: '1.8rem' }}>
         <p style={p}>The Shauka people of Pithoragarh district share a similar heritage — high-altitude traders and herders whose culture bridges the Hindu traditions of the Indian plains and the Buddhist influences of the Tibetan plateau. Their wood-carved homes, their textile traditions and their festivals reflect centuries of life at the intersection of two civilisations.</p>
         <p style={p}>The Tribal Heritage Museum in Munsiyari town, established in 2000, documents the history, culture and material life of the Bhotia community through a remarkable private collection of artefacts, photographs and oral histories.</p>
+        <p style={p}>For a women-only cultural journey centred on crafts, local encounters and reflection, explore our <Link to="/retreats/womens-retreat" className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" style={{ color: GOLD, textDecoration: 'underline', textUnderlineOffset: '4px' }}>Women's Sacred Himalaya Retreat</Link>.</p>
         <p style={p}>Kumaon's cultural diversity extends further — the region is also home to Tharu, Rung and Jaunsari communities, each with distinct languages, craft traditions and belief systems. The folk art of Aipan — intricate rice paste paintings made by Kumaoni women for auspicious occasions — is perhaps the most recognised expression of Kumaoni visual culture, practiced across ethnic boundaries as a shared artistic tradition.</p>
         <p style={p}>The festival calendar of Kumaon is tied to the agrarian and seasonal cycles of mountain life — Harela celebrates the monsoon and the planting of seeds; Ghughutiya marks the winter solstice with handmade sweets hung from children's necks for the crows; Phooldei welcomes spring with flowers placed at doorsteps before dawn. These are not performances for visitors. They are simply how this culture marks time.</p>
       </div>
@@ -389,7 +390,7 @@ export default function KumaonGuide2026() {
 
       {/* ── SECTION 9 — Kasar Devi, image 08 cinematic quote ───────── */}
       <div className="kg-narrow">
-        <h2 style={h2}>9. Kasar Devi — Where Science Meets the Spiritual</h2>
+        <h2 style={h2}>9. Kasar Devi — Landscape, Heritage &amp; Reflection</h2>
 
         <div className="kg-cinematic">
           <img
@@ -401,22 +402,17 @@ export default function KumaonGuide2026() {
           />
           <div className="kg-cinematic-overlay" aria-hidden="true">
             <div className="kg-cinematic-box">
-              <p className="kg-cinematic-quote">"Bob Dylan felt it. Allen Ginsberg felt it. Steve Jobs felt it."</p>
+              <p className="kg-cinematic-quote">"Time for reflection above Almora."</p>
             </div>
           </div>
         </div>
         <figcaption style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.38)', fontFamily: 'sans-serif', fontStyle: 'italic', lineHeight: 1.5, marginTop: '0.45rem', marginBottom: '1.5rem' }}>
-          Kasar Devi Temple, nine kilometres above Almora — a 2,000-year-old rock-cut shrine that sits within one of only three confirmed geomagnetic anomalies on Earth
+          Kasar Devi Temple on the ridge above Almora, overlooking the Kumaon landscape.
         </figcaption>
 
         <p style={p}>Nine kilometres above Almora, on a pine-forested ridge with unobstructed views of the Himalayan range, stands the Kasar Devi Temple — a rock-cut shrine dedicated to a local form of Goddess Durga, believed to be approximately 2,000 years old.</p>
-        <p style={p}>Swami Vivekananda meditated in a cave behind this temple in the late 1800s. He described it as a place of unusual spiritual power — and as with several of his observations, the scientific explanation came much later.</p>
-        <p style={p}>In 1958, American physicist James Van Allen discovered the Van Allen Radiation Belts — toroidal zones of energetically charged particles trapped in Earth's magnetic field, encircling the planet.</p>
-        <p style={p}>What was later established is that in three specific locations on earth, the inner Van Allen Belt dips significantly closer to the surface than anywhere else — creating measurably different electromagnetic environments. Those three locations are Machu Picchu in Peru, Stonehenge in the United Kingdom, and Crank's Ridge at Kasar Devi, Almora. NASA confirmed this in 2013.</p>
-        <p style={p}>Research suggests this electromagnetic anomaly may influence melatonin production, cortisol levels and alpha and theta brainwave states — the states associated with deep relaxation and meditation.</p>
-        <p style={p}>Whether you approach this scientifically or spiritually — or both, or neither — sitting on Crank's Ridge at sunset, looking out over hundreds of kilometres of Himalayan ridgeline, you will feel something shift.</p>
-        <p style={p}>Bob Dylan felt it. Allen Ginsberg felt it. Steve Jobs felt it.</p>
-        <p style={p}>Most people who sit here long enough do.</p>
+        <p style={p}>Swami Vivekananda's association with Kasar Devi is part of the ridge's spiritual heritage. For visitors today, the temple, pine forests and Himalayan views offer a setting for quiet contemplation.</p>
+        <p style={p}>A slow walk along the ridge and time to sit quietly can become part of a thoughtful visit to Kumaon, alongside its temples, village traditions and mountain landscapes.</p>
       </div>
 
       {/* ── SECTION 10 — image 09 FULL BLEED LEFT ──────────────────── */}
@@ -428,13 +424,13 @@ export default function KumaonGuide2026() {
         heading="10. The Food of the Kumaon Mountains"
       >
         <p style={{ ...p, color: 'rgba(255,255,255,0.72)' }}>Kumaoni cuisine deserves to be far better known than it is.</p>
-        <p style={{ ...p, color: 'rgba(255,255,255,0.72)', marginBottom: 0 }}>It is the food of a mountain people who learned — through centuries of living at altitude, far from trading centres, through long winters and short growing seasons — exactly which locally available ingredients nourish the human body most effectively.</p>
+        <p style={{ ...p, color: 'rgba(255,255,255,0.72)', marginBottom: 0 }}>Kumaoni cooking reflects mountain farming, seasonal ingredients and recipes passed between generations. Exploring its breads, pulses and vegetable dishes is one way to understand everyday life in the region.</p>
       </Split>
       <div className="kg-narrow" style={{ paddingTop: '1.8rem' }}>
-        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Maddua (finger millet):</strong> Grown in the Kumaon hills at altitude, maddua flour is exceptionally rich in calcium, potassium and dietary fibre. Research has documented its traditional use in blood sugar regulation. Maddua roti — flatbread made from this flour — is the everyday staple of Kumaoni mountain households.</p>
+        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Maddua (finger millet):</strong> Traditionally used in Kumaoni cooking, maddua flour is made into roti and other regional dishes.</p>
         <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Bhatt ki Churkani:</strong> A slow-cooked preparation of black soybeans indigenous to the Kumaon hills. Protein-dense, warming and deeply flavoured — a dish that has sustained Kumaoni mountain communities through high-altitude winters for generations.</p>
-        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Kafuli:</strong> A preparation of green leafy vegetables — typically spinach or fenugreek — cooked slowly with mustard oil and mountain spices. Medicinal and deeply nourishing.</p>
-        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Aloo ke Gutke:</strong> Locally grown potatoes tempered with mustard seeds, dried red chillies and jakhiya — a seed found only in the Himalayan hills — that gives this simple dish a flavour impossible to replicate anywhere else.</p>
+        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Kafuli:</strong> A preparation of green leafy vegetables — typically spinach or fenugreek — cooked slowly with mustard oil and mountain spices.</p>
+        <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Aloo ke Gutke:</strong> Potatoes cooked with spices and herbs in a familiar Kumaoni preparation. Ingredients and seasonings vary between households.</p>
         <p style={{ ...p, marginBottom: '0.5rem' }}><strong style={{ color: '#f0ece4' }}>Bal Mithai:</strong> The most famous sweet of Kumaon — a chocolate-brown fudge made from roasted khoya, coated in white sugar balls. Made in the traditional halwai shops of Almora for over a century.</p>
         <p style={p}>The herbal teas of Kumaon — made from locally foraged buransh (rhododendron flower), tulsi, ginger and mountain herbs — are in a category of their own. Consumed daily by mountain communities throughout the year, they carry the altitude and the ecosystem in every cup.</p>
       </div>
