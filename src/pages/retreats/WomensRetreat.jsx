@@ -541,7 +541,7 @@ export default function WomensRetreat() {
               <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
               <input id="enquiry-dates"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
-                placeholder="e.g. April or October 2026" className={INPUT_CLASS}
+                placeholder="Tell us your preferred travel month and year" className={INPUT_CLASS}
               />
               <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
               <select id="enquiry-groupSize"

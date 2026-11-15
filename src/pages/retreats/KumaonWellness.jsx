@@ -161,7 +161,6 @@ const INCLUDED = [
 ]
 
 const DEPARTURES = [
-  { month: 'November 2026', dates: '20 November – 28 November 2026' },
   { month: 'December 2026', dates: '4 December – 12 December 2026' },
 ]
 
@@ -359,7 +358,7 @@ export default function KumaonWellness() {
             2026 Season
           </p>
           <h2 className="font-serif text-[#f0ece4] text-3xl lg:text-4xl mb-3">
-            Upcoming Departures — November &amp; December 2026
+            Upcoming Departure — December 2026
           </h2>
           <p className="text-[#f0ece4]/40 text-sm mb-14">
             9 days / 8 nights · Small groups of 6 to 8 guests
@@ -646,7 +645,7 @@ export default function KumaonWellness() {
               <label htmlFor="enquiry-dates" className="block text-sm text-[#f0ece4]/85">Preferred departure date (optional)</label>
               <input id="enquiry-dates" aria-describedby="enquiry-dates-value"
                 type="text" name="dates" value={form.dates} onChange={handleChange}
-                placeholder="e.g. November 2026" className={INPUT_CLASS}
+                placeholder="e.g. December 2026" className={INPUT_CLASS}
               />
               <p id="enquiry-dates-value" className="text-sm text-[#f0ece4]/85">{form.dates}</p>
               <label htmlFor="enquiry-groupSize" className="block text-sm text-[#f0ece4]/85">Number of travellers</label>
