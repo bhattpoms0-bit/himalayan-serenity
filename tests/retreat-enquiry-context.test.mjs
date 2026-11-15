@@ -10,7 +10,7 @@ import * as retreats from '../src/data/retreats.js'
 const require = createRequire(import.meta.url)
 const variants = [
   { name: 'hub', file: 'src/pages/InternationalRetreats.jsx', dates: [undefined] },
-  { name: 'Panchachuli', file: 'src/pages/retreats/KumaonWellness.jsx', dates: ['20 November – 28 November 2026', '4 December – 12 December 2026'] },
+  { name: 'Panchachuli', file: 'src/pages/retreats/KumaonWellness.jsx', dates: ['4 December – 12 December 2026'] },
 ].map(v => ({ ...v, code: transformSync(readFileSync(new URL('../' + v.file, import.meta.url), 'utf8'), { loader: 'jsx', format: 'cjs', jsx: 'automatic' }).code }))
 const nodes = (type, tree) => !tree || typeof tree !== 'object' ? [] : Array.isArray(tree)
   ? tree.flatMap(child => nodes(type, child))
