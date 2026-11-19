@@ -154,7 +154,7 @@ export default function InternationalRetreats() {
       <section aria-labelledby="international-hero-title" className="international-hero">
         <img
           src="/images/retreats/himalayan-yoga-meditation-retreat-hero.webp"
-          alt="Woman practising yoga at sunrise with Himalayan peaks, international yoga and meditation retreat in Kumaon"
+          alt="Woman seated in meditation with prayer beads before snow-covered mountains."
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -167,7 +167,7 @@ export default function InternationalRetreats() {
               HIMALAYAN WELLNESS · KUMAON, INDIA
             </p>
             <h1 id="international-hero-title" className="font-serif">
-              Find Your Stillness in the Himalayas
+              Himalayan Wellness Retreats in Kumaon, India
             </h1>
             <p className="international-hero-description">
               Choose a small-group journey in Kumaon, India: yoga and Ayurveda, digital detox, or women-led cultural travel.
@@ -290,7 +290,7 @@ export default function InternationalRetreats() {
                   <div className="w-full rounded-t-xl overflow-hidden bg-[#150810]">
                     <img
                       src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
-                      alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
+                      alt="Three women talking beside village fields with mountains in the background."
                       loading="lazy"
                       className="w-full block"
                       style={{
