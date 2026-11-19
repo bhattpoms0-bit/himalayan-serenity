@@ -275,7 +275,7 @@ export default function KumaonWellness() {
       <section className="relative w-full min-h-screen bg-[#0a100d] flex flex-col justify-start overflow-hidden">
         <img
           src="/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp"
-          alt="Group yoga at Khaliya Top with Panchachuli peaks, Kumaon Himalaya"
+          alt="Woman seated in meditation on a terrace overlooking mountain peaks."
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -304,6 +304,9 @@ export default function KumaonWellness() {
             ))}
           </div>
           <RetreatOverview retreat={PANCHACHULI_WELLNESS} />
+          <p className="max-w-3xl text-[#f0ece4]/75 text-base leading-7 mb-8">
+            This 9-day / 8-night travelling retreat connects Pithoragarh, Munsiyari and Kasar Devi through yoga, meditation, Ayurveda-related experiences and Kumaon culture.
+          </p>
           <div className="flex flex-wrap gap-4">
             <a
               href="#enquiry"

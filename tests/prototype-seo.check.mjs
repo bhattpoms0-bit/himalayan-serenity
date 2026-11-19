@@ -12,7 +12,7 @@ import { preparePrerender, finishPrerender } from '../src/prerender/handoff.js'
 const site = 'https://www.himalayanserenitytravel.com'
 const expected = [
   ['/', 'src/pages/Home.jsx', 'Wellness Journeys Rooted in the Himalayas'],
-  ['/international-retreats', 'src/pages/InternationalRetreats.jsx', 'Find Your Stillness in the Himalayas'],
+  ['/international-retreats', 'src/pages/InternationalRetreats.jsx', 'Himalayan Wellness Retreats in Kumaon, India'],
   ['/retreats/panchachuli-wellness', 'src/pages/retreats/KumaonWellness.jsx', 'Panchachuli Wellness Retreat'],
   ['/experiences', 'src/pages/Experiences.jsx', 'Sacred Himalayan Journeys & Expeditions'],
 ]

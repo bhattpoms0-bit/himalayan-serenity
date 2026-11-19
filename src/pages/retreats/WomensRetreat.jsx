@@ -251,7 +251,7 @@ export default function WomensRetreat() {
       <section className="relative w-full min-h-screen bg-[#0d0508] flex flex-col justify-start overflow-hidden">
         <img
           src="/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp"
-          alt="International woman with Kumaoni women in Himalayan village with Panchachuli peaks, Women of Kumaon retreat"
+          alt="Three women talking beside village fields with mountains in the background."
           fetchPriority="high"
           loading="eager"
           decoding="async"
@@ -271,7 +271,7 @@ export default function WomensRetreat() {
             Mountain Wisdom · Living Traditions · Sacred Landscapes
           </p>
           <p className="text-[#f0ece4]/60 text-sm mb-6">
-            A premium women-led cultural immersion journey through the Kumaon Himalaya
+            A women-only cultural and mindfulness journey through Kumaon, India, with local encounters, crafts and time for reflection.
           </p>
           <div className="mb-8">
             {[retreatDuration(WOMENS_SACRED_HIMALAYA), 'Kumaon Himalaya', 'Max 8 Guests'].map(stat => (
