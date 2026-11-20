@@ -537,6 +537,9 @@ export default function AdiKailashExpedition() {
           <div style={{ marginBottom: 28, padding: "14px 18px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
             <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
           </div>
+          <p style={{ margin: 0, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", lineHeight: 1.7 }}>
+            <Link to="/blog/best-time-visit-adi-kailash-season-guide" style={{ color: gold, textDecoration: "underline" }} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Adi Kailash seasonal travel guide</Link>
+          </p>
         </motion.section>
 
         {/* ITINERARY */}
@@ -693,6 +696,11 @@ export default function AdiKailashExpedition() {
                   </div>
                 ))}
               </div>
+              {name === "packing" && (
+                <p style={{ margin: "24px 0 0", fontSize: "clamp(0.85rem,2vw,0.9rem)", lineHeight: 1.7 }}>
+                  <Link to="/blog/what-to-pack-himalayan-spiritual-journey" style={{ color: gold, textDecoration: "underline" }} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Himalayan expedition packing guide</Link>
+                </p>
+              )}
             </motion.div>
           ))}
         </motion.section>

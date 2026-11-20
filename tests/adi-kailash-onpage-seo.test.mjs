@@ -25,6 +25,12 @@ const decode = html => html.replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&')
 const text = html => decode(html.replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim()
 const nodes = value => !value || typeof value !== 'object' ? [] : Array.isArray(value) ? value.flatMap(nodes) : [value, ...nodes(value.props?.children)]
 const normalizeHeadings = value => value.replace(/<h2 (style=\{\{[^\n]+\}\})>([^<]+)<\/h2>/g, (all, style, label) => sectionHeadings.includes(label) ? `<div ${style}>${label}</div>` : all)
+// C1 permits only this exact additional block in the protected season section.
+// Remove it before comparing the original B1 fingerprint; do not rebaseline.
+const seasonLinkSource = `          <p style={{ margin: 0, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", lineHeight: 1.7 }}>
+            <Link to="/blog/best-time-visit-adi-kailash-season-guide" style={{ color: gold, textDecoration: "underline" }} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Adi Kailash seasonal travel guide</Link>
+          </p>
+`
 
 function mount() {
   const state = [], module = { exports: {} }
@@ -71,7 +77,8 @@ test('baseline data, routes, seasons, pricing, images, styles and enquiry code r
   // Fingerprints taken from verified main 20d738cb, before B1 implementation.
   assert.equal(digest(source.slice(0, source.indexOf('const ADI_KAILASH_SCHEMAS'))), '67f329420cde78ea704f84a4af4d7173fe167da94f10c56b32efc1b44fa423db')
   assert.equal(digest(source.slice(source.indexOf('  // Preload'), source.indexOf('\n  return (\n'))), '471122e7da5b14a689e10656acd79afa65fbe6fdd38b3eaff00cb5c5c2714ac1')
-  assert.equal(digest(normalizeHeadings(source.slice(source.indexOf('        {/* EXPEDITION ROUTE */}'), source.indexOf('        {/* ITINERARY */}')))), 'f06b78844fd4fd9178a6e37b0f49744a9b7feff0a3ef60ba17638d7b8f6c4dce')
+  assert.equal(source.split(seasonLinkSource).length - 1, 1, 'only the exact approved season link block is allowed')
+  assert.equal(digest(normalizeHeadings(source.slice(source.indexOf('        {/* EXPEDITION ROUTE */}'), source.indexOf('        {/* ITINERARY */}')).replace(seasonLinkSource, ''))), 'f06b78844fd4fd9178a6e37b0f49744a9b7feff0a3ef60ba17638d7b8f6c4dce')
   assert.equal(digest(normalizeHeadings(source.slice(source.indexOf('        {/* GROUP PRICING */}')))), 'b4126e590a9238566e3c3a0811945ec7e54a1ad1fcc97410dfd24101a67931b8')
 })
 
@@ -115,12 +122,36 @@ function checkDetails(app) {
   for (const name of detailNames) {
     const items = app.data[name], panel = app.panel(`ak-details-${name}-panel`)
     assert.equal(items.length, 8)
-    assert.equal(text(app.html(panel)), items.map(item => `${name === 'exclusions' ? '✗' : '✓'} ${item}`).join(' '))
+    const originalItems = items.map(item => `${name === 'exclusions' ? '✗' : '✓'} ${item}`).join(' ')
+    const grid = nodes(panel).find(n => n.props?.className === 'ak-inclusions-grid')
+    assert.equal(text(app.html(grid)), originalItems, 'all original items, order and glyphs remain exact')
+    assert.equal(text(app.html(panel)), originalItems + (name === 'packing' ? ' Himalayan expedition packing guide' : ''))
+    const links = nodes(panel).filter(n => n.props?.to)
+    assert.equal(links.length, name === 'packing' ? 1 : 0)
+    if (name === 'packing') {
+      assert.equal(links[0].props.to, '/blog/what-to-pack-himalayan-spiritual-journey')
+      assert.equal(links[0].props.children, 'Himalayan expedition packing guide')
+    }
     const spans = nodes(panel).filter(n => n.type === 'span')
     spans.forEach((span, i) => assert.equal(span.props.style.color, name === 'exclusions' ? '#7a7068' : i % 2 === 0 ? '#c9a96e' : '#b5a898'))
     assert.equal(nodes(panel).find(n => n.props?.className === 'ak-inclusions-grid').props.children.length, 8)
   }
 }
+
+test('C1 package reading links are unique, contextual and keyboard focusable', () => {
+  const app = mount()
+  for (const [to, label] of [
+    ['/blog/best-time-visit-adi-kailash-season-guide', 'Adi Kailash seasonal travel guide'],
+    ['/blog/what-to-pack-himalayan-spiritual-journey', 'Himalayan expedition packing guide'],
+  ]) {
+    const links = app.all().filter(n => n.props?.to === to)
+    assert.equal(links.length, 1)
+    assert.equal(links[0].props.children, label)
+    assert.match(links[0].props.className, /focus-visible:outline/)
+    assert.equal(links[0].props.tabIndex, undefined)
+    assert.equal(links[0].props.onClick, undefined)
+  }
+})
 
 function checkSelection(app, day, detail) {
   const groups = [Array.from({ length: 7 }, (_, i) => [`ak-day-${i}`, i === day]), detailNames.map(name => [`ak-details-${name}`, name === detail])]
