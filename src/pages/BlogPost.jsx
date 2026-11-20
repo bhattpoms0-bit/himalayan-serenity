@@ -9,7 +9,33 @@ import { articleDate } from '../utils/articleDate'
 
 const EASE = [0.25, 0.46, 0.45, 0.94]
 
-const renderContent = (content) => {
+// Contextual reading links apply only to these existing articles. Keep body
+// strings and the rendering of every other article unchanged.
+const CONTEXTUAL_LINKS = {
+  'adi-kailash-complete-guide-2024': {
+    after: 'Travelers need an Inner Line Permit (ILP) to visit this restricted border area. Our team handles all permit arrangements as part of your package.',
+    to: '/blog/adi-kailash-ilp-guide-2026',
+    label: 'Adi Kailash Inner Line Permit guide',
+  },
+  'om-parvat-natural-om-symbol': {
+    after: 'Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expedition, as they are located in the same region.',
+    to: '/packages/adi-kailash-expedition',
+    label: 'View the Adi Kailash and Om Parvat itinerary',
+  },
+  'best-time-visit-adi-kailash-season-guide': {
+    after: 'For first-time pilgrims, we recommend **September** as the ideal month — perfect weather, clear views, and a deeply spiritual atmosphere as the summer crowds thin out.',
+    to: '/packages/adi-kailash-expedition',
+    label: 'Explore the Adi Kailash and Om Parvat itinerary',
+  },
+  'what-to-pack-himalayan-spiritual-journey': {
+    after: 'Packing for a high-altitude Himalayan expedition requires careful planning. You need to balance warmth, functionality, and keeping your pack light enough to carry comfortably.',
+    to: '/packages/adi-kailash-expedition',
+    label: 'Explore the Adi Kailash and Om Parvat journey',
+  },
+}
+
+const renderContent = (content, slug) => {
+  const contextualLink = CONTEXTUAL_LINKS[slug]
   return content.split('\n').map((line, i) => {
     if (line.startsWith('## ')) {
       return (
@@ -29,6 +55,9 @@ const renderContent = (content) => {
     return (
       <p key={i} className="font-sans text-[#999] text-base leading-8 mb-4">
         {line}
+        {contextualLink && line === contextualLink.after && (
+          <>{' '}<Link to={contextualLink.to} className="text-brand-gold underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">{contextualLink.label}</Link></>
+        )}
       </p>
     )
   })
@@ -194,7 +223,7 @@ export default function BlogPost() {
           transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
         >
           <div className="prose-content">
-            {renderContent(post.content)}
+            {renderContent(post.content, post.slug)}
           </div>
         </motion.article>
 
