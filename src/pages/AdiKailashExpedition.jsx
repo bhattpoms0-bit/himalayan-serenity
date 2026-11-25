@@ -143,9 +143,9 @@ const highlights = [
 
 const inclusions = [
   "Accommodation on twin-sharing basis",
-  "Daily breakfast & dinner",
+  "Meal plan varies by joining point; see package options",
   "All internal road transportation (SUV)",
-  "Experienced expedition coordinator",
+  "Experienced expedition coordinator and local guide",
   "Inner Line Permit assistance",
   "Sightseeing as per itinerary",
   "Basic first-aid support",
@@ -158,7 +158,7 @@ const exclusions = [
   "Porter services",
   "Travel insurance (strongly recommended)",
   "Camera or drone permits",
-  "Lunches & beverages",
+  "Lunch, dinner & beverages; all meals on the Pithoragarh option",
   "Emergency evacuation expenses",
   "GST and applicable taxes",
 ];
@@ -186,9 +186,9 @@ const altitudeChart = [
 ];
 
 const seasons = [
-  { period: "May – June", experience: "Best season – clear skies, Adi Kailash approach open" },
-  { period: "September – October", experience: "Post-monsoon clarity, excellent photography" },
-  { period: "November onwards", experience: "High passes close – expedition not possible" },
+  { period: "May – June", experience: "Check current weather, road access and permit requirements" },
+  { period: "September – October", experience: "Visibility and access remain dependent on current conditions" },
+  { period: "November onwards", experience: "Confirm current restrictions; no fixed closure date is promised" },
 ];
 
 const travelerTypes = [
@@ -415,7 +415,7 @@ export default function AdiKailashExpedition() {
                   borderRadius: 4,
                   border: "1px solid rgba(201,168,76,0.5)",
                 }}>
-                  Sacred Himalayan Expedition · 6 Days / 5 Nights
+                  Sacred Himalayan Expedition · 3 or 5 days
                 </div>
               </div>
               <h1 style={{ fontSize: "clamp(1.8rem,7vw,5.5rem)", fontWeight: 300, lineHeight: 1.05, margin: "0 0 8px", letterSpacing: "-0.01em" }}>
@@ -457,7 +457,7 @@ export default function AdiKailashExpedition() {
       <div style={{ borderTop: `1px solid #ffffff0f`, borderBottom: `1px solid #ffffff0f`, background: card }}>
         <div className="ak-stats-grid">
           {[
-            { label: "Duration",        value: "6 Days / 5 Nights"   },
+            { label: "Duration",        value: "3 or 5 days"   },
             { label: "Max Altitude",    value: "3,600+ m"            },
             { label: "Group Size",      value: "Max 8–10 travelers"  },
             { label: "Fitness Level",   value: "Moderate"            },
@@ -482,7 +482,7 @@ export default function AdiKailashExpedition() {
             <img
               className="ak-route-img"
               src="/images/adi-kailash-expedition/adi-kailash-expedition-route-map.webp"
-              alt="Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map"
+              alt="Himalayan Serenity Travel Adi Kailash Om Parvat route map for reference"
               loading="lazy"
             />
           </div>
@@ -524,7 +524,7 @@ export default function AdiKailashExpedition() {
           <h2 style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Best Travel Season</h2>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "10px 22px", background: `${gold}18`, border: `1px solid ${gold}55`, borderRadius: 2, marginBottom: 28 }}>
             <span style={{ fontSize: 16 }}>🗓️</span>
-            <span style={{ fontSize: 14, color: gold, letterSpacing: "0.1em" }}>Best Season: May to October</span>
+            <span style={{ fontSize: 14, color: gold, letterSpacing: "0.1em" }}>Seasonal planning: confirm conditions before travel</span>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 16, marginBottom: 28 }}>
             {seasons.map(s => (
@@ -535,7 +535,7 @@ export default function AdiKailashExpedition() {
             ))}
           </div>
           <div style={{ marginBottom: 28, padding: "14px 18px", background: "#12080a", border: `1px solid #ff444422`, borderLeft: `3px solid #ff4444` }}>
-            <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: "#ff8888" }}>⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.</div>
+            <div style={{ fontSize: "clamp(0.8rem,1.5vw,0.85rem)", color: "#ff8888" }}>⚠️ Weather, road conditions and official restrictions can affect access at any time. Confirm current arrangements and permit requirements before booking; approval and mountain views are not guaranteed.</div>
           </div>
           <p style={{ margin: 0, fontSize: "clamp(0.8rem,1.5vw,0.85rem)", lineHeight: 1.7 }}>
             <Link to="/blog/best-time-visit-adi-kailash-season-guide" style={{ color: gold, textDecoration: "underline" }} className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold">Adi Kailash seasonal travel guide</Link>
@@ -545,6 +545,8 @@ export default function AdiKailashExpedition() {
         {/* ITINERARY */}
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <h2 style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 32 }}>Day by Day Itinerary</h2>
+
+          <p data-itinerary-scope-note style={{ color: muted, lineHeight: 1.8, marginBottom: 24 }}>The detailed Day 0–Day 6 route below is retained for reference. It is not a confirmed day-wise itinerary for the 3-day Pithoragarh or 5-day / 4-night Kathgodam and Delhi options. Ask for the stops, overnight stays and joining and return arrangements for your chosen option before booking.</p>
 
           <div className="ak-itinerary-wrap">
             {/* LEFT / TOP: day tabs */}
@@ -709,24 +711,24 @@ export default function AdiKailashExpedition() {
         <motion.section className="ak-section" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <h2 style={{ fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: gold, marginBottom: 10 }}>Group Package Prices</h2>
           <p style={{ fontSize: "clamp(0.8rem,1.5vw,0.9rem)", color: muted, marginBottom: 36, letterSpacing: "0.06em" }}>
-            Minimum 6 people · Transport, accommodation, permit assistance &amp; guide included · Meals not included
+            Minimum 6 people · Transport, accommodation, permit assistance &amp; local guide included · Meal plan and duration depend on your joining point
           </p>
           <div className="ak-pricing-grid">
             {[
               {
                 label: "From Pithoragarh",
                 price: "₹15,000",
-                items: ["Transport", "Accommodation", "Permit assistance"],
+                items: ["3 days", "Transport", "Accommodation", "Permit assistance", "Local guide", "Meals excluded"],
               },
               {
                 label: "From Kathgodam",
                 price: "₹24,999",
-                items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
+                items: ["5 days / 4 nights", "Transport", "Accommodation", "Permit assistance", "Local guide", "Breakfast only (CP); lunch and dinner excluded"],
               },
               {
                 label: "From Delhi",
                 price: "₹29,999",
-                items: ["Transport", "Accommodation", "Permit assistance", "Guide"],
+                items: ["5 days / 4 nights", "Transport", "Accommodation", "Permit assistance", "Local guide", "Breakfast only (CP); lunch and dinner excluded"],
               },
             ].map((g) => (
               <div key={g.label} style={{
@@ -839,7 +841,7 @@ export default function AdiKailashExpedition() {
           </a>
           <div style={{ fontSize: 12, color: "#3a3028", letterSpacing: "0.08em" }}>
             Limited seasonal departures ·{' '}
-            <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#3a3028", textDecoration: 'underline' }}>Inner Line Permit included</Link>
+            <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#3a3028", textDecoration: 'underline' }}>Inner Line Permit assistance</Link>
             {' '}· Max 8–10 travelers
           </div>
         </motion.section>

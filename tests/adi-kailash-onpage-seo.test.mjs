@@ -14,6 +14,85 @@ const require = createRequire(import.meta.url)
 const source = readFileSync(new URL('../src/pages/AdiKailashExpedition.jsx', import.meta.url), 'utf8').replace(/\r\n/g, '\n')
 // Test-only access follows existing repository tests; no production exports added.
 const code = transformSync(source + '\nexport { itinerary, inclusions, exclusions, packing };', { loader: 'jsx', format: 'cjs', jsx: 'automatic' }).code
+// Exact owner-authorised follow-up substitutions; every other byte remains fingerprint-protected.
+const packageCorrections = [
+  {
+    "before": "Daily breakfast & dinner",
+    "after": "Meal plan varies by joining point; see package options",
+    "count": 1
+  },
+  {
+    "before": "Experienced expedition coordinator",
+    "after": "Experienced expedition coordinator and local guide",
+    "count": 1
+  },
+  {
+    "before": "Lunches & beverages",
+    "after": "Lunch, dinner & beverages; all meals on the Pithoragarh option",
+    "count": 1
+  },
+  {
+    "before": "Best season – clear skies, Adi Kailash approach open",
+    "after": "Check current weather, road access and permit requirements",
+    "count": 1
+  },
+  {
+    "before": "Post-monsoon clarity, excellent photography",
+    "after": "Visibility and access remain dependent on current conditions",
+    "count": 1
+  },
+  {
+    "before": "High passes close – expedition not possible",
+    "after": "Confirm current restrictions; no fixed closure date is promised",
+    "count": 1
+  },
+  {
+    "before": "Best Season: May to October",
+    "after": "Seasonal planning: confirm conditions before travel",
+    "count": 1
+  },
+  {
+    "before": "⚠️ Important – Route closes November onwards due to snowfall and permit restrictions. Plan your expedition between May and October only.",
+    "after": "⚠️ Weather, road conditions and official restrictions can affect access at any time. Confirm current arrangements and permit requirements before booking; approval and mountain views are not guaranteed.",
+    "count": 1
+  },
+  {
+    "before": "Minimum 6 people · Transport, accommodation, permit assistance &amp; guide included · Meals not included",
+    "after": "Minimum 6 people · Transport, accommodation, permit assistance &amp; local guide included · Meal plan and duration depend on your joining point",
+    "count": 1
+  },
+  {
+    "before": "items: [\"Transport\", \"Accommodation\", \"Permit assistance\"],",
+    "after": "items: [\"3 days\", \"Transport\", \"Accommodation\", \"Permit assistance\", \"Local guide\", \"Meals excluded\"],",
+    "count": 1
+  },
+  {
+    "before": "items: [\"Transport\", \"Accommodation\", \"Permit assistance\", \"Guide\"],",
+    "after": "items: [\"5 days / 4 nights\", \"Transport\", \"Accommodation\", \"Permit assistance\", \"Local guide\", \"Breakfast only (CP); lunch and dinner excluded\"],",
+    "count": 2
+  },
+  {
+    "before": ">Inner Line Permit included</Link>",
+    "after": ">Inner Line Permit assistance</Link>",
+    "count": 1
+  },
+  {
+    "before": "          <div className=\"ak-itinerary-wrap\">",
+    "after": "          <p data-itinerary-scope-note style={{ color: muted, lineHeight: 1.8, marginBottom: 24 }}>The detailed Day 0–Day 6 route below is retained for reference. It is not a confirmed day-wise itinerary for the 3-day Pithoragarh or 5-day / 4-night Kathgodam and Delhi options. Ask for the stops, overnight stays and joining and return arrangements for your chosen option before booking.</p>\n\n          <div className=\"ak-itinerary-wrap\">",
+    "count": 1
+  },
+  {
+    "before": "6 Days / 5 Nights",
+    "after": "3 or 5 days",
+    "count": 2
+  },
+  {
+    "before": "Himalayan Serenity Travel Adi Kailash Om Parvat 6-day expedition route map",
+    "after": "Himalayan Serenity Travel Adi Kailash Om Parvat route map for reference",
+    "count": 1
+  }
+]
+const restorePublishedPackage = value => packageCorrections.reduceRight((text, change) => text.replaceAll(change.after, change.before), value)
 const digest = value => createHash('sha256').update(value).digest('hex')
 const title = 'Adi Kailash & Om Parvat Yatra | Himalayan Serenity Travel'
 const description = 'Explore the Adi Kailash and Om Parvat itinerary in Kumaon, Uttarakhand. Ask our Pithoragarh team about joining points, permit assistance and a quotation.'
@@ -73,13 +152,13 @@ test('approved metadata, H1, hero H2 and eight section H2 labels retain their ty
   })
 })
 
-test('baseline data, routes, seasons, pricing, images, styles and enquiry code remain unchanged', () => {
+test('only exact approved package corrections differ; remaining baseline data, images, styles and enquiry code stay fingerprint-protected', () => {
   // Fingerprints taken from verified main 20d738cb, before B1 implementation.
-  assert.equal(digest(source.slice(0, source.indexOf('const ADI_KAILASH_SCHEMAS'))), '67f329420cde78ea704f84a4af4d7173fe167da94f10c56b32efc1b44fa423db')
+  assert.equal(digest(restorePublishedPackage(source.slice(0, source.indexOf('const ADI_KAILASH_SCHEMAS')))), '67f329420cde78ea704f84a4af4d7173fe167da94f10c56b32efc1b44fa423db')
   assert.equal(digest(source.slice(source.indexOf('  // Preload'), source.indexOf('\n  return (\n'))), '471122e7da5b14a689e10656acd79afa65fbe6fdd38b3eaff00cb5c5c2714ac1')
   assert.equal(source.split(seasonLinkSource).length - 1, 1, 'only the exact approved season link block is allowed')
-  assert.equal(digest(normalizeHeadings(source.slice(source.indexOf('        {/* EXPEDITION ROUTE */}'), source.indexOf('        {/* ITINERARY */}')).replace(seasonLinkSource, ''))), 'f06b78844fd4fd9178a6e37b0f49744a9b7feff0a3ef60ba17638d7b8f6c4dce')
-  assert.equal(digest(normalizeHeadings(source.slice(source.indexOf('        {/* GROUP PRICING */}')))), 'b4126e590a9238566e3c3a0811945ec7e54a1ad1fcc97410dfd24101a67931b8')
+  assert.equal(digest(normalizeHeadings(restorePublishedPackage(source.slice(source.indexOf('        {/* EXPEDITION ROUTE */}'), source.indexOf('        {/* ITINERARY */}')).replace(seasonLinkSource, '')))), 'f06b78844fd4fd9178a6e37b0f49744a9b7feff0a3ef60ba17638d7b8f6c4dce')
+  assert.equal(digest(normalizeHeadings(restorePublishedPackage(source.slice(source.indexOf('        {/* GROUP PRICING */}'))))), 'b4126e590a9238566e3c3a0811945ec7e54a1ad1fcc97410dfd24101a67931b8')
 })
 
 test('only the invisible package FAQ schema is removed; TouristTrip is byte-for-byte preserved', () => {
