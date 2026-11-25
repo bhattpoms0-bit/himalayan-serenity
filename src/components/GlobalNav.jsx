@@ -41,6 +41,7 @@ const MUTED_STYLE = { fontSize: 11, color: '#444444', letterSpacing: '0.04em' }
 export default function GlobalNav() {
   const { pathname } = useLocation()
   const isHome       = pathname === '/'
+  const isOmParvat = pathname === '/blog/om-parvat-natural-om-symbol'
   const isExperiences = pathname === '/experiences'
   const isInternationalRetreats = pathname === '/international-retreats'
   const reducedMotion = useReducedMotion()
@@ -68,7 +69,7 @@ export default function GlobalNav() {
             exit={{ opacity: 0 }}
             transition={{ duration: isInternationalRetreats && reducedMotion ? 0 : 0.3, ease: 'easeOut' }}
             className="fixed left-5 sm:left-8 z-40"
-            style={{ top: 76 }}
+            style={isOmParvat ? { top: 76, right: 20, width: 'fit-content', maxWidth: 'calc(100vw - 40px)', padding: '8px 10px', background: '#101e2b', border: '1px solid #a68a50', borderRadius: 6 } : { top: 76 }}
           >
             {breadcrumbs ? (
               // ── Breadcrumb for /packages/* and /blog/* ──────────────
@@ -76,22 +77,22 @@ export default function GlobalNav() {
                 {breadcrumbs.map((crumb, i) => (
                   <span key={i} className="flex items-center gap-1">
                     {i > 0 && (
-                      <span style={{ color: '#3a3a3a', fontSize: 10, lineHeight: 1 }}>›</span>
+                      <span style={{ color: isOmParvat ? '#d5bc83' : '#3a3a3a', fontSize: 10, lineHeight: 1 }}>›</span>
                     )}
                     {crumb.href ? (
                       <Link
                         to={crumb.href}
                         className="font-sans transition-colors duration-200 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-gold"
-                        style={LINK_STYLE}
-                        onMouseEnter={e => (e.currentTarget.style.color = '#aaaaaa')}
-                        onMouseLeave={e => (e.currentTarget.style.color = '#666666')}
+                        style={isOmParvat ? { ...LINK_STYLE, color: '#e6d4ab', fontSize: 12 } : LINK_STYLE}
+                        onMouseEnter={e => (e.currentTarget.style.color = isOmParvat ? '#f0e8d8' : '#aaaaaa')}
+                        onMouseLeave={e => (e.currentTarget.style.color = isOmParvat ? '#e6d4ab' : '#666666')}
                       >
                         {crumb.label}
                       </Link>
                     ) : (
                       <span
                         className="font-sans max-w-[160px] sm:max-w-[260px] truncate inline-block align-bottom"
-                        style={MUTED_STYLE}
+                        style={isOmParvat ? { ...MUTED_STYLE, color: '#f0e8d8', fontSize: 12 } : MUTED_STYLE}
                       >
                         {crumb.label}
                       </span>
