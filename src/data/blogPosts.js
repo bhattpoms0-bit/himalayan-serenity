@@ -113,43 +113,41 @@ While the journey is not a technical trek, basic physical fitness is essential. 
   {
     id: 2,
     slug: "om-parvat-natural-om-symbol",
-    title: "Om Parvat: Where Nature Writes the Sacred Symbol",
-    subtitle: "The mountain where snow forms the divine Om symbol",
+    title: "Om Parvat: The Sacred Om Formation and Nabhidhang Viewpoint",
+    subtitle: "The natural Om-shaped formation and its pilgrimage significance",
     category: "Sacred Peaks",
     date: "March 28, 2025",
     readTime: "6 min read",
     author: "Himalayan Serenity Team",
     image: "/images/om-parvat-blog-hero.webp",
-    metaTitle: "Om Parvat Trek Guide 2025 | Natural Om Symbol Mountain",
-    metaDescription: "Discover Om Parvat where snow naturally forms the sacred Om symbol. Complete guide to visiting this mystical Himalayan peak from Pithoragarh, Uttarakhand.",
+    imageAlt: "Snow-streaked mountain peaks above a rocky valley and river.",
+    metaTitle: "Om Parvat Guide: Nabhidhang Viewpoint | Himalayan Serenity",
+    metaDescription: "Learn about Om Parvat’s natural Om-shaped formation, religious significance and Nabhidhang viewpoint in Pithoragarh, Uttarakhand.",
     keywords: ["Om Parvat", "Om symbol mountain", "Nabidhang viewpoint", "Pithoragarh", "sacred Himalayan peaks", "spiritual trek India"],
     schema: "TravelGuide",
-    excerpt: "Om Parvat is one of the most mystical mountains in the Himalayas, where the eternal snow naturally forms the sacred Om symbol on its face — a divine signature that draws pilgrims from across the world.",
+    excerpt: "Learn about Om Parvat’s natural Om-shaped formation, Nabhidhang viewpoint and pilgrimage significance.",
     content: `
-Om Parvat stands at 6,191 meters in the remote Pithoragarh district of Uttarakhand, near the India-Nepal border. What makes this mountain truly extraordinary is the natural formation of snow on its face that unmistakably resembles the sacred Om (ॐ) symbol.
+Om Parvat is a mountain in Pithoragarh district, Uttarakhand, known for a natural formation resembling the sacred Om (ॐ) symbol.
 
-## The Divine Phenomenon
+## Natural Om Formation
 
-The Om symbol visible on the mountain face is formed by the natural accumulation of snow in the crevices of the rock face. This phenomenon is best visible from the Nabidhang viewpoint at approximately 4,340 meters elevation.
+The district tourism description identifies the Om shape as a natural rock formation on the mountain face.
 
 ## Spiritual Significance
 
-For devout Hindus, seeing the natural Om on the mountain face is considered an extremely auspicious blessing. Many pilgrims report profound spiritual experiences upon seeing the symbol.
+For devout Hindus, seeing the natural Om on the mountain face is considered an extremely auspicious blessing.
 
-## How to Reach Om Parvat
+## Nabhidhang Viewpoint
 
-The viewpoint for Om Parvat is reached via:
-- Drive from Dharchula to Kalapani
-- Continue to Nabidhang (22 km from Kalapani)
-- The Om symbol is clearly visible with the naked eye on clear days
+Om Parvat can be viewed from Nabhidhang on the Kailash Mansarovar route.
 
-## Best Viewing Time
+## Viewing Conditions
 
-Early morning between 7-10 AM offers the clearest views as the mountain face is illuminated by morning sunlight. October offers the most crystal-clear viewing conditions.
+Treat clear views as a possibility, not a promise tied to a particular hour or month.
 
 ## Combining with Adi Kailash
 
-Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expedition, as they are located in the same region.
+Review the linked Adi Kailash and Om Parvat itinerary for the arrangements of that specific journey.
     `
   },
   {
@@ -201,29 +199,29 @@ Equipment, medical support and emergency arrangements depend on the specific jou
   {
     id: 4,
     slug: "what-to-pack-himalayan-spiritual-journey",
-    title: "The Ultimate Packing Guide for Your Himalayan Expedition",
+    title: "What to Pack for Adi Kailash and Om Parvat",
     subtitle: "From thermal layers to spiritual essentials — pack smart, travel light",
     category: "Travel Tips",
     date: "February 20, 2025",
     readTime: "7 min read",
     author: "Himalayan Serenity Team",
     image: "/images/packages/adi-kailash/adi-kailash-approach.webp",
-    imageAlt: "Himalayan expedition packing guide trek preparation",
-    metaTitle: "What to Pack for Himalayan Expedition 2025 | Complete Packing List",
-    metaDescription: "Ultimate packing guide for Adi Kailash and Om Parvat Yatra. Complete checklist of clothing, gear, documents and spiritual items for your Himalayan pilgrimage.",
+    imageAlt: "Snow-covered mountain peaks above a rocky valley under a blue sky.",
+    metaTitle: "Adi Kailash & Om Parvat Packing Guide | Himalayan Serenity",
+    metaDescription: "Plan clothing layers, footwear and personal items for Adi Kailash and Om Parvat, with document questions to confirm before travel.",
     keywords: ["Himalayan trek packing list", "what to pack Adi Kailash", "trekking gear India", "pilgrimage packing guide", "Uttarakhand trek essentials"],
     schema: "HowTo",
-    excerpt: "Packing correctly can make the difference between a comfortable spiritual journey and a miserable trek. Our experienced guides share exactly what to bring — and what to leave at home.",
+    excerpt: "A planning checklist for clothing, footwear, documents to confirm and personal spiritual items.",
     content: `
 Packing for a high-altitude Himalayan expedition requires careful planning. You need to balance warmth, functionality, and keeping your pack light enough to carry comfortably.
 
 ## Clothing Essentials
 
 **Base Layers**
-Merino wool or synthetic moisture-wicking base layers are essential. Pack 2-3 sets.
+Consider wool or synthetic base layers; choose quantities for your journey.
 
 **Insulation Layer**
-A down jacket rated to -10°C is non-negotiable. Temperatures can drop dramatically at night.
+Choose an insulating layer suited to the expected conditions.
 
 **Outer Shell**
 A waterproof, windproof jacket and pants protect against sudden weather changes.
@@ -231,78 +229,69 @@ A waterproof, windproof jacket and pants protect against sudden weather changes.
 **Accessories**
 - Wool or fleece hat covering ears
 - Balaclava for extreme cold
-- UV-protection sunglasses (critical above 4,000m)
+- UV-protection sunglasses
 - Warm gloves and liner gloves
 
 ## Footwear
 
-Waterproof trekking boots broken in before the journey are essential. Never wear new boots on the expedition.
+Choose footwear suited to the planned walking and expected conditions. Use it before departure to check comfort and fit.
 
-## Documents Required
-- Aadhaar Card / Passport
-- Inner Line Permit (we arrange this)
-- Medical fitness certificate
-- Emergency contact information
+## Documents to Confirm Before Travel
+- Confirm which identity document is accepted for your journey.
+- Confirm permit requirements and who is responsible for arranging any required permit.
+- Confirm whether a medical fitness certificate is required and the accepted format.
+- Carry emergency contact information.
 
 ## Spiritual Items
 - Prayer beads (mala)
 - Small idol or photo of your deity
-- Offering materials (flowers, incense)
+- Confirm local rules before carrying offering materials
 
 ## What NOT to Pack
-- Excessive clothing (you can wash basics)
+- Excessive clothing
 - Heavy books
 - Valuables (leave jewelry at home)
-- Plastic bags (eco-conscious trekking)
+- Unnecessary disposable packaging
     `
   },
   {
     id: 5,
     slug: "best-time-visit-adi-kailash-season-guide",
-    title: "Best Time to Visit Adi Kailash: A Month-by-Month Season Guide",
-    subtitle: "Plan your perfect pilgrimage with our detailed seasonal breakdown",
+    title: "Best Time to Visit Adi Kailash: Seasonal Planning",
+    subtitle: "Published seasonal guidance and questions to check before travel",
     category: "Travel Guide",
     date: "January 15, 2025",
     readTime: "6 min read",
     author: "Himalayan Serenity Team",
     image: "/images/packages/adi-kailash/adi-kailash-peak.webp",
-    imageAlt: "Adi Kailash sacred peak Uttarakhand Himalaya best time to visit",
-    metaTitle: "Best Time to Visit Adi Kailash 2025 | Season Guide",
-    metaDescription: "Month-by-month guide to the best time to visit Adi Kailash and Om Parvat. Learn about weather, crowds and optimal conditions for your spiritual Himalayan journey.",
+    imageAlt: "Snow-covered mountain peak framed by clouds.",
+    metaTitle: "Best Time to Visit Adi Kailash: Seasons | Himalayan Serenity",
+    metaDescription: "Review published Adi Kailash seasonal guidance, rainy-season restrictions and the access checks to make before choosing travel dates.",
     keywords: ["best time Adi Kailash", "Adi Kailash season", "when to visit Om Parvat", "Himalayan yatra timing", "Uttarakhand pilgrimage season"],
     schema: "FAQPage",
-    excerpt: "Timing your Adi Kailash Yatra correctly is crucial for safety and the best spiritual experience. This comprehensive guide breaks down what to expect in each season.",
+    excerpt: "An overview of published seasonal guidance and the access checks to make before choosing travel dates.",
     content: `
-The Adi Kailash Yatra season runs from May to October, but each month offers a distinctly different experience. Choosing the right time depends on your priorities — clear mountain views, fewer crowds, or budget considerations.
+The Ministry of Tourism’s Pithoragarh destination plan identifies May, June and September as peak months for Adi Kailash and describes winter and rainy-season restrictions dependent on climatic conditions. This is seasonal planning guidance, not confirmation of access on particular travel dates.
 
-## May - June: Early Season
+## May–June: Planning Options
 
-**Pros:** Fresh snow on peaks, blooming rhododendrons, moderate temperatures
-**Cons:** Some mountain passes may still have snow, occasional rain
-
-May and June are excellent months for the yatra. The weather is generally stable, and the landscape is at its most beautiful with spring flowers in bloom.
+Consider May and June as planning options, then confirm access and arrangements for your proposed dates.
 
 ## July - August: Monsoon Season
 
-**Pros:** Lush green landscapes, lower accommodation costs
-**Cons:** Heavy rainfall, risk of landslides, reduced mountain visibility
+Do not rely on an operator’s general safety assurance as confirmation that rainy-season travel is permitted or suitable for your dates.
 
-While trekking in monsoon is challenging, experienced operators like Himalayan Serenity can safely navigate this period with proper precautions.
+## September–October: Confirm Access
 
-## September - October: Peak Season
+September is included in the plan’s peak-month list. Confirm October access separately rather than assuming the same conditions or availability.
 
-**Pros:** Crystal clear skies, best mountain views, stable weather
-**Cons:** Higher costs, more pilgrims on the route
+## November–April: Check Winter Access
 
-September and October are considered the absolute best months. Post-monsoon skies are extraordinarily clear, offering the most spectacular views of Adi Kailash and Om Parvat.
-
-## November - April: Closed Season
-
-The mountain passes close due to heavy snowfall. The Yatra is not possible during these months.
+Confirm the current winter access position rather than assuming a fixed November–April closure period.
 
 ## Our Recommendation
 
-For first-time pilgrims, we recommend **September** as the ideal month — perfect weather, clear views, and a deeply spiritual atmosphere as the summer crowds thin out.
+Choose dates after checking current access, weather information and the arrangements for your proposed journey.
     `
   }
 ]

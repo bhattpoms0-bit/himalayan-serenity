@@ -18,12 +18,12 @@ const CONTEXTUAL_LINKS = {
     label: 'Adi Kailash Inner Line Permit guide',
   },
   'om-parvat-natural-om-symbol': {
-    after: 'Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expedition, as they are located in the same region.',
+    after: 'Review the linked Adi Kailash and Om Parvat itinerary for the arrangements of that specific journey.',
     to: '/packages/adi-kailash-expedition',
     label: 'View the Adi Kailash and Om Parvat itinerary',
   },
   'best-time-visit-adi-kailash-season-guide': {
-    after: 'For first-time pilgrims, we recommend **September** as the ideal month — perfect weather, clear views, and a deeply spiritual atmosphere as the summer crowds thin out.',
+    after: 'Choose dates after checking current access, weather information and the arrangements for your proposed journey.',
     to: '/packages/adi-kailash-expedition',
     label: 'Explore the Adi Kailash and Om Parvat itinerary',
   },
