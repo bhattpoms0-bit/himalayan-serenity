@@ -18,12 +18,12 @@ const CONTEXTUAL_LINKS = {
     label: 'Adi Kailash Inner Line Permit guide',
   },
   'om-parvat-natural-om-symbol': {
-    after: 'Most pilgrims visit both Om Parvat and Adi Kailash in a single 7-10 day expedition, as they are located in the same region.',
+    after: 'Review the linked Adi Kailash and Om Parvat itinerary for the arrangements of that specific journey.',
     to: '/packages/adi-kailash-expedition',
     label: 'View the Adi Kailash and Om Parvat itinerary',
   },
   'best-time-visit-adi-kailash-season-guide': {
-    after: 'For first-time pilgrims, we recommend **September** as the ideal month — perfect weather, clear views, and a deeply spiritual atmosphere as the summer crowds thin out.',
+    after: 'Choose dates after checking current access, weather information and the arrangements for your proposed journey.',
     to: '/packages/adi-kailash-expedition',
     label: 'Explore the Adi Kailash and Om Parvat itinerary',
   },
@@ -63,9 +63,38 @@ const renderContent = (content, slug) => {
   })
 }
 
+// BEGIN Om Parvat route-only hero
+function OmParvatHero({ post }) {
+  return (
+    <header data-om-parvat-hero className="pt-32 sm:pt-36 pb-10 sm:pb-12" style={{ background: '#101e2b', borderBottom: '1px solid rgba(166,138,80,0.3)' }}>
+      <figure className="max-w-[1440px] mx-auto px-4 sm:px-8">
+        <img
+          src={post.image}
+          alt={post.imageAlt}
+          width="2560"
+          height="1920"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          className="block w-full aspect-[4/3] sm:aspect-auto sm:h-[420px] object-cover object-center rounded-lg"
+        />
+        <figcaption className="font-sans text-xs mt-3" style={{ color: '#b8c5d1' }}>Himalayan mountain landscape</figcaption>
+      </figure>
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 pt-8 sm:pt-10 text-center">
+        <p className="font-sans text-xs uppercase tracking-[0.18em] mb-4" style={{ color: '#d5bc83' }}>Pilgrimage guide</p>
+        <h1 className="font-serif text-[1.8rem] sm:text-[2.65rem] leading-[1.16] font-normal" style={{ color: '#f0e8d8', letterSpacing: '-0.015em' }}>{post.title}</h1>
+        <p className="font-sans text-base sm:text-lg leading-relaxed mt-5" style={{ color: '#d1dbe3' }}>{post.subtitle}</p>
+        <p className="font-sans text-xs sm:text-sm leading-6 mt-4" style={{ color: '#b8c5d1' }}>{post.date} · {post.readTime} · {post.author}</p>
+      </div>
+    </header>
+  )
+}
+// END Om Parvat route-only hero
+
 export default function BlogPost() {
   const { slug } = useParams()
   const post = blogPosts.find(p => p.slug === slug)
+  const isOmParvat = slug === 'om-parvat-natural-om-symbol'
 
   const schema = post ? {
         "@context": "https://schema.org",
@@ -113,6 +142,7 @@ export default function BlogPost() {
       <Navbar />
 
       {/* ── Hero Image ───────────────────────────────────────────── */}
+      {isOmParvat ? <OmParvatHero post={post} /> : (
       <div className="relative h-[50vh] overflow-hidden">
         <img
           src={post.image}
@@ -168,6 +198,8 @@ export default function BlogPost() {
         </div>
       </div>
 
+      )}
+
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
 
@@ -209,12 +241,14 @@ export default function BlogPost() {
         </div>
 
         {/* Subtitle */}
+        {!isOmParvat && (
         <p
           className="font-sans mb-10 leading-relaxed"
           style={{ fontSize: 18, color: '#777777', fontStyle: 'italic' }}
         >
           {post.subtitle}
         </p>
+        )}
 
         {/* Article body */}
         <motion.article
@@ -226,6 +260,15 @@ export default function BlogPost() {
             {renderContent(post.content, post.slug)}
           </div>
         </motion.article>
+
+        {/* BEGIN Om Parvat source notes */}
+        {isOmParvat && (
+          <aside aria-label="Article sources" className="font-sans text-sm leading-7 mt-10 p-5 rounded-lg" style={{ background: '#101e2b', color: '#c4cfda', border: '1px solid rgba(166,138,80,0.3)' }}>
+            <p className="font-semibold mb-2" style={{ color: '#f0e8d8' }}>Destination sources</p>
+            <p>Background from the Pithoragarh district administration: <a href="https://pithoragarh.nic.in/tourist-place/om-parvat/" className="text-brand-gold underline underline-offset-4">Om Parvat</a> and <a href="https://pithoragarh.nic.in/tourist-place/adi-kailash/" className="text-brand-gold underline underline-offset-4">Adi Kailash</a>. These descriptions do not confirm current permits or access for your travel dates.</p>
+          </aside>
+        )}
+        {/* END Om Parvat source notes */}
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t border-white/8">
