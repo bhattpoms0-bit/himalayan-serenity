@@ -5,45 +5,46 @@ import Footer from '../../components/Footer'
 
 export default function AdiKailashVsKailashMansarovar() {
   useSEO({
-    title: 'Adi Kailash vs Kailash Mansarovar 2026 | Complete Verified Guide',
-    description: 'Honest comparison of Adi Kailash Yatra and Kailash Mansarovar Yatra 2026. Official eligibility, selection process, Om Parvat darshan, and which sacred pilgrimage is right for you. KMY facts verified from kmy.gov.in.',
+    title: 'Adi Kailash vs Kailash Mansarovar: Travel Planning | Himalayan Serenity',
+    description: 'Compare Adi Kailash in Uttarakhand with the government-organised Kailash Manasarovar Yatra. The 2026 KMY portal is closed; confirm future rules officially.',
     canonical: 'https://www.himalayanserenitytravel.com/blog/adi-kailash-vs-kailash-mansarovar',
   })
 
   const faqData = [
     {
-      q: "Is Kailash Mansarovar Yatra open in 2026?",
-      a: "Yes. Kailash Mansarovar Yatra 2026 is open and organized by the Ministry of External Affairs, Government of India. The registration portal is kmy.gov.in. Please verify current status and dates directly at kmy.gov.in as information is subject to change."
+        "q": "Is Kailash Mansarovar Yatra open in 2026?",
+        "a": "The official KMY portal reports that the 2026 Yatra has been completed and its online portal is closed. Check kmy.gov.in for any future programme announcement; this article does not confirm new registrations or departures."
     },
     {
-      q: "What is the difference between Adi Kailash and Kailash Mansarovar?",
-      a: "Kailash Mansarovar (Mount Kailash, 6,638m) is located in Tibet, China, and is organized as an international pilgrimage by the Ministry of External Affairs. Adi Kailash (6,191m) is located entirely within India in Pithoragarh, Uttarakhand, and is accessible to all Indian and foreign nationals with an Inner Line Permit."
+        "q": "What is the difference between Adi Kailash and Kailash Mansarovar?",
+        "a": "Adi Kailash is in Pithoragarh, Uttarakhand, India. Mount Kailash and Lake Manasarovar are in Tibet, China. The government-organised Kailash Manasarovar Yatra is separate from Himalayan Serenity Travel’s Adi Kailash packages, which have their own confirmed joining-point arrangements."
     },
     {
-      q: "Who is eligible for Kailash Mansarovar Yatra?",
-      a: "As per kmy.gov.in: Must be a citizen of India, hold a valid Indian passport (minimum 6 months validity as on 1st September of current year), age between 18 and 70 years as on 01 January of current year, BMI of 25 or less, physically fit and medically healthy. Foreign nationals and OCI cardholders are not eligible."
+        "q": "Who is eligible for Kailash Mansarovar Yatra?",
+        "a": "Consult the current MEA eligibility notice for any announced programme. Do not assume that older age, nationality, passport or OCI conditions certify eligibility for a future Yatra. The 2026 portal is closed."
     },
     {
-      q: "How are yatris selected for Kailash Mansarovar Yatra?",
-      a: "As per kmy.gov.in: Yatris are selected through a fair computer-generated, random, gender-balanced draw of lots conducted by the Ministry of External Affairs. Selected applicants are informed via registered email and mobile number."
+        "q": "How are yatris selected for Kailash Mansarovar Yatra?",
+        "a": "Follow the official selection procedure published for the relevant programme when announced. This page does not certify a future draw, priority rule, notification method or selection outcome."
     },
     {
-      q: "What medical conditions disqualify you from Kailash Mansarovar Yatra?",
-      a: "As per kmy.gov.in: Applicants should not suffer from high blood pressure, diabetes, asthma, heart disease, epilepsy, or similar conditions. Selected yatris must pass medical examinations conducted by Delhi Heart and Lung Institute (DHLI) and ITBP Base Hospital in New Delhi."
+        "q": "What medical conditions disqualify you from Kailash Mansarovar Yatra?",
+        "a": "Use the current official medical criteria and assessment instructions for the relevant programme, and discuss personal health concerns with an appropriate clinician. This comparison is not medical clearance or a definitive disqualification checklist."
     },
     {
-      q: "Is Inner Line Permit required for Adi Kailash?",
-      a: <>Yes. <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#c4a050", textDecoration: "none" }}>Inner Line Permit (ILP)</Link> is mandatory for Adi Kailash Yatra as it falls in the restricted border zone of Pithoragarh, Uttarakhand. It can be obtained from the District Magistrate office in Pithoragarh or Dharchula. When you book with Himalayan Serenity, we handle your ILP process.</>,
+        "q": "Is Inner Line Permit required for Adi Kailash?",
+        "a": <>Confirm current <Link to="/blog/adi-kailash-ilp-guide-2026" style={{ color: "#c4a050", textDecoration: "none" }}>permit requirements</Link>, the competent authority and the scope of any operator assistance for your exact route and nationality. A package booking does not guarantee permission or access.</>
     },
     {
-      q: "Can foreign nationals do Adi Kailash Yatra?",
-      a: "Foreign nationals are not eligible for the government-organized Kailash Mansarovar Yatra as per kmy.gov.in. However, Adi Kailash in Uttarakhand may be accessible to foreign nationals with appropriate permits — please check current regulations with the relevant authorities before planning."
+        "q": "Can foreign nationals do Adi Kailash Yatra?",
+        "a": "Foreign nationals and OCI cardholders must obtain current route-specific advice from the competent Indian authorities before booking. Do not assume that permission for Indian travellers, or eligibility for another pilgrimage, applies to the same journey."
     },
     {
-      q: "Where can I apply for Kailash Mansarovar Yatra 2026?",
-      a: "The official application portal is kmy.gov.in, operated by the Ministry of External Affairs, Government of India. Always use the official government portal and verify all information there. Do not rely on third-party websites for registration."
-    },
-  ]
+        "q": "Where can I apply for Kailash Mansarovar Yatra 2026?",
+        "a": "The official KMY portal reports that the 2026 programme is complete and the portal is closed. Use kmy.gov.in for official announcements about any future application window; no current registration is offered by this page."
+    }
+]
+
 
   return (
     <div className="min-h-screen bg-brand-dark">
@@ -64,10 +65,10 @@ export default function AdiKailashVsKailashMansarovar() {
           textAlign: "center",
         }}>
           <p style={{ fontSize: "0.85rem", color: "#c4a050", margin: 0 }}>
-            ℹ️ Kailash Mansarovar Yatra information in this article is sourced directly from{" "}
+            ℹ️ Check government-organised Kailash Manasarovar Yatra status at{" "}
             <a href="https://kmy.gov.in" target="_blank" rel="noopener noreferrer"
               style={{ color: "#c4a050", textDecoration: "underline" }}>kmy.gov.in</a>
-            {" "}— the official Government of India portal. Always verify at kmy.gov.in before planning.
+            {" "}— the official Government of India portal. The 2026 Yatra is complete and its portal is closed; future arrangements require a new official announcement.
           </p>
         </div>
 
@@ -91,7 +92,7 @@ export default function AdiKailashVsKailashMansarovar() {
               borderRadius: "100px", padding: "6px 16px", marginBottom: "24px",
             }}>
               <span style={{ fontSize: "11px", color: "#c4a050", letterSpacing: "3px", textTransform: "uppercase" }}>
-                Pilgrimage Guide · 2026 · Verified Facts Only
+                Pilgrimage Guide · Status and Planning
               </span>
             </div>
 
@@ -104,18 +105,18 @@ export default function AdiKailashVsKailashMansarovar() {
             }}>
               Adi Kailash vs Kailash Mansarovar —<br />
               <span style={{ color: "#c4a050", fontStyle: "italic" }}>
-                Which Should You Choose in 2026?
+                Understanding the Two Journeys
               </span>
             </h1>
 
             <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "#a09080", maxWidth: "700px", marginBottom: "32px" }}>
-              A complete, honest comparison of two of India's most sacred Himalayan pilgrimages — their spiritual significance, eligibility, process, difficulty, and which one is right for you. All Kailash Mansarovar facts verified directly from kmy.gov.in.
+              A planning comparison of two sacred Himalayan journeys. Government-organised KMY and company-operated Adi Kailash packages have different arrangements; current access, eligibility and future programme details need separate confirmation.
             </p>
 
             <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
               {[
                 { icon: "🏔️", text: "Pilgrimage Comparison" },
-                { icon: "✓", text: "Verified Facts Only" },
+                { icon: "✓", text: "Confirm Current Requirements" },
                 { icon: "⏱️", text: "15 min read" },
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.9rem", color: "#7a6a50" }}>
@@ -151,10 +152,10 @@ export default function AdiKailashVsKailashMansarovar() {
               For millions of Shiva devotees, one pilgrimage stands above all others — the sacred journey to <strong style={{ color: "#c4a050" }}>Kailash</strong>, the divine abode of Lord Shiva. But which Kailash? And which route is right for you?
             </p>
             <p style={{ fontSize: "1.05rem", lineHeight: "1.9", color: "#a09080", marginBottom: "20px" }}>
-              In 2026, two sacred Kailash pilgrimages are available to devotees — the government-organized <strong style={{ color: "#c4a050" }}>Kailash Mansarovar Yatra</strong> via Tibet, and the Uttarakhand-based <Link to="/packages/adi-kailash-expedition" style={{ color: "#c4a050", textDecoration: "none" }}>Adi Kailash Yatra</Link> entirely within India. Both are open. Both are deeply sacred. The question is — which is right for you?
+              The government-organised <strong style={{ color: "#c4a050" }}>Kailash Mansarovar Yatra</strong> via Tibet, and the Uttarakhand-based <Link to="/packages/adi-kailash-expedition" style={{ color: "#c4a050", textDecoration: "none" }}>Adi Kailash Yatra</Link> entirely within India are different journeys. The official KMY portal reports that its 2026 programme is complete and the portal is closed. Adi Kailash arrangements must be confirmed separately for the selected package and travel dates.
             </p>
             <p style={{ fontSize: "1.05rem", lineHeight: "1.9", color: "#a09080" }}>
-              In this guide, we have laid out the facts clearly and honestly — using only information verified from official government sources — so you can make the right decision for your sacred journey.
+              Use this comparison for context, then consult the competent authority for regulatory requirements and the operator for the exact Adi Kailash arrangements. Historical programme material does not establish future eligibility or operating status.
             </p>
           </section>
 
@@ -171,21 +172,35 @@ export default function AdiKailashVsKailashMansarovar() {
                 📋 Official Source — kmy.gov.in
               </p>
               <h3 style={{ fontSize: "1.1rem", color: "#f0ece4", marginBottom: "16px", fontWeight: "400" }}>
-                Kailash Mansarovar Yatra 2026 — Key Official Facts
+                Kailash Manasarovar Yatra — Status and Official Guidance
               </h3>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                 {[
-                  { label: "Organized by", value: "Ministry of External Affairs, Govt of India" },
-                  { label: "Official Portal", value: "kmy.gov.in" },
-                  { label: "Routes", value: "Lipulekh Pass (Uttarakhand) & Nathu La (Sikkim)" },
-                  { label: "Eligibility", value: "Indian citizens only, age 18–70 years" },
-                  { label: "Passport", value: "Valid Indian passport, min 6 months validity" },
-                  { label: "BMI Requirement", value: "BMI of 25 or less" },
-                  { label: "Medical Test", value: "Mandatory — DHLI & ITBP Base Hospital, Delhi" },
-                  { label: "Selection", value: "Computer-generated random draw of lots" },
-                  { label: "Foreign Nationals", value: "Not eligible (including OCI cardholders)" },
-                  { label: "End Points", value: "Dharchula/Delhi (Lipulekh) · Gangtok/Delhi (Nathu La)" },
-                ].map((item, i) => (
+                  {
+                                    "label": "Programme",
+                                    "value": "Government-organised Kailash Manasarovar Yatra; separate from our Adi Kailash packages"
+                  },
+                  {
+                                    "label": "Official portal",
+                                    "value": "kmy.gov.in"
+                  },
+                  {
+                                    "label": "2026 status",
+                                    "value": "Programme completed; online portal closed"
+                  },
+                  {
+                                    "label": "Future eligibility",
+                                    "value": "Confirm nationality, age and passport conditions in the relevant MEA notice"
+                  },
+                  {
+                                    "label": "Medical criteria",
+                                    "value": "Use the current official assessment instructions; no clearance is provided here"
+                  },
+                  {
+                                    "label": "Selection and dates",
+                                    "value": "Await the relevant official announcement; no place or departure is guaranteed"
+                  }
+].map((item, i) => (
                   <div key={i} style={{
                     padding: "12px 16px",
                     backgroundColor: "rgba(0,0,0,0.2)",
@@ -207,7 +222,7 @@ export default function AdiKailashVsKailashMansarovar() {
             <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "400", color: "#f0ece4", marginBottom: "24px" }}>
               Spiritual Significance
             </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "24px" }}>
               {[
                 {
                   title: "🏔️ Adi Kailash",
@@ -272,7 +287,7 @@ export default function AdiKailashVsKailashMansarovar() {
               Om Parvat is a sacred peak near Adi Kailash where the eternal symbol <strong style={{ color: "#c4a050" }}>ॐ (Om)</strong> appears naturally formed by snow on the mountain face. This is not painted or carved — it is a naturally occurring phenomenon on the snow-covered peak, visible from the Nabidang viewpoint.
             </p>
             <p style={{ fontSize: "1.05rem", lineHeight: "1.9", color: "#a09080" }}>
-              Pilgrims who have experienced Om Parvat darshan describe the moment as deeply moving — standing on Indian soil, beholding Lord Shiva's own symbol written by nature on a Himalayan peak. This experience is not available on the Kailash Mansarovar route.
+              Om Parvat is associated with a natural formation resembling the sacred Om symbol. Whether a journey includes its viewpoint depends on the specific route, programme and current conditions; it should not be assumed from the pilgrimage name alone.
             </p>
           </section>
 
@@ -282,7 +297,7 @@ export default function AdiKailashVsKailashMansarovar() {
               Key Differences at a Glance
             </h2>
             <p style={{ fontSize: "0.85rem", color: "#5a4a30", fontStyle: "italic", marginBottom: "28px" }}>
-              * Kailash Mansarovar column based on information from kmy.gov.in. Adi Kailash information based on our local expertise in Pithoragarh. Verify all details before planning.
+              * Confirm government programme requirements at kmy.gov.in and Adi Kailash package arrangements with the operator. Neither column is a guarantee of access or availability.
             </p>
             <div style={{ overflowX: "auto" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9rem" }}>
@@ -295,18 +310,62 @@ export default function AdiKailashVsKailashMansarovar() {
                 </thead>
                 <tbody>
                   {[
-                    { factor: "Location", adi: "Pithoragarh, Uttarakhand, India", kmy: "Tibet, China (international journey)" },
-                    { factor: "Status 2026", adi: "✓ Open — available year-round (season May–Oct)", kmy: "✓ Open — organized by MEA, June to August" },
-                    { factor: "Who Can Go", adi: "Indian nationals + check ILP rules for foreigners", kmy: "Indian citizens only (18–70 yrs, valid passport)" },
-                    { factor: "OCI / Foreign", adi: "Check current ILP regulations", kmy: "✗ Not eligible (per kmy.gov.in)" },
-                    { factor: "Medical Requirement", adi: "Reasonable fitness — moderate difficulty", kmy: "Mandatory medical exam at DHLI & ITBP, Delhi. BMI ≤ 25. No BP, diabetes, heart disease, asthma, epilepsy" },
-                    { factor: "Selection Process", adi: "Direct booking — no draw required", kmy: "Computer-generated random draw of lots by MEA" },
-                    { factor: "Permit Required", adi: "Inner Line Permit (ILP) — obtainable in India", kmy: "Chinese visa + Tibet Travel Permit (arranged by MEA)" },
-                    { factor: "Duration", adi: "7 to 12 days from Delhi", kmy: "Approx 21–22 days (verify at kmy.gov.in)" },
-                    { factor: "Om Parvat Darshan", adi: "✓ Yes — unique natural Om symbol on snow", kmy: "✗ Not on this route" },
-                    { factor: "Difficulty", adi: "Moderate — accessible to most pilgrims", kmy: "Strenuous — high altitude, 52km Kora trek" },
-                    { factor: "Official Portal", adi: "Book via Himalayan Serenity Travel", kmy: "kmy.gov.in (Government of India)" },
-                  ].map((row, i) => (
+                  {
+                                    "factor": "Location",
+                                    "adi": "Pithoragarh, Uttarakhand, India",
+                                    "kmy": "Mount Kailash and Lake Manasarovar in Tibet, China"
+                  },
+                  {
+                                    "factor": "2026 programme status",
+                                    "adi": "Confirm current access and arrangements for your travel dates",
+                                    "kmy": "Official portal reports programme complete; portal closed"
+                  },
+                  {
+                                    "factor": "Nationality and passport",
+                                    "adi": "Confirm route-specific eligibility and identity requirements with the competent authority",
+                                    "kmy": "Consult the applicable MEA notice; older rules do not certify future eligibility"
+                  },
+                  {
+                                    "factor": "Foreign nationals / OCI",
+                                    "adi": "Obtain current advice before booking; access is not assumed",
+                                    "kmy": "Confirm any future programme’s nationality rules officially"
+                  },
+                  {
+                                    "factor": "Medical requirements",
+                                    "adi": "Confirm documentation and suitability for your specific itinerary",
+                                    "kmy": "Follow the official medical criteria and assessment for the relevant programme"
+                  },
+                  {
+                                    "factor": "Booking or selection",
+                                    "adi": "Confirm the chosen company package; booking is not permit approval",
+                                    "kmy": "Follow the procedure in the relevant official announcement"
+                  },
+                  {
+                                    "factor": "Permissions",
+                                    "adi": "Confirm the competent authority, route, validity and required documents",
+                                    "kmy": "Use official programme instructions for international travel documentation"
+                  },
+                  {
+                                    "factor": "Duration",
+                                    "adi": "Owner-advised options: 3 days from Pithoragarh; 5 days / 4 nights from Kathgodam or Delhi. Obtain the matching itinerary.",
+                                    "kmy": "Confirm the duration in the relevant official programme"
+                  },
+                  {
+                                    "factor": "Om Parvat viewpoint",
+                                    "adi": "Check the selected itinerary and current access conditions",
+                                    "kmy": "Depends on the official route and programme; do not assume inclusion or exclusion"
+                  },
+                  {
+                                    "factor": "Difficulty",
+                                    "adi": "Assess the actual route and personal suitability before booking",
+                                    "kmy": "High-altitude journey; follow official preparation and medical instructions"
+                  },
+                  {
+                                    "factor": "Information source",
+                                    "adi": "Himalayan Serenity Travel for package arrangements; authorities for permissions",
+                                    "kmy": "kmy.gov.in for the government-organised programme"
+                  }
+].map((row, i) => (
                     <tr key={i} style={{
                       borderBottom: "1px solid rgba(196,160,80,0.08)",
                       backgroundColor: i % 2 === 0 ? "rgba(255,255,255,0.015)" : "transparent"
@@ -327,24 +386,19 @@ export default function AdiKailashVsKailashMansarovar() {
           {/* ELIGIBILITY - KMY */}
           <section style={{ marginBottom: "80px" }}>
             <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "400", color: "#f0ece4", marginBottom: "24px" }}>
-              Kailash Mansarovar Eligibility — Official Checklist
+              Kailash Manasarovar — Eligibility to Confirm
             </h2>
             <p style={{ fontSize: "0.9rem", color: "#5a4a30", fontStyle: "italic", marginBottom: "28px" }}>
               Source: kmy.gov.in — Ministry of External Affairs, Government of India
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px" }}>
               {[
-                "Must be a citizen of India",
-                "Must possess a valid ordinary Indian passport — minimum 6 months validity as on 1st September of the current year",
-                "Age between 18 and 70 years as on 01 January of the current year",
-                "Body Mass Index (BMI) of 25 or less",
-                "Physically fit and medically healthy for high-altitude travel",
-                "Must not suffer from high blood pressure, diabetes, asthma, heart disease, or epilepsy",
-                "Must pass mandatory medical examinations at Delhi Heart & Lung Institute (DHLI) and ITBP Base Hospital, New Delhi",
-                "Foreign nationals are NOT eligible — OCI cardholders are also NOT eligible",
-                "First-time applicants are given priority over those who have done the Yatra before",
-                "Applicants who have already done this Yatra more than four times previously may be subject to a moratorium",
-              ].map((item, i) => (
+                  "Check the relevant official announcement before assuming that applications are open.",
+                  "Confirm nationality and OCI eligibility, age criteria and passport type and validity requirements.",
+                  "Read the current medical criteria, required examinations and reporting instructions; this page is not medical clearance.",
+                  "Confirm any selection priorities, repeat-traveller rules, charges and cancellation terms in that programme’s official material.",
+                  "The 2026 portal is closed; historical eligibility conditions do not establish a future programme’s rules."
+].map((item, i) => (
                 <div key={i} style={{
                   display: "flex", alignItems: "flex-start", gap: "14px",
                   padding: "16px 20px",
@@ -365,7 +419,7 @@ export default function AdiKailashVsKailashMansarovar() {
               borderRadius: "12px",
             }}>
               <p style={{ fontSize: "0.9rem", color: "#ef5350", margin: 0 }}>
-                ⚠️ Any yatri found medically unfit at any stage will not be permitted to continue. All payments made earlier will be forfeited. Source: kmy.gov.in
+                ⚠️ Medical decisions, participation conditions and refund rules must be checked in the applicable official programme documents. No medical acceptance, selection outcome or refund entitlement is promised here.
               </p>
             </div>
           </section>
@@ -376,17 +430,31 @@ export default function AdiKailashVsKailashMansarovar() {
               How Kailash Mansarovar Yatris Are Selected
             </h2>
             <p style={{ fontSize: "0.9rem", color: "#5a4a30", fontStyle: "italic", marginBottom: "28px" }}>
-              Source: kmy.gov.in — Selection Process page
+              Confirm the applicable selection process in the official programme announcement at kmy.gov.in
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {[
-                { step: "01", title: "Apply Online", desc: "Register at kmy.gov.in. Maximum two registrations per user account (for those wishing to travel together). All fields are compulsory." },
-                { step: "02", title: "Computer-Generated Draw of Lots", desc: "Yatris are selected through a fair, computer-generated, random, gender-balanced selection process by the Ministry of External Affairs. Efforts are made to keep groups of two together where requested." },
-                { step: "03", title: "Intimation", desc: "Selected applicants are informed through automated messages to their registered email ID and mobile number. Status can also be checked via helpline 011-23088214." },
-                { step: "04", title: "Confirm Participation", desc: "Selected yatris must confirm by paying the non-refundable Confirmation Amount to KMVN (Lipulekh route) or STDC (Nathu La route) before the cut-off date. Failure to pay removes you from the selected list." },
-                { step: "05", title: "Medical Examination in Delhi", desc: "Confirmed yatris must report at Delhi Heart & Lung Institute (DHLI) on scheduled date for mandatory medical tests. Any yatri found unfit will not proceed." },
-                { step: "06", title: "Yatra Begins", desc: "All yatris in a batch travel together and return with the same batch. The batch leaves on scheduled dates regardless of individual absences." },
-              ].map((item, i) => (
+                  {
+                                    "step": "01",
+                                    "title": "Check programme status",
+                                    "desc": "The official portal reports that the 2026 programme is complete and closed. Look for an official announcement before planning an application."
+                  },
+                  {
+                                    "step": "02",
+                                    "title": "Read the applicable instructions",
+                                    "desc": "Confirm eligibility, passport and medical requirements, selection method and any participation conditions for that specific programme."
+                  },
+                  {
+                                    "step": "03",
+                                    "title": "Use official channels",
+                                    "desc": "Follow only the application, payment and notification instructions confirmed in the relevant official material. This page offers no KMY registration."
+                  },
+                  {
+                                    "step": "04",
+                                    "title": "Confirm before making arrangements",
+                                    "desc": "Selection, medical acceptance, permissions and departure arrangements must be established through official channels; no outcome is guaranteed."
+                  }
+].map((item, i) => (
                 <div key={i} style={{
                   display: "flex", gap: "20px", alignItems: "flex-start",
                   padding: "24px",
@@ -415,38 +483,31 @@ export default function AdiKailashVsKailashMansarovar() {
             <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", fontWeight: "400", color: "#f0ece4", marginBottom: "32px" }}>
               Which Pilgrimage is Right for You?
             </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "24px" }}>
               {[
-                {
-                  title: "Choose Adi Kailash if you...",
-                  color: "#c4a050",
-                  points: [
-                    "Want to do the pilgrimage this season without waiting for a draw",
-                    "Are planning your first Himalayan sacred journey",
-                    "Want Om Parvat darshan — the divine Om symbol in snow",
-                    "Prefer a complete journey entirely within India",
-                    "Have a BMI above 25 or have health conditions that may disqualify you from KMY",
-                    "Are a foreign national or OCI cardholder (not eligible for KMY)",
-                    "Have 7 to 12 days available",
-                    "Want a private, customized small-group experience",
-                    "Want to visit Darma Valley, Dharchula, or Eastern Kumaon alongside",
-                  ]
-                },
-                {
-                  title: "Consider Kailash Mansarovar if you...",
-                  color: "#8ab4d4",
-                  points: [
-                    "Are an Indian citizen with a valid passport and BMI of 25 or less",
-                    "Are medically fit with no BP, diabetes, asthma, heart disease, or epilepsy",
-                    "Have 21–22 days available between June and August",
-                    "Are comfortable with a government-organized group journey",
-                    "Want to complete the sacred Kailash Kora (52km parikrama)",
-                    "Have not previously done the MEA-organized Kailash Mansarovar Yatra (first-timers get priority)",
-                    "Have applied successfully via kmy.gov.in",
-                    "Are in excellent physical condition for high-altitude trekking",
-                  ]
-                }
-              ].map((card, i) => (
+                  {
+                                    "title": "Consider an Adi Kailash journey if you...",
+                                    "color": "#c4a050",
+                                    "points": [
+                                                      "Want to explore a pilgrimage in Kumaon, Uttarakhand, India",
+                                                      "Wish to discuss an owner-advised joining-point option with Himalayan Serenity Travel",
+                                                      "Will obtain a matching day-wise itinerary before booking",
+                                                      "Will confirm route-specific permissions and personal suitability separately",
+                                                      "Understand that mountain views and access depend on conditions"
+                                    ]
+                  },
+                  {
+                                    "title": "Consider future government-organised KMY if you...",
+                                    "color": "#8ab4d4",
+                                    "points": [
+                                                      "Want to understand the international pilgrimage to Mount Kailash and Lake Manasarovar",
+                                                      "Will wait for and read an applicable official programme announcement",
+                                                      "Will confirm nationality, passport, selection and medical requirements officially",
+                                                      "Understand that the 2026 programme has completed and its portal is closed",
+                                                      "Will distinguish MEA programme arrangements from company-operated Adi Kailash packages"
+                                    ]
+                  }
+].map((card, i) => (
                 <div key={i} style={{
                   padding: "32px",
                   backgroundColor: "rgba(255,255,255,0.02)",
@@ -472,7 +533,7 @@ export default function AdiKailashVsKailashMansarovar() {
               Frequently Asked Questions
             </h2>
             <p style={{ fontSize: "0.85rem", color: "#5a4a30", fontStyle: "italic", marginBottom: "32px" }}>
-              Kailash Mansarovar answers sourced from kmy.gov.in. Verify latest details at kmy.gov.in before planning.
+              The official portal provides government programme announcements. These answers identify what still needs confirmation and do not certify future rules.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {faqData.map((faq, i) => (
@@ -503,7 +564,7 @@ export default function AdiKailashVsKailashMansarovar() {
             }}>
               <p style={{ fontSize: "11px", color: "#5a4a30", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "12px" }}>Important Disclaimer</p>
               <p style={{ fontSize: "0.88rem", color: "#5a4a30", lineHeight: "1.7", margin: 0 }}>
-                All Kailash Mansarovar Yatra information in this article has been sourced directly from <strong style={{ color: "#6a5a40" }}>kmy.gov.in</strong>, the official portal of the Ministry of External Affairs, Government of India. This information is subject to change without notice. Himalayan Serenity Travel is not affiliated with the Government of India's Kailash Mansarovar Yatra program. Always verify the latest eligibility criteria, dates, fees, and process at <strong style={{ color: "#6a5a40" }}>kmy.gov.in</strong> before making any plans. For Adi Kailash Yatra inquiries, contact our team directly.
+                Consult <strong style={{ color: "#6a5a40" }}>kmy.gov.in</strong>, the official Ministry of External Affairs portal, for government programme information. Its 2026 closure notice does not establish a future programme’s dates, eligibility or fees. Himalayan Serenity Travel is not affiliated with the Government of India's Kailash Mansarovar Yatra program. Always verify the latest eligibility criteria, dates, fees, and process at <strong style={{ color: "#6a5a40" }}>kmy.gov.in</strong> before making any plans. For Adi Kailash Yatra inquiries, contact our team directly.
               </p>
             </div>
           </section>
@@ -523,7 +584,7 @@ export default function AdiKailashVsKailashMansarovar() {
               Book Your Adi Kailash Yatra with Himalayan Serenity
             </h2>
             <p style={{ fontSize: "0.95rem", color: "#7a6a50", maxWidth: "520px", margin: "0 auto 32px", lineHeight: "1.7" }}>
-              We handle your Inner Line Permit, accommodation, transport and every detail of your Adi Kailash Yatra from Delhi and Pithoragarh. Small groups. Authentic experience. Local expertise.
+              Ask about Adi Kailash joining points, the matching itinerary, accommodation, transport and permit assistance for your chosen option. Regulatory permission and access remain subject to the competent authority and current conditions.
             </p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
               <a href="/contact#consultation" style={{

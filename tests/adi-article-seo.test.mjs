@@ -123,7 +123,15 @@ for (const [slug, expected] of Object.entries(approved)) {
 }
 
 test('every unselected blog record remains identical to the verified Production baseline', () => {
-  assert.deepEqual(blogPosts.filter(p => !approved[p.slug]), original.filter(p => !approved[p.slug]))
+  const followUp = new Set(['adi-kailash-ilp-guide-2026', 'adi-kailash-vs-kailash-mansarovar'])
+  assert.deepEqual(blogPosts.filter(p => !approved[p.slug] && !followUp.has(p.slug)), original.filter(p => !approved[p.slug] && !followUp.has(p.slug)))
+  const correctedFields = new Set(['title', 'subtitle', 'metaTitle', 'metaDescription', 'excerpt'])
+  for (const slug of followUp) {
+    const before = original.find(p => p.slug === slug), after = blogPosts.find(p => p.slug === slug)
+    for (const key of new Set([...Object.keys(before), ...Object.keys(after)])) {
+      if (!correctedFields.has(key)) assert.deepEqual(after[key], before[key], `${slug}: ${key}`)
+    }
+  }
   assert.deepEqual(blogPosts.map(p => p.slug), original.map(p => p.slug))
 })
 
@@ -149,15 +157,16 @@ test('BlogPost preserves the complete shared renderer outside the isolated Om he
   assert.equal(actual, expected)
 })
 
-test('production scope is limited to three authorised source files and release scope to four files; package, existing tests and deferred pages are untouched', () => {
-  const productionFiles = ['src/components/GlobalNav.jsx', 'src/data/blogPosts.js', 'src/pages/BlogPost.jsx']
-  const testFile = 'tests/adi-article-seo.test.mjs'
-  const trackedChanges = git('diff', '--name-only', '-z', baseline).split('\0').filter(Boolean)
+test('C2 remains published intact; only the authorised follow-up source and regression files may differ', () => {
+  const published = 'b7b393aa678835938484a19a642c660e9808c42c'
+  const productionFiles = ['src/data/blogPosts.js', 'src/pages/AdiKailashExpedition.jsx', 'src/pages/blog/AdiKailashILPGuide.jsx', 'src/pages/blog/AdiKailashVsKailashMansarovar.jsx']
+  const testFiles = ['tests/adi-article-seo.test.mjs', 'tests/adi-kailash-onpage-seo.test.mjs', 'tests/blog-seo.test.mjs', 'tests/seo-content-consistency.test.mjs']
+  const trackedChanges = git('diff', '--name-only', '-z', published).split('\0').filter(Boolean)
   const untrackedFiles = git('ls-files', '--others', '--exclude-standard', '-z').split('\0').filter(Boolean)
-  assert.deepEqual(trackedChanges.filter(path => path !== testFile).sort(), productionFiles)
-  assert.deepEqual([...new Set([...trackedChanges, ...untrackedFiles])].sort(), [...productionFiles, testFile])
-  for (const path of ['src/pages/AdiKailashExpedition.jsx', 'src/pages/blog/AdiKailashILPGuide.jsx', 'src/pages/blog/AdiKailashVsKailashMansarovar.jsx', 'tests/adi-kailash-onpage-seo.test.mjs', 'tests/blog-seo.test.mjs', 'public/favicon.svg']) {
-    assert.equal(digest(source(path)), digest(oldSource(path)), path)
+  assert.deepEqual(trackedChanges.filter(path => !testFiles.includes(path)).sort(), productionFiles)
+  assert.deepEqual([...new Set([...trackedChanges, ...untrackedFiles])].sort(), [...productionFiles, ...testFiles])
+  for (const path of ['src/pages/BlogPost.jsx', 'src/components/GlobalNav.jsx', 'public/favicon.svg']) {
+    assert.equal(digest(source(path)), digest(git('show', `${published}:${path}`).replace(/\r\n/g, '\n')), path)
   }
 })
 
