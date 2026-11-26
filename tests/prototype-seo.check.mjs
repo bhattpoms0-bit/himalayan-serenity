@@ -4,6 +4,7 @@ import test, { before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'
 import { once } from 'node:events'
+import { execFileSync } from 'node:child_process'
 import { parse } from '@babel/parser'
 import { prototypePaths, readRouting } from '../scripts/prototype-routes.mjs'
 import { createPrototypeServer } from '../scripts/serve-prototype.mjs'
@@ -40,6 +41,41 @@ function authoredSEO(path) {
 }
 const documents = new Map(expected.map(([path]) => [path,
   readFileSync('dist-prototype' + (path === '/' ? '/' : path + '/') + 'index.html', 'utf8')]))
+
+for (const [path, source, name] of [
+  ['/retreats/panchachuli-wellness', 'src/pages/retreats/KumaonWellness.jsx', 'KUMAON_WELLNESS_SCHEMA'],
+  ['/retreats/womens-retreat', 'src/pages/retreats/WomensRetreat.jsx', 'WOMENS_RETREAT_SCHEMA'],
+]) {
+  test(`${path}: initial JSON-LD describes only the approved trip and provider`, () => {
+    const baseline = execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\', '/')}`,
+      'show', `33593bb22f2119327d72f531d2de244583c6fcae:${source}`], { encoding: 'utf8' })
+    const declaration = parse(baseline, { sourceType: 'module', plugins: ['jsx'] }).program.body
+      .flatMap(node => node.type === 'VariableDeclaration' ? node.declarations : [])
+      .find(node => node.id.name === name)
+    assert.ok(declaration, name)
+    const previous = new Function(`return (${baseline.slice(declaration.init.start, declaration.init.end)})`)()
+    const html = readFileSync(`dist-prototype${path}/index.html`, 'utf8')
+    const schemas = [...html.matchAll(/<script type="application\/ld\+json" data-useseo-schema>(.*?)<\/script>/g)]
+      .map(match => JSON.parse(match[1]))
+    assert.deepEqual(schemas, [{
+      '@context': 'https://schema.org', '@type': 'TouristTrip',
+      name: previous.name, description: previous.description, image: previous.image,
+      url: site + path,
+      provider: { '@type': 'Organization', name: 'Himalayan Serenity Travel', url: site },
+    }], 'exact shape forbids extra prices, stock, dates, reviews and merchant properties')
+    const types = []
+    function visit(value) {
+      if (!value || typeof value !== 'object') return
+      if (value['@type']) types.push(value['@type'])
+      Object.values(value).forEach(visit)
+    }
+    visit(schemas)
+    assert.deepEqual(types, ['TouristTrip', 'Organization'])
+    assert.ok(!types.includes('Product') && !types.includes('Offer'))
+    assert.equal(previous.offers.url, schemas[0].url)
+    assert.deepEqual(previous.brand, schemas[0].provider)
+  })
+}
 let server, base
 before(async () => {
   server = createPrototypeServer()
@@ -77,7 +113,7 @@ for (const [path, source, heading] of expected) {
     const schemas = [...html.matchAll(/<script type="application\/ld\+json" data-useseo-schema>(.*?)<\/script>/g)]
       .map(m => JSON.parse(m[1]))
     assert.equal(schemas.length, path === '/retreats/panchachuli-wellness' ? 1 : 0)
-    if (schemas.length) { assert.equal(schemas[0]['@type'], 'Product'); assert.equal(schemas[0].offers.url, site + path) }
+    if (schemas.length) { assert.equal(schemas[0]['@type'], 'TouristTrip'); assert.equal(schemas[0].url, site + path) }
   })
   test(`${path}: route CSS and every emitted local navigation destination are served`, async () => {
     const html = documents.get(path)

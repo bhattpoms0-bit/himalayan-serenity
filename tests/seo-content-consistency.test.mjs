@@ -113,7 +113,25 @@ test('comparison states 2026 closure and distinguishes future government KMY fro
 })
 
 test('wellness hierarchy, approved prices, routes, dates, provisional notices and programme data remain unchanged', () => {
-  for (const path of ['src/pages/Home.jsx', 'src/pages/InternationalRetreats.jsx', 'src/pages/retreats/KumaonWellness.jsx', 'src/pages/retreats/WomensRetreat.jsx', 'src/data/retreats.js', 'src/components/RetreatDetails.jsx', 'src/components/Hero.jsx']) assert.equal(read(path), old(path), path)
+  for (const path of ['src/pages/Home.jsx', 'src/pages/InternationalRetreats.jsx', 'src/data/retreats.js', 'src/components/RetreatDetails.jsx', 'src/components/Hero.jsx']) assert.equal(read(path), old(path), path)
+  for (const [path, name] of [
+    ['src/pages/retreats/KumaonWellness.jsx', 'KUMAON_WELLNESS_SCHEMA'],
+    ['src/pages/retreats/WomensRetreat.jsx', 'WOMENS_RETREAT_SCHEMA'],
+  ]) {
+    const original = old(path), current = read(path)
+    const previous = new Function(`return (${declaration(original, name)})`)()
+    const actual = new Function(`return (${declaration(current, name)})`)()
+    assert.equal(previous['@type'], 'Product')
+    assert.equal(previous.offers['@type'], 'Offer')
+    assert.deepEqual(actual, {
+      '@context': previous['@context'], '@type': 'TouristTrip',
+      name: previous.name, description: previous.description, image: previous.image,
+      url: previous.offers.url, provider: previous.brand,
+    }, path + ': only the approved schema transformation is permitted')
+    assert.equal(current.replace(declaration(current, name), '__APPROVED_SCHEMA__'),
+      original.replace(declaration(original, name), '__APPROVED_SCHEMA__'),
+      path + ': every byte outside the schema initializer is preserved')
+  }
   assert.match(read('src/data/retreats.js'), /Provisional starting price, subject to final supplier costing/)
 })
 
