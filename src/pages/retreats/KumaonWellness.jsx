@@ -186,22 +186,15 @@ const IDEAL_FOR = [
 
 const KUMAON_WELLNESS_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
+  '@type': 'TouristTrip',
   name: 'Panchachuli Himalayan Wellness & Cultural Immersion Retreat',
   description: 'A 9-day / 8-night Himalayan wellness retreat through Pithoragarh, Munsiyari and Kasar Devi, with yoga, Ayurveda and Kumaon culture. Provisional starting price: €1,400 per person, subject to final supplier costing.',
   image: 'https://www.himalayanserenitytravel.com/images/retreats/kumaon-wellness/group-yoga-khaliya-top-panchachuli-himalaya-hero.webp',
-  brand: {
+  url: 'https://www.himalayanserenitytravel.com/retreats/panchachuli-wellness',
+  provider: {
     '@type': 'Organization',
     name: 'Himalayan Serenity Travel',
     url: 'https://www.himalayanserenitytravel.com',
-  },
-  offers: {
-    '@type': 'Offer',
-    url: 'https://www.himalayanserenitytravel.com/retreats/panchachuli-wellness',
-    seller: {
-      '@type': 'Organization',
-      name: 'Himalayan Serenity Travel',
-    },
   },
 }
 

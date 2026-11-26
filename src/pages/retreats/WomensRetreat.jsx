@@ -172,22 +172,15 @@ const IDEAL_FOR = [
 
 const WOMENS_RETREAT_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
+  '@type': 'TouristTrip',
   name: "Women's Sacred Himalaya Retreat",
   description: "A 9-day / 8-night women-only cultural journey through Bhimtal, Pithoragarh, Munsiyari and Abbott Mount. Provisional starting price: €2,000 per person, subject to final supplier costing.",
   image: 'https://www.himalayanserenitytravel.com/images/retreats/womens-retreat/international-woman-kumaoni-women-himalayan-village-panchachuli.webp',
-  brand: {
+  url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
+  provider: {
     '@type': 'Organization',
     name: 'Himalayan Serenity Travel',
     url: 'https://www.himalayanserenitytravel.com',
-  },
-  offers: {
-    '@type': 'Offer',
-    url: 'https://www.himalayanserenitytravel.com/retreats/womens-retreat',
-    seller: {
-      '@type': 'Organization',
-      name: 'Himalayan Serenity Travel',
-    },
   },
 }
 

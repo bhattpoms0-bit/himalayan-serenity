@@ -161,10 +161,17 @@ test('C2 remains published intact; only the authorised follow-up source and regr
   const published = 'b7b393aa678835938484a19a642c660e9808c42c'
   const productionFiles = ['src/data/blogPosts.js', 'src/pages/AdiKailashExpedition.jsx', 'src/pages/blog/AdiKailashILPGuide.jsx', 'src/pages/blog/AdiKailashVsKailashMansarovar.jsx']
   const testFiles = ['tests/adi-article-seo.test.mjs', 'tests/adi-kailash-onpage-seo.test.mjs', 'tests/blog-seo.test.mjs', 'tests/seo-content-consistency.test.mjs']
-  const trackedChanges = git('diff', '--name-only', '-z', published).split('\0').filter(Boolean)
+  const wellnessBaseline = '33593bb22f2119327d72f531d2de244583c6fcae'
+  // Freeze the completed Phase 6.3E.5 release independently of this local correction.
+  const trackedChanges = git('diff', '--name-only', '-z', published, wellnessBaseline).split('\0').filter(Boolean)
   const untrackedFiles = git('ls-files', '--others', '--exclude-standard', '-z').split('\0').filter(Boolean)
   assert.deepEqual(trackedChanges.filter(path => !testFiles.includes(path)).sort(), productionFiles)
-  assert.deepEqual([...new Set([...trackedChanges, ...untrackedFiles])].sort(), [...productionFiles, ...testFiles])
+  assert.deepEqual(trackedChanges.sort(), [...productionFiles, ...testFiles])
+  const wellnessSources = ['src/pages/retreats/KumaonWellness.jsx', 'src/pages/retreats/WomensRetreat.jsx']
+  const wellnessTests = ['tests/adi-article-seo.test.mjs', 'tests/prototype-seo.check.mjs', 'tests/seo-content-consistency.test.mjs']
+  const currentChanges = git('diff', '--name-only', '-z', wellnessBaseline).split('\0').filter(Boolean)
+  assert.deepEqual(currentChanges.filter(path => !wellnessTests.includes(path)).sort(), wellnessSources)
+  assert.deepEqual([...new Set([...currentChanges, ...untrackedFiles])].sort(), [...wellnessSources, ...wellnessTests])
   for (const path of ['src/pages/BlogPost.jsx', 'src/components/GlobalNav.jsx', 'public/favicon.svg']) {
     assert.equal(digest(source(path)), digest(git('show', `${published}:${path}`).replace(/\r\n/g, '\n')), path)
   }
